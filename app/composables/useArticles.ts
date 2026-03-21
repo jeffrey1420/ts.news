@@ -1,5 +1,5 @@
 /**
- * Composable for fetching articles with Nuxt Content v2
+ * Composable for fetching articles with Nuxt Content v3
  */
 export const useArticles = () => {
   /**
@@ -7,9 +7,9 @@ export const useArticles = () => {
    */
   const fetchAll = () =>
     useAsyncData('articles', () =>
-      queryContent('articles')
-        .sort({ date: -1 })
-        .find()
+      queryCollection('articles')
+        .order('date', 'DESC')
+        .all()
     )
 
   /**
@@ -17,10 +17,9 @@ export const useArticles = () => {
    */
   const fetchFeatured = () =>
     useAsyncData('featured-articles', () =>
-      queryContent('articles')
+      queryCollection('articles')
         .where({ featured: true })
-        .sort({ date: -1 })
-        .findOne()
+        .first()
     )
 
   /**
@@ -28,9 +27,9 @@ export const useArticles = () => {
    */
   const fetchBySlug = (slug: string) =>
     useAsyncData(`article-${slug}`, () =>
-      queryContent('articles')
-        .where({ _path: `/articles/${slug}` })
-        .findOne()
+      queryCollection('articles')
+        .path(`/articles/${slug}`)
+        .first()
     )
 
   /**
@@ -38,10 +37,10 @@ export const useArticles = () => {
    */
   const fetchByTag = (tag: string) =>
     useAsyncData(`articles-tag-${tag}`, () =>
-      queryContent('articles')
-        .where({ tags: { $contains: tag } })
-        .sort({ date: -1 })
-        .find()
+      queryCollection('articles')
+        .where('tags', 'LIKE', `%${tag}%`)
+        .order('date', 'DESC')
+        .all()
     )
 
   /**

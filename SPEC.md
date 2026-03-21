@@ -29,11 +29,12 @@ A clean, developer-focused news site for TypeScript and web tech. No fluff, no a
 
 ## 5. Tech Stack
 
-- Nuxt 4 (latest)
-- Nuxt UI 3
-- Nuxt Content v2
-- @nuxtjs/seo (or equivalent for meta/OG/sitemap)
+- Nuxt 4.4.2
+- Nuxt UI 4.5.1
+- Nuxt Content v3
+- @nuxtjs/seo v4.0.2
 - TypeScript throughout
+- Deployed on Railway (nixpacks with Node 22.12)
 
 ## 6. Workflow
 

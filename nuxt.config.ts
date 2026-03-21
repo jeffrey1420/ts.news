@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
   modules: [
@@ -54,34 +55,30 @@ export default defineNuxtConfig({
   },
 
   content: {
-    highlight: {
-      theme: 'github-dark',
-      langs: [
-        'typescript',
-        'javascript',
-        'vue',
-        'html',
-        'css',
-        'json',
-        'bash',
-        'markdown',
-        'yaml',
-        'sql',
-      ],
-    },
-    markdown: {
-      anchorLinks: true,
+    build: {
+      markdown: {
+        highlight: {
+          theme: 'github-dark',
+          langs: [
+            'typescript',
+            'javascript',
+            'vue',
+            'html',
+            'css',
+            'json',
+            'bash',
+            'markdown',
+            'yaml',
+            'sql',
+          ],
+        },
+        anchorLinks: true,
+      },
     },
   },
 
   ui: {
     primary: 'blue',
     gray: 'slate',
-  },
-
-  nitro: {
-    prerender: {
-      routes: [],
-    },
   },
 })
