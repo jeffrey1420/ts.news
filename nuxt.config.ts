@@ -43,6 +43,9 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'alternate', type: 'application/rss+xml', title: 'ts.news RSS Feed', href: '/rss.xml' },
       ],
+      script: [
+        { src: '//goatcounter.lschvn.foo/count.js', async: true, defer: true, 'data-goatcounter': 'https://goatcounter.lschvn.foo/count' },
+      ],
     },
   },
 
