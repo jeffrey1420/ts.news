@@ -1,5 +1,0 @@
-[phases.setup]
-packages = ["nodejs_22"]
-
-[phases.setup.env]
-NODE_ENV = "production"
