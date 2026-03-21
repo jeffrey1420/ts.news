@@ -13,6 +13,8 @@ const navigation = [
   { label: 'Articles', to: '/articles' },
   { label: 'About', to: '/about' },
 ]
+
+const mobileMenuOpen = ref(false)
 </script>
 
 <template>
@@ -48,8 +50,13 @@ const navigation = [
           <!-- Right side -->
           <div class="flex items-center gap-4">
             <!-- Mobile menu button -->
-            <button class="md:hidden p-2 rounded-lg hover:bg-[var(--color-bg-tertiary)] transition-colors">
-              <UIcon name="i-heroicons-bars-3" class="w-5 h-5" />
+            <button
+              class="md:hidden p-2 rounded-lg hover:bg-[var(--color-bg-tertiary)] transition-colors"
+              @click="mobileMenuOpen = !mobileMenuOpen"
+              :aria-label="mobileMenuOpen ? 'Close menu' : 'Open menu'"
+            >
+              <UIcon v-if="mobileMenuOpen" name="i-heroicons-x-mark" class="w-5 h-5" />
+              <UIcon v-else name="i-heroicons-bars-3" class="w-5 h-5" />
             </button>
             
             <!-- Dark mode toggle -->
@@ -71,6 +78,22 @@ const navigation = [
             </button>
           </div>
         </div>
+      </div>
+      
+      <!-- Mobile Navigation -->
+      <div v-if="mobileMenuOpen" class="md:hidden border-t border-[var(--color-border)] bg-[var(--color-bg)]">
+        <nav class="container py-4 flex flex-col gap-2">
+          <NuxtLink
+            v-for="item in navigation"
+            :key="item.to"
+            :to="item.to"
+            class="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors px-4 py-2 rounded-lg hover:bg-[var(--color-bg-tertiary)]"
+            active-class="text-[var(--color-text)] bg-[var(--color-bg-tertiary)]"
+            @click="mobileMenuOpen = false"
+          >
+            {{ item.label }}
+          </NuxtLink>
+        </nav>
       </div>
     </header>
     

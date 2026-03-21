@@ -1,15 +1,20 @@
 /**
  * Composable for fetching articles with consistent options
+ * Updated for Nuxt Content v3
  */
+import { queryCollection } from '#imports'
+
 export const useArticles = () => {
+  const collection = 'articles'
+
   /**
    * Fetch all articles sorted by date (newest first)
    */
   const fetchAll = () =>
     useAsyncData('articles', () =>
-      queryContent('articles')
-        .sort({ date: -1 })
-        .find()
+      queryCollection(collection)
+        .order('date', 'DESC')
+        .all()
     )
 
   /**
@@ -17,11 +22,10 @@ export const useArticles = () => {
    */
   const fetchFeatured = () =>
     useAsyncData('featured-articles', () =>
-      queryContent('articles')
+      queryCollection(collection)
         .where({ featured: true })
-        .sort({ date: -1 })
-        .limit(1)
-        .find()
+        .order('date', 'DESC')
+        .first()
     )
 
   /**
@@ -29,9 +33,9 @@ export const useArticles = () => {
    */
   const fetchBySlug = (slug: string) =>
     useAsyncData(`article-${slug}`, () =>
-      queryContent('articles')
+      queryCollection(collection)
         .where({ _path: `/articles/${slug}` })
-        .findOne()
+        .first()
     )
 
   /**
@@ -39,10 +43,10 @@ export const useArticles = () => {
    */
   const fetchByTag = (tag: string) =>
     useAsyncData(`articles-tag-${tag}`, () =>
-      queryContent('articles')
+      queryCollection(collection)
         .where({ tags: { $contains: tag } })
-        .sort({ date: -1 })
-        .find()
+        .order('date', 'DESC')
+        .all()
     )
 
   /**

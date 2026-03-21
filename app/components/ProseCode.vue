@@ -5,14 +5,6 @@ const props = defineProps<{
   filename?: string
   highlights?: number[]
 }>()
-
-const { tokyoNight } = useShikiHighlighter()
-
-const highlightedCode = computed(() => {
-  if (!props.code) return ''
-  // Use shiki for highlighting if available
-  return props.code
-})
 </script>
 
 <template>

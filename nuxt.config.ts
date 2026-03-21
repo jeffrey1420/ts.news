@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     '@nuxtjs/seo',
-    '@nuxt/fonts',
   ],
   
   site: {
@@ -17,13 +16,6 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
   },
 
-  ogImage: {
-    enabled: true,
-    fonts: [
-      'Inter:400,600,700',
-    ],
-  },
-  
   app: {
     head: {
       title: 'ts.news - TypeScript & Web Tech News',
@@ -55,19 +47,6 @@ export default defineNuxtConfig({
   },
   
   css: ['~/assets/css/main.css'],
-  
-  fonts: {
-    families: [
-      {
-        name: 'Inter',
-        provider: 'google',
-        styles: ['normal', 'italic'],
-        weights: ['400', '500', '600', '700'],
-      },
-    ],
-    display: 'swap',
-    preload: true,
-  },
   
   colorMode: {
     preference: 'light',
@@ -105,10 +84,5 @@ export default defineNuxtConfig({
     prerender: {
       routes: [],
     },
-  },
-
-  robots: {
-    UserAgent: '*',
-    Disallow: '',
   },
 })
