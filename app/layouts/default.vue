@@ -16,50 +16,103 @@ const navigation = [
 </script>
 
 <template>
-  <div class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
-    <header class="border-b border-gray-200 dark:border-gray-800">
-      <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-        <NuxtLink to="/" class="text-xl font-bold tracking-tight">
-          ts.news
-        </NuxtLink>
-        
-        <nav class="flex items-center gap-6">
-          <NuxtLink
-            v-for="item in navigation"
-            :key="item.to"
-            :to="item.to"
-            class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-            active-class="text-gray-900 dark:text-white"
-          >
-            {{ item.label }}
+  <div class="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-200">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-[var(--color-bg)]/80 backdrop-blur-md border-b border-[var(--color-border)]">
+      <div class="container">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <NuxtLink to="/" class="flex items-center gap-2 group">
+            <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center">
+              <span class="text-white font-bold text-sm">TS</span>
+            </div>
+            <span class="text-xl font-bold tracking-tight font-serif">
+              ts.news
+            </span>
           </NuxtLink>
           
-          <button
-            class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            @click="isDark = !isDark"
-          >
-            <UIcon
-              v-if="isDark"
-              name="i-heroicons-sun"
-              class="w-5 h-5"
-            />
-            <UIcon
-              v-else
-              name="i-heroicons-moon"
-              class="w-5 h-5"
-            />
-          </button>
-        </nav>
+          <!-- Navigation -->
+          <nav class="hidden md:flex items-center gap-8">
+            <NuxtLink
+              v-for="item in navigation"
+              :key="item.to"
+              :to="item.to"
+              class="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors relative py-1"
+              active-class="text-[var(--color-text)]"
+            >
+              {{ item.label }}
+              <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+            </NuxtLink>
+          </nav>
+          
+          <!-- Right side -->
+          <div class="flex items-center gap-4">
+            <!-- Mobile menu button -->
+            <button class="md:hidden p-2 rounded-lg hover:bg-[var(--color-bg-tertiary)] transition-colors">
+              <UIcon name="i-heroicons-bars-3" class="w-5 h-5" />
+            </button>
+            
+            <!-- Dark mode toggle -->
+            <button
+              class="p-2 rounded-lg hover:bg-[var(--color-bg-tertiary)] transition-colors"
+              :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+              @click="isDark = !isDark"
+            >
+              <UIcon
+                v-if="isDark"
+                name="i-heroicons-sun"
+                class="w-5 h-5 text-amber-500"
+              />
+              <UIcon
+                v-else
+                name="i-heroicons-moon"
+                class="w-5 h-5 text-[var(--color-text-secondary)]"
+              />
+            </button>
+          </div>
+        </div>
       </div>
     </header>
     
-    <main class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Main content -->
+    <main class="container py-8 md:py-12">
       <slot />
     </main>
     
-    <footer class="border-t border-gray-200 dark:border-gray-800 mt-16">
-      <div class="max-w-4xl mx-auto px-4 py-8 text-center text-sm text-gray-500 dark:text-gray-400">
-        <p>ts.news — TypeScript & Web Tech News</p>
+    <!-- Footer -->
+    <footer class="border-t border-[var(--color-border)] mt-auto">
+      <div class="container">
+        <div class="py-8 md:py-12">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <!-- Logo & tagline -->
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center">
+                <span class="text-white font-bold text-sm">TS</span>
+              </div>
+              <div>
+                <p class="font-serif font-semibold">ts.news</p>
+                <p class="text-xs text-[var(--color-text-muted)]">TypeScript & Web Tech News</p>
+              </div>
+            </div>
+            
+            <!-- Links -->
+            <nav class="flex items-center gap-6 text-sm">
+              <NuxtLink
+                v-for="item in navigation"
+                :key="item.to"
+                :to="item.to"
+                class="text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors"
+              >
+                {{ item.label }}
+              </NuxtLink>
+            </nav>
+            
+            <!-- Copyright -->
+            <p class="text-sm text-[var(--color-text-muted)]">
+              &copy; {{ new Date().getFullYear() }} ts.news. All rights reserved.
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
   </div>

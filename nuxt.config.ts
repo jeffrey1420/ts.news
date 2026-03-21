@@ -7,31 +7,108 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     '@nuxtjs/seo',
+    '@nuxt/fonts',
   ],
+  
+  site: {
+    url: 'https://typescript.news',
+    name: 'ts.news - TypeScript & Web Tech News',
+    description: 'Clean, developer-focused news for TypeScript and web tech. No fluff, no ads — just well-written long-form articles and news reporting.',
+    defaultLocale: 'en',
+  },
+
+  ogImage: {
+    enabled: true,
+    fonts: [
+      'Inter:400,600,700',
+    ],
+  },
   
   app: {
     head: {
       title: 'ts.news - TypeScript & Web Tech News',
+      htmlAttrs: { lang: 'en' },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: 'Clean, developer-focused news for TypeScript and web tech. No fluff, no ads — just well-written long-form articles and news reporting.' },
         { name: 'theme-color', content: '#ffffff' },
+        { property: 'og:site_name', content: 'ts.news' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://typescript.news' },
+        { property: 'og:title', content: 'ts.news - TypeScript & Web Tech News' },
+        { property: 'og:description', content: 'Clean, developer-focused news for TypeScript and web tech. No fluff, no ads — just well-written long-form articles and news reporting.' },
+        { property: 'og:image', content: 'https://typescript.news/og-default.png' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@tsnews' },
+        { name: 'twitter:title', content: 'ts.news - TypeScript & Web Tech News' },
+        { name: 'twitter:description', content: 'Clean, developer-focused news for TypeScript and web tech.' },
+        { name: 'twitter:image', content: 'https://typescript.news/og-default.png' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'alternate', type: 'application/rss+xml', title: 'ts.news RSS Feed', href: '/rss.xml' },
       ],
     },
+  },
+  
+  css: ['~/assets/css/main.css'],
+  
+  fonts: {
+    families: [
+      {
+        name: 'Inter',
+        provider: 'google',
+        styles: ['normal', 'italic'],
+        weights: ['400', '500', '600', '700'],
+      },
+    ],
+    display: 'swap',
+    preload: true,
   },
   
   colorMode: {
     preference: 'light',
     fallback: 'light',
+    classSuffix: '',
   },
   
   content: {
     highlight: {
       theme: 'github-dark',
+      langs: [
+        'typescript',
+        'javascript',
+        'vue',
+        'html',
+        'css',
+        'json',
+        'bash',
+        'markdown',
+        'yaml',
+        'sql',
+      ],
     },
+    markdown: {
+      anchorLinks: true,
+    },
+  },
+  
+  ui: {
+    primary: 'blue',
+    gray: 'slate',
+  },
+
+  nitro: {
+    prerender: {
+      routes: ['/rss.xml'],
+    },
+  },
+
+  robots: {
+    UserAgent: '*',
+    Disallow: '',
   },
 })
