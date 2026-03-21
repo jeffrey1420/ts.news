@@ -2,9 +2,9 @@
 const { fetchAll, fetchFeatured } = useArticles()
 
 const { data: allArticles } = await fetchAll()
-const { data: featuredArticles } = await fetchFeatured()
+const { data: featuredArticle } = await fetchFeatured()
 
-const featured = computed(() => featuredArticles.value?.[0] || allArticles.value?.[0])
+const featured = computed(() => featuredArticle.value || allArticles.value?.[0])
 const latestArticles = computed(() => {
   if (!allArticles.value) return []
   // If first article is featured, start from second

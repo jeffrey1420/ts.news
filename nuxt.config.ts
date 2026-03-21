@@ -1,14 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  
+
   modules: [
     '@nuxt/ui',
     '@nuxt/content',
     '@nuxtjs/seo',
   ],
-  
+
   site: {
     url: 'https://typescript.news',
     name: 'ts.news - TypeScript & Web Tech News',
@@ -45,15 +44,15 @@ export default defineNuxtConfig({
       ],
     },
   },
-  
+
   css: ['~/assets/css/main.css'],
-  
+
   colorMode: {
     preference: 'light',
     fallback: 'light',
     classSuffix: '',
   },
-  
+
   content: {
     highlight: {
       theme: 'github-dark',
@@ -74,7 +73,7 @@ export default defineNuxtConfig({
       anchorLinks: true,
     },
   },
-  
+
   ui: {
     primary: 'blue',
     gray: 'slate',

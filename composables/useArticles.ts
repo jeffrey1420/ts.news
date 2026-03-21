@@ -1,31 +1,26 @@
 /**
- * Composable for fetching articles with consistent options
- * Updated for Nuxt Content v3
+ * Composable for fetching articles with Nuxt Content v2
  */
-import { queryCollection } from '#imports'
-
 export const useArticles = () => {
-  const collection = 'articles'
-
   /**
    * Fetch all articles sorted by date (newest first)
    */
   const fetchAll = () =>
     useAsyncData('articles', () =>
-      queryCollection(collection)
-        .order('date', 'DESC')
-        .all()
+      queryContent('articles')
+        .sort({ date: -1 })
+        .find()
     )
 
   /**
-   * Fetch featured articles (those marked as featured)
+   * Fetch featured article
    */
   const fetchFeatured = () =>
     useAsyncData('featured-articles', () =>
-      queryCollection(collection)
+      queryContent('articles')
         .where({ featured: true })
-        .order('date', 'DESC')
-        .first()
+        .sort({ date: -1 })
+        .findOne()
     )
 
   /**
@@ -33,9 +28,9 @@ export const useArticles = () => {
    */
   const fetchBySlug = (slug: string) =>
     useAsyncData(`article-${slug}`, () =>
-      queryCollection(collection)
+      queryContent('articles')
         .where({ _path: `/articles/${slug}` })
-        .first()
+        .findOne()
     )
 
   /**
@@ -43,10 +38,10 @@ export const useArticles = () => {
    */
   const fetchByTag = (tag: string) =>
     useAsyncData(`articles-tag-${tag}`, () =>
-      queryCollection(collection)
+      queryContent('articles')
         .where({ tags: { $contains: tag } })
-        .order('date', 'DESC')
-        .all()
+        .sort({ date: -1 })
+        .find()
     )
 
   /**
