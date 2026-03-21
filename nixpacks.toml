@@ -1,5 +1,6 @@
 [phases.setup]
 nixpkgs_archive = "nixos-24.11"
+pkgs = ["nodejs_22"]
 
 [phases.install]
 cmds = ["npm install"]
