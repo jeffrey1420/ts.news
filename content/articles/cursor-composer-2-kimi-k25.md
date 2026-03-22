@@ -7,8 +7,6 @@ tags: ["cursor", "kimi", "moonshot", "ai", "open-source", "licensing", "coding-t
 readingTime: 12
 ---
 
-# Cursor Composer 2, Kimi K2.5, and the Controversy That Exposed AI's Open-Source Reckoning
-
 On March 19, 2026, Cursor published a blog post announcing Composer 2. The benchmarks were real: **61.7% on Terminal-Bench 2.0**, beating Claude Opus 4.6 (58.0%) while costing one-tenth the price. The launch was presented as a breakthrough from a 50-person team that had spent months training and refining an in-house coding model.
 
 Forty-eight hours later, the developer community had a very different conversation.
