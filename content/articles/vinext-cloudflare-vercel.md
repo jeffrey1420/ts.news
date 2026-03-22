@@ -5,6 +5,7 @@ date: "2026-03-21"
 author: "Louis"
 tags: ["cloudflare", "vercel", "controversy", "vinext"]
 readingTime: 12
+image: "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/64oL10LCSz30EiEHWVdJPG/aeaed48a681ec3d5bc9d8cb6e5e30a96/BLOG-3194_1.png"
 ---
 
 On February 24, 2026, Cloudflare published a blog post that sent shockwaves through the web development community. The title: *"How we rebuilt Next.js with AI in one week."* The project, called **vinext** (pronounced "vee-next"), was presented as an experimental Vite plugin that reimplements the Next.js API surface—allowing developers to run their Next.js applications on Cloudflare Workers instead of Vercel.
