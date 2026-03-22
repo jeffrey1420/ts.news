@@ -5,6 +5,7 @@ date: "2026-03-22"
 author: "ts.news team"
 tags: ["vite", "javascript", "tooling", "rolldown", "oxc", "build-tools", "open-source"]
 readingTime: 14
+image: "https://viteplus.dev/og.jpg"
 ---
 
 Every few years, someone in the JavaScript ecosystem decides that the tooling situation has become untenable and announces a unified solution. The pitch is always similar: fewer config files, one command to learn, less time spent babysitting build pipelines. The outcome is usually more complicated than advertised.

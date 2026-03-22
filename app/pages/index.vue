@@ -40,6 +40,7 @@ function formatDate(date: string) {
           :title="article.title"
           :description="article.description"
           :date="formatDate(article.date)"
+          :image="article.image"
           :badge="article.tags?.[0] ? { label: article.tags[0], color: 'primary' as const, variant: 'subtle' as const } : undefined"
           :to="article.path"
         />

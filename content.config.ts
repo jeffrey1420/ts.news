@@ -12,6 +12,7 @@ export default defineContentConfig({
         author: z.string().optional(),
         tags: z.array(z.string()).optional(),
         readingTime: z.number().optional(),
+        image: z.string().optional(),
       }),
     }),
   },
