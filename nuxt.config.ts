@@ -19,6 +19,9 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
+      script: [
+        { 'data-goatcounter': 'https://goatcounter.lschvn.foo/count', async: true, src: '//goatcounter.lschvn.foo/count.js' },
+      ],
     },
   },
 })
