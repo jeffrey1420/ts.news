@@ -60,6 +60,12 @@ async function postComment() {
   <article v-if="article" class="max-w-2xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
     <!-- Header -->
     <header class="mb-12">
+      <img
+        v-if="article.image"
+        :src="article.image"
+        :alt="article.title"
+        class="w-full h-64 object-cover rounded-lg mb-8"
+      />
       <div v-if="article.tags?.length" class="flex flex-wrap gap-2 mb-6">
         <UBadge
           v-for="tag in article.tags"

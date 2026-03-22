@@ -5,7 +5,7 @@ date: "2026-03-22"
 author: "ts.news team"
 tags: ["vue", "javascript", "frontend", "performance", "ssr", "typescript"]
 readingTime: 10
-image: "https://vuejs.org/logo.svg"
+image: "https://opengraph.githubassets.com/f7b424ad79df220a2cc8c8a5cc2d08e45d1657724c9600dc28af967788f7a38a/vuejs/core"
 ---
 
 Vue 3.5 dropped in September 2024, and Evan You called it a minor release. The developer community's response was roughly: *"This does not feel like a minor release."*
