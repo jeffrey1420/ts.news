@@ -2,6 +2,7 @@
 title: "Vue 3.5: The 'Minor' Release That Rewrote the Rules of Frontend Performance"
 description: "Vue 3.5 arrived with no breaking changes and a set of internals improvements that should make any developer pay attention — 56% less memory usage, lazy hydration, and a stabilized reactive props API."
 date: "2026-03-22"
+category: "deep-dive"
 author: "ts.news team"
 tags: ["vue", "javascript", "frontend", "performance", "ssr", "typescript"]
 readingTime: 10
