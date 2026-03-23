@@ -2,6 +2,7 @@
 title: "TypeScript 7 Native Preview: Project Corsa Rewrites the Compiler in Go — and It Changes Everything"
 description: "Microsoft's decision to port the TypeScript compiler and language service to Go isn't just a tech demo — early benchmarks show the VS Code codebase compiling in 7.5 seconds versus 77.8 seconds. Here's what the native era means for your build pipeline and editor performance."
 date: "2026-03-23"
+category: "news"
 author: "ts.news team"
 tags: ["typescript", "compiler", "performance", "go", "tooling", "project-corsa", "nodejs"]
 readingTime: 12
