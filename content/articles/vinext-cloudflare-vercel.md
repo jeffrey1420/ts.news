@@ -2,6 +2,7 @@
 title: "Cloudflare's vinext: The Controversial Project That Rebuilt Next.js in a Week"
 description: "How Cloudflare used AI to recreate Vercel's flagship framework and what it means for the future of web development"
 date: "2026-03-21"
+category: "deep-dive"
 author: "Louis"
 tags: ["cloudflare", "vercel", "controversy", "vinext"]
 readingTime: 12
