@@ -2,6 +2,7 @@
 title: "Cursor Composer 2, Kimi K2.5, and the Controversy That Exposed AI's Open-Source Reckoning"
 description: "How a developer found a hidden model ID, sparked a global debate about attribution, and revealed how dependent the AI industry has become on Chinese open-source models."
 date: "2026-03-22"
+category: "deep-dive"
 author: "ts.news team"
 tags: ["cursor", "kimi", "moonshot", "ai", "open-source", "licensing", "coding-tools"]
 readingTime: 12
