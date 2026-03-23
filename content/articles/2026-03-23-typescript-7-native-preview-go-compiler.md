@@ -5,7 +5,7 @@ date: "2026-03-23"
 author: "ts.news team"
 tags: ["typescript", "compiler", "performance", "go", "tooling", "project-corsa", "nodejs"]
 readingTime: 12
-image: "https://github.blog/assets/images/blog/posts/2303/og-typescript-card.png"
+image: "https://opengraph.githubassets.com/80d818d1ffc6c3698c6a86f9be7dc3212b3713a3d3403d7bdb434efaba84e7fa/microsoft/TypeScript"
 ---
 
 For years, the TypeScript compiler has been a showcase for JavaScript eating the world — a language written in itself, bootstrapped, and used to build increasingly complex systems. It worked. It still works. But as TypeScript grew from a niche tool to the most-used language on GitHub by monthly contributors, the limits of a JavaScript-based compiler started to bite.

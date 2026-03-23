@@ -5,7 +5,7 @@ date: "2026-03-23"
 author: "ts.news team"
 tags: ["ai", "claude-code", "cursor", "copilot", "developer-tools", "anthropic", "typescript"]
 readingTime: 11
-image: "https://anthropic.com/media/claude-code-cover.png"
+image: "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68c469d23594abeb9ab9ab6ee48_og-claude-generic.jpg"
 ---
 
 Eight months. That's how long it took for Claude Code to go from launch to the most-loved AI coding tool in the developer community.
