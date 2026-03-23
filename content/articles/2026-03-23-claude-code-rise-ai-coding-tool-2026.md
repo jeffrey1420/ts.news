@@ -2,6 +2,7 @@
 title: "Claude Code Went from Zero to #1 in Eight Months: The 2026 AI Coding Tool Showdown"
 description: "By early 2026, Claude Code held a 46% 'most loved' rating among developers, leaving Cursor at 19% and GitHub Copilot at 9%. But love ratings and usage rankings don't tell the whole story. Here's what each tool actually does well, and when to use which."
 date: "2026-03-23"
+category: "news"
 author: "ts.news team"
 tags: ["ai", "claude-code", "cursor", "copilot", "developer-tools", "anthropic", "typescript"]
 readingTime: 11
