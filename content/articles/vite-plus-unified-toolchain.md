@@ -2,6 +2,7 @@
 title: "Vite+: One CLI to Rule Them All — Or Just Another Layer of Hype?"
 description: "VoidZero's Vite+ promises to unify runtime, package manager, bundler, linter, formatter, and test runner under a single command. We read the announcements, benchmarked the claims, and talked to people using it in production. Here is what we found."
 date: "2026-03-22"
+category: "deep-dive"
 author: "ts.news team"
 tags: ["vite", "javascript", "tooling", "rolldown", "oxc", "build-tools", "open-source"]
 readingTime: 14
