@@ -73,3 +73,4 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+# Force rebuild trigger Wed Mar 25 08:30:03 UTC 2026
