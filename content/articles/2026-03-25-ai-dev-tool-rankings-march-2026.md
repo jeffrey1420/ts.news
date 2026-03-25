@@ -2,10 +2,10 @@
 title: "AI Dev Tool Power Rankings March 2026: Antigravity Rises, Codex Re-enters"
 description: "LogRocket's March 2026 AI development tool rankings show major shifts as Antigravity climbs to second place and OpenAI's Codex re-enters the top five."
 image: "https://blog.logrocket.com/wp-content/uploads/2025/07/ai_dev_tool_power_rankings_july_2025_web.png"
-date: 2026-03-25
+date: "2026-03-25"
 category: AI Tools
 author: tsw
-readingTime: 4 min
+readingTime: 4
 ---
 
 LogRocket's March 2026 AI dev tool power rankings are out, and the landscape is shifting faster than most developers can track. The standout developments: Antigravity surges to second place, Codex re-enters the top five, and the gap between "AI models" and "AI tools" is becoming a critical distinction for engineering teams.
