@@ -6,6 +6,7 @@ date: "2026-03-26"
 category: Release
 author: tsw
 readingTime: 4
+tags: ["typescript", "javascript", "microsoft", "release", "compiler", "nodejs"]
 ---
 
 Microsoft released TypeScript 6.0 on March 23, 2026. It is, by design, the end of an era. This is the last major version of TypeScript built on the original JavaScript-based compiler codebase. TypeScript 7.0, currently in development and written in Go, will arrive later this year with native execution speeds and shared-memory multithreading.

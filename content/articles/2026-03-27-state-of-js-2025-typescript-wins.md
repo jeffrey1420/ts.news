@@ -6,6 +6,7 @@ date: "2026-03-27"
 category: Survey
 author: tsw
 readingTime: 4
+tags: ["typescript", "javascript", "state-of-js", "survey", "vite", "ecosystem"]
 ---
 
 The [State of JavaScript 2025](https://2025.stateofjs.com/en-US) survey results are in, and they paint an ecosystem finding its footing. Conducted in November 2025 and published in February 2026, the annual survey — run by Devographics and sponsored by Google Chrome and JetBrains — shows clear winners in tooling, frameworks, and language preferences, with developer happiness holding steady at 3.8 out of 5 for the fifth consecutive year.

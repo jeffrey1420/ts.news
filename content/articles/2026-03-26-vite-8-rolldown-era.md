@@ -6,6 +6,7 @@ date: "2026-03-26"
 category: Tooling
 author: tsw
 readingTime: 4
+tags: ["vite", "javascript", "rolldown", "oxc", "build-tools", "tooling", "release"]
 ---
 
 The Vite 8 beta is here, and the headline change has been on the roadmap for two years: Rolldown is now the default bundler, replacing both ESBuild (used for dependencies) and Rollup (used for production builds). This is the most consequential change to Vite's internals since its initial release.

@@ -6,6 +6,7 @@ date: "2026-03-25"
 category: Ecosystem
 author: tsw
 readingTime: 5
+tags: ["typescript", "javascript", "state-of-js", "survey", "vite", "ecosystem"]
 ---
 
 The [State of JavaScript 2025](https://2025.stateofjs.com/en-US) survey, published in February 2026 after collecting responses through November 2025, paints a picture of a maturing ecosystem. TypeScript has firmly won the language war, Vite has won the build tool war — at least in sentiment — and developers are increasingly vocal about framework complexity.

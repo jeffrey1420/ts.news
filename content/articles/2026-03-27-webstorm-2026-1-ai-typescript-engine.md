@@ -6,6 +6,7 @@ date: "2026-03-27"
 category: Release
 author: tsw
 readingTime: 4
+tags: ["webstorm", "jetbrains", "typescript", "ai", "ide", "release"]
 ---
 
 WebStorm 2026.1 landed this week, and the headline features reflect where JavaScript development tooling is heading: a smarter TypeScript engine by default, and a unified AI chat that pulls in multiple agents including Claude Agent and Codex alongside JetBrains' own Junie.
