@@ -1,7 +1,7 @@
 ---
 title: "WebStorm 2026.1 Brings Native TypeScript Engine and Multi-Agent AI to JetBrains' Flagship IDE"
 description: "JetBrains releases WebStorm 2026.1 with a service-powered TypeScript engine enabled by default, integration with Junie, Claude Agent, and Codex, and improved framework support across React, Angular, Vue, and Svelte."
-image: "https://blog.jetbrains.com/publications/images/og/jetbrains-og-default.png"
+image: "https://blog.jetbrains.com/wp-content/uploads/2026/03/WS-releases-BlogSocialShare-1280x720-1.png"
 date: "2026-03-27"
 category: Release
 author: tsw
