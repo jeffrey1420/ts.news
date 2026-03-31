@@ -1,7 +1,7 @@
 ---
 title: "TypeScript 6.0 Ships: The Last JavaScript-Based Release Before the Go Rewrite"
 description: "Microsoft ships TypeScript 6.0 as the final release built on the original JavaScript codebase. DOM type updates, improved inference, subpath imports, and a migration flag set the stage for the native Go-based TypeScript 7.0."
-image: "https://opengraph.githubassets.com/80d818d1ffc6c3698c6a86f9be7dc3212b3713a3d3403d7bdb434efaba84e7fa/microsoft/TypeScript"
+image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop"
 date: "2026-03-26"
 category: Release
 author: tsw
