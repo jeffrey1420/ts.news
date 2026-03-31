@@ -44,6 +44,7 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: { lang: 'en' },
       link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/icon.svg' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'alternate', type: 'application/rss+xml', title: 'typescript.news RSS Feed', href: '/rss.xml' },
       ],
