@@ -24,9 +24,17 @@ export default defineEventHandler(async (event) => {
 
   const latestArticleDate = formatDate(articles[0]?.date)
 
+  const uniqueTags = [...new Set(articles.flatMap(article => article.tags ?? []))]
+
   const urls = [
     { loc: absoluteSiteUrl('/'), lastmod: latestArticleDate, changefreq: 'daily', priority: '1.0' },
     { loc: absoluteSiteUrl('/articles'), lastmod: latestArticleDate, changefreq: 'daily', priority: '0.9' },
+    ...uniqueTags.map(tag => ({
+      loc: absoluteSiteUrl(`/tags/${tag}`),
+      lastmod: latestArticleDate,
+      changefreq: 'weekly',
+      priority: '0.7',
+    })),
     ...articles.map(article => ({
       loc: absoluteSiteUrl(article.path),
       lastmod: formatDate(article.date),

@@ -178,20 +178,27 @@ async function postComment() {
   <article v-if="article" class="max-w-2xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
     <!-- Header -->
     <header class="mb-12">
-      <img
+      <NuxtImg
         v-if="article.image"
         :src="article.image"
         :alt="article.title"
+        width="1200"
+        height="630"
+        loading="lazy"
         class="w-full h-64 object-cover rounded-lg mb-8"
       />
       <div v-if="article.tags?.length" class="flex flex-wrap gap-2 mb-6">
-        <UBadge
+        <NuxtLink
           v-for="tag in article.tags"
           :key="tag"
-          :label="tag"
-          variant="subtle"
-          size="sm"
-        />
+          :to="'/tags/' + tag"
+        >
+          <UBadge
+            :label="tag"
+            variant="subtle"
+            size="sm"
+          />
+        </NuxtLink>
       </div>
 
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-highlighted leading-tight mb-6">
@@ -226,18 +233,24 @@ async function postComment() {
           More coverage with overlapping topics and tags.
         </p>
 
-        <UBlogPosts>
+        <UCarousel
+          v-slot="{ item, index }"
+          :items="relatedArticles"
+          orientation="horizontal"
+          :arrows="true"
+          :dots="true"
+          class="w-full"
+        >
           <UBlogPost
-            v-for="relatedArticle in relatedArticles"
-            :key="relatedArticle.path"
-            :title="relatedArticle.title"
-            :description="relatedArticle.description"
-            :date="formatDate(relatedArticle.date)"
-            :image="relatedArticle.image"
-            :badge="relatedArticle.sharedTags[0] ? { label: relatedArticle.sharedTags[0], color: 'primary' as const, variant: 'subtle' as const } : undefined"
-            :to="relatedArticle.path"
+            :title="item.title"
+            :description="item.description"
+            :date="formatDate(item.date)"
+            :image="item.image"
+            :badge="item.sharedTags?.[0] ? { label: item.sharedTags[0], color: 'primary' as const, variant: 'subtle' as const } : undefined"
+            :to="item.path"
+            class="mx-2"
           />
-        </UBlogPosts>
+        </UCarousel>
       </section>
     </template>
 

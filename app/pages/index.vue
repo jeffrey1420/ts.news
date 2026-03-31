@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 
-const { data: articles } = await useAsyncData('latest-articles', () =>
-  queryCollection('articles').order('date', 'DESC').limit(6).all()
+const { data: allArticles } = await useAsyncData('all-articles', () =>
+  queryCollection('articles').order('date', 'DESC').all()
 )
 
 const title = 'TypeScript & Web Dev News'
@@ -24,6 +24,32 @@ useSeoMeta({
   twitterImage: ogImage,
 })
 
+const featuredArticle = computed(() => allArticles.value?.[0] ?? null)
+
+const sevenDaysAgo = computed(() => {
+  const d = new Date()
+  d.setDate(d.getDate() - 7)
+  return d
+})
+
+const thisWeekArticles = computed(() =>
+  (allArticles.value ?? []).filter(a => new Date(a.date) >= sevenDaysAgo.value)
+)
+
+const topicRails = [
+  { label: 'TypeScript', tags: ['typescript'] },
+  { label: 'Tooling', tags: ['tooling', 'vite'] },
+  { label: 'Frameworks', tags: ['framework', 'astro'] },
+  { label: 'Security', tags: ['security'] },
+  { label: 'AI Devtools', tags: ['ai'] },
+] as const
+
+function articlesByTags(tags: readonly string[], limit = 3) {
+  return (allArticles.value ?? [])
+    .filter(a => a.tags?.some(t => tags.includes(t)))
+    .slice(0, limit)
+}
+
 useHead({
   link: [{ rel: 'canonical', href: canonicalUrl }],
   script: [
@@ -41,12 +67,15 @@ useHead({
           name: siteConfig.name,
           url: siteConfig.url,
         },
-        hasPart: (articles.value ?? []).map((article, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          url: absoluteSiteUrl(article.path),
-          name: article.title,
-        })),
+        hasPart: {
+          '@type': 'ItemList',
+          itemListElement: (allArticles.value ?? []).map((article, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            url: absoluteSiteUrl(article.path),
+            name: article.title,
+          })),
+        },
       }),
     },
   ],
@@ -71,10 +100,42 @@ function formatDate(date: string) {
       ]"
     />
 
-    <UPageSection headline="Latest" title="Recent TypeScript and web development articles">
-      <UBlogPosts v-if="articles?.length">
+    <UContainer>
+      <UPageCTA
+        title="Stay in the loop"
+        description="Subscribe to our RSS feed — never miss a story."
+        :links="[
+          { label: 'Subscribe via RSS', to: '/rss.xml', icon: 'i-lucide-rss', color: 'neutral', variant: 'outline' },
+        ]"
+      />
+    </UContainer>
+
+    <UPageSection
+      v-if="featuredArticle"
+      headline="Featured"
+      :title="featuredArticle.title"
+    >
+      <UBlogPost
+        :title="featuredArticle.title"
+        :description="featuredArticle.description"
+        :date="formatDate(featuredArticle.date)"
+        :image="featuredArticle.image"
+        :badge="featuredArticle.tags?.[0] ? { label: featuredArticle.tags[0], color: 'primary' as const, variant: 'subtle' as const } : undefined"
+        :to="featuredArticle.path"
+        orientation="horizontal"
+      />
+    </UPageSection>
+
+    <USeparator />
+
+    <UPageSection
+      v-if="thisWeekArticles.length"
+      headline="This Week in TS"
+      title="What happened this week"
+    >
+      <UBlogPosts>
         <UBlogPost
-          v-for="article in articles"
+          v-for="article in thisWeekArticles"
           :key="article.path"
           :title="article.title"
           :description="article.description"
@@ -84,10 +145,28 @@ function formatDate(date: string) {
           :to="article.path"
         />
       </UBlogPosts>
-
-      <p class="mt-8 text-sm text-muted">
-        Browse the latest TypeScript release analysis, framework updates, tooling news, and developer security coverage.
-      </p>
     </UPageSection>
+
+    <USeparator />
+
+    <template v-for="rail in topicRails" :key="rail.label">
+      <UPageSection :headline="rail.label" :title="`Latest in ${rail.label}`">
+        <UBlogPosts v-if="articlesByTags(rail.tags).length">
+          <UBlogPost
+            v-for="article in articlesByTags(rail.tags)"
+            :key="article.path"
+            :title="article.title"
+            :description="article.description"
+            :date="formatDate(article.date)"
+            :image="article.image"
+            :badge="article.tags?.[0] ? { label: article.tags[0], color: 'primary' as const, variant: 'subtle' as const } : undefined"
+            :to="article.path"
+          />
+        </UBlogPosts>
+        <p v-else class="text-muted text-sm">
+          No articles yet.
+        </p>
+      </UPageSection>
+    </template>
   </div>
 </template>

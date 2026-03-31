@@ -5,6 +5,24 @@ const { data: articles } = await useAsyncData('all-articles', () =>
   queryCollection('articles').order('date', 'DESC').all()
 )
 
+const selectedTag = ref<string | null>(null)
+
+const allTags = computed(() => {
+  const tagSet = new Set<string>()
+  for (const article of articles.value ?? []) {
+    for (const tag of article.tags ?? []) {
+      tagSet.add(tag)
+    }
+  }
+  return [...tagSet].sort()
+})
+
+const filteredArticles = computed(() => {
+  const list = articles.value ?? []
+  if (!selectedTag.value) return list
+  return list.filter(article => (article.tags ?? []).includes(selectedTag.value!))
+})
+
 const title = 'Articles'
 const description = 'Archive of TypeScript, JavaScript, tooling, security, and web platform stories published on typescript.news.'
 const canonicalUrl = absoluteSiteUrl('/articles')
@@ -72,15 +90,39 @@ function formatDate(date: string) {
           Explore every story published on typescript.news, from TypeScript releases and framework shifts to supply chain security incidents.
         </p>
 
-        <UBlogPosts v-if="articles?.length">
+        <!-- Tag filters -->
+        <div v-if="allTags.length" class="flex flex-wrap gap-2 mb-6">
+          <UButton
+            label="All"
+            size="xs"
+            :variant="selectedTag === null ? 'solid' : 'outline'"
+            :color="selectedTag === null ? 'primary' : 'neutral'"
+            @click="selectedTag = null"
+          />
+          <UButton
+            v-for="tag in allTags"
+            :key="tag"
+            :label="tag"
+            size="xs"
+            :variant="selectedTag === tag ? 'solid' : 'outline'"
+            :color="selectedTag === tag ? 'primary' : 'neutral'"
+            @click="selectedTag = tag"
+          />
+        </div>
+
+        <p v-if="selectedTag" class="mb-6 text-sm text-muted">
+          Showing {{ filteredArticles.length }} article{{ filteredArticles.length === 1 ? '' : 's' }} tagged "{{ selectedTag }}"
+        </p>
+
+        <UBlogPosts v-if="filteredArticles.length">
           <UBlogPost
-            v-for="article in articles"
+            v-for="article in filteredArticles"
             :key="article.path"
             :title="article.title"
             :description="article.description"
             :date="formatDate(article.date)"
             :image="article.image"
-            :badge="article.tags?.[0] ? { label: article.tags[0], color: 'primary' as const, variant: 'subtle' as const } : undefined"
+            :badge="article.tags?.[0] ? { label: article.tags[0], color: 'primary' as const, variant: 'subtle' as const, to: `/tags/${article.tags[0]}` } : undefined"
             :to="article.path"
           />
         </UBlogPosts>

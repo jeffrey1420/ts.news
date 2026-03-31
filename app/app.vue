@@ -7,6 +7,13 @@ const { loggedIn, user, clear } = useUserSession()
 const navItems: NavigationMenuItem[] = [
   { label: 'Home', icon: 'i-lucide-home', to: '/' },
   { label: 'Articles', icon: 'i-lucide-newspaper', to: '/articles' },
+  { label: 'Topics', icon: 'i-lucide-tag', children: [
+    { label: 'TypeScript', to: '/tags/typescript' },
+    { label: 'Security', to: '/tags/security' },
+    { label: 'Frameworks', to: '/tags/framework' },
+    { label: 'Tooling', to: '/tags/tooling' },
+    { label: 'AI Devtools', to: '/tags/ai' },
+  ] },
 ]
 
 useHead({
@@ -101,7 +108,12 @@ async function logout() {
       </template>
 
       <template #right>
-        <span class="text-muted text-sm">Built with Nuxt, for developers.</span>
+        <div class="flex items-center gap-4 text-sm">
+          <NuxtLink to="/tags/typescript" class="text-muted hover:text-default transition-colors">TypeScript</NuxtLink>
+          <NuxtLink to="/tags/security" class="text-muted hover:text-default transition-colors">Security</NuxtLink>
+          <NuxtLink to="/tags/ai" class="text-muted hover:text-default transition-colors">AI Devtools</NuxtLink>
+          <NuxtLink to="/rss.xml" class="text-muted hover:text-default transition-colors">RSS</NuxtLink>
+        </div>
       </template>
     </UFooter>
   </UApp>
