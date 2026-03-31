@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
-import { getCollectionName, DEFAULT_LOCALE, getLocalizedPath, getLocaleLanguage } from '~~/shared/utils/locale'
+import { getCollectionName, DEFAULT_LOCALE, getLocalizedPath, getLocaleLanguage, removeLocaleFromPath } from '~~/shared/utils/locale'
 
 const route = useRoute()
 const { loggedIn } = useUserSession()
@@ -8,34 +8,46 @@ const { locale, t } = useI18n()
 const localePath = useLocalePath()
 
 const articlesCollection = computed(() => getCollectionName('articles', locale.value))
+const requestedArticlePath = computed(() => removeLocaleFromPath(route.path))
 
-const { data: article } = await useAsyncData(route.path, async () => {
-  // Try current locale first
-  let content = await queryCollection(articlesCollection.value).path(route.path).first()
+const { data: article } = await useAsyncData(() => `article:${locale.value}:${route.path}`, async () => {
+  const localeMatch = await findArticleByPath(articlesCollection.value, requestedArticlePath.value)
 
-  // Fallback to English if not found
-  if (!content && locale.value !== DEFAULT_LOCALE) {
-    content = await queryCollection(getCollectionName('articles', DEFAULT_LOCALE)).path(route.path).first()
+  if (localeMatch.redirectPath) {
+    return navigateTo(localePath(localeMatch.redirectPath), { redirectCode: 301 })
   }
 
-  // Redirect to English version if content exists there
-  if (!content && locale.value !== DEFAULT_LOCALE) {
-    const enPath = route.path.replace(/^\/[a-z]{2}\//, '/')
-    navigateTo(enPath, { redirectCode: 302 })
+  if (localeMatch.content) {
+    return localeMatch.content
   }
 
-  return content
+  if (!content && locale.value !== DEFAULT_LOCALE) {
+    const fallbackMatch = await findArticleByPath(
+      getCollectionName('articles', DEFAULT_LOCALE),
+      requestedArticlePath.value,
+    )
+
+    if (fallbackMatch.redirectPath) {
+      return navigateTo(fallbackMatch.redirectPath, { redirectCode: 301 })
+    }
+
+    if (fallbackMatch.content) {
+      return fallbackMatch.content
+    }
+  }
+
+  return null
 })
 
 if (!article.value) {
   throw createError({ statusCode: 404, statusMessage: 'Article not found', fatal: true })
 }
 
-const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
-  queryCollectionItemSurroundings(articlesCollection.value, route.path)
+const { data: surround } = await useAsyncData(() => `article:${locale.value}:${route.path}:surround`, () =>
+  queryCollectionItemSurroundings(articlesCollection.value, article.value!.path)
 )
 
-const { data: relatedArticles } = await useAsyncData(`${route.path}-related`, async () => {
+const { data: relatedArticles } = await useAsyncData(() => `article:${locale.value}:${route.path}:related`, async () => {
   const currentTags = new Set(article.value?.tags ?? [])
 
   if (!currentTags.size) {
@@ -47,7 +59,7 @@ const { data: relatedArticles } = await useAsyncData(`${route.path}-related`, as
     .all()
 
   return articles
-    .filter(candidate => candidate.path !== route.path)
+    .filter(candidate => candidate.path !== article.value!.path)
     .map((candidate) => {
       const sharedTags = (candidate.tags ?? []).filter(tag => currentTags.has(tag))
 
@@ -215,6 +227,47 @@ async function postComment() {
   } finally {
     posting.value = false
   }
+}
+
+async function findArticleByPath(collection: ReturnType<typeof getCollectionName>, path: string) {
+  const normalizedPath = normalizeArticleLookupPath(path)
+  let content = await queryCollection(collection).path(normalizedPath).first()
+
+  if (content) {
+    return { content, redirectPath: content.path === normalizedPath ? null : content.path }
+  }
+
+  const requestedSlug = normalizedPath.split('/').filter(Boolean).pop()
+  if (!requestedSlug) {
+    return { content: null, redirectPath: null }
+  }
+
+  const articles = await queryCollection(collection)
+    .order('date', 'DESC')
+    .all()
+
+  const suffixMatch = articles.find(candidate => {
+    const candidateSlug = candidate.path.split('/').filter(Boolean).pop()
+
+    return candidateSlug === requestedSlug || candidateSlug?.endsWith(`-${requestedSlug}`)
+  })
+
+  return {
+    content: suffixMatch ?? null,
+    redirectPath: suffixMatch?.path && suffixMatch.path !== normalizedPath ? suffixMatch.path : null,
+  }
+}
+
+function normalizeArticleLookupPath(path: string) {
+  const normalizedPath = removeLocaleFromPath(path)
+  const articleSlug = normalizedPath.split('/').filter(Boolean).pop()
+
+  if (!articleSlug) {
+    return normalizedPath
+  }
+
+  const cleanedSlug = articleSlug.replace(/^(\d{4}-\d{2}-\d{2})--+/, '$1-')
+  return `/articles/${cleanedSlug}`
 }
 </script>
 
