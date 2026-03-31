@@ -50,6 +50,10 @@ export default defineNuxtConfig({
       ],
       script: [
         { 'data-goatcounter': 'https://goatcounter.lschvn.foo/count', async: true, src: '//goatcounter.lschvn.foo/count.js' },
+        {
+          innerHTML: "window.op=window.op||function(){var n=[];return new Proxy(function(){arguments.length&&n.push([].slice.call(arguments))},{get:function(t,r){return'q'===r?n:function(){n.push([r].concat([].slice.call(arguments)))}},has:function(t,r){return'q'===r}}) }();window.op('init',{apiUrl:'https://opapi.lschvn.foo',clientId:'79de0000-8d5b-4504-8704-b96ae99ef82b',trackScreenViews:true,trackOutgoingLinks:true,trackAttributes:true});",
+        },
+        { src: 'https://openpanel.dev/op1.js', defer: true, async: true },
       ],
     },
   },
