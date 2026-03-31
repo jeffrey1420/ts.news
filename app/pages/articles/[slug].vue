@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
+
 const route = useRoute()
 const { loggedIn } = useUserSession()
 
@@ -14,19 +16,135 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
   queryCollectionItemSurroundings('articles', route.path)
 )
 
+const { data: relatedArticles } = await useAsyncData(`${route.path}-related`, async () => {
+  const currentTags = new Set(article.value?.tags ?? [])
+
+  if (!currentTags.size) {
+    return []
+  }
+
+  const articles = await queryCollection('articles')
+    .order('date', 'DESC')
+    .all()
+
+  return articles
+    .filter(candidate => candidate.path !== route.path)
+    .map((candidate) => {
+      const sharedTags = (candidate.tags ?? []).filter(tag => currentTags.has(tag))
+
+      return {
+        ...candidate,
+        sharedTags,
+        sharedTagCount: sharedTags.length,
+      }
+    })
+    .filter(candidate => candidate.sharedTagCount > 0)
+    .sort((left, right) => {
+      if (right.sharedTagCount !== left.sharedTagCount) {
+        return right.sharedTagCount - left.sharedTagCount
+      }
+
+      return new Date(right.date).getTime() - new Date(left.date).getTime()
+    })
+    .slice(0, 3)
+})
+
 const { data: comments, refresh: refreshComments } = await useFetch('/api/comments', {
   query: { slug: route.path },
 })
 
+const canonicalUrl = absoluteSiteUrl(route.path)
+const articleImage = article.value.image
+  ? (article.value.image.startsWith('http') ? article.value.image : absoluteSiteUrl(article.value.image))
+  : absoluteSiteUrl(siteConfig.defaultOgImage)
+const articleTitle = article.value.title
+const articleDescription = article.value.description
+const articleTags = article.value.tags ?? []
+
 useSeoMeta({
-  title: `${article.value.title} — typescript.news`,
-  description: article.value.description,
-  ogTitle: article.value.title,
-  ogDescription: article.value.description,
+  title: articleTitle,
+  description: articleDescription,
+  author: article.value.author,
+  keywords: articleTags.join(', '),
+  ogTitle: `${articleTitle} | ${siteConfig.name}`,
+  ogDescription: articleDescription,
   ogType: 'article',
-  ogSiteName: 'typescript.news',
+  ogUrl: canonicalUrl,
+  ogImage: articleImage,
+  ogImageAlt: articleTitle,
   articlePublishedTime: article.value.date,
-  twitterCard: 'summary',
+  articleTag: articleTags,
+  twitterTitle: `${articleTitle} | ${siteConfig.name}`,
+  twitterDescription: articleDescription,
+  twitterImage: articleImage,
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: canonicalUrl }],
+  script: [
+    {
+      key: 'article-schema',
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        headline: articleTitle,
+        description: articleDescription,
+        url: canonicalUrl,
+        datePublished: new Date(article.value.date).toISOString(),
+        dateModified: new Date(article.value.date).toISOString(),
+        inLanguage: 'en-US',
+        image: [articleImage],
+        articleSection: articleTags[0],
+        keywords: articleTags,
+        author: {
+          '@type': 'Person',
+          name: article.value.author || siteConfig.name,
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: siteConfig.name,
+          url: siteConfig.url,
+          logo: {
+            '@type': 'ImageObject',
+            url: absoluteSiteUrl(siteConfig.defaultOgImage),
+          },
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': canonicalUrl,
+        },
+      }),
+    },
+    {
+      key: 'article-breadcrumb-schema',
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: absoluteSiteUrl('/'),
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Articles',
+            item: absoluteSiteUrl('/articles'),
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: articleTitle,
+            item: canonicalUrl,
+          },
+        ],
+      }),
+    },
+  ],
 })
 
 function formatDate(date: string) {
@@ -97,6 +215,31 @@ async function postComment() {
     <!-- Prev / Next -->
     <USeparator class="my-12" />
     <UContentSurround :surround="surround" />
+
+    <!-- Related articles -->
+    <template v-if="relatedArticles?.length">
+      <USeparator class="my-12" />
+
+      <section>
+        <h2 class="text-xl font-bold text-highlighted mb-3">Related articles</h2>
+        <p class="text-sm text-muted mb-8">
+          More coverage with overlapping topics and tags.
+        </p>
+
+        <UBlogPosts>
+          <UBlogPost
+            v-for="relatedArticle in relatedArticles"
+            :key="relatedArticle.path"
+            :title="relatedArticle.title"
+            :description="relatedArticle.description"
+            :date="formatDate(relatedArticle.date)"
+            :image="relatedArticle.image"
+            :badge="relatedArticle.sharedTags[0] ? { label: relatedArticle.sharedTags[0], color: 'primary' as const, variant: 'subtle' as const } : undefined"
+            :to="relatedArticle.path"
+          />
+        </UBlogPosts>
+      </section>
+    </template>
 
     <!-- Comments -->
     <USeparator class="my-12" />

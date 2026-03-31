@@ -1,14 +1,53 @@
 <script setup lang="ts">
+import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
+
 const { data: articles } = await useAsyncData('all-articles', () =>
   queryCollection('articles').order('date', 'DESC').all()
 )
 
+const title = 'Articles'
+const description = 'Archive of TypeScript, JavaScript, tooling, security, and web platform stories published on typescript.news.'
+const canonicalUrl = absoluteSiteUrl('/articles')
+const ogImage = absoluteSiteUrl(siteConfig.defaultOgImage)
+
 useSeoMeta({
-  title: 'Articles — typescript.news',
-  description: 'Everything we\'ve written so far.',
-  ogTitle: 'Articles — typescript.news',
-  ogDescription: 'Everything we\'ve written so far.',
-  ogSiteName: 'typescript.news',
+  title,
+  description,
+  ogTitle: `${title} | ${siteConfig.name}`,
+  ogDescription: description,
+  ogType: 'website',
+  ogUrl: canonicalUrl,
+  ogImage,
+  ogImageAlt: siteConfig.name,
+  twitterTitle: `${title} | ${siteConfig.name}`,
+  twitterDescription: description,
+  twitterImage: ogImage,
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: canonicalUrl }],
+  script: [
+    {
+      key: 'articles-schema',
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: `${title} | ${siteConfig.name}`,
+        url: canonicalUrl,
+        description,
+        mainEntity: {
+          '@type': 'ItemList',
+          itemListElement: (articles.value ?? []).map((article, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            url: absoluteSiteUrl(article.path),
+            name: article.title,
+          })),
+        },
+      }),
+    },
+  ],
 })
 
 function formatDate(date: string) {
@@ -24,11 +63,15 @@ function formatDate(date: string) {
   <div>
     <UPageHero
       title="Articles"
-      description="Everything we've written so far."
+      description="TypeScript, JavaScript, tooling, security, and web platform coverage in one archive."
     />
 
     <UPageBody>
       <UContainer>
+        <p class="mb-8 text-sm text-muted">
+          Explore every story published on typescript.news, from TypeScript releases and framework shifts to supply chain security incidents.
+        </p>
+
         <UBlogPosts v-if="articles?.length">
           <UBlogPost
             v-for="article in articles"

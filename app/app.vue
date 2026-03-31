@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
+import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 
 const { loggedIn, user, clear } = useUserSession()
 
@@ -7,6 +8,44 @@ const navItems: NavigationMenuItem[] = [
   { label: 'Home', icon: 'i-lucide-home', to: '/' },
   { label: 'Articles', icon: 'i-lucide-newspaper', to: '/articles' },
 ]
+
+useHead({
+  titleTemplate: (title) => title ? `${title} · ${siteConfig.name}` : siteConfig.name,
+  meta: [
+    { name: 'application-name', content: siteConfig.name },
+    { name: 'apple-mobile-web-app-title', content: siteConfig.name },
+  ],
+  script: [
+    {
+      key: 'website-schema',
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: siteConfig.name,
+        url: siteConfig.url,
+        description: siteConfig.description,
+        inLanguage: 'en-US',
+        publisher: {
+          '@type': 'Organization',
+          name: siteConfig.name,
+          url: siteConfig.url,
+          logo: {
+            '@type': 'ImageObject',
+            url: absoluteSiteUrl(siteConfig.defaultOgImage),
+          },
+        },
+      }),
+    },
+  ],
+})
+
+useSeoMeta({
+  applicationName: siteConfig.name,
+  ogSiteName: siteConfig.name,
+  ogLocale: siteConfig.locale,
+  twitterCard: 'summary_large_image',
+})
 
 async function logout() {
   await $fetch('/api/auth/logout', { method: 'POST' })
@@ -27,6 +66,9 @@ async function logout() {
       <UNavigationMenu :items="navItems" />
 
       <template #right>
+        <UButton icon="i-lucide-github" variant="ghost" color="neutral" size="sm" to="https://github.com/jeffrey1420/ts.news" target="_blank" />
+        <UButton icon="i-lucide-rss" variant="ghost" color="neutral" size="sm" to="/rss.xml" />
+
         <UColorModeButton />
 
         <template v-if="loggedIn">

@@ -1,11 +1,23 @@
 <script setup lang="ts">
+import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
+
 const { loggedIn, fetch: refreshSession } = useUserSession()
 
 if (loggedIn.value) {
   navigateTo('/')
 }
 
-useSeoMeta({ title: 'Log in — typescript.news' })
+useSeoMeta({
+  title: 'Log in',
+  description: 'Log in or create an account to comment on typescript.news articles.',
+  robots: 'noindex, nofollow, noarchive',
+  ogTitle: `Log in | ${siteConfig.name}`,
+  ogDescription: 'Authentication page for typescript.news readers.',
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: absoluteSiteUrl('/login') }],
+})
 
 const mode = ref<'login' | 'register'>('login')
 const loading = ref(false)
