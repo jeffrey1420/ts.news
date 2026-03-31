@@ -7,6 +7,7 @@ import { resolveTopicLabel, topicDefinitions } from '~~/shared/utils/topics'
 const { loggedIn, user, clear } = useUserSession()
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
+const colorMode = useColorMode()
 
 const localeLanguage = computed(() => getLocaleLanguage(locale.value))
 const localeOgTag = computed(() => getLocaleOgTag(locale.value))
@@ -85,21 +86,80 @@ async function logout() {
       <UNavigationMenu :items="navItems" />
 
       <template #right>
-        <LanguageSwitcher />
-        <UButton icon="i-lucide-github" variant="ghost" color="neutral" size="sm" to="https://github.com/jeffrey1420/ts.news" target="_blank" />
-        <UButton icon="i-lucide-rss" variant="ghost" color="neutral" size="sm" href="/rss.xml" external />
-
-        <UColorModeButton />
-
-        <template v-if="loggedIn">
-          <span class="text-sm text-muted hidden sm:inline">{{ user?.name }}</span>
-          <UButton icon="i-lucide-log-out" variant="ghost" color="neutral" size="sm" @click="logout" />
-        </template>
-        <UButton v-else icon="i-lucide-user" variant="ghost" color="neutral" size="sm" :to="localePath('/login')" />
+        <div class="hidden lg:flex items-center gap-1">
+          <LanguageSwitcher />
+          <UButton icon="i-lucide-github" variant="ghost" color="neutral" size="sm" to="https://github.com/jeffrey1420/ts.news" target="_blank" />
+          <UButton icon="i-lucide-rss" variant="ghost" color="neutral" size="sm" href="/rss.xml" external />
+          <UColorModeButton />
+          <template v-if="loggedIn">
+            <span class="text-sm text-muted">{{ user?.name }}</span>
+            <UButton icon="i-lucide-log-out" variant="ghost" color="neutral" size="sm" @click="logout" />
+          </template>
+          <UButton v-else icon="i-lucide-user" variant="ghost" color="neutral" size="sm" :to="localePath('/login')" />
+        </div>
       </template>
 
       <template #body>
         <UNavigationMenu :items="navItems" orientation="vertical" class="-mx-2.5" />
+
+        <USeparator class="my-3" />
+
+        <div class="flex flex-col gap-0.5 px-2.5">
+          <LanguageSwitcher />
+
+          <UButton
+            icon="i-lucide-github"
+            label="GitHub"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            to="https://github.com/jeffrey1420/ts.news"
+            target="_blank"
+            class="w-full justify-start"
+          />
+          <UButton
+            icon="i-lucide-rss"
+            label="RSS"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            href="/rss.xml"
+            external
+            class="w-full justify-start"
+          />
+          <UButton
+            :icon="colorMode.value === 'dark' ? 'i-lucide-moon' : 'i-lucide-sun'"
+            :label="colorMode.value === 'dark' ? 'Dark mode' : 'Light mode'"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            class="w-full justify-start"
+            @click="colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'"
+          />
+
+          <USeparator class="my-2" />
+
+          <UButton
+            v-if="loggedIn"
+            icon="i-lucide-log-out"
+            :label="user?.name"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            class="w-full justify-start"
+            @click="logout"
+          />
+          <UButton
+            v-else
+            icon="i-lucide-user"
+            label="Login"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            :to="localePath('/login')"
+            class="w-full justify-start"
+          />
+        </div>
       </template>
     </UHeader>
 

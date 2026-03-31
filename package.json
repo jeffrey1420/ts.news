@@ -20,5 +20,8 @@
     "nuxt": "^4.4.2",
     "nuxt-auth-utils": "^0.5.29",
     "nuxt-llms": "^0.2.0"
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "^1.2.101"
   }
 }

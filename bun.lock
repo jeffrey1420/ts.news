@@ -17,6 +17,9 @@
         "nuxt-auth-utils": "^0.5.29",
         "nuxt-llms": "^0.2.0",
       },
+      "devDependencies": {
+        "@iconify-json/lucide": "^1.2.101",
+      },
     },
   },
   "packages": {
@@ -195,6 +198,8 @@
     "@humanwhocodes/module-importer": ["@humanwhocodes/module-importer@1.0.1", "", {}, "sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA=="],
 
     "@humanwhocodes/retry": ["@humanwhocodes/retry@0.4.3", "", {}, "sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ=="],
+
+    "@iconify-json/lucide": ["@iconify-json/lucide@1.2.101", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-JUN7uuSLRG3GK/9c5b8cK9e7sL6EAWDaASIwBOd0zUeKS0ACcokJubo2RMQHyVUVpd8mYkrR3Zd2mkH9ghhw1Q=="],
 
     "@iconify/collections": ["@iconify/collections@1.0.664", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-DROmBdkD8zv2GKrOEj/nKT//9ImfQBfTI2tPvwdAML6iKBC4I8cVKOFt9Dm9RrWDNdV6mZoHC6YrFdYzquTkng=="],
 
