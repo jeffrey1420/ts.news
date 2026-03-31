@@ -73,7 +73,9 @@ useSeoMeta({
   ogImage: articleImage,
   ogImageAlt: articleTitle,
   articlePublishedTime: article.value.date,
+  articleModifiedTime: article.value.date,
   articleTag: articleTags,
+  articleAuthor: article.value.author,
   twitterTitle: `${articleTitle} | ${siteConfig.name}`,
   twitterDescription: articleDescription,
   twitterImage: articleImage,
@@ -97,9 +99,13 @@ useHead({
         image: [articleImage],
         articleSection: articleTags[0],
         keywords: articleTags,
+        wordCount: article.value.readingTime ? article.value.readingTime * 250 : articleDescription.split(/\s+/).length,
+        isAccessibleForFree: true,
         author: {
           '@type': 'Person',
           name: article.value.author || siteConfig.name,
+          url: absoluteSiteUrl('/authors/' + (article.value.author || 'lschvn')),
+          sameAs: ['https://github.com/lschvn'],
         },
         publisher: {
           '@type': 'Organization',
@@ -144,6 +150,24 @@ useHead({
         ],
       }),
     },
+    ...(article.value.faq?.length
+      ? [{
+          key: 'faq-schema',
+          type: 'application/ld+json',
+          children: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: (article.value.faq ?? []).map((item: any) => ({
+              '@type': 'Question',
+              name: item.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.answer,
+              },
+            })),
+          }),
+        }]
+      : []),
   ],
 })
 
@@ -206,7 +230,10 @@ async function postComment() {
       </h1>
 
       <div class="flex flex-wrap items-center gap-4 text-sm text-muted">
-        <span v-if="article.author" class="font-medium text-default">{{ article.author }}</span>
+        <NuxtLink v-if="article.author" :to="'/authors/' + article.author" class="flex items-center gap-2 font-medium text-default hover:text-primary transition-colors">
+          <UIcon name="i-lucide-user" class="w-4 h-4" />
+          {{ article.author }}
+        </NuxtLink>
         <time :datetime="article.date">{{ formatDate(article.date) }}</time>
         <span v-if="article.readingTime">{{ article.readingTime }} min read</span>
       </div>
@@ -214,10 +241,33 @@ async function postComment() {
 
     <USeparator class="mb-12" />
 
+    <aside v-if="article.tldr?.length" class="mb-10 p-5 rounded-lg border border-primary/20 bg-primary/5">
+      <h2 class="text-lg font-bold text-highlighted mb-3 flex items-center gap-2">
+        <UIcon name="i-lucide-lightbulb" class="w-5 h-5 text-primary" />
+        TL;DR
+      </h2>
+      <ul class="space-y-2">
+        <li v-for="(item, index) in article.tldr" :key="index" class="flex gap-2 text-default">
+          <span class="text-primary mt-1">&#x2022;</span>
+          <span>{{ item }}</span>
+        </li>
+      </ul>
+    </aside>
+
     <!-- Body -->
     <div class="article-content">
       <ContentRenderer :value="article" />
     </div>
+
+    <!-- FAQ -->
+    <section v-if="article.faq?.length" class="my-12">
+      <USeparator class="mb-8" />
+      <h2 class="text-xl font-bold text-highlighted mb-6">Frequently Asked Questions</h2>
+      <UAccordion
+        :items="article.faq.map((item: any) => ({ label: item.question, content: item.answer }))"
+        :unmount-on-hide="false"
+      />
+    </section>
 
     <!-- Prev / Next -->
     <USeparator class="my-12" />

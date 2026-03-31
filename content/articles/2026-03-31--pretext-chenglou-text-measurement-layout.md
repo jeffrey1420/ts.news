@@ -1,12 +1,17 @@
 ---
 title: "Pretext: The DOM-Free Text Measurement Library That AI Coding Agents Are Already Using"
-description: "Cheng Lou just released Pretext, a pure JavaScript library that measures and lays out multiline text without touching the DOM. Here's why that matters forvirtuaization, layout control, and AI agents that write UI code."
+description: "Cheng Lou just released Pretext, a pure JavaScript library that measures and lays out multiline text without touching the DOM. Here's why that matters for virtualization, layout control, and AI agents that write UI code."
 date: "2026-03-31"
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
-author: "ts.news"
+author: lschvn
 tags: ["javascript", "typescript", "layout", "performance", "DOM", "library"]
 readingTime: 7
 category: "release"
+tldr:
+  - "Pretext (@chenglou/pretext) measures and lays out multiline text without touching the DOM, using canvas measureText as ground truth."
+  - "Hot-path layout() runs at ~0.09ms for 500 texts — 10–50x faster than single getBoundingClientRect() calls with zero reflow."
+  - "Full Unicode, emoji, and bidirectional text support; the prepare()/layout() split enables cached one-time setup with pure-arithmetic hot paths."
+  - "Key use cases: virtualization without height guesstimates, CLS prevention, server-side layout, and AI agents predicting text overflow."
 ---
 
 A new library showed up on npm on March 29 with zero announcement and already hundreds of downloads: **Pretext** (`@chenglou/pretext`), a pure JavaScript and TypeScript library for multiline text measurement and layout — without ever touching the DOM.

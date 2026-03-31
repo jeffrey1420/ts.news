@@ -3,8 +3,20 @@ title: "Axios npm Supply Chain Attack: Malicious Versions Drop Remote Access Tro
 description: "Two poisoned releases of axios — one of the most widely-used Node.js HTTP client libraries — were published and pulled from npm within hours. Here's what happened, how the attack worked, and what you need to do right now."
 date: 2026-03-31
 image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1200&h=630&fit=crop"
-author: "ts.news"
+author: lschvn
 tags: ["security", "npm", "supply-chain", "javascript", "node.js"]
+faq:
+  - question: "Is Axios still safe to use?"
+    answer: "Yes — axios itself is safe. The attack compromised two specific versions (1.14.1 and 0.30.4) which were published and removed within hours. If you are using any other version of axios, you are not affected. The last known clean versions are axios@1.14.0 and axios@0.30.3."
+  - question: "How do I protect my project from npm supply chain attacks?"
+    answer: "Pin your dependency versions, use lockfiles, and audit them regularly. Enable npm's OIDC Trusted Publishers for your own packages. Consider tools like StepSecurity or Socket that detect anomalous publish patterns, and monitor for unexpected postinstall scripts in your dependency tree."
+  - question: "What packages were affected by the supply chain attack?"
+    answer: "Three packages were involved: axios@1.14.1 and axios@0.30.4 (the backdoored releases) and plain-crypto-js@4.2.1 (a malicious dependency masquerading as crypto-js that served as the postinstall RAT dropper). All three have been removed from npm."
+tldr:
+  - "Malicious axios@1.14.1 and axios@0.30.4 were published on March 31, 2026, live for ~3 hours before removal from npm."
+  - "The attacker compromised the lead maintainer's npm account, bypassing OIDC Trusted Publishers to publish manually."
+  - "A hidden dependency (plain-crypto-js@4.2.1) ran a postinstall RAT dropper targeting macOS, Windows, and Linux."
+  - "Downgrade to axios@1.14.0 or 0.30.3 immediately; rotate all credentials from machines that ran npm install during the window."
 ---
 
 Two malicious versions of **axios** — a library downloaded over 300 million times every week, deeply embedded in the [Node.js](/articles/2026-03-24-bun-vs-node-vs-deno-2026-runtime-benchmark) ecosystem — were published to npm on March 31, 2026, and caught within hours. **axios@1.14.1** and **axios@0.30.4** shipped with a hidden dependency that did nothing except execute a postinstall dropper. The dropper fetched OS-specific second-stage payloads from a live command-and-control server, then erased itself and replaced its own manifest to hide the evidence.

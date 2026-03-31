@@ -4,9 +4,19 @@ description: "Astro 6.0 and 6.1 land within weeks of each other, bringing an exp
 image: "https://astro.build/_astro/og-astro-6.DDjHPVzL.webp"
 date: "2026-03-30"
 category: Framework
-author: Louis L.
+author: lschvn
 readingTime: 5
 tags: ["astro", "cloudflare", "javascript", "webdev", "rust", "framework", "release", "vite"]
+faq:
+  - question: "What's new in Astro 6?"
+    answer: "Astro 6.0 introduces a rebuilt dev server that runs your actual production runtime during development, Live Content Collections for request-time content fetching, a built-in Fonts API, a first-class Content Security Policy API, and an experimental Rust-based compiler for .astro files. Astro 6.1 followed with codec-specific Sharp defaults and improved typography support."
+  - question: "Does Astro 6 require Cloudflare?"
+    answer: "No. Astro stays MIT-licensed, open-source, and platform-agnostic. All deployment targets including Node.js, Vercel, Deno, Bun, and Cloudflare Workers are fully supported. The Cloudflare partnership provides resources and focus for the Astro team but does not create any lock-in."
+tldr:
+  - "Astro 6.0 (March 10) and 6.1 (March 26) ship with a rebuilt dev server running actual production runtimes via Vite's Environment API."
+  - "Live Content Collections fetch content at request time instead of build time, using the same APIs as build-time collections."
+  - "An experimental Rust compiler for .astro files is opt-in; a built-in Fonts API and framework-level CSP are also new."
+  - "Astro Technology Company joined Cloudflare but stays MIT-licensed and platform-agnostic across all deployment targets."
 ---
 
 Astro shipped two significant releases in under three weeks — Astro 6.0 on March 10 and Astro 6.1 on March 26 — capping off a period that also saw the Astro Technology Company formally join Cloudflare. The back-to-back releases bring architectural changes, new APIs, and a clear signal about where the framework is heading: faster by default, closer to the edge, and open to the entire web.

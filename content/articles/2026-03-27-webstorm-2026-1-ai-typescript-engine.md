@@ -4,9 +4,14 @@ description: "JetBrains releases WebStorm 2026.1 with a service-powered TypeScri
 image: "https://blog.jetbrains.com/wp-content/uploads/2026/03/WS-releases-BlogSocialShare-1280x720-1.png"
 date: "2026-03-27"
 category: Release
-author: tsw
+author: lschvn
 readingTime: 4
 tags: ["webstorm", "jetbrains", "typescript", "ai", "ide", "release"]
+tldr:
+  - "WebStorm 2026.1 enables a service-powered TypeScript engine by default, improving correctness and reducing CPU usage in large projects."
+  - "AI chat now supports multiple agents: Junie, Claude Agent, Codex, Cursor, and GitHub Copilot via the ACP Registry."
+  - "'Next edit suggestions' work without consuming AI quota on Pro/Ultimate/Enterprise plans, applying related changes across files."
+  - "Framework updates include React `use memo`/`use no memo` directives, Angular 21 template syntax, and Vue 3.2.4 TypeScript plugin."
 ---
 
 WebStorm 2026.1 landed this week, and the headline features reflect where JavaScript development tooling is heading: a smarter TypeScript engine by default, and a unified AI chat that pulls in multiple agents including Claude Agent and Codex alongside JetBrains' own Junie.

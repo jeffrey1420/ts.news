@@ -13,6 +13,9 @@ useSeoMeta({
   robots: 'noindex, nofollow, noarchive',
   ogTitle: `Log in | ${siteConfig.name}`,
   ogDescription: 'Authentication page for typescript.news readers.',
+  ogImage: absoluteSiteUrl(siteConfig.defaultOgImage),
+  ogImageAlt: siteConfig.name,
+  twitterImage: absoluteSiteUrl(siteConfig.defaultOgImage),
 })
 
 useHead({

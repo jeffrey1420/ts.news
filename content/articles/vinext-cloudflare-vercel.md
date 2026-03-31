@@ -3,10 +3,15 @@ title: "Cloudflare's vinext: The Controversial Project That Rebuilt Next.js in a
 description: "How Cloudflare used AI to recreate Vercel's flagship framework and what it means for the future of web development"
 date: "2026-03-21"
 category: "deep-dive"
-author: "Louis"
+author: lschvn
 tags: ["cloudflare", "vercel", "controversy", "vinext"]
 readingTime: 12
 image: "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/64oL10LCSz30EiEHWVdJPG/aeaed48a681ec3d5bc9d8cb6e5e30a96/BLOG-3194_1.png"
+tldr:
+  - "Cloudflare's vinext reimplements the Next.js API surface as a Vite plugin, built mostly by AI (Claude Code) for ~$1,100 in API tokens in one week."
+  - "On a 33-route app, vinext builds 4.4x faster (1.67s vs 7.38s) with 57% smaller client bundles (72.9KB vs 168.9KB)."
+  - "The project includes 1,700+ Vitest tests and 380 Playwright E2E tests; CIO.gov is already running vinext in production."
+  - "vinext deploys natively to Cloudflare Workers with D1/R2/KV bindings and also supports Vercel, Netlify, and AWS via Nitro."
 ---
 
 On February 24, 2026, Cloudflare published a blog post that sent shockwaves through the web development community. The title: *"How we rebuilt Next.js with AI in one week."* The project, called **vinext** (pronounced "vee-next"), was presented as an experimental Vite plugin that reimplements the Next.js API surface—allowing developers to run their Next.js applications on Cloudflare Workers instead of Vercel.

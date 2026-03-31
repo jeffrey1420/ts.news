@@ -26,8 +26,10 @@ useSeoMeta({
   ogType: 'website',
   ogUrl: canonicalUrl,
   ogImage: absoluteSiteUrl(siteConfig.defaultOgImage),
+  ogImageAlt: siteConfig.name,
   twitterTitle: `${pageTitle} | ${siteConfig.name}`,
   twitterDescription: pageDescription,
+  twitterImage: absoluteSiteUrl(siteConfig.defaultOgImage),
 })
 
 useHead({

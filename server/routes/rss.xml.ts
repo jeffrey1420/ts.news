@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
     const categories = article.tags?.length
       ? article.tags.map(tag => `<category>${escapeXml(tag)}</category>`).join('\n        ')
       : ''
-    const creator = article.author ? `<dc:creator>${escapeXml(article.author)}</dc:creator>` : ''
+    const creator = `<dc:creator>${escapeXml('lschvn')}</dc:creator>`
 
     return `
       <item>

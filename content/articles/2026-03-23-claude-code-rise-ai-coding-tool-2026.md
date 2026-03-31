@@ -3,15 +3,24 @@ title: "Claude Code Went from Zero to #1 in Eight Months: The 2026 AI Coding Too
 description: "By early 2026, Claude Code held a 46% 'most loved' rating among developers, leaving Cursor at 19% and GitHub Copilot at 9%. But love ratings and usage rankings don't tell the whole story. Here's what each tool actually does well, and when to use which."
 date: "2026-03-23"
 category: "news"
-author: "ts.news team"
+author: lschvn
 tags: ["ai", "claude-code", "cursor", "copilot", "developer-tools", "anthropic", "typescript"]
 readingTime: 11
 image: "https://cursor.com/public/opengraph-image.png"
+tldr:
+  - "Claude Code hit a 46% 'most loved' rating in early 2026, surpassing Cursor (19%) and GitHub Copilot (9%) just eight months after its May 2025 launch."
+  - "95% of developers now use AI coding tools weekly, with 75% relying on AI for more than half their coding work."
+  - "Claude Code excels at large refactors and agentic workflows from the terminal; Cursor remains best for day-to-day editor-based frontend work at $20/month."
+  - "Heavy Claude Code usage costs $100–$300/month via API tokens, powered by Claude Opus 4.6 which leads SWE-bench at 74.4%."
 ---
 
+<<<<<<< Updated upstream
 Eight months. That's how long it took for [Claude Code](/articles/2026-03-25-ai-dev-tool-rankings-march-2026) to go from launch to the most-loved AI coding tool in the developer community.
+=======
+Eight months. That's how long it took for Claude Code — Anthropic's CLI-based AI coding tool released in May 2025 — to go from launch to the most-loved AI coding tool in the developer community, reaching a 46% "most loved" rating by early 2026.
+>>>>>>> Stashed changes
 
-Released in May 2025, Claude Code from Anthropic reached a 46% "most loved" rating among developers by early 2026, according to survey data. Cursor sat at 19%, GitHub Copilot at 9%. For context, those numbers represent a stunning reversal of the market that had been dominated by Copilot for three years and Cursor for two.
+For context, those numbers represent a stunning reversal of the market that had been dominated by Copilot for three years and Cursor for two. Cursor sat at 19%, GitHub Copilot at 9%.
 
 But metrics don't tell you when to use which tool. They don't tell you that Cursor still has real advantages for day-to-day frontend work, or that Copilot's integration with the broader GitHub ecosystem remains a genuine differentiator. This is a breakdown of what each tool actually does well — based on months of daily use across multiple projects, not sponsored benchmarks.
 

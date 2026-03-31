@@ -4,9 +4,14 @@ description: "The Vite 8 beta drops ESBuild and Rollup in favor of Rolldown, sig
 image: "https://opengraph.githubassets.com/80d818d1ffc6c3698c6a86f9be7dc3212b3713a3d3403d7bdb434efaba84e7fa/vitejs/vite"
 date: "2026-03-26"
 category: Tooling
-author: tsw
+author: lschvn
 readingTime: 4
 tags: ["vite", "javascript", "rolldown", "oxc", "build-tools", "tooling", "release"]
+tldr:
+  - "Vite 8 beta replaces both ESBuild and Rollup with Rolldown as the unified bundler — the biggest internal change since Vite's initial release."
+  - "Rolldown is built by the Oxc team and offers faster builds with lower memory usage, especially on large codebases."
+  - "Rolldown usage jumped from 1% to 10% in one year per the State of JS 2025 survey, even before Vite 8's stable release."
+  - "Plugins written against Rollup's hook system may need updates; Vite plugin authors should test against the beta now."
 ---
 
 The Vite 8 beta is here, and the headline change has been on the roadmap for two years: Rolldown is now the default bundler, replacing both ESBuild (used for dependencies) and Rollup (used for production builds). This is the most consequential change to Vite's internals since its initial release.

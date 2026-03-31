@@ -3,8 +3,13 @@ title: "Bun Ships v1.3.11 with Native OS-Level Cron and Joins Anthropic's AI Cod
 description: "Bun v1.3.11 drops a 4MB smaller binary, ships Bun.cron for OS-level scheduled jobs, and marks a pivotal moment as the runtime joins Anthropic to power Claude Code and future AI coding tools."
 image: "https://bun.com/og/blog.png"
 date: "2026-03-30"
-author: "Louis L."
+author: lschvn
 tags: ["bun", "runtime", "javascript", "typescript", "ai", "anthropic", "news"]
+tldr:
+  - "Anthropic acquired Bun in December 2025 to power Claude Code; Bun stays MIT-licensed and open source with the core team intact."
+  - "Bun v1.3.11 ships Bun.cron for cross-platform OS-level scheduled jobs (crontab/launchd/Task Scheduler), replacing node-cron."
+  - "The Linux x64 binary is 4 MB smaller; Bun v1.3.10 added full TC39 standard ES decorators and a Zig-native REPL."
+  - "Barrel import optimization in v1.3.10 cuts build times up to 2x for large libraries like antd and @mui/material."
 ---
 
 The JavaScript ecosystem moves fast, but few releases in recent memory carry as much weight as what Jarred Sumner's Bun shipped this month. On March 18, 2026, Bun v1.3.11 landed with a mix of developer-experience improvements, performance wins, and a quiet acknowledgment of a major shift behind the scenes: **Bun has joined Anthropic**.

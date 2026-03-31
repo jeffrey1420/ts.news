@@ -3,8 +3,30 @@ title: "Claude Code Source Map Leak Exposes Hidden Agent OS, Chrome Automation, 
 description: "On March 30–31 2026, developers discovered that the npm package @anthropic-ai/claude-code@v2.1.88 included a production source map file that exposed the full TypeScript source code — revealing undocumented multi-agent orchestration, a hidden Chrome MCP server, an internal query engine, a tool permission system, and a three-tier telemetry system."
 date: 2026-03-31
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
-author: "ts.news"
-tags: ["security", "anthropic", "claude-code", "npm", "typescript", "agents", "privacy"]
+author: "lschvn"
+tags:
+  [
+    "security",
+    "anthropic",
+    "claude-code",
+    "npm",
+    "typescript",
+    "agents",
+    "privacy",
+  ]
+readingTime: 5
+tldr:
+  - "Claude Code v2.1.88 shipped with a production source map (cli.js.map) exposing ~4,756 source files including undocumented multi-agent orchestration."
+  - "Hidden Chrome MCP server allows Claude Code to control a browser — a capability never announced or documented by Anthropic."
+  - "A three-tier privacy system (default, no-telemetry, essential-traffic) with Datadog integration and 506 telemetry files reveals extensive data collection."
+  - "CLAUDE.md resolution has four precedence levels, including an undocumented system-wide `/etc/claude-code/CLAUDE.md` that could pose configuration risks."
+faq:
+  - question: "Should I uninstall Claude Code after the source map leak?"
+    answer: "The source map exposed Claude Code's internal architecture, but it was not a vulnerability that leaked data from user machines. No credentials, API keys, or user data were exposed. Updating to the latest version removes the source map file. The incident is a build configuration failure, not a security breach of your environment."
+  - question: "What data does Claude Code actually collect?"
+    answer: "Claude Code has three telemetry tiers: 'default' (everything enabled, including Datadog crash reporting and first-party event logging), 'no-telemetry' (analytics disabled), and 'essential-traffic' (blocks all nonessential outbound traffic). It collects platform metadata, runtime info, and GitHub Actions presence. Feature flags are managed via GrowthBook, suggesting A/B testing is built in."
+  - question: "Is the hidden Chrome automation a security risk?"
+    answer: "The Chrome MCP server requires explicit setup with a specific browser extension ID and is not active by default. The primary concern is not active exploitation but the fact that Anthropic built and shipped a browser automation capability without documenting it — raising questions about what other undocumented features exist in tools with deep codebase access."
 ---
 
 On March 30, 2026, developers installing the npm package `@anthropic-ai/claude-code@v2.1.88` noticed something unusual: the published bundle included `cli.js.map`, a production source map file that maps the minified JavaScript back to its original TypeScript source. Within hours, the discovery spread across developer communities, with multiple developers independently confirming that the source map provided a near-complete view of Claude Code's internal architecture.
@@ -46,11 +68,11 @@ This MCP server appears to allow Claude Code to control a Chrome browser directl
 
 The source map reveals a three-tier privacy system that clarifies (and complicates) what data Claude Code collects:
 
-| Mode | Telemetry | Datadog | First-Party Events | Feedback |
-|------|-----------|---------|-------------------|----------|
-| `default` | Everything enabled | ✓ | ✓ | ✓ |
-| `no-telemetry` | Analytics disabled | ✗ | ✗ | ✗ |
-| `essential-traffic` | All nonessential traffic blocked | — | — | — |
+| Mode                | Telemetry                        | Datadog | First-Party Events | Feedback |
+| ------------------- | -------------------------------- | ------- | ------------------ | -------- |
+| `default`           | Everything enabled               | ✓       | ✓                  | ✓        |
+| `no-telemetry`      | Analytics disabled               | ✗       | ✗                  | ✗        |
+| `essential-traffic` | All nonessential traffic blocked | —       | —                  | —        |
 
 The analytics integration sends data to **Datadog** and logs first-party events throughout the codebase. Feature flags are managed through **GrowthBook** via `getFeatureValue_CACHED_MAY_BE_STALE`. An attribution header can be disabled via the `CLAUDE_CODE_ATTRIBUTION_HEADER` environment variable. The source map contains **506 analytics- and telemetry-related files**, with `logEvent` and `logForDebugging` called throughout the codebase. Environment metadata collected includes platform, runtime, and GitHub Actions information.
 
@@ -72,7 +94,7 @@ This four-tier system, particularly the existence of `/etc/claude-code/CLAUDE.md
 Buried in `src/commands/good-claude/index.js`, developers found a completely hidden stub command:
 
 ```javascript
-export default { isEnabled: () => false, isHidden: true, name: 'stub' };
+export default { isEnabled: () => false, isHidden: true, name: "stub" };
 ```
 
 The command exists, is marked hidden, is disabled, and has no actual implementation. Its purpose is entirely unclear — it could be an abandoned feature, an internal easter egg, or something else entirely. But its existence in a production build raises questions about what other undocumented features may be lurking in the codebase.
@@ -80,6 +102,7 @@ The command exists, is marked hidden, is disabled, and has no actual implementat
 ### Analytics Everywhere
 
 With 506 telemetry-related files, the extent of data collection in Claude Code is substantial. The codebase uses:
+
 - **Datadog** for crash and error reporting
 - **First-party event logging** throughout
 - **`logEvent`** calls pervasive across the source

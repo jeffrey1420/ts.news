@@ -29,6 +29,7 @@ export default defineEventHandler(async (event) => {
   const urls = [
     { loc: absoluteSiteUrl('/'), lastmod: latestArticleDate, changefreq: 'daily', priority: '1.0' },
     { loc: absoluteSiteUrl('/articles'), lastmod: latestArticleDate, changefreq: 'daily', priority: '0.9' },
+    { loc: absoluteSiteUrl('/authors/lschvn'), lastmod: latestArticleDate, changefreq: 'monthly', priority: '0.6' },
     ...uniqueTags.map(tag => ({
       loc: absoluteSiteUrl(`/tags/${tag}`),
       lastmod: latestArticleDate,

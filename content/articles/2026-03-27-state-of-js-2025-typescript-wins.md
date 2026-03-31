@@ -4,9 +4,14 @@ description: "The State of JavaScript 2025 survey shows TypeScript exclusive usa
 image: "https://assets.devographics.com/surveys/js2025-og.png"
 date: "2026-03-27"
 category: Survey
-author: tsw
+author: lschvn
 readingTime: 4
 tags: ["typescript", "javascript", "state-of-js", "survey", "vite", "ecosystem"]
+tldr:
+  - "TypeScript exclusive usage reached 40% (up from 34% in 2024, 28% in 2022); only 6% use plain JS exclusively."
+  - "Vite satisfaction is 98% vs Webpack's 26%; React usage at 83.6% but Next.js negative sentiment hits 17%."
+  - "Claude usage doubled from 22% to 44%; Cursor more than doubled from 11% to 26%; ChatGPT declined from 68% to 60%."
+  - "Node.js remains dominant at 90% runtime usage; Bun grew 4 points to 21%, well ahead of Deno at 11%."
 ---
 
 The [State of JavaScript 2025](https://2025.stateofjs.com/en-US) survey results are in, and they paint an ecosystem finding its footing. Conducted in November 2025 and published in February 2026, the annual survey — run by Devographics and sponsored by Google Chrome and JetBrains — shows clear winners in tooling, frameworks, and language preferences, with developer happiness holding steady at 3.8 out of 5 for the fifth consecutive year.

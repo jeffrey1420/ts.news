@@ -7,6 +7,7 @@ const { loggedIn, user, clear } = useUserSession()
 const navItems: NavigationMenuItem[] = [
   { label: 'Home', icon: 'i-lucide-home', to: '/' },
   { label: 'Articles', icon: 'i-lucide-newspaper', to: '/articles' },
+  { label: 'About', icon: 'i-lucide-user', to: '/authors/lschvn' },
   { label: 'Topics', icon: 'i-lucide-tag', children: [
     { label: 'TypeScript', to: '/tags/typescript' },
     { label: 'Security', to: '/tags/security' },

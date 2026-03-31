@@ -3,13 +3,23 @@ title: "TypeScript 7 Native Preview: Project Corsa Rewrites the Compiler in Go �
 description: "Microsoft's decision to port the TypeScript compiler and language service to Go isn't just a tech demo — early benchmarks show the VS Code codebase compiling in 7.5 seconds versus 77.8 seconds. Here's what the native era means for your build pipeline and editor performance."
 date: "2026-03-23"
 category: "news"
-author: "ts.news team"
+author: lschvn
 tags: ["typescript", "compiler", "performance", "go", "tooling", "project-corsa", "nodejs"]
 readingTime: 12
 image: "https://opengraph.githubassets.com/80d818d1ffc6c3698c6a86f9be7dc3212b3713a3d3403d7bdb434efaba84e7fa/microsoft/TypeScript"
+tldr:
+  - "Project Corsa ports the TypeScript compiler to Go, cutting VS Code compilation from 77.8s to 7.5s — roughly 10x faster."
+  - "TypeScript 6.0 will be the last JS-based release; TypeScript 7 is the native Go era with shared-memory multithreading."
+  - "Node.js now runs TypeScript natively via type stripping (stable since v25.2.0), enabled by default since Node 22.18.0."
+  - "Developers should audit enums and namespaces now — these non-erasable features won't work under type stripping without migration."
+faq:
+  - question: "When will TypeScript 7.0 be released?"
+    answer: "Microsoft has indicated that TypeScript 7.0 will arrive later in 2026. The native preview based on the Go compiler is already available via the @typescript/native-preview npm tag for testing against your codebase today."
+  - question: "How much faster is the Go-based TypeScript compiler?"
+    answer: "Early benchmarks are dramatic. The VS Code codebase compiles in 7.5 seconds versus 77.8 seconds with the JavaScript-based compiler — a roughly 10x improvement. The Playwright test suite dropped from 11.1 seconds to 1.1 seconds. Project load times in VS Code also improved by approximately 8x."
 ---
 
-For years, the TypeScript compiler has been a showcase for JavaScript eating the world — a language written in itself, bootstrapped, and used to build increasingly complex systems. It worked. It still works. But as TypeScript grew from a niche tool to the most-used language on GitHub by monthly contributors, the limits of a JavaScript-based compiler started to bite.
+Microsoft's VS Code codebase compiles in 7.5 seconds under the TypeScript 7 native preview — versus 77.8 seconds with the current JavaScript-based compiler. That's a 10× improvement, and it's the headline result of Project Corsa, Microsoft's full rewrite of the TypeScript compiler and language service in Go.
 
 TypeScript 7 changes that. Or rather, it will — but the preview is already here, and the numbers are hard to argue with.
 

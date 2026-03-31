@@ -4,9 +4,14 @@ description: "The State of JavaScript 2025 survey reveals TypeScript usage at an
 image: "https://assets.devographics.com/surveys/js2025-og.png"
 date: "2026-03-25"
 category: Ecosystem
-author: tsw
+author: lschvn
 readingTime: 5
 tags: ["typescript", "javascript", "state-of-js", "survey", "vite", "ecosystem"]
+tldr:
+  - "40% of developers now write exclusively in TypeScript (up from 34% in 2024); only 6% use plain JavaScript exclusively."
+  - "Vite hits 84% usage with a 98% satisfaction score, while Webpack satisfaction collapsed to 26% (down from 36% in 2024)."
+  - "React remains most-used at 83.6%, but Next.js draws growing criticism over complexity and Vercel's business incentives."
+  - "Rolldown jumped from 1% to 10% usage in one year, signaling a Rust-based future for the JavaScript build pipeline."
 ---
 
 The [State of JavaScript 2025](https://2025.stateofjs.com/en-US) survey, published in February 2026 after collecting responses through November 2025, paints a picture of a maturing ecosystem. TypeScript has firmly won the language war, Vite has won the build tool war — at least in sentiment — and developers are increasingly vocal about framework complexity.

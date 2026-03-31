@@ -3,10 +3,15 @@ title: "Cursor Composer 2, Kimi K2.5, and the Controversy That Exposed AI's Open
 description: "How a developer found a hidden model ID, sparked a global debate about attribution, and revealed how dependent the AI industry has become on Chinese open-source models."
 date: "2026-03-22"
 category: "deep-dive"
-author: "ts.news team"
+author: lschvn
 tags: ["cursor", "kimi", "moonshot", "ai", "open-source", "licensing", "coding-tools"]
 readingTime: 12
 image: "https://cursor.com/public/opengraph-image.png"
+tldr:
+  - "Cursor Composer 2 hit 61.7% on Terminal-Bench 2.0 but was revealed to be built on Kimi K2.5, not a fully in-house model."
+  - "A developer discovered the model ID 'kimi-k2p5' in API responses; tokenizer analysis confirmed byte-for-byte identity with Kimi."
+  - "Kimi K2.5's Modified MIT license requires 'Powered by Kimi K2.5' attribution for products over $20M monthly revenue — Cursor is at ~$2B ARR."
+  - "Moonshot AI confirmed the Fireworks AI arrangement was compliant; Cursor acknowledged the attribution failure as a mistake."
 ---
 
 On March 19, 2026, Cursor published a blog post announcing Composer 2. The benchmarks were real: **61.7% on Terminal-Bench 2.0**, beating Claude Opus 4.6 (58.0%) while costing one-tenth the price. The launch was presented as a breakthrough from a 50-person team that had spent months training and refining an in-house coding model.

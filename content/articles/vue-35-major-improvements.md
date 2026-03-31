@@ -3,13 +3,18 @@ title: "Vue 3.5: The 'Minor' Release That Rewrote the Rules of Frontend Performa
 description: "Vue 3.5 arrived with no breaking changes and a set of internals improvements that should make any developer pay attention — 56% less memory usage, lazy hydration, and a stabilized reactive props API."
 date: "2026-03-22"
 category: "deep-dive"
-author: "ts.news team"
+author: lschvn
 tags: ["vue", "javascript", "frontend", "performance", "ssr", "typescript"]
 readingTime: 10
 image: "https://opengraph.githubassets.com/f7b424ad79df220a2cc8c8a5cc2d08e45d1657724c9600dc28af967788f7a38a/vuejs/core"
+tldr:
+  - "Vue 3.5 delivers 56% lower memory usage and up to 10x faster operations on large deeply reactive arrays via a reactivity system refactor."
+  - "Reactive props destructuring is stabilized — destructuring in `<script setup>` now preserves reactivity without withDefaults()."
+  - "New lazy hydration API (hydrateOnVisible) and useId() for stable server/client IDs solve long-standing SSR pain points."
+  - "Vue 3.6 targets Vapor Mode — compiling templates to direct DOM ops with a goal of 100,000 component mounts in 100ms."
 ---
 
-Vue 3.5 dropped in September 2024, and Evan You called it a minor release. The developer community's response was roughly: *"This does not feel like a minor release."*
+Vue 3.5 dropped in September 2024 with what Evan You called a minor release — and a refactored reactivity system that delivers **56% lower memory usage** and **up to 10× faster operations on large, deeply reactive arrays**. The developer community's response was roughly: *"This does not feel like a minor release."*
 
 The numbers back that instinct up. Vue 3.5's refactored reactivity system delivers **56% lower memory usage** and **up to 10× faster operations on large, deeply reactive arrays**. Those aren't incremental gains — they're the kind of improvements that change what "large-scale Vue" means in practice.
 

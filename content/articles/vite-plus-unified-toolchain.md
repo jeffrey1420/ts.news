@@ -3,13 +3,18 @@ title: "Vite+: One CLI to Rule Them All — Or Just Another Layer of Hype?"
 description: "VoidZero's Vite+ promises to unify runtime, package manager, bundler, linter, formatter, and test runner under a single command. We read the announcements, benchmarked the claims, and talked to people using it in production. Here is what we found."
 date: "2026-03-22"
 category: "deep-dive"
-author: "ts.news team"
+author: lschvn
 tags: ["vite", "javascript", "tooling", "rolldown", "oxc", "build-tools", "open-source"]
 readingTime: 14
 image: "https://viteplus.dev/og.jpg"
+tldr:
+  - "Vite+ is an alpha CLI by VoidZero (Evan You) wrapping Vite, Vitest, Oxlint, Oxfmt, Rolldown, and tsdown under a single `vp` command."
+  - "Rolldown delivers 1.6x–7.7x faster production builds than Vite 7; Oxlint is 50–100x faster than ESLint; Oxfmt ~30x faster than Prettier."
+  - "All tools share the same Oxc parser/resolver, eliminating redundant AST rebuilding across the pipeline."
+  - "Vite+ is MIT-licensed; VoidZero's revenue comes from planned VoidCloud enterprise layer — the open-source commitment is genuine but worth watching."
 ---
 
-Every few years, someone in the JavaScript ecosystem decides that the tooling situation has become untenable and announces a unified solution. The pitch is always similar: fewer config files, one command to learn, less time spent babysitting build pipelines. The outcome is usually more complicated than advertised.
+Every few years, someone in the JavaScript ecosystem announces a unified toolchain — fewer config files, one command to learn, less time babysitting build pipelines. The outcome is usually more complicated than advertised. But Vite+, from VoidZero (founded by Vue.js and Vite creator Evan You, backed by $4.6 million from Accel), arrives with tools whose performance claims are independently verified: Rolldown delivers 1.6× to 7.7× faster production builds than Vite 7, and Oxlint runs 50-100× faster than ESLint.
 
 Vite+ is the latest entrant in this tradition, and it arrives with more credibility than most. It comes from VoidZero, the company founded in late 2024 by Evan You, creator of Vue.js and Vite. The team includes core contributors to Vite, Vitest, Oxc, and former contributors to Rspack. The company raised $4.6 million in seed funding from Accel, with backing from figures at Supabase, Netlify, Sentry, and NuxtLabs.
 
