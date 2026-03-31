@@ -59,7 +59,7 @@ useHead(() => ({
           <NuxtLink
             v-for="author in authorsWithCounts"
             :key="author.path"
-            :to="author.path"
+            :to="localePath(author.path)"
             class="block group"
           >
             <UCard class="hover:ring-1 hover:ring-default transition-all">

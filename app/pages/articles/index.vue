@@ -66,7 +66,7 @@ useHead(() => ({
           itemListElement: (articles.value ?? []).map((article, index) => ({
             '@type': 'ListItem',
             position: index + 1,
-            url: absoluteSiteUrl(article.path),
+            url: absoluteSiteUrl(localePath(article.path)),
             name: article.title,
           })),
         },
@@ -130,7 +130,7 @@ function formatDate(date: string) {
             :date="formatDate(article.date)"
             :image="article.image"
             :badge="article.tags?.[0] ? { label: article.tags[0], color: 'primary' as const, variant: 'subtle' as const, to: localePath(`/tags/${article.tags[0]}`) } : undefined"
-            :to="article.path"
+            :to="localePath(article.path)"
           />
         </UBlogPosts>
 

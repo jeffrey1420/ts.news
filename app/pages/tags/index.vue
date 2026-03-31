@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 import { getCollectionName } from '~~/shared/utils/locale'
+import { getTopicMeta } from '~~/shared/utils/topics'
 
 const route = useRoute()
 const { locale, t } = useI18n()
@@ -62,6 +63,7 @@ useHead(() => ({
           >
             <UBadge
               :label="tag"
+              :icon="getTopicMeta(tag, t).icon"
               variant="subtle"
               size="lg"
               class="hover:bg-primary/20 transition-colors cursor-pointer"

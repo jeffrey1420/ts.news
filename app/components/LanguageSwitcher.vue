@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { en, fr, de } from '@nuxt/ui/locale'
+aimport { en, fr, de } from '@nuxt/ui/locale'
 import { getLocalizedPath } from '~~/shared/utils/locale'
 
 const route = useRoute()

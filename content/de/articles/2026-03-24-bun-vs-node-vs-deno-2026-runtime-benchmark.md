@@ -40,7 +40,7 @@ Unabhängige Tests über ein konsistentes Hardware-Profil erzählen eine ziemlic
 
 Bun führt konsequent bei HTTP-Server-Throughput-Benchmarks — oft 2-3x schneller als Node.js auf derselben Hardware. Der Abstand verengt sich unter hoher gleichzeitiger Last, schließt sich aber nie ganz. Deno liegt irgendwo in der Mitte, überholt normalerweise Node.js, liegt aber weit hinter Bun.
 
-Der Grund ist die Architektur: Bun verwendet JavaScriptCore (Safaris Engine) mit einer Zig-basierten Standardbibliothek. Zig gibt Bun viel engere Kontrolle über Speicherallokation und Syscall-Overhead als V8-basierte Runtimes. Für die neuesten Performance-Benchmarks und neue Bun-Funktionen in aktuellen Releases, sehen Sie unsere [Bun v1.3.11 Analyse](/articles/bun-v1-3-11-cron-anthropic).
+Der Grund ist die Architektur: Bun verwendet JavaScriptCore (Safaris Engine) mit einer Zig-basierten Standardbibliothek. Zig gibt Bun viel engere Kontrolle über Speicherallokation und Syscall-Overhead als V8-basierte Runtimes. Für die neuesten Performance-Benchmarks und neue Bun-Funktionen in aktuellen Releases, sehen Sie unsere [Bun v1.3.11 Analyse](/articles/2026-03-30--bun-v1-3-11-cron-anthropic).
 
 ### Cold Start Zeit
 
@@ -68,7 +68,7 @@ Performance ist eine Sache. Das npm-Ökosystem ist eine andere.
 
 Node.js führt npm, yarn und pnpm nativ aus. Jedes Paket, das Sie wahrscheinlich brauchen, funktioniert. Die Kompatibilitätsgeschichte ist 15 Jahre akkumuliertes Vertrauen.
 
-Bun positioniert sich als „Drop-in-Ersatz" für Node.js. In der Praxis bedeutet das, dass es die meisten npm-Pakete ohne Änderung ausführt. Die Kompatibilitätsrate liegt bei etwa 95% für beliebte Pakete — beeindruckend, aber die verbleibenden 5% können eine schmerzhafte Überraschung sein. (Die Sicherheitsoberfläche des npm-Ökosystems ist ein verwandtes Anliegen: ein [kürzlicher axios Supply-Chain-Angriff](/articles/axios-npm-supply-chain-attack) unterstrich, dass selbst die am weitesten verbreiteten Pakete Risiken bergen.)
+Bun positioniert sich als „Drop-in-Ersatz" für Node.js. In der Praxis bedeutet das, dass es die meisten npm-Pakete ohne Änderung ausführt. Die Kompatibilitätsrate liegt bei etwa 95% für beliebte Pakete — beeindruckend, aber die verbleibenden 5% können eine schmerzhafte Überraschung sein. (Die Sicherheitsoberfläche des npm-Ökosystems ist ein verwandtes Anliegen: ein [kürzlicher axios Supply-Chain-Angriff](/articles/2026-03-31--axios-npm-supply-chain-attack) unterstrich, dass selbst die am weitesten verbreiteten Pakete Risiken bergen.)
 
 ```bash
 # Bun installiert Pakete 3-10x schneller als npm
@@ -95,7 +95,7 @@ Für sicherheitsbewusste Deployments — Multi-Tenant-SaaS, Plugins aus nicht ve
 
 ## Was Sie Wählen Sollten
 
-**Wählen Sie Bun, wenn:** Performance eine Priorität ist, Sie sich mit gelegentlichem Kompatibilitäts-Debugging wohlfühlen und Sie eine moderne Toolchain mit integriertem Bundling, Testing und Paketmanagement wollen. (Buns letztes [v1.3.11 Release](/articles/bun-v1-3-11-cron-anthropic) fügte OS-Level-Cron-Planung und eine 4 MB große Binary-Größenreduzierung hinzu und stärkte damit weiter seinen Fall als All-in-One-Runtime.)
+**Wählen Sie Bun, wenn:** Performance eine Priorität ist, Sie sich mit gelegentlichem Kompatibilitäts-Debugging wohlfühlen und Sie eine moderne Toolchain mit integriertem Bundling, Testing und Paketmanagement wollen. (Buns letztes [v1.3.11 Release](/articles/2026-03-30--bun-v1-3-11-cron-anthropic) fügte OS-Level-Cron-Planung und eine 4 MB große Binary-Größenreduzierung hinzu und stärkte damit weiter seinen Fall als All-in-One-Runtime.)
 
 **Wählen Sie Node.js, wenn:** Sie maximale Ökosystem-Kompatibilität benötigen, mit etablierten Enterprise-Tools arbeiten oder bereits in das Node-Ökosystem investiert sind und kein spezifisches Performance-Problem lösen müssen.
 

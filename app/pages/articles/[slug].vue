@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
-import { getCollectionName, DEFAULT_LOCALE, getLocalizedPath, getLocaleLanguage, removeLocaleFromPath } from '~~/shared/utils/locale'
+import { getCollectionName, getLocaleLanguage } from '~~/shared/utils/locale'
 
 const route = useRoute()
 const { loggedIn } = useUserSession()
@@ -8,46 +8,28 @@ const { locale, t } = useI18n()
 const localePath = useLocalePath()
 
 const articlesCollection = computed(() => getCollectionName('articles', locale.value))
-const requestedArticlePath = computed(() => removeLocaleFromPath(route.path))
+const slug = computed(() => String(route.params.slug))
+const articlePath = computed(() => `/articles/${slug.value}`)
 
-const { data: article } = await useAsyncData(() => `article:${locale.value}:${route.path}`, async () => {
-  const localeMatch = await findArticleByPath(articlesCollection.value, requestedArticlePath.value)
-
-  if (localeMatch.redirectPath) {
-    return navigateTo(localePath(localeMatch.redirectPath), { redirectCode: 301 })
-  }
-
-  if (localeMatch.content) {
-    return localeMatch.content
-  }
-
-  if (!content && locale.value !== DEFAULT_LOCALE) {
-    const fallbackMatch = await findArticleByPath(
-      getCollectionName('articles', DEFAULT_LOCALE),
-      requestedArticlePath.value,
-    )
-
-    if (fallbackMatch.redirectPath) {
-      return navigateTo(fallbackMatch.redirectPath, { redirectCode: 301 })
-    }
-
-    if (fallbackMatch.content) {
-      return fallbackMatch.content
-    }
-  }
-
-  return null
-})
+const { data: article } = await useAsyncData(
+  () => `article:${locale.value}:${slug.value}`,
+  () => queryCollection(articlesCollection.value).path(articlePath.value).first(),
+  { watch: [locale, slug] }
+)
 
 if (!article.value) {
   throw createError({ statusCode: 404, statusMessage: 'Article not found', fatal: true })
 }
 
-const { data: surround } = await useAsyncData(() => `article:${locale.value}:${route.path}:surround`, () =>
+const { data: surround } = await useAsyncData(() => `article:${locale.value}:${slug.value}:surround`, () =>
   queryCollectionItemSurroundings(articlesCollection.value, article.value!.path)
 )
 
-const { data: relatedArticles } = await useAsyncData(() => `article:${locale.value}:${route.path}:related`, async () => {
+const localizedSurround = computed(() =>
+  (surround.value ?? []).map(item => item && { ...item, path: localePath(item.path) })
+)
+
+const { data: relatedArticles } = await useAsyncData(() => `article:${locale.value}:${slug.value}:related`, async () => {
   const currentTags = new Set(article.value?.tags ?? [])
 
   if (!currentTags.size) {
@@ -136,7 +118,7 @@ useHead(() => ({
         author: {
           '@type': 'Person',
           name: article.value.author || siteConfig.name,
-          url: absoluteSiteUrl(getLocalizedPath(`/authors/${article.value.author || 'lschvn'}`, locale.value)),
+          url: absoluteSiteUrl(localePath(`/authors/${article.value.author || 'lschvn'}`)),
           sameAs: ['https://github.com/lschvn'],
         },
         publisher: {
@@ -165,13 +147,13 @@ useHead(() => ({
             '@type': 'ListItem',
             position: 1,
             name: t('nav.home'),
-            item: absoluteSiteUrl(getLocalizedPath('/', locale.value)),
+            item: absoluteSiteUrl(localePath('/')),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: t('nav.articles'),
-            item: absoluteSiteUrl(getLocalizedPath('/articles', locale.value)),
+            item: absoluteSiteUrl(localePath('/articles')),
           },
           {
             '@type': 'ListItem',
@@ -229,46 +211,6 @@ async function postComment() {
   }
 }
 
-async function findArticleByPath(collection: ReturnType<typeof getCollectionName>, path: string) {
-  const normalizedPath = normalizeArticleLookupPath(path)
-  let content = await queryCollection(collection).path(normalizedPath).first()
-
-  if (content) {
-    return { content, redirectPath: content.path === normalizedPath ? null : content.path }
-  }
-
-  const requestedSlug = normalizedPath.split('/').filter(Boolean).pop()
-  if (!requestedSlug) {
-    return { content: null, redirectPath: null }
-  }
-
-  const articles = await queryCollection(collection)
-    .order('date', 'DESC')
-    .all()
-
-  const suffixMatch = articles.find(candidate => {
-    const candidateSlug = candidate.path.split('/').filter(Boolean).pop()
-
-    return candidateSlug === requestedSlug || candidateSlug?.endsWith(`-${requestedSlug}`)
-  })
-
-  return {
-    content: suffixMatch ?? null,
-    redirectPath: suffixMatch?.path && suffixMatch.path !== normalizedPath ? suffixMatch.path : null,
-  }
-}
-
-function normalizeArticleLookupPath(path: string) {
-  const normalizedPath = removeLocaleFromPath(path)
-  const articleSlug = normalizedPath.split('/').filter(Boolean).pop()
-
-  if (!articleSlug) {
-    return normalizedPath
-  }
-
-  const cleanedSlug = articleSlug.replace(/^(\d{4}-\d{2}-\d{2})--+/, '$1-')
-  return `/articles/${cleanedSlug}`
-}
 </script>
 
 <template>
@@ -344,7 +286,7 @@ function normalizeArticleLookupPath(path: string) {
 
     <!-- Prev / Next -->
     <USeparator class="my-12" />
-    <UContentSurround :surround="surround" />
+    <UContentSurround :surround="localizedSurround" />
 
     <!-- Related articles -->
     <template v-if="relatedArticles?.length">
@@ -370,7 +312,7 @@ function normalizeArticleLookupPath(path: string) {
             :date="formatDate(item.date)"
             :image="item.image"
             :badge="item.sharedTags?.[0] ? { label: item.sharedTags[0], color: 'primary' as const, variant: 'subtle' as const } : undefined"
-            :to="item.path"
+            :to="localePath(item.path)"
             class="mx-2"
           />
         </UCarousel>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
-import { getCollectionName, getLocalizedPath } from '~~/shared/utils/locale'
+import { getCollectionName } from '~~/shared/utils/locale'
+import { getTopicMeta } from '~~/shared/utils/topics'
 
 const route = useRoute()
 const { locale, t } = useI18n()
@@ -8,20 +9,18 @@ const localePath = useLocalePath()
 const tag = route.params.tag as string
 
 const articlesCollection = computed(() => getCollectionName('articles', locale.value))
+const { data: taggedArticles } = await useAsyncData(() => `tag:${locale.value}:${tag}`, async () => {
+  const articles = await queryCollection(articlesCollection.value).order('date', 'DESC').all()
 
-const { data: allArticles } = await useAsyncData(() => `tag:${route.path}`, () =>
-  queryCollection(articlesCollection.value).order('date', 'DESC').all()
-)
-
-const taggedArticles = computed(() =>
-  (allArticles.value ?? []).filter(article =>
-    (article.tags ?? []).map(t => t.toLowerCase()).includes(tag.toLowerCase())
+  return articles.filter(article =>
+    (article.tags ?? []).some(value => value.toLowerCase() === tag.toLowerCase())
   )
-)
+})
 
 const canonicalUrl = computed(() => absoluteSiteUrl(route.path))
 const pageTitle = `Articles tagged "${tag}"`
 const pageDescription = computed(() => t('tag.no_tagged', { tag }))
+const topicMeta = computed(() => getTopicMeta(tag, t))
 
 useSeoMeta({
   title: pageTitle,
@@ -54,7 +53,7 @@ useHead(() => ({
           itemListElement: taggedArticles.value.map((article, index) => ({
             '@type': 'ListItem',
             position: index + 1,
-            url: absoluteSiteUrl(article.path),
+            url: absoluteSiteUrl(localePath(article.path)),
             name: article.title,
           })),
         },
@@ -71,13 +70,13 @@ useHead(() => ({
             '@type': 'ListItem',
             position: 1,
             name: t('nav.home'),
-            item: absoluteSiteUrl(getLocalizedPath('/', locale.value)),
+            item: absoluteSiteUrl(localePath('/')),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: t('nav.topics'),
-            item: absoluteSiteUrl(getLocalizedPath('/tags', locale.value)),
+            item: absoluteSiteUrl(localePath('/tags')),
           },
           {
             '@type': 'ListItem',
@@ -113,7 +112,7 @@ function formatDate(date: string) {
       <template v-if="taggedArticles.length">
         <div class="mb-4 text-sm text-muted">
           {{ taggedArticles.length }} article{{ taggedArticles.length === 1 ? '' : 's' }} tagged with
-          <UBadge :label="tag" variant="subtle" size="sm" />
+          <UBadge :label="tag" :icon="topicMeta.icon" variant="subtle" size="sm" />
         </div>
 
         <UBlogPosts>
@@ -124,7 +123,7 @@ function formatDate(date: string) {
             :description="article.description"
             :date="formatDate(article.date)"
             :image="article.image"
-            :to="article.path"
+            :to="localePath(article.path)"
           />
         </UBlogPosts>
       </template>

@@ -16,7 +16,7 @@ Das JavaScript-Ökosystem bewegt sich schnell, aber seltene Releases in jüngste
 
 ## Der Elefant im Raum: Bun tritt Anthropic bei
 
-Zuerst die größere Geschichte. Im Dezember 2025 übernahm Anthropic Bun mit einem klaren Mandat: Bun zum Rückgrat der Infrastruktur von Claude Code, des Claude Agent SDK und jedes zukünftigen KI-Coding-Produkts des Unternehmens zu machen. Claude Code [wird bereits als Bun-Executable](/articles/claude-code-rise-ai-coding-tool-2026) an Millionen von Nutzern ausgeliefert — und wie Sumner im Übernahme-Post sagte, "wenn Bun kaputtgeht, geht Claude Code kaputt." Anthropic hat jetzt direkten Engineering-Anreiz, Bun exzellent zu halten.
+Zuerst die größere Geschichte. Im Dezember 2025 übernahm Anthropic Bun mit einem klaren Mandat: Bun zum Rückgrat der Infrastruktur von Claude Code, des Claude Agent SDK und jedes zukünftigen KI-Coding-Produkts des Unternehmens zu machen. Claude Code [wird bereits als Bun-Executable](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026) an Millionen von Nutzern ausgeliefert — und wie Sumner im Übernahme-Post sagte, "wenn Bun kaputtgeht, geht Claude Code kaputt." Anthropic hat jetzt direkten Engineering-Anreiz, Bun exzellent zu halten.
 
 Die Implikationen sind signifikant. Bun bleibt MIT-lizenziert und Open Source, und das Core-Team bleibt intakt. Aber die Roadmap hat jetzt einen engeren Fokus: Hochperformantes JavaScript-Tooling, Node.js-Kompatibilität und das Standard-Server-Runtime werden. Der Unterschied ist, dass Anthropics eigene Tools jetzt davon abhängen, dass Bun überlebt und gedeiht — eine kraftvolle Interessenangleichung.
 

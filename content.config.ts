@@ -28,34 +28,52 @@ export default defineContentConfig({
     // English collections (default)
     articles_en: defineCollection({
       type: 'page',
-      source: 'en/articles/**',
+      source: {
+        include: 'en/articles/**',
+        prefix: '/articles',
+      },
       schema: articleSchema,
     }),
     authors_en: defineCollection({
       type: 'page',
-      source: 'en/authors/**',
+      source: {
+        include: 'en/authors/**',
+        prefix: '/authors',
+      },
       schema: authorSchema,
     }),
     // French collections
     articles_fr: defineCollection({
       type: 'page',
-      source: 'fr/articles/**',
+      source: {
+        include: 'fr/articles/**',
+        prefix: '/articles',
+      },
       schema: articleSchema,
     }),
     authors_fr: defineCollection({
       type: 'page',
-      source: 'fr/authors/**',
+      source: {
+        include: 'fr/authors/**',
+        prefix: '/authors',
+      },
       schema: authorSchema,
     }),
     // German collections
     articles_de: defineCollection({
       type: 'page',
-      source: 'de/articles/**',
+      source: {
+        include: 'de/articles/**',
+        prefix: '/articles',
+      },
       schema: articleSchema,
     }),
     authors_de: defineCollection({
       type: 'page',
-      source: 'de/authors/**',
+      source: {
+        include: 'de/authors/**',
+        prefix: '/authors',
+      },
       schema: authorSchema,
     }),
   },

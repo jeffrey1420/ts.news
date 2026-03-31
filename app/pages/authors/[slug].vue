@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
-import { getCollectionName, DEFAULT_LOCALE, getLocalizedPath } from '~~/shared/utils/locale'
+import { getCollectionName, DEFAULT_LOCALE } from '~~/shared/utils/locale'
 
 const route = useRoute()
 const { locale, t } = useI18n()
@@ -11,18 +11,10 @@ const authorsCollection = computed(() => getCollectionName('authors', locale.val
 const articlesCollection = computed(() => getCollectionName('articles', locale.value))
 
 const { data: author } = await useAsyncData(() => `author:${route.path}`, async () => {
-  // Try current locale first
   let content = await queryCollection(authorsCollection.value).path(`/authors/${slug}`).first()
 
-  // Fallback to English if not found
   if (!content && locale.value !== DEFAULT_LOCALE) {
     content = await queryCollection(getCollectionName('authors', DEFAULT_LOCALE)).path(`/authors/${slug}`).first()
-  }
-
-  // Redirect to English version if content exists there
-  if (!content && locale.value !== DEFAULT_LOCALE) {
-    const enPath = route.path.replace(/^\/[a-z]{2}\//, '/')
-    navigateTo(enPath, { redirectCode: 302 })
   }
 
   return content
@@ -92,13 +84,13 @@ useHead(() => ({
             '@type': 'ListItem',
             position: 1,
             name: t('nav.home'),
-            item: absoluteSiteUrl(getLocalizedPath('/', locale.value)),
+            item: absoluteSiteUrl(localePath('/')),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: t('nav.about'),
-            item: absoluteSiteUrl(getLocalizedPath('/authors', locale.value)),
+            item: absoluteSiteUrl(localePath('/authors')),
           },
           {
             '@type': 'ListItem',
@@ -184,7 +176,7 @@ function formatDate(date: string) {
         <NuxtLink
           v-for="article in articles"
           :key="article.path"
-          :to="article.path"
+          :to="localePath(article.path)"
           class="block group"
         >
           <UCard class="hover:ring-1 hover:ring-default transition-all">

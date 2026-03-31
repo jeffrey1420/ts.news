@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 import { getCollectionName } from '~~/shared/utils/locale'
+import { resolveTopicLabel, topicDefinitions } from '~~/shared/utils/topics'
 
 const route = useRoute()
 const { locale, t } = useI18n()
@@ -43,13 +44,12 @@ const thisWeekArticles = computed(() =>
   (allArticles.value ?? []).filter(a => new Date(a.date) >= sevenDaysAgo.value)
 )
 
-const topicRails = [
-  { label: 'TypeScript', tags: ['typescript'] },
-  { label: t('tags.tooling'), tags: ['tooling', 'vite'] },
-  { label: t('tags.frameworks'), tags: ['framework', 'astro'] },
-  { label: t('tags.security'), tags: ['security'] },
-  { label: 'AI Devtools', tags: ['ai'] },
-] as const
+const topicRails = computed(() =>
+  topicDefinitions.map(topic => ({
+    ...topic,
+    label: resolveTopicLabel(topic, t),
+  }))
+)
 
 function articlesByTags(tags: readonly string[], limit = 3) {
   return (allArticles.value ?? [])
@@ -79,7 +79,7 @@ useHead(() => ({
           itemListElement: (allArticles.value ?? []).map((article, index) => ({
             '@type': 'ListItem',
             position: index + 1,
-            url: absoluteSiteUrl(article.path),
+            url: absoluteSiteUrl(localePath(article.path)),
             name: article.title,
           })),
         },
@@ -128,7 +128,7 @@ function formatDate(date: string) {
         :date="formatDate(featuredArticle.date)"
         :image="featuredArticle.image"
         :badge="featuredArticle.tags?.[0] ? { label: featuredArticle.tags[0], color: 'primary' as const, variant: 'subtle' as const } : undefined"
-        :to="featuredArticle.path"
+        :to="localePath(featuredArticle.path)"
         orientation="horizontal"
       />
     </UPageSection>
@@ -149,15 +149,22 @@ function formatDate(date: string) {
           :date="formatDate(article.date)"
           :image="article.image"
           :badge="article.tags?.[0] ? { label: article.tags[0], color: 'primary' as const, variant: 'subtle' as const } : undefined"
-          :to="article.path"
+          :to="localePath(article.path)"
         />
       </UBlogPosts>
     </UPageSection>
 
     <USeparator />
 
-    <template v-for="rail in topicRails" :key="rail.label">
-      <UPageSection :headline="rail.label" :title="t('home.latest_in_topic', { topic: rail.label })">
+    <template v-for="rail in topicRails" :key="rail.slug">
+      <UPageSection :title="t('home.latest_in_topic', { topic: rail.label })">
+        <template #headline>
+          <span class="inline-flex items-center gap-2">
+            <UIcon :name="rail.icon" class="h-4 w-4" />
+            {{ rail.label }}
+          </span>
+        </template>
+
         <UBlogPosts v-if="articlesByTags(rail.tags).length">
           <UBlogPost
             v-for="article in articlesByTags(rail.tags)"
@@ -167,7 +174,7 @@ function formatDate(date: string) {
             :date="formatDate(article.date)"
             :image="article.image"
             :badge="article.tags?.[0] ? { label: article.tags[0], color: 'primary' as const, variant: 'subtle' as const } : undefined"
-            :to="article.path"
+            :to="localePath(article.path)"
           />
         </UBlogPosts>
         <p v-else class="text-muted text-sm">

@@ -28,7 +28,7 @@ Der Migrationspfad von Vite 7 zu 8 wird vom Vite-Team als unkompliziert für die
 
  Rolldowns Aufstieg ist Teil einer breiteren Verschiebung. Die State of JavaScript 2025 Umfrage zeigte, dass Rolldown von 1% auf 10% Nutzung in einem einzigen Jahr sprang, noch vor dem offiziellen Vite 8 Release. Turbopack, Vercels Rust-basierter Nachfolger für Webpack, liegt bei 28% Nutzung — aber die Zufriedenheitswerte erzählen eine andere Geschichte. Vites Ökosystem-Graben hat sich als langlebig erwiesen. Diese Rust-basierte Tooling-Bewegung erstreckt sich über Vite hinaus: [VoidZero's Vite+](/articles/vite-plus-unified-toolchain) vereint Rolldown, Oxc und eine Suite anderer Rust-Tools unter einer einzigen CLI und repräsentiert die kohärenteste vereinheitlichte Oberfläche für das Rust-basierte JavaScript-Tooling bis heute.
 
-Das Muster ist konsistent: Tools, die in Rust geschrieben wurden, verdrängen JavaScript-basierte Pendants in der Build-Pipeline nicht, weil Entwickler Neuheiten hinterherjagen, sondern weil Leistungsunterschiede signifikant und real sind. TypeScript hat [den Go-Rewrite in Vorbereitung](/articles/typescript-7-native-preview-go-compiler). Vite hat Rolldown. Die JavaScript-Toolchain wird Stück für Stück in nativen Sprachen neu geschrieben.
+Das Muster ist konsistent: Tools, die in Rust geschrieben wurden, verdrängen JavaScript-basierte Pendants in der Build-Pipeline nicht, weil Entwickler Neuheiten hinterherjagen, sondern weil Leistungsunterschiede signifikant und real sind. TypeScript hat [den Go-Rewrite in Vorbereitung](/articles/2026-03-23-typescript-7-native-preview-go-compiler). Vite hat Rolldown. Die JavaScript-Toolchain wird Stück für Stück in nativen Sprachen neu geschrieben.
 
 ## Wann erscheint Vite 8?
 

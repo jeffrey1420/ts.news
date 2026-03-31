@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
-import { getLocaleLanguage, getLocaleOgTag, getLocalizedPath } from '~~/shared/utils/locale'
+import { getLocaleLanguage, getLocaleOgTag } from '~~/shared/utils/locale'
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
+import { resolveTopicLabel, topicDefinitions } from '~~/shared/utils/topics'
 
 const { loggedIn, user, clear } = useUserSession()
 const { locale, t } = useI18n()
@@ -9,18 +10,18 @@ const localePath = useLocalePath()
 
 const localeLanguage = computed(() => getLocaleLanguage(locale.value))
 const localeOgTag = computed(() => getLocaleOgTag(locale.value))
-const localizedHomeUrl = computed(() => absoluteSiteUrl(getLocalizedPath('/', locale.value)))
+const localizedHomeUrl = computed(() => absoluteSiteUrl(localePath('/')))
 
 const navItems = computed<NavigationMenuItem[]>(() => [
   { label: t('nav.home'), icon: 'i-lucide-home', to: localePath('/') },
   { label: t('nav.articles'), icon: 'i-lucide-newspaper', to: localePath('/articles') },
   { label: t('nav.about'), icon: 'i-lucide-user', to: localePath('/authors/lschvn') },
   { label: t('nav.topics'), icon: 'i-lucide-tag', children: [
-    { label: 'TypeScript', to: localePath('/tags/typescript') },
-    { label: t('tags.security'), to: localePath('/tags/security') },
-    { label: t('tags.frameworks'), to: localePath('/tags/framework') },
-    { label: t('tags.tooling'), to: localePath('/tags/tooling') },
-    { label: 'AI Devtools', to: localePath('/tags/ai') },
+    ...topicDefinitions.map(topic => ({
+      label: resolveTopicLabel(topic, t),
+      icon: topic.icon,
+      to: localePath(`/tags/${topic.slug}`),
+    })),
   ] },
 ])
 

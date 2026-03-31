@@ -28,7 +28,7 @@ Le chemin de migration de Vite 7 vers 8 est décrit par l'équipe Vite comme sim
 
 L'ascension de Rolldown fait partie d'un mouvement plus vaste. L'enquête State of JavaScript 2025 a montré Rolldown passant de 1% à 10% d'utilisation en un an, avant même la sortie officielle de Vite 8. Turbopack, l'alternative Rust de Vercel, est à 28% d'utilisation — mais les scores de satisfaction racontent une autre histoire. L'avantage éco-système de Vite s'est révélé durable. Ce mouvement d'outillage Rust s'étend au-delà de Vite : [VoidZero's Vite+](/articles/vite-plus-unified-toolchain) enveloppe Rolldown, Oxc, et une suite d'autres outils Rust sous une seule CLI, représentant l'interface unifiée la plus cohérente pour l'outillage JavaScript basé sur Rust à ce jour.
 
-Le schéma est cohérent : les outils écrits en Rust déplacent les équivalents basés sur JavaScript dans le pipeline de build non pas parce que les développeurs courent après la nouveauté, mais parce que les différences de performances sont significatives et réelles. TypeScript a [la réécriture Go prévue](/articles/typescript-7-native-preview-go-compiler). Vite a Rolldown. La boîte à outils JavaScript est réécrite en langages natifs, pièce par pièce.
+Le schéma est cohérent : les outils écrits en Rust déplacent les équivalents basés sur JavaScript dans le pipeline de build non pas parce que les développeurs courent après la nouveauté, mais parce que les différences de performances sont significatives et réelles. TypeScript a [la réécriture Go prévue](/articles/2026-03-23-typescript-7-native-preview-go-compiler). Vite a Rolldown. La boîte à outils JavaScript est réécrite en langages natifs, pièce par pièce.
 
 ## Quand sort Vite 8 ?
 
