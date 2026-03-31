@@ -2,7 +2,7 @@
 title: "Claude Code Source Map Leak Exposes Hidden Agent OS, Chrome Automation, and Privacy Gaps"
 description: "On March 30–31 2026, developers discovered that the npm package @anthropic-ai/claude-code@v2.1.88 included a production source map file that exposed the full TypeScript source code — revealing undocumented multi-agent orchestration, a hidden Chrome MCP server, an internal query engine, a tool permission system, and a three-tier telemetry system."
 date: 2026-03-31
-image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
+image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop"
 author: "lschvn"
 tags:
   [

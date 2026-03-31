@@ -2,7 +2,7 @@
 title: "Pretext: The DOM-Free Text Measurement Library That AI Coding Agents Are Already Using"
 description: "Cheng Lou just released Pretext, a pure JavaScript library that measures and lays out multiline text without touching the DOM. Here's why that matters for virtualization, layout control, and AI agents that write UI code."
 date: "2026-03-31"
-image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
+image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&h=630&fit=crop"
 author: lschvn
 tags: ["javascript", "typescript", "layout", "performance", "DOM", "library"]
 readingTime: 7
