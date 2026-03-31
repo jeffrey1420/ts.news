@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "articles": "Articles",
+    "about": "\u00c0 propos",
+    "topics": "Sujets"
+  },
+  "tags": {
+    "security": "S\u00e9curit\u00e9",
+    "frameworks": "Frameworks",
+    "tooling": "Outils"
+  },
+  "home": {
+    "hero_description": "Actualit\u00e9s quotidiennes TypeScript, JavaScript et web pour les d\u00e9veloppeurs qui livrent du code.",
+    "read_articles": "Lire les articles",
+    "stay_in_loop": "Restez inform\u00e9",
+    "rss_description": "Abonnez-vous \u00e0 notre flux RSS \u2014 ne manquez aucune histoire.",
+    "subscribe_rss": "S'abonner via RSS",
+    "featured": "\u00c0 la une",
+    "this_week": "Cette semaine en TS",
+    "this_week_description": "Ce qui s'est pass\u00e9 cette semaine",
+    "latest_in_topic": "Derniers articles {topic}",
+    "no_articles": "Pas encore d'articles."
+  },
+  "articles": {
+    "title": "Articles",
+    "description": "Toute l'actualit\u00e9 TypeScript, JavaScript, outils, s\u00e9curit\u00e9 et web en un seul endroit.",
+    "explore": "Explorez chaque article publi\u00e9 sur typescript.news, des sorties TypeScript aux incidents de s\u00e9curit\u00e9 de la cha\u00eene d'approvisionnement.",
+    "all": "Tous",
+    "showing_tagged": "{count} article{plural} avec le tag \"{tag}\"",
+    "no_articles": "Pas encore d'articles",
+    "check_back": "Revenez bient\u00f4t."
+  },
+  "article": {
+    "tldr": "R\u00e9sum\u00e9",
+    "faq_title": "Questions fr\u00e9quentes",
+    "related": "Articles connexes",
+    "related_description": "Plus de couverture avec des sujets et tags en commun.",
+    "comments": "Commentaires",
+    "post_comment": "Publier un commentaire",
+    "login_to_comment": "Connectez-vous pour participer \u00e0 la conversation.",
+    "no_comments": "Pas encore de commentaires. Soyez le premier \u00e0 partager vos pens\u00e9es.",
+    "min_read": "min de lecture",
+    "share_thoughts": "Partagez vos pens\u00e9es..."
+  },
+  "author": {
+    "articles_by": "Articles de {name}",
+    "no_articles": "Aucun article publi\u00e9 pour le moment."
+  },
+  "tag": {
+    "no_articles": "Aucun article trouv\u00e9",
+    "no_tagged": "Aucun article n'est actuellement associ\u00e9 au tag \"{tag}\".",
+    "browse_all": "Parcourir tous les articles",
+    "view_all_tags": "Voir tous les tags"
+  },
+  "footer": {
+    "copyright": "\u00a9 {year} typescript.news"
+  },
+  "common": {
+    "login": "Connexion"
+  }
+}

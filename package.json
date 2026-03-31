@@ -15,8 +15,10 @@
     "@nuxt/hints": "1.0.2",
     "@nuxt/image": "2.0.0",
     "@nuxt/ui": "4.5.1",
+    "@nuxtjs/i18n": "^10.2.4",
     "better-sqlite3": "^12.8.0",
     "nuxt": "^4.4.2",
-    "nuxt-auth-utils": "^0.5.29"
+    "nuxt-auth-utils": "^0.5.29",
+    "nuxt-llms": "^0.2.0"
   }
 }

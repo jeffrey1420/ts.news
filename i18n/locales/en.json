@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "Home",
+    "articles": "Articles",
+    "about": "About",
+    "topics": "Topics"
+  },
+  "tags": {
+    "security": "Security",
+    "frameworks": "Frameworks",
+    "tooling": "Tooling"
+  },
+  "home": {
+    "hero_description": "Daily TypeScript, JavaScript, and web platform news for developers who ship code.",
+    "read_articles": "Read articles",
+    "stay_in_loop": "Stay in the loop",
+    "rss_description": "Subscribe to our RSS feed — never miss a story.",
+    "subscribe_rss": "Subscribe via RSS",
+    "featured": "Featured",
+    "this_week": "This Week in TS",
+    "this_week_description": "What happened this week",
+    "latest_in_topic": "Latest in {topic}",
+    "no_articles": "No articles yet."
+  },
+  "articles": {
+    "title": "Articles",
+    "description": "TypeScript, JavaScript, tooling, security, and web platform coverage in one archive.",
+    "explore": "Explore every story published on typescript.news, from TypeScript releases and framework shifts to supply chain security incidents.",
+    "all": "All",
+    "showing_tagged": "Showing {count} article{plural} tagged \"{tag}\"",
+    "no_articles": "No articles yet",
+    "check_back": "Check back soon."
+  },
+  "article": {
+    "tldr": "TL;DR",
+    "faq_title": "Frequently Asked Questions",
+    "related": "Related articles",
+    "related_description": "More coverage with overlapping topics and tags.",
+    "comments": "Comments",
+    "post_comment": "Post comment",
+    "login_to_comment": "Log in to join the conversation.",
+    "no_comments": "No comments yet. Be the first to share your thoughts.",
+    "min_read": "min read",
+    "share_thoughts": "Share your thoughts..."
+  },
+  "author": {
+    "articles_by": "Articles by {name}",
+    "no_articles": "No articles published yet."
+  },
+  "tag": {
+    "no_articles": "No articles found",
+    "no_tagged": "No articles are currently tagged with '{tag}'.",
+    "browse_all": "Browse all articles",
+    "view_all_tags": "View all tags"
+  },
+  "footer": {
+    "copyright": "© {year} typescript.news"
+  },
+  "common": {
+    "login": "Log in"
+  }
+}

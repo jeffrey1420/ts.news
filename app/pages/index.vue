@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
+import { getCollectionName } from '~~/shared/utils/locale'
+
+const { locale, t } = useI18n()
+
+const articlesCollection = computed(() => getCollectionName('articles', locale.value))
 
 const { data: allArticles } = await useAsyncData('all-articles', () =>
-  queryCollection('articles').order('date', 'DESC').all()
+  queryCollection(articlesCollection.value).order('date', 'DESC').all()
 )
 
 const title = 'TypeScript & Web Dev News'
-const description = 'Daily TypeScript, JavaScript, and web platform news covering releases, tooling, security, frameworks, and developer workflows.'
+const description = t('home.hero_description')
 const canonicalUrl = absoluteSiteUrl('/')
 const ogImage = absoluteSiteUrl(siteConfig.defaultOgImage)
 
@@ -38,9 +43,9 @@ const thisWeekArticles = computed(() =>
 
 const topicRails = [
   { label: 'TypeScript', tags: ['typescript'] },
-  { label: 'Tooling', tags: ['tooling', 'vite'] },
-  { label: 'Frameworks', tags: ['framework', 'astro'] },
-  { label: 'Security', tags: ['security'] },
+  { label: t('tags.tooling'), tags: ['tooling', 'vite'] },
+  { label: t('tags.frameworks'), tags: ['framework', 'astro'] },
+  { label: t('tags.security'), tags: ['security'] },
   { label: 'AI Devtools', tags: ['ai'] },
 ] as const
 
@@ -82,7 +87,7 @@ useHead({
 })
 
 function formatDate(date: string) {
-  return new Date(date).toLocaleDateString('en-US', {
+  return new Date(date).toLocaleDateString(locale.value === 'en' ? 'en-US' : locale.value === 'fr' ? 'fr-FR' : 'de-DE', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -94,25 +99,25 @@ function formatDate(date: string) {
   <div>
     <UPageHero
       title="typescript.news"
-      description="Daily TypeScript, JavaScript, and web platform news for developers who ship code."
+      :description="t('home.hero_description')"
       :links="[
-        { label: 'Read articles', to: '/articles', icon: 'i-lucide-newspaper', size: 'lg' },
+        { label: t('home.read_articles'), to: '/articles', icon: 'i-lucide-newspaper', size: 'lg' },
       ]"
     />
 
     <UContainer>
       <UPageCTA
-        title="Stay in the loop"
-        description="Subscribe to our RSS feed — never miss a story."
+        :title="t('home.stay_in_loop')"
+        :description="t('home.rss_description')"
         :links="[
-          { label: 'Subscribe via RSS', to: '/rss.xml', icon: 'i-lucide-rss', color: 'neutral', variant: 'outline' },
+          { label: t('home.subscribe_rss'), to: '/rss.xml', icon: 'i-lucide-rss', color: 'neutral', variant: 'outline' },
         ]"
       />
     </UContainer>
 
     <UPageSection
       v-if="featuredArticle"
-      headline="Featured"
+      :headline="t('home.featured')"
       :title="featuredArticle.title"
     >
       <UBlogPost
@@ -130,8 +135,8 @@ function formatDate(date: string) {
 
     <UPageSection
       v-if="thisWeekArticles.length"
-      headline="This Week in TS"
-      title="What happened this week"
+      :headline="t('home.this_week')"
+      :title="t('home.this_week_description')"
     >
       <UBlogPosts>
         <UBlogPost
@@ -150,7 +155,7 @@ function formatDate(date: string) {
     <USeparator />
 
     <template v-for="rail in topicRails" :key="rail.label">
-      <UPageSection :headline="rail.label" :title="`Latest in ${rail.label}`">
+      <UPageSection :headline="rail.label" :title="t('home.latest_in_topic', { topic: rail.label })">
         <UBlogPosts v-if="articlesByTags(rail.tags).length">
           <UBlogPost
             v-for="article in articlesByTags(rail.tags)"
@@ -164,7 +169,7 @@ function formatDate(date: string) {
           />
         </UBlogPosts>
         <p v-else class="text-muted text-sm">
-          No articles yet.
+          {{ t('home.no_articles') }}
         </p>
       </UPageSection>
     </template>

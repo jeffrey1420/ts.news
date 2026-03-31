@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "articles": "Artikel",
+    "about": "\u00dcber uns",
+    "topics": "Themen"
+  },
+  "tags": {
+    "security": "Sicherheit",
+    "frameworks": "Frameworks",
+    "tooling": "Werkzeuge"
+  },
+  "home": {
+    "hero_description": "T\u00e4gliche TypeScript-, JavaScript- und Web-Plattform-Nachrichten f\u00fcr Entwickler, die Code ausliefern.",
+    "read_articles": "Artikel lesen",
+    "stay_in_loop": "Auf dem Laufenden bleiben",
+    "rss_description": "Abonnieren Sie unseren RSS-Feed \u2014 verpassen Sie keine Geschichte.",
+    "subscribe_rss": "Per RSS abonnieren",
+    "featured": "Empfohlen",
+    "this_week": "Diese Woche bei TS",
+    "this_week_description": "Was diese Woche passiert ist",
+    "latest_in_topic": "Neueste in {topic}",
+    "no_articles": "Noch keine Artikel."
+  },
+  "articles": {
+    "title": "Artikel",
+    "description": "TypeScript-, JavaScript-, Tooling-, Sicherheits- und Web-Plattform-Berichterstattung in einem Archiv.",
+    "explore": "Entdecken Sie jede auf typescript.news ver\u00f6ffentlichte Geschichte, von TypeScript-Versionen bis hin zu Sicherheitsvorf\u00e4llen in der Lieferkette.",
+    "all": "Alle",
+    "showing_tagged": "{count} Artikel mit dem Tag \"{tag}\"",
+    "no_articles": "Noch keine Artikel",
+    "check_back": "Schauen Sie bald wieder vorbei."
+  },
+  "article": {
+    "tldr": "Kurzfassung",
+    "faq_title": "H\u00e4ufig gestellte Fragen",
+    "related": "Verwandte Artikel",
+    "related_description": "Weitere Berichterstattung zu \u00e4hnlichen Themen und Tags.",
+    "comments": "Kommentare",
+    "post_comment": "Kommentar posten",
+    "login_to_comment": "Melden Sie sich an, um an der Diskussion teilzunehmen.",
+    "no_comments": "Noch keine Kommentare. Seien Sie der Erste, der seine Gedanken teilt.",
+    "min_read": "Min. Lesezeit",
+    "share_thoughts": "Teilen Sie Ihre Gedanken..."
+  },
+  "author": {
+    "articles_by": "Artikel von {name}",
+    "no_articles": "Noch keine Artikel ver\u00f6ffentlicht."
+  },
+  "tag": {
+    "no_articles": "Keine Artikel gefunden",
+    "no_tagged": "Derzeit gibt es keine Artikel mit dem Tag \"{tag}\".",
+    "browse_all": "Alle Artikel durchsuchen",
+    "view_all_tags": "Alle Tags anzeigen"
+  },
+  "footer": {
+    "copyright": "\u00a9 {year} typescript.news"
+  },
+  "common": {
+    "login": "Anmelden"
+  }
+}

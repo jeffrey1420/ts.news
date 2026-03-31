@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
+import { getCollectionName } from '~~/shared/utils/locale'
+
+const { locale, t } = useI18n()
+
+const articlesCollection = computed(() => getCollectionName('articles', locale.value))
 
 const { data: articles } = await useAsyncData('all-articles', () =>
-  queryCollection('articles').order('date', 'DESC').all()
+  queryCollection(articlesCollection.value).order('date', 'DESC').all()
 )
 
 const selectedTag = ref<string | null>(null)
@@ -23,8 +28,8 @@ const filteredArticles = computed(() => {
   return list.filter(article => (article.tags ?? []).includes(selectedTag.value!))
 })
 
-const title = 'Articles'
-const description = 'Archive of TypeScript, JavaScript, tooling, security, and web platform stories published on typescript.news.'
+const title = t('articles.title')
+const description = t('articles.description')
 const canonicalUrl = absoluteSiteUrl('/articles')
 const ogImage = absoluteSiteUrl(siteConfig.defaultOgImage)
 
@@ -69,7 +74,7 @@ useHead({
 })
 
 function formatDate(date: string) {
-  return new Date(date).toLocaleDateString('en-US', {
+  return new Date(date).toLocaleDateString(locale.value === 'en' ? 'en-US' : locale.value === 'fr' ? 'fr-FR' : 'de-DE', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -80,20 +85,20 @@ function formatDate(date: string) {
 <template>
   <div>
     <UPageHero
-      title="Articles"
-      description="TypeScript, JavaScript, tooling, security, and web platform coverage in one archive."
+      :title="t('articles.title')"
+      :description="t('articles.description')"
     />
 
     <UPageBody>
       <UContainer>
         <p class="mb-8 text-sm text-muted">
-          Explore every story published on typescript.news, from TypeScript releases and framework shifts to supply chain security incidents.
+          {{ t('articles.explore') }}
         </p>
 
         <!-- Tag filters -->
         <div v-if="allTags.length" class="flex flex-wrap gap-2 mb-6">
           <UButton
-            label="All"
+            :label="t('articles.all')"
             size="xs"
             :variant="selectedTag === null ? 'solid' : 'outline'"
             :color="selectedTag === null ? 'primary' : 'neutral'"
@@ -111,7 +116,7 @@ function formatDate(date: string) {
         </div>
 
         <p v-if="selectedTag" class="mb-6 text-sm text-muted">
-          Showing {{ filteredArticles.length }} article{{ filteredArticles.length === 1 ? '' : 's' }} tagged "{{ selectedTag }}"
+          {{ t('articles.showing_tagged', { count: filteredArticles.length, plural: filteredArticles.length === 1 ? '' : 's', tag: selectedTag }) }}
         </p>
 
         <UBlogPosts v-if="filteredArticles.length">
@@ -127,7 +132,7 @@ function formatDate(date: string) {
           />
         </UBlogPosts>
 
-        <UEmpty v-else icon="i-lucide-newspaper" title="No articles yet" description="Check back soon." />
+        <UEmpty v-else icon="i-lucide-newspaper" :title="t('articles.no_articles')" :description="t('articles.check_back')" />
       </UContainer>
     </UPageBody>
   </div>

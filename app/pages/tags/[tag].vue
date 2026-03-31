@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
+import { getCollectionName, DEFAULT_LOCALE } from '~~/shared/utils/locale'
 
 const route = useRoute()
+const { locale, t } = useI18n()
 const tag = route.params.tag as string
 
+const articlesCollection = computed(() => getCollectionName('articles', locale.value))
+
 const { data: allArticles } = await useAsyncData(`tag-${tag}`, () =>
-  queryCollection('articles').order('date', 'DESC').all()
+  queryCollection(articlesCollection.value).order('date', 'DESC').all()
 )
 
 const taggedArticles = computed(() =>
@@ -16,7 +20,7 @@ const taggedArticles = computed(() =>
 
 const canonicalUrl = absoluteSiteUrl('/tags/' + tag)
 const pageTitle = `Articles tagged "${tag}"`
-const pageDescription = `Browse all articles tagged with "${tag}" on ${siteConfig.name}.`
+const pageDescription = t('tag.no_tagged', { tag })
 
 useSeoMeta({
   title: pageTitle,
@@ -65,13 +69,13 @@ useHead({
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'Home',
+            name: t('nav.home'),
             item: absoluteSiteUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
-            name: 'Tags',
+            name: t('nav.topics'),
             item: absoluteSiteUrl('/tags'),
           },
           {
@@ -87,7 +91,7 @@ useHead({
 })
 
 function formatDate(date: string) {
-  return new Date(date).toLocaleDateString('en-US', {
+  return new Date(date).toLocaleDateString(locale.value === 'en' ? 'en-US' : locale.value === 'fr' ? 'fr-FR' : 'de-DE', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -127,12 +131,12 @@ function formatDate(date: string) {
       <template v-else>
         <UEmpty
           icon="i-lucide-tag"
-          title="No articles found"
-          :description="`No articles are currently tagged with '${tag}'.`"
+          :title="t('tag.no_articles')"
+          :description="t('tag.no_tagged', { tag })"
         >
           <template #footer>
             <UButton
-              label="Browse all articles"
+              :label="t('tag.browse_all')"
               to="/articles"
               color="primary"
             />
@@ -144,7 +148,7 @@ function formatDate(date: string) {
 
       <div class="text-center">
         <UButton
-          label="View all tags"
+          :label="t('tag.view_all_tags')"
           to="/tags"
           variant="outline"
           color="neutral"

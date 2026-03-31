@@ -1,19 +1,37 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
+import { getCollectionName, DEFAULT_LOCALE } from '~~/shared/utils/locale'
 
 const route = useRoute()
 const { loggedIn } = useUserSession()
+const { locale, t } = useI18n()
 
-const { data: article } = await useAsyncData(route.path, () =>
-  queryCollection('articles').path(route.path).first()
-)
+const articlesCollection = computed(() => getCollectionName('articles', locale.value))
+
+const { data: article } = await useAsyncData(route.path, async () => {
+  // Try current locale first
+  let content = await queryCollection(articlesCollection.value).path(route.path).first()
+
+  // Fallback to English if not found
+  if (!content && locale.value !== DEFAULT_LOCALE) {
+    content = await queryCollection(getCollectionName('articles', DEFAULT_LOCALE)).path(route.path).first()
+  }
+
+  // Redirect to English version if content exists there
+  if (!content && locale.value !== DEFAULT_LOCALE) {
+    const enPath = route.path.replace(/^\/[a-z]{2}\//, '/')
+    navigateTo(enPath, { redirectCode: 302 })
+  }
+
+  return content
+})
 
 if (!article.value) {
   throw createError({ statusCode: 404, statusMessage: 'Article not found', fatal: true })
 }
 
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
-  queryCollectionItemSurroundings('articles', route.path)
+  queryCollectionItemSurroundings(articlesCollection.value, route.path)
 )
 
 const { data: relatedArticles } = await useAsyncData(`${route.path}-related`, async () => {
@@ -23,7 +41,7 @@ const { data: relatedArticles } = await useAsyncData(`${route.path}-related`, as
     return []
   }
 
-  const articles = await queryCollection('articles')
+  const articles = await queryCollection(articlesCollection.value)
     .order('date', 'DESC')
     .all()
 
@@ -95,7 +113,7 @@ useHead({
         url: canonicalUrl,
         datePublished: new Date(article.value.date).toISOString(),
         dateModified: new Date(article.value.date).toISOString(),
-        inLanguage: 'en-US',
+        inLanguage: locale.value === 'en' ? 'en-US' : locale.value === 'fr' ? 'fr-FR' : 'de-DE',
         image: [articleImage],
         articleSection: articleTags[0],
         keywords: articleTags,
@@ -132,13 +150,13 @@ useHead({
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'Home',
+            name: t('nav.home'),
             item: absoluteSiteUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
-            name: 'Articles',
+            name: t('nav.articles'),
             item: absoluteSiteUrl('/articles'),
           },
           {
@@ -172,7 +190,7 @@ useHead({
 })
 
 function formatDate(date: string) {
-  return new Date(date).toLocaleDateString('en-US', {
+  return new Date(date).toLocaleDateString(locale.value === 'en' ? 'en-US' : locale.value === 'fr' ? 'fr-FR' : 'de-DE', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -235,7 +253,7 @@ async function postComment() {
           {{ article.author }}
         </NuxtLink>
         <time :datetime="article.date">{{ formatDate(article.date) }}</time>
-        <span v-if="article.readingTime">{{ article.readingTime }} min read</span>
+        <span v-if="article.readingTime">{{ article.readingTime }} {{ t('article.min_read') }}</span>
       </div>
     </header>
 
@@ -244,7 +262,7 @@ async function postComment() {
     <aside v-if="article.tldr?.length" class="mb-10 p-5 rounded-lg border border-primary/20 bg-primary/5">
       <h2 class="text-lg font-bold text-highlighted mb-3 flex items-center gap-2">
         <UIcon name="i-lucide-lightbulb" class="w-5 h-5 text-primary" />
-        TL;DR
+        {{ t('article.tldr') }}
       </h2>
       <ul class="space-y-2">
         <li v-for="(item, index) in article.tldr" :key="index" class="flex gap-2 text-default">
@@ -262,7 +280,7 @@ async function postComment() {
     <!-- FAQ -->
     <section v-if="article.faq?.length" class="my-12">
       <USeparator class="mb-8" />
-      <h2 class="text-xl font-bold text-highlighted mb-6">Frequently Asked Questions</h2>
+      <h2 class="text-xl font-bold text-highlighted mb-6">{{ t('article.faq_title') }}</h2>
       <UAccordion
         :items="article.faq.map((item: any) => ({ label: item.question, content: item.answer }))"
         :unmount-on-hide="false"
@@ -278,9 +296,9 @@ async function postComment() {
       <USeparator class="my-12" />
 
       <section>
-        <h2 class="text-xl font-bold text-highlighted mb-3">Related articles</h2>
+        <h2 class="text-xl font-bold text-highlighted mb-3">{{ t('article.related') }}</h2>
         <p class="text-sm text-muted mb-8">
-          More coverage with overlapping topics and tags.
+          {{ t('article.related_description') }}
         </p>
 
         <UCarousel
@@ -308,18 +326,18 @@ async function postComment() {
     <USeparator class="my-12" />
 
     <section>
-      <h2 class="text-xl font-bold text-highlighted mb-8">Comments</h2>
+      <h2 class="text-xl font-bold text-highlighted mb-8">{{ t('article.comments') }}</h2>
 
       <!-- Post form -->
       <div v-if="loggedIn" class="mb-10">
         <UTextarea
           v-model="newComment"
-          placeholder="Share your thoughts..."
+          :placeholder="t('article.share_thoughts')"
           :rows="3"
           class="mb-3"
         />
         <UButton
-          label="Post comment"
+          :label="t('article.post_comment')"
           :loading="posting"
           :disabled="!newComment.trim()"
           size="sm"
@@ -328,8 +346,8 @@ async function postComment() {
       </div>
       <div v-else class="mb-10 p-5 rounded-lg bg-muted text-center">
         <p class="text-sm text-muted">
-          <NuxtLink to="/login" class="text-primary font-medium underline underline-offset-2">Log in</NuxtLink>
-          to join the conversation.
+          <NuxtLink to="/login" class="text-primary font-medium underline underline-offset-2">{{ t('common.login') }}</NuxtLink>
+          {{ t('article.login_to_comment') }}
         </p>
       </div>
 
@@ -343,7 +361,7 @@ async function postComment() {
           <p class="text-default leading-relaxed">{{ comment.content }}</p>
         </div>
       </div>
-      <p v-else class="text-sm text-muted">No comments yet. Be the first to share your thoughts.</p>
+      <p v-else class="text-sm text-muted">{{ t('article.no_comments') }}</p>
     </section>
   </article>
 </template>

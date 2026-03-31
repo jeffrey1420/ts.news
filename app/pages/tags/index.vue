@@ -1,0 +1,78 @@
+<script setup lang="ts">
+import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
+import { getCollectionName } from '~~/shared/utils/locale'
+
+const { locale, t } = useI18n()
+
+const articlesCollection = computed(() => getCollectionName('articles', locale.value))
+
+const { data: articles } = await useAsyncData('tags-list', () =>
+  queryCollection(articlesCollection.value).order('date', 'DESC').all()
+)
+
+const allTags = computed(() => {
+  const tagSet = new Set<string>()
+  for (const article of articles.value ?? []) {
+    for (const tag of article.tags ?? []) {
+      tagSet.add(tag)
+    }
+  }
+  return [...tagSet].sort()
+})
+
+const title = t('tag.view_all_tags')
+const description = `Browse all article tags on ${siteConfig.name}.`
+const canonicalUrl = absoluteSiteUrl('/tags')
+
+useSeoMeta({
+  title,
+  description,
+  ogTitle: `${title} | ${siteConfig.name}`,
+  ogDescription: description,
+  ogType: 'website',
+  ogUrl: canonicalUrl,
+  ogImage: absoluteSiteUrl(siteConfig.defaultOgImage),
+  ogImageAlt: siteConfig.name,
+  twitterTitle: `${title} | ${siteConfig.name}`,
+  twitterDescription: description,
+  twitterImage: absoluteSiteUrl(siteConfig.defaultOgImage),
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: canonicalUrl }],
+})
+</script>
+
+<template>
+  <div>
+    <UPageHero
+      :title="t('tag.view_all_tags')"
+      :description="description"
+    />
+
+    <UPageBody>
+      <UContainer>
+        <div v-if="allTags.length" class="flex flex-wrap gap-3">
+          <NuxtLink
+            v-for="tag in allTags"
+            :key="tag"
+            :to="`/tags/${tag}`"
+          >
+            <UBadge
+              :label="tag"
+              variant="subtle"
+              size="lg"
+              class="hover:bg-primary/20 transition-colors cursor-pointer"
+            />
+          </NuxtLink>
+        </div>
+        <UEmpty
+          v-else
+          icon="i-lucide-tag"
+          :title="t('tag.no_articles')"
+          :description="t('articles.check_back')"
+        />
+      </UContainer>
+    </UPageBody>
+  </div>
+</template>

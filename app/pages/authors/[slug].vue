@@ -1,19 +1,38 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
+import { getCollectionName, DEFAULT_LOCALE } from '~~/shared/utils/locale'
 
 const route = useRoute()
+const { locale, t } = useI18n()
 const slug = route.params.slug as string
 
-const { data: author } = await useAsyncData(`author-${slug}`, () =>
-  queryCollection('authors').path(`/authors/${slug}`).first()
-)
+const authorsCollection = computed(() => getCollectionName('authors', locale.value))
+const articlesCollection = computed(() => getCollectionName('articles', locale.value))
+
+const { data: author } = await useAsyncData(`author-${slug}`, async () => {
+  // Try current locale first
+  let content = await queryCollection(authorsCollection.value).path(`/authors/${slug}`).first()
+
+  // Fallback to English if not found
+  if (!content && locale.value !== DEFAULT_LOCALE) {
+    content = await queryCollection(getCollectionName('authors', DEFAULT_LOCALE)).path(`/authors/${slug}`).first()
+  }
+
+  // Redirect to English version if content exists there
+  if (!content && locale.value !== DEFAULT_LOCALE) {
+    const enPath = route.path.replace(/^\/[a-z]{2}\//, '/')
+    navigateTo(enPath, { redirectCode: 302 })
+  }
+
+  return content
+})
 
 if (!author.value) {
   throw createError({ statusCode: 404, statusMessage: 'Author not found', fatal: true })
 }
 
 const { data: articles } = await useAsyncData(`author-${slug}-articles`, async () => {
-  const allArticles = await queryCollection('articles')
+  const allArticles = await queryCollection(articlesCollection.value)
     .order('date', 'DESC')
     .all()
 
@@ -71,13 +90,13 @@ useHead({
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'Home',
+            name: t('nav.home'),
             item: absoluteSiteUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
-            name: 'Authors',
+            name: t('nav.about'),
             item: absoluteSiteUrl('/authors'),
           },
           {
@@ -93,7 +112,7 @@ useHead({
 })
 
 function formatDate(date: string) {
-  return new Date(date).toLocaleDateString('en-US', {
+  return new Date(date).toLocaleDateString(locale.value === 'en' ? 'en-US' : locale.value === 'fr' ? 'fr-FR' : 'de-DE', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -106,7 +125,7 @@ function formatDate(date: string) {
     <!-- Breadcrumb -->
     <nav class="mb-8">
       <ol class="flex items-center gap-2 text-sm text-muted">
-        <li><NuxtLink to="/" class="hover:text-default transition-colors">Home</NuxtLink></li>
+        <li><NuxtLink to="/" class="hover:text-default transition-colors">{{ t('nav.home') }}</NuxtLink></li>
         <li>/</li>
         <li class="text-default">{{ author.name }}</li>
       </ol>
@@ -158,7 +177,7 @@ function formatDate(date: string) {
 
     <!-- Articles by Author -->
     <section v-if="articles?.length">
-      <h2 class="text-xl font-bold text-highlighted mb-8">Articles by {{ author.name }}</h2>
+      <h2 class="text-xl font-bold text-highlighted mb-8">{{ t('author.articles_by', { name: author.name }) }}</h2>
 
       <div class="space-y-8">
         <NuxtLink
@@ -183,13 +202,13 @@ function formatDate(date: string) {
             <p class="text-sm text-muted line-clamp-2 mb-3">{{ article.description }}</p>
             <div class="flex items-center gap-3 text-xs text-dimmed">
               <time :datetime="article.date">{{ formatDate(article.date) }}</time>
-              <span v-if="article.readingTime">{{ article.readingTime }} min read</span>
+              <span v-if="article.readingTime">{{ article.readingTime }} {{ t('article.min_read') }}</span>
             </div>
           </UCard>
         </NuxtLink>
       </div>
     </section>
 
-    <p v-else class="text-sm text-muted">No articles published yet.</p>
+    <p v-else class="text-sm text-muted">{{ t('author.no_articles') }}</p>
   </article>
 </template>

@@ -3,19 +3,20 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 
 const { loggedIn, user, clear } = useUserSession()
+const { locale, t } = useI18n()
 
-const navItems: NavigationMenuItem[] = [
-  { label: 'Home', icon: 'i-lucide-home', to: '/' },
-  { label: 'Articles', icon: 'i-lucide-newspaper', to: '/articles' },
-  { label: 'About', icon: 'i-lucide-user', to: '/authors/lschvn' },
-  { label: 'Topics', icon: 'i-lucide-tag', children: [
+const navItems = computed<NavigationMenuItem[]>(() => [
+  { label: t('nav.home'), icon: 'i-lucide-home', to: '/' },
+  { label: t('nav.articles'), icon: 'i-lucide-newspaper', to: '/articles' },
+  { label: t('nav.about'), icon: 'i-lucide-user', to: '/authors/lschvn' },
+  { label: t('nav.topics'), icon: 'i-lucide-tag', children: [
     { label: 'TypeScript', to: '/tags/typescript' },
-    { label: 'Security', to: '/tags/security' },
-    { label: 'Frameworks', to: '/tags/framework' },
-    { label: 'Tooling', to: '/tags/tooling' },
+    { label: t('tags.security'), to: '/tags/security' },
+    { label: t('tags.frameworks'), to: '/tags/framework' },
+    { label: t('tags.tooling'), to: '/tags/tooling' },
     { label: 'AI Devtools', to: '/tags/ai' },
   ] },
-]
+])
 
 useHead({
   titleTemplate: (title) => title ? `${title} · ${siteConfig.name}` : siteConfig.name,
@@ -74,6 +75,7 @@ async function logout() {
       <UNavigationMenu :items="navItems" />
 
       <template #right>
+        <LanguageSwitcher />
         <UButton icon="i-lucide-github" variant="ghost" color="neutral" size="sm" to="https://github.com/jeffrey1420/ts.news" target="_blank" />
         <UButton icon="i-lucide-rss" variant="ghost" color="neutral" size="sm" to="/rss.xml" />
 
