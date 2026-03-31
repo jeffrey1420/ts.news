@@ -21,9 +21,9 @@ The migration path from Vite 7 to 8 is described by the Vite team as straightfor
 
 ## A Larger Trend: Rust Eating the Build Pipeline
 
-Rolldown's ascension is part of a broader shift. The State of JavaScript 2025 survey showed Rolldown jumping from 1% to 10% usage in a single year, even before Vite 8's official release. Turbopack, Vercel's Rust-based alternative, sits at 28% usage — but the satisfaction scores tell a different story. Vite's ecosystem moat has proven durable.
+Rolldown's ascension is part of a broader shift. The State of JavaScript 2025 survey showed Rolldown jumping from 1% to 10% usage in a single year, even before Vite 8's official release. Turbopack, Vercel's Rust-based alternative, sits at 28% usage — but the satisfaction scores tell a different story. Vite's ecosystem moat has proven durable. This Rust-based tooling movement extends beyond Vite: [VoidZero's Vite+](/articles/vite-plus-unified-toolchain) wraps Rolldown, Oxc, and a suite of other Rust tools under a single CLI, representing the most coherent unified interface to the Rust-based JavaScript toolchain to date.
 
-The pattern is consistent: tools written in Rust are displacing JavaScript-based equivalents in the build pipeline not because developers are chasing novelty, but because performance differences are significant and real. TypeScript has the Go rewrite coming. Vite has Rolldown. The JavaScript toolchain is being rewritten in native languages, piece by piece.
+The pattern is consistent: tools written in Rust are displacing JavaScript-based equivalents in the build pipeline not because developers are chasing novelty, but because performance differences are significant and real. TypeScript has [the Go rewrite coming](/articles/typescript-7-native-preview-go-compiler). Vite has Rolldown. The JavaScript toolchain is being rewritten in native languages, piece by piece.
 
 ## When Does Vite 8 Land?
 

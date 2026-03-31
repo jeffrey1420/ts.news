@@ -19,7 +19,7 @@ The numbers are damning in the best way. Daniel Roe, Nuxt core team leader, put 
 
 > TypeScript has won. Not as a bundler, but as a language.
 
-With type stripping now available in stable Node.js, the last technical barriers are crumbling. The question is no longer whether to use TypeScript — it's how fast you can migrate.
+With type stripping now available in stable [Node.js](/articles/2026-03-24-bun-vs-node-vs-deno-2026-runtime-benchmark), the last technical barriers are crumbling. The question is no longer whether to use TypeScript — it's how fast you can migrate.
 
 ## Build Tools: Vite Devastates Webpack
 
@@ -27,7 +27,7 @@ The build tool narrative is equally decisive. Vite sits at **84% usage with a 98
 
 One respondent described the current state: "trying to understand legacy code that uses Webpack can be painful." That sentiment resonates.
 
-Turbopack, Vercel's Rust-based successor to Webpack, sits at just 28% usage. Despite significant marketing push, it hasn't gained the traction many expected. The Rust-based future of the build pipeline might instead be [Rolldown](https://rolldown.rs) — the Rollup-compatible toolchain that jumped from 1% to 10% usage in a single year.
+Turbopack, Vercel's Rust-based successor to Webpack, sits at just 28% usage. Despite significant marketing push, it hasn't gained the traction many expected. The Rust-based future of the build pipeline might instead be [Rolldown](/articles/2026-03-26-vite-8-rolldown-era) — the Rollup-compatible toolchain that jumped from 1% to 10% usage in a single year.
 
 ## Frontend Frameworks: React Dominates, but Next.js Draws Fire
 

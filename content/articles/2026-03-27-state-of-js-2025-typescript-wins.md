@@ -13,13 +13,13 @@ The [State of JavaScript 2025](https://2025.stateofjs.com/en-US) survey results 
 
 ## TypeScript Has Won — Now What?
 
-The headline number: 40 percent of respondents now write exclusively in TypeScript, up from 34 percent in 2024 and 28 percent in 2022. Only 6 percent use plain JavaScript exclusively. Daniel Roe, Nuxt core team leader, [put it plainly](https://2025.stateofjs.com/en-US/conclusion/) in the survey's conclusion: "TypeScript has won. Not as a bundler, but as a language."
+The headline number: 40 percent of respondents now write exclusively in TypeScript — a trend that underscores why [TypeScript 6.0](/articles/2026-03-26-typescript-6-0-final-javascript-release), the last JS-based release before the native Go rewrite, is such a pivotal transition point for the ecosystem. That figure is up from 34 percent in 2024 and 28 percent in 2022. Only 6 percent use plain JavaScript exclusively. Daniel Roe, Nuxt core team leader, [put it plainly](https://2025.stateofjs.com/en-US/conclusion/) in the survey's conclusion: "TypeScript has won. Not as a bundler, but as a language."
 
 The interesting tension is that "lack of static typing" remains the number one language pain point reported — among developers who haven't adopted TypeScript. When asked how types should work natively in JavaScript, TypeScript-like annotations led with 5,380 votes, ahead of runtime types at 3,524.
 
 ## Build Tools: Vite's Satisfaction Dominance
 
-Vite has effectively overtaken Webpack in developer sentiment. While Webpack retains slightly higher overall usage (87% versus 84%), the satisfaction gap is stark: Vite scores 98 percent, Webpack scores 26 percent — down from 36 percent in 2024.
+Vite has effectively overtaken Webpack in developer sentiment. While Webpack retains slightly higher overall usage (87% versus 84%), the satisfaction gap is stark: [Vite](/articles/2026-03-26-vite-8-rolldown-era) scores 98 percent, Webpack scores 26 percent — down from 36 percent in 2024.
 
 One respondent's comment captures the mood: "Trying to understand legacy code that uses Webpack can be painful."
 
@@ -41,7 +41,7 @@ AI-assisted development patterns are shifting. Claude usage doubled from 22 to 4
 
 ## Backend: Node Holds, Bun Grows
 
-On the runtime side, Node.js remains dominant at 90 percent. Bun sits in third place at 21 percent — a 4 percent gain over the prior year — well ahead of Deno at 11 percent.
+On the runtime side, Node.js remains dominant at 90 percent. [Bun](/articles/2026-03-30--bun-v1-3-11-cron-anthropic) sits in third place at 21 percent — a 4 percent gain over the prior year — well ahead of Deno at 11 percent. For a deeper look at how the three runtimes compare across throughput, cold starts, and async performance, see our [2026 runtime benchmark analysis](/articles/2026-03-24-bun-vs-node-vs-deno-2026-runtime-benchmark).
 
 The Temporal API, the long-standing proposal to replace JavaScript's problematic `Date` object, saw excitement decline 22 percent year-over-year as it transitions from proposal to browser implementation. The API remains the most anticipated proposal in the survey.
 

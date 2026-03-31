@@ -19,7 +19,7 @@ The release also aligns WebStorm with TypeScript 6 changes, including updates to
 
 ## AI Chat Gets Serious
 
-The AI story in this release is multi-agent by design. In addition to Junie and Claude Agent, WebStorm 2026.1 adds Codex to the IDE's built-in AI chat. The JetBrains AI chat now also supports Cursor, GitHub Copilot, and any other agents published to the ACP Registry.
+The AI story in this release is multi-agent by design. In addition to Junie and [Claude Agent](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026), WebStorm 2026.1 adds [Codex](/articles/2026-03-25-ai-dev-tool-rankings-march-2026) to the IDE's built-in AI chat. The JetBrains AI chat now also supports Cursor, GitHub Copilot, and any other agents published to the ACP Registry.
 
 The ACP Registry, introduced earlier this year, lets you browse and install agents without leaving the IDE. The idea is straightforward: different agents excel at different tasks, and being able to swap between them without breaking your workflow is the goal.
 

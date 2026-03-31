@@ -39,7 +39,7 @@ Eleven tools are ranked, covering the spectrum from IDE extensions to full brows
 |------|------|-------|
 | #1 | Cursor | Gold standard, broadest adoption |
 | #2 | Antigravity | Surges to second, free during preview with Claude Opus 4.5, Gemini 3 Flash, GPT-OSS |
-| #3 | Claude Code | Strong for complex, multi-step tasks |
+| #3 | [Claude Code](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026) | Strong for complex, multi-step tasks |
 | #4 | GitHub Copilot | Deep IDE integration, enterprise-friendly |
 | #5 | Codex | OpenAI's cloud-native coding agent re-enters with parallel sandboxed execution and automatic PR creation |
 

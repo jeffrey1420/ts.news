@@ -7,7 +7,7 @@ author: "ts.news"
 tags: ["security", "npm", "supply-chain", "javascript", "node.js"]
 ---
 
-Two malicious versions of **axios** — a library downloaded over 300 million times every week — were published to npm on March 31, 2026, and caught within hours. **axios@1.14.1** and **axios@0.30.4** shipped with a hidden dependency that did nothing except execute a postinstall dropper. The dropper fetched OS-specific second-stage payloads from a live command-and-control server, then erased itself and replaced its own manifest to hide the evidence.
+Two malicious versions of **axios** — a library downloaded over 300 million times every week, deeply embedded in the [Node.js](/articles/2026-03-24-bun-vs-node-vs-deno-2026-runtime-benchmark) ecosystem — were published to npm on March 31, 2026, and caught within hours. **axios@1.14.1** and **axios@0.30.4** shipped with a hidden dependency that did nothing except execute a postinstall dropper. The dropper fetched OS-specific second-stage payloads from a live command-and-control server, then erased itself and replaced its own manifest to hide the evidence.
 
 If you installed either of those versions, assume your system is compromised.
 
@@ -23,7 +23,7 @@ If you installed either of those versions, assume your system is compromised.
 
 ### Step 1 — Maintainer Account Hijack
 
-The attacker compromised the npm account of jasonsaayman, the lead axios maintainer. They changed the registered email to an attacker-controlled ProtonMail address, then published malicious builds manually via npm CLI — bypassing the project's normal GitHub Actions CI/CD pipeline.
+The attacker compromised the npm account of jasonsaayman, the lead axios maintainer. They changed the registered email to an attacker-controlled ProtonMail address, then published malicious builds manually via npm CLI — bypassing the project's normal GitHub Actions CI/CD pipeline. This kind of account-level compromise is a reminder of why the JavaScript ecosystem's shift toward [OIDC Trusted Publishers](/articles/2026-03-26-typescript-6-0-final-javascript-release) matters: cryptographic publish provenance makes it harder for an attacker to pass off a malicious package as legitimate.
 
 A critical forensic signal: every legitimate axios 1.x release is published via npm's OIDC Trusted Publisher mechanism, cryptographically bound to a verified GitHub Actions workflow. The malicious 1.14.1 breaks that pattern entirely — no trustedPublisher, no gitHead, no corresponding Git commit or tag.
 

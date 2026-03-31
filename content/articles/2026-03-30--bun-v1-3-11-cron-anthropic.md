@@ -11,7 +11,7 @@ The JavaScript ecosystem moves fast, but few releases in recent memory carry as 
 
 ## The Elephant in the Room: Bun Joins Anthropic
 
-First, the bigger story. In December 2025, Anthropic acquired Bun with a clear mandate: make Bun the infrastructure backbone of Claude Code, the Claude Agent SDK, and every future AI coding product the company builds. Claude Code already ships as a Bun executable to millions of users — and as Sumner put it in the acquisition post, "if Bun breaks, Claude Code breaks." Anthropic now has direct engineering incentive to keep Bun excellent.
+First, the bigger story. In December 2025, Anthropic acquired Bun with a clear mandate: make Bun the infrastructure backbone of Claude Code, the Claude Agent SDK, and every future AI coding product the company builds. Claude Code already [ships as a Bun executable](/articles/claude-code-rise-ai-coding-tool-2026) to millions of users — and as Sumner put it in the acquisition post, "if Bun breaks, Claude Code breaks." Anthropic now has direct engineering incentive to keep Bun excellent.
 
 The implications are significant. Bun stays MIT-licensed and open source, and the core team remains intact. But the roadmap now has a tighter focus: high-performance JavaScript tooling, Node.js compatibility, and becoming the default server-side runtime. The difference is that Anthropic's own tooling now depends on Bun surviving and thriving — a powerful alignment of interests.
 
@@ -103,7 +103,7 @@ When you `import { Button } from 'antd'`, the bundler traditionally has to parse
 
 ## What This Means for the Ecosystem
 
-The Bun-and-Anthropic pairing is more than an acquisition — it's a statement of intent about where AI-assisted development is heading. The tools that write, test, and deploy code at scale are increasingly the same tools developers use to run their servers locally. Bun positioning itself as the "all-in-one" runtime (bundler, test runner, package manager, server runtime) makes it a natural fit for AI agents that need to execute code reliably across environments.
+The Bun-and-Anthropic pairing is more than an acquisition — it's a statement of intent about where AI-assisted development is heading. The tools that write, test, and deploy code at scale are increasingly the same tools developers use to run their servers locally. Bun positioning itself as the "all-in-one" runtime (bundler, test runner, package manager, server runtime) makes it a natural fit for AI agents that need to execute code reliably across environments. For context on how Bun's performance compares to Node.js and Deno in independent benchmarks, see our [runtime showdown](/articles/bun-vs-node-vs-deno-2026-runtime-benchmark).
 
 For TypeScript developers specifically, the full TC39 decorator support in v1.3.10 is a quiet but important unlock. The decorator proposal has been in stage 3 for over two years and is widely expected to reach stage 4 — and eventually land in the ECMAScript spec — in the near future. Bun's early support means you can start writing future-proof decorator-based code today.
 

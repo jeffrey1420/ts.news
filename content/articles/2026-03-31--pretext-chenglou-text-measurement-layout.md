@@ -133,13 +133,15 @@ The obvious answer is UI library authors and virtualization layer maintainers. B
 
 > "Development time verification (especially now with AI) that labels on e.g. buttons don't overflow to the next line, browser-free"
 
-When an AI generates UI code, it currently has no way to know if a label will overflow without running the code in a browser. Pretext gives AI agents the ability to predict text layout at generation time — before the code runs. That's a meaningful capability for AI-assisted UI development.
+When an AI generates UI code, it currently has no way to know if a label will overflow without running the code in a browser. Pretext gives AI agents the ability to predict text layout at generation time — before the code runs. That's a meaningful capability for AI-assisted UI development. For a broader look at how AI coding tools like [Claude Code](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026) and Cursor are evolving the developer experience, see our [AI dev tool rankings](/articles/2026-03-25-ai-dev-tool-rankings-march-2026).
 
 The library also matters for:
 - **Canvas/SVG rendering** where you don't have a DOM at all
 - **Server-side layout calculation** (server-side rendering without a DOM)
 - **Game UIs** built on canvas
 - **Native app toolkits** that embed a JS engine but don't expose the browser's layout system
+
+[Bun](/articles/2026-03-30--bun-v1-3-11-cron-anthropic) is one such environment where Pretext's approach shines — with its embedded JavaScript engine and native TypeScript support, Pretext can calculate layouts server-side without a DOM at all.
 
 ## Installation
 

@@ -9,7 +9,7 @@ readingTime: 11
 image: "https://cursor.com/public/opengraph-image.png"
 ---
 
-Eight months. That's how long it took for Claude Code to go from launch to the most-loved AI coding tool in the developer community.
+Eight months. That's how long it took for [Claude Code](/articles/2026-03-25-ai-dev-tool-rankings-march-2026) to go from launch to the most-loved AI coding tool in the developer community.
 
 Released in May 2025, Claude Code from Anthropic reached a 46% "most loved" rating among developers by early 2026, according to survey data. Cursor sat at 19%, GitHub Copilot at 9%. For context, those numbers represent a stunning reversal of the market that had been dominated by Copilot for three years and Cursor for two.
 
@@ -29,7 +29,7 @@ That sounds primitive. In practice, it's the most capable tool in the category f
 
 **What makes it different:** Claude Code lives in the shell, not in an editor. It has direct access to your file system, git history, test suite, and terminal output. When you ask it to build a feature, it reads relevant files, checks git context, writes changes, runs tests, and iterates based on what breaks — all without you clicking anything. The agentic loop is tighter than editor-based tools because it isn't constrained by a plugin architecture.
 
-The model powering it is Claude Opus 4.6, which leads SWE-bench at 74.4% — the most widely-used benchmark for AI coding performance on real software engineering tasks.
+The model powering it is Claude Opus 4.6, which leads [SWE-bench](/articles/2026-03-23-typescript-7-native-preview-go-compiler) at 74.4% — the most widely-used benchmark for AI coding performance on real software engineering tasks.
 
 **Where Claude Code genuinely shines:**
 - Large refactors across many files. It can take a codebase of tens of thousands of lines, understand the architecture, and execute a refactor consistently. Editor-based tools typically struggle past a few files at a time.
@@ -48,7 +48,7 @@ The model powering it is Claude Opus 4.6, which leads SWE-bench at 74.4% — the
 
 Cursor is a fork of VS Code with AI deeply integrated into the editing experience. It launched in 2023 and built a loyal following among developers who wanted AI capabilities without changing their workflow.
 
-In 2026, Cursor remains the tool of choice for a significant portion of the professional developer community — not because it wins on benchmarks, but because it fits naturally into how most developers already work.
+In 2026, [Cursor](/articles/cursor-composer-2-kimi-k25) remains the tool of choice for a significant portion of the professional developer community — not because it wins on benchmarks, but because it fits naturally into how most developers already work.
 
 **What makes it different:** Cursor gives you everything VS Code gives you — all your existing extensions, keybindings, and settings — with AI layered on top. The Composer feature handles multi-file instructions. The chat sidebar answers questions about your codebase. Autocomplete is fast and context-aware. The key difference from Claude Code is that Cursor is editor-first: the AI works with the code you're looking at, not from a birds-eye view of your whole repository.
 

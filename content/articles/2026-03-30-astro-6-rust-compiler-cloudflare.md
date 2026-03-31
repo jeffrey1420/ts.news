@@ -54,7 +54,7 @@ Build-time and live collections coexist in the same project. If your content doe
 
 Astro has been quietly working on a Rust-based compiler for `.astro` files for over a year. Astro 6.0 ships it as an experimental opt-in — the successor to the original Go-based compiler the framework has used since its early days. The team is candid about the status: it's early, but the results already impress in some cases, and reliability is catching up.
 
-The Rust compiler plugs into Astro's existing build pipeline. Enable it in your `astro.config.mjs`:
+This is part of a broader trend in the JavaScript ecosystem: tooling rewrites in native languages. Vite 8's [Rolldown bundler](/articles/2026-03-26-vite-8-rolldown-era) and the [TypeScript compiler's Go rewrite](/articles/2026-03-23-typescript-7-native-preview-go-compiler) follow the same pattern. The Rust compiler plugs into Astro's existing build pipeline. Enable it in your `astro.config.mjs`:
 
 ```js
 import { defineConfig } from 'astro/config';
@@ -138,6 +138,8 @@ Rounding out the release: i18n fallback routes are now exposed to Astro's hook s
 ## What This Means for the Ecosystem
 
 Astro's trajectory is distinct from React or Vue — it never tried to be an application framework. Instead, it doubled down on the assumption that most of the web is content, not interactive state, and that serving HTML efficiently matters. The Cloudflare partnership and the Rust compiler investment suggest that thesis is only getting sharper.
+
+The Cloudflare alignment extends beyond hosting — see how Cloudflare has also been [rebuilding Next.js with AI](/articles/vinext-cloudflare-vercel) as part of its broader developer platform strategy.
 
 The Rust compiler in particular is worth watching. If Astro's `.astro` compiler lands in Rust with performance and reliability gains, it creates a credible second data point beyond Oxc/Rolldown that the JavaScript community's tooling rewrite in native languages has real momentum.
 

@@ -19,7 +19,7 @@ In early 2025, Microsoft announced [Project Corsa](https://devblogs.microsoft.co
 
 The initial benchmarks were striking. On the VS Code codebase itself — a large, real-world TypeScript project — compilation dropped from **77.8 seconds to 7.5 seconds**. On the Playwright test suite, it went from 11.1 seconds to 1.1 seconds. These aren't synthetic micro-benchmarks. They're the same codebase Microsoft uses to build VS Code, running on the same hardware.
 
-The port isn't complete yet. TypeScript 6.0.x remains the JavaScript-based release that the ecosystem transitions through. Microsoft has indicated that TypeScript 6.0 will be the last major version built on the JS-based toolchain. TypeScript 7 is where the native era begins in earnest.
+The port isn't complete yet. [TypeScript 6.0](/articles/2026-03-26-typescript-6-0-final-javascript-release) remains the JavaScript-based release that the ecosystem transitions through. Microsoft has indicated that TypeScript 6.0 will be the last major version built on the JS-based toolchain. TypeScript 7 is where the native era begins in earnest.
 
 ## What "Native" Actually Means in Practice
 
@@ -52,7 +52,7 @@ The transition isn't automatic, and there are concrete steps worth taking ahead 
 
 **Add TypeScript 7 preview to CI pipelines.** The `@typescript/native-preview` npm tag lets you test the Go-based compiler against your codebase today. It won't replace your production build yet, but it surfaces any issues before the migration lands.
 
-**Watch for strict-by-default changes.** TypeScript 6.0 is considering making `strict` mode the default for new projects. If you've been putting off enabling strict checks, now is the time — it won't be optional much longer.
+**Watch for strict-by-default changes.** [TypeScript 6.0](/articles/2026-03-26-typescript-6-0-final-javascript-release) is considering making `strict` mode the default for new projects. If you've been putting off enabling strict checks, now is the time — it won't be optional much longer.
 
 ## The Bigger Picture
 
