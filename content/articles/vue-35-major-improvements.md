@@ -138,7 +138,7 @@ Vapor Mode is a compilation strategy that eliminates the virtual DOM entirely. I
 
 The compelling claim from Evan You: **Vapor Mode allows Vue to reach Solid.js-level rendering performance while keeping the exact same Vue API.** You don't rewrite your components. You opt individual sub-trees into Vapor mode, and the compiler handles the rest.
 
-The performance target is striking: **100,000 component mounts in 100ms**. For context, Vue 3's virtual DOM handles roughly 10,000-20,000 component mounts in the same timeframe.
+The performance target is striking: **100,000 component mounts in 100ms**. For context, Vue 3's virtual DOM handles roughly 10,000-20,000 component mounts in the same timeframe. This compilation approach sits within a broader shift in the JavaScript toolchain — see our coverage of [Vite+ and the Rust-based toolchain](/articles/vite-plus-unified-toolchain) that's reshaping how frameworks build and ship.
 
 Vapor Mode is currently in beta (3.6.0-beta versions are on npm now). The integration into the core Vue repository is underway. A stable release is expected in 2026.
 

@@ -36,7 +36,7 @@ Cloudflare's benchmarks, conducted on a 33-route App Router application, showed 
 | Build time | 7.38s | 1.67s (**4.4x faster**) |
 | Client bundle | 168.9 KB | 72.9 KB (**57% smaller**) |
 
-These aren't marginal improvements—they represent a fundamental shift in build performance, achieved by leveraging Vite's modern Rolldown bundler instead of Next.js's Turbopack.
+These aren't marginal improvements—they represent a fundamental shift in build performance, achieved by leveraging Vite's modern [Rolldown bundler](/articles/2026-03-26-vite-8-rolldown-era) instead of Next.js's Turbopack.
 
 ### AI-Generated Code at Scale
 
@@ -195,7 +195,7 @@ Vercel faces an uncomfortable truth: their moat may be thinner than they hoped. 
 
 ### For Cloudflare
 
-Cloudflare has signaled its seriousness about the developer platform space. vinext isn't just a technical demo—it's proof that Cloudflare can attract developers who previously saw Vercel as the only option.
+Cloudflare has signaled its seriousness about the developer platform space. vinext isn't just a technical demo—it's proof that Cloudflare can attract developers who previously saw Vercel as the only option. This investment in developer tooling mirrors Cloudflare's broader platform strategy, which also includes partnerships with frameworks like [Astro](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).
 
 **The challenge:** Maintaining compatibility with a rapidly evolving framework (Next.js) while building a sustainable business model.
 

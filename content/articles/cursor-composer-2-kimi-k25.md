@@ -99,7 +99,7 @@ The pattern also reveals something about where the competitive frontier in AI co
 
 ## What This Means for Developers
 
-If you use Cursor, the practical takeaway is straightforward: **the tool is as good as it was before the controversy**. The model quality is real. The attribution failure is a governance issue, not a capability issue.
+If you use Cursor, the practical takeaway is straightforward: **the tool is as good as it was before the controversy**. The model quality is real. The attribution failure is a governance issue, not a capability issue. For a broader comparison of how Cursor stacks up against [Claude Code](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026) and other AI coding tools, see our [AI dev tool power rankings](/articles/2026-03-25-ai-dev-tool-rankings-march-2026).
 
 If you are evaluating AI models for your own products or workflows, this episode is worth studying beyond the headlines:
 
