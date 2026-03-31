@@ -12,13 +12,16 @@ tldr:
   - "95% of developers now use AI coding tools weekly, with 75% relying on AI for more than half their coding work."
   - "Claude Code excels at large refactors and agentic workflows from the terminal; Cursor remains best for day-to-day editor-based frontend work at $20/month."
   - "Heavy Claude Code usage costs $100–$300/month via API tokens, powered by Claude Opus 4.6 which leads SWE-bench at 74.4%."
+faq:
+  - question: "Why did Claude Code overtake Cursor and Copilot so quickly?"
+    answer: "Claude Code's terminal-first, agentic approach proved more powerful for the tasks developers cared most about — large refactors, autonomous feature implementation, and debugging sessions. Within eight months of its May 2025 launch, it captured 46% 'most loved' versus Cursor's 19% and Copilot's 9%."
+  - question: "Is Claude Code worth the cost compared to Cursor at $20/month?"
+    answer: "For day-to-day line-level coding, Cursor's $20/month is hard to beat. But for large refactors, greenfield projects, and agentic workflows, Claude Code's capability advantage justifies $100–$300/month for power users. They're complementary — many developers use both."
+  - question: "Which tool should I start with if I'm new to AI coding assistants?"
+    answer: "Start with Cursor if you're primarily doing frontend or day-to-day coding — it's editor-native and lower cost. Move to Claude Code when you need to tackle multi-file refactors, understand unfamiliar codebases, or run autonomous agentic loops from the terminal."
 ---
 
-<<<<<<< Updated upstream
-Eight months. That's how long it took for [Claude Code](/articles/2026-03-25-ai-dev-tool-rankings-march-2026) to go from launch to the most-loved AI coding tool in the developer community.
-=======
 Eight months. That's how long it took for Claude Code — Anthropic's CLI-based AI coding tool released in May 2025 — to go from launch to the most-loved AI coding tool in the developer community, reaching a 46% "most loved" rating by early 2026.
->>>>>>> Stashed changes
 
 For context, those numbers represent a stunning reversal of the market that had been dominated by Copilot for three years and Cursor for two. Cursor sat at 19%, GitHub Copilot at 9%.
 

@@ -12,6 +12,13 @@ tldr:
   - "Claude 4.6 Opus and 4.5 Opus lead the AI model rankings; SWE-bench accounts for 30% of the overall score."
   - "OpenAI's Codex re-enters the top 5 with parallel sandboxed execution, deep GitHub integration, and automatic PR creation."
   - "Teams should evaluate tools based on ecosystem alignment, context window size, and agentic capabilities rather than novelty."
+faq:
+  - question: "What is Antigravity and why did it surge to #2?"
+    answer: "Antigravity is an AI development tool that gained rapid traction by offering the most diverse free model lineup during its preview phase — supporting Claude Opus 4.5, Gemini 3 Flash, and the open-source GPT-OSS simultaneously. This flexibility, unmatched by competitors at preview pricing, drove it to second place in LogRocket's March 2026 rankings."
+  - question: "What's the difference between AI models and AI tools in these rankings?"
+    answer: "AI models are the underlying language models providing coding intelligence via APIs (e.g., Claude Opus 4.6, Gemini 3 Pro). AI tools are full development environments integrating AI into the workflow (e.g., Cursor, Claude Code, Codex). Both categories are ranked separately and serve different use cases — models power tools, but tools also add workflow features beyond raw model capability."
+  - question: "What should engineering teams prioritize when choosing AI dev tools in 2026?"
+    answer: "Ecosystem alignment (Codex for OpenAI shops, Copilot for Microsoft-heavy environments), context window size (critical for large codebase work), and agentic capabilities (autonomy for multi-step tasks). By 2026, AI coding tools are less about novelty and more about fit with your existing stack."
 ---
 
 LogRocket's March 2026 AI dev tool power rankings are out, and the landscape is shifting faster than most developers can track. The standout developments: Antigravity surges to second place, Codex re-enters the top five, and the gap between "AI models" and "AI tools" is becoming a critical distinction for engineering teams.

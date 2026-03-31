@@ -17,6 +17,8 @@ faq:
     answer: "Bun leads in raw HTTP throughput, often 2-3x faster than Node.js, and dominates cold start performance with ~30ms starts versus 80-150ms for Node.js. For I/O-bound workloads like database queries and HTTP calls, the three runtimes are much closer in performance."
   - question: "Should I switch from Node.js to Bun?"
     answer: "It depends on your priorities. Bun offers faster performance, quicker installs, and built-in TypeScript support, with about 95% npm package compatibility. However, if you need maximum ecosystem compatibility or are working with established enterprise tooling, Node.js remains the safer choice. For new projects where performance matters, Bun is the most compelling option."
+  - question: "What makes Deno different from Bun and Node.js?"
+    answer: "Deno's core differentiator is security — it runs code in a sandbox with no file system, network, or environment access unless explicitly granted via flags like --allow-net or --allow-read. This makes Deno the safest choice for multi-tenant deployments or running untrusted code. The tradeoff is a smaller ecosystem and slower performance compared to Bun."
 ---
 
 In 2026, three JavaScript runtimes compete for server-side dominance: Node.js (dominant at 90% usage), Bun (fastest by every benchmark, often 2-3× faster on HTTP throughput), and Deno (the security-first outsider at 11% usage). Independent benchmarks across HTTP throughput, cold starts, and async performance now tell a consistent story.
