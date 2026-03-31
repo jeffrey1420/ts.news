@@ -71,7 +71,7 @@ The headline claims are bold:
 
 These numbers are real, but they require context.
 
-The 1.6× to 7.7× build speed improvement is real and significant, but the variance is large. Smaller projects see modest gains. Complex codebases with many modules see the bigger wins. The number to watch is not the ceiling — it's the fact that production builds, which have been the slowest part of the development cycle for years, are getting 5–10× faster across the board.
+The 1.6× to 7.7× build speed improvement is real and significant, but the variance is large. Smaller projects see modest gains. Complex codebases with many modules see the bigger wins. The number to watch is not the ceiling — it's the fact that production builds, which have been the slowest part of the development cycle for years, are getting 5–10× faster across the board. The Vue team has reported [similar performance gains with Vapor Mode](/articles/vue-35-major-improvements) — 100,000 component mounts in 100ms — underscoring how broadly Rust-based tooling is reshaping performance expectations.
 
 The linting and formatting numbers are the most dramatic, and they are also the least surprising. ESLint and Prettier are written in JavaScript. Oxlint and Oxfmt are written in Rust. The performance gap between these implementations has been demonstrated repeatedly — Biome showed similar numbers before Oxfmt shipped. The real question is not whether Oxlint is faster (it is), but whether it covers enough of the ESLint and Prettier surface area to be a complete replacement for teams with complex rule configurations.
 
@@ -138,12 +138,12 @@ The third concern is ecosystem lock-in. Vite+ only works with tools from the Voi
 
 Vite+ is not a revolution. It is a well-designed distribution of genuinely good tooling that was already worth using individually.
 
-The Rust-based JavaScript toolchain — Oxc, Rolldown, and the projects built on them — represents a real and significant performance leap over the JavaScript-based tools it replaces. That leap is not marketing. Independent benchmarks confirm it, and developers using these tools in production are reporting consistent results.
+The Rust-based JavaScript toolchain — Oxc, Rolldown, and the projects built on them — represents a real and significant performance leap over the JavaScript-based tools it replaces. That leap is not marketing. Independent benchmarks confirm it, and developers using these tools in production are reporting consistent results. This Rust migration is visible across the ecosystem: [Vite 8 has adopted Rolldown](/articles/vite-8-rolldown-era) as its unified bundler, replacing both ESBuild and Rollup in one move.
 
 What Vite+ adds on top of those tools is convenience: one binary, one config file, one mental model for the full development cycle. For new projects and teams frustrated with tooling complexity, that convenience is worth something.
 
 The alpha label should be taken seriously. "Alpha" means the team is still working out edge cases, and the ecosystem is still catching up. But the foundation — Vite 8, Rolldown, Oxc — is more mature than the "alpha" label on Vite+ itself suggests.
 
-Whether Vite+ becomes the standard entry point for the VoidZero toolchain or remains a niche convenience depends on whether the promised VoidCloud enterprise product creates enough separation between the open-source and commercial layers to keep the community's trust. That story is still being written.
+Whether Vite+ becomes the standard entry point for the VoidZero toolchain or remains a niche convenience depends on whether the promised VoidCloud enterprise product creates enough separation between the open-source and commercial layers to keep the community's trust. That story is still being written. Separately, the [TypeScript compiler itself is getting a native rewrite](/articles/typescript-7-native-preview-go-compiler) — in Go rather than Rust — signaling that the native tooling wave extends beyond the build pipeline into language infrastructure.
 
-For now: the tools underneath Vite+ are worth knowing regardless of whether you use the wrapper. Rolldown is replacing Rollup. Oxlint is replacing ESLint for teams that want speed. The JavaScript tooling landscape is shifting toward Rust, and Vite+ is the most coherent interface to that shift so far.
+For now: the tools underneath Vite+ are worth knowing regardless of whether you use the wrapper. Rolldown is replacing Rollup. Oxlint is replacing ESLint for teams that want speed. The JavaScript tooling landscape is shifting toward native languages, and Vite+ is the most coherent interface to that shift so far.
