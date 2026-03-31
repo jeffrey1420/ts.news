@@ -2,11 +2,13 @@
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 import { getCollectionName } from '~~/shared/utils/locale'
 
+const route = useRoute()
 const { locale, t } = useI18n()
+const localePath = useLocalePath()
 
 const articlesCollection = computed(() => getCollectionName('articles', locale.value))
 
-const { data: articles } = await useAsyncData('all-articles', () =>
+const { data: articles } = await useAsyncData(() => `articles:${route.path}`, () =>
   queryCollection(articlesCollection.value).order('date', 'DESC').all()
 )
 
@@ -28,15 +30,15 @@ const filteredArticles = computed(() => {
   return list.filter(article => (article.tags ?? []).includes(selectedTag.value!))
 })
 
-const title = t('articles.title')
-const description = t('articles.description')
-const canonicalUrl = absoluteSiteUrl('/articles')
+const title = computed(() => t('articles.title'))
+const description = computed(() => t('articles.description'))
+const canonicalUrl = computed(() => absoluteSiteUrl(route.path))
 const ogImage = absoluteSiteUrl(siteConfig.defaultOgImage)
 
 useSeoMeta({
   title,
   description,
-  ogTitle: `${title} | ${siteConfig.name}`,
+  ogTitle: computed(() => `${title.value} | ${siteConfig.name}`),
   ogDescription: description,
   ogType: 'website',
   ogUrl: canonicalUrl,
@@ -47,8 +49,8 @@ useSeoMeta({
   twitterImage: ogImage,
 })
 
-useHead({
-  link: [{ rel: 'canonical', href: canonicalUrl }],
+useHead(() => ({
+  link: [{ rel: 'canonical', href: canonicalUrl.value }],
   script: [
     {
       key: 'articles-schema',
@@ -56,9 +58,9 @@ useHead({
       children: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
-        name: `${title} | ${siteConfig.name}`,
-        url: canonicalUrl,
-        description,
+        name: `${title.value} | ${siteConfig.name}`,
+        url: canonicalUrl.value,
+        description: description.value,
         mainEntity: {
           '@type': 'ItemList',
           itemListElement: (articles.value ?? []).map((article, index) => ({
@@ -71,7 +73,7 @@ useHead({
       }),
     },
   ],
-})
+}))
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString(locale.value === 'en' ? 'en-US' : locale.value === 'fr' ? 'fr-FR' : 'de-DE', {
@@ -127,7 +129,7 @@ function formatDate(date: string) {
             :description="article.description"
             :date="formatDate(article.date)"
             :image="article.image"
-            :badge="article.tags?.[0] ? { label: article.tags[0], color: 'primary' as const, variant: 'subtle' as const, to: `/tags/${article.tags[0]}` } : undefined"
+            :badge="article.tags?.[0] ? { label: article.tags[0], color: 'primary' as const, variant: 'subtle' as const, to: localePath(`/tags/${article.tags[0]}`) } : undefined"
             :to="article.path"
           />
         </UBlogPosts>

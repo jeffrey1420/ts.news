@@ -2,16 +2,17 @@
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 import { getCollectionName } from '~~/shared/utils/locale'
 
+const route = useRoute()
 const { locale, t } = useI18n()
 
 const authorsCollection = computed(() => getCollectionName('authors', locale.value))
 const articlesCollection = computed(() => getCollectionName('articles', locale.value))
 
-const { data: authors } = await useAsyncData('authors-list', () =>
+const { data: authors } = await useAsyncData(() => `authors:${route.path}`, () =>
   queryCollection(authorsCollection.value).all()
 )
 
-const { data: articles } = await useAsyncData('authors-articles-count', () =>
+const { data: articles } = await useAsyncData(() => `authors:${route.path}:counts`, () =>
   queryCollection(articlesCollection.value).all()
 )
 
@@ -22,14 +23,14 @@ const authorsWithCounts = computed(() => {
   })
 })
 
-const title = t('nav.about')
+const title = computed(() => t('nav.about'))
 const description = `Meet the writers behind ${siteConfig.name}.`
-const canonicalUrl = absoluteSiteUrl('/authors')
+const canonicalUrl = computed(() => absoluteSiteUrl(route.path))
 
 useSeoMeta({
   title,
   description,
-  ogTitle: `${title} | ${siteConfig.name}`,
+  ogTitle: computed(() => `${title.value} | ${siteConfig.name}`),
   ogDescription: description,
   ogType: 'website',
   ogUrl: canonicalUrl,
@@ -40,9 +41,9 @@ useSeoMeta({
   twitterImage: absoluteSiteUrl(siteConfig.defaultOgImage),
 })
 
-useHead({
-  link: [{ rel: 'canonical', href: canonicalUrl }],
-})
+useHead(() => ({
+  link: [{ rel: 'canonical', href: canonicalUrl.value }],
+}))
 </script>
 
 <template>

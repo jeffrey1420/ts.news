@@ -2,17 +2,19 @@
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 import { getCollectionName } from '~~/shared/utils/locale'
 
+const route = useRoute()
 const { locale, t } = useI18n()
+const localePath = useLocalePath()
 
 const articlesCollection = computed(() => getCollectionName('articles', locale.value))
 
-const { data: allArticles } = await useAsyncData('all-articles', () =>
+const { data: allArticles } = await useAsyncData(() => `home:${route.path}`, () =>
   queryCollection(articlesCollection.value).order('date', 'DESC').all()
 )
 
 const title = 'TypeScript & Web Dev News'
-const description = t('home.hero_description')
-const canonicalUrl = absoluteSiteUrl('/')
+const description = computed(() => t('home.hero_description'))
+const canonicalUrl = computed(() => absoluteSiteUrl(route.path))
 const ogImage = absoluteSiteUrl(siteConfig.defaultOgImage)
 
 useSeoMeta({
@@ -55,8 +57,8 @@ function articlesByTags(tags: readonly string[], limit = 3) {
     .slice(0, limit)
 }
 
-useHead({
-  link: [{ rel: 'canonical', href: canonicalUrl }],
+useHead(() => ({
+  link: [{ rel: 'canonical', href: canonicalUrl.value }],
   script: [
     {
       key: 'home-schema',
@@ -65,8 +67,8 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
         name: `${title} | ${siteConfig.name}`,
-        url: canonicalUrl,
-        description,
+        url: canonicalUrl.value,
+        description: description.value,
         isPartOf: {
           '@type': 'WebSite',
           name: siteConfig.name,
@@ -84,7 +86,7 @@ useHead({
       }),
     },
   ],
-})
+}))
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString(locale.value === 'en' ? 'en-US' : locale.value === 'fr' ? 'fr-FR' : 'de-DE', {
@@ -101,16 +103,16 @@ function formatDate(date: string) {
       title="typescript.news"
       :description="t('home.hero_description')"
       :links="[
-        { label: t('home.read_articles'), to: '/articles', icon: 'i-lucide-newspaper', size: 'lg' },
+        { label: t('home.read_articles'), to: localePath('/articles'), icon: 'i-lucide-newspaper', size: 'lg' },
       ]"
     />
 
     <UContainer>
       <UPageCTA
-        :title="t('home.stay_in_loop')"
-        :description="t('home.rss_description')"
-        :links="[
-          { label: t('home.subscribe_rss'), to: '/rss.xml', icon: 'i-lucide-rss', color: 'neutral', variant: 'outline' },
+      :title="t('home.stay_in_loop')"
+      :description="t('home.rss_description')"
+      :links="[
+          { label: t('home.subscribe_rss'), href: '/rss.xml', external: true, icon: 'i-lucide-rss', color: 'neutral', variant: 'outline' },
         ]"
       />
     </UContainer>

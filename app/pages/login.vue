@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 
+const route = useRoute()
 const { loggedIn, fetch: refreshSession } = useUserSession()
+const localePath = useLocalePath()
 
 if (loggedIn.value) {
-  navigateTo('/')
+  navigateTo(localePath('/'))
 }
 
 useSeoMeta({
@@ -18,9 +20,9 @@ useSeoMeta({
   twitterImage: absoluteSiteUrl(siteConfig.defaultOgImage),
 })
 
-useHead({
-  link: [{ rel: 'canonical', href: absoluteSiteUrl('/login') }],
-})
+useHead(() => ({
+  link: [{ rel: 'canonical', href: absoluteSiteUrl(route.path) }],
+}))
 
 const mode = ref<'login' | 'register'>('login')
 const loading = ref(false)
@@ -43,7 +45,7 @@ async function onLogin(event: any) {
   try {
     await $fetch('/api/auth/login', { method: 'POST', body: event.data })
     await refreshSession()
-    navigateTo('/')
+    navigateTo(localePath('/'))
   } catch (e: any) {
     error.value = e.data?.message || 'Login failed.'
   } finally {
@@ -57,7 +59,7 @@ async function onRegister(event: any) {
   try {
     await $fetch('/api/auth/register', { method: 'POST', body: event.data })
     await refreshSession()
-    navigateTo('/')
+    navigateTo(localePath('/'))
   } catch (e: any) {
     error.value = e.data?.message || 'Registration failed.'
   } finally {

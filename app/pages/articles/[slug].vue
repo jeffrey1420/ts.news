@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
-import { getCollectionName, DEFAULT_LOCALE } from '~~/shared/utils/locale'
+import { getCollectionName, DEFAULT_LOCALE, getLocalizedPath, getLocaleLanguage } from '~~/shared/utils/locale'
 
 const route = useRoute()
 const { loggedIn } = useUserSession()
 const { locale, t } = useI18n()
+const localePath = useLocalePath()
 
 const articlesCollection = computed(() => getCollectionName('articles', locale.value))
 
@@ -71,7 +72,8 @@ const { data: comments, refresh: refreshComments } = await useFetch('/api/commen
   query: { slug: route.path },
 })
 
-const canonicalUrl = absoluteSiteUrl(route.path)
+const canonicalUrl = computed(() => absoluteSiteUrl(route.path))
+const localeLanguage = computed(() => getLocaleLanguage(locale.value))
 const articleImage = article.value.image
   ? (article.value.image.startsWith('http') ? article.value.image : absoluteSiteUrl(article.value.image))
   : absoluteSiteUrl(siteConfig.defaultOgImage)
@@ -99,8 +101,8 @@ useSeoMeta({
   twitterImage: articleImage,
 })
 
-useHead({
-  link: [{ rel: 'canonical', href: canonicalUrl }],
+useHead(() => ({
+  link: [{ rel: 'canonical', href: canonicalUrl.value }],
   script: [
     {
       key: 'article-schema',
@@ -110,10 +112,10 @@ useHead({
         '@type': 'NewsArticle',
         headline: articleTitle,
         description: articleDescription,
-        url: canonicalUrl,
+        url: canonicalUrl.value,
         datePublished: new Date(article.value.date).toISOString(),
         dateModified: new Date(article.value.date).toISOString(),
-        inLanguage: locale.value === 'en' ? 'en-US' : locale.value === 'fr' ? 'fr-FR' : 'de-DE',
+        inLanguage: localeLanguage.value,
         image: [articleImage],
         articleSection: articleTags[0],
         keywords: articleTags,
@@ -122,7 +124,7 @@ useHead({
         author: {
           '@type': 'Person',
           name: article.value.author || siteConfig.name,
-          url: absoluteSiteUrl('/authors/' + (article.value.author || 'lschvn')),
+          url: absoluteSiteUrl(getLocalizedPath(`/authors/${article.value.author || 'lschvn'}`, locale.value)),
           sameAs: ['https://github.com/lschvn'],
         },
         publisher: {
@@ -136,7 +138,7 @@ useHead({
         },
         mainEntityOfPage: {
           '@type': 'WebPage',
-          '@id': canonicalUrl,
+          '@id': canonicalUrl.value,
         },
       }),
     },
@@ -151,19 +153,19 @@ useHead({
             '@type': 'ListItem',
             position: 1,
             name: t('nav.home'),
-            item: absoluteSiteUrl('/'),
+            item: absoluteSiteUrl(getLocalizedPath('/', locale.value)),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: t('nav.articles'),
-            item: absoluteSiteUrl('/articles'),
+            item: absoluteSiteUrl(getLocalizedPath('/articles', locale.value)),
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: articleTitle,
-            item: canonicalUrl,
+            item: canonicalUrl.value,
           },
         ],
       }),
@@ -187,7 +189,7 @@ useHead({
         }]
       : []),
   ],
-})
+}))
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString(locale.value === 'en' ? 'en-US' : locale.value === 'fr' ? 'fr-FR' : 'de-DE', {
@@ -233,7 +235,7 @@ async function postComment() {
         <NuxtLink
           v-for="tag in article.tags"
           :key="tag"
-          :to="'/tags/' + tag"
+          :to="localePath(`/tags/${tag}`)"
         >
           <UBadge
             :label="tag"
@@ -248,7 +250,7 @@ async function postComment() {
       </h1>
 
       <div class="flex flex-wrap items-center gap-4 text-sm text-muted">
-        <NuxtLink v-if="article.author" :to="'/authors/' + article.author" class="flex items-center gap-2 font-medium text-default hover:text-primary transition-colors">
+        <NuxtLink v-if="article.author" :to="localePath(`/authors/${article.author}`)" class="flex items-center gap-2 font-medium text-default hover:text-primary transition-colors">
           <UIcon name="i-lucide-user" class="w-4 h-4" />
           {{ article.author }}
         </NuxtLink>
@@ -346,7 +348,7 @@ async function postComment() {
       </div>
       <div v-else class="mb-10 p-5 rounded-lg bg-muted text-center">
         <p class="text-sm text-muted">
-          <NuxtLink to="/login" class="text-primary font-medium underline underline-offset-2">{{ t('common.login') }}</NuxtLink>
+          <NuxtLink :to="localePath('/login')" class="text-primary font-medium underline underline-offset-2">{{ t('common.login') }}</NuxtLink>
           {{ t('article.login_to_comment') }}
         </p>
       </div>

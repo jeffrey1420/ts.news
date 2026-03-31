@@ -2,11 +2,13 @@
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 import { getCollectionName } from '~~/shared/utils/locale'
 
+const route = useRoute()
 const { locale, t } = useI18n()
+const localePath = useLocalePath()
 
 const articlesCollection = computed(() => getCollectionName('articles', locale.value))
 
-const { data: articles } = await useAsyncData('tags-list', () =>
+const { data: articles } = await useAsyncData(() => `tags:${route.path}`, () =>
   queryCollection(articlesCollection.value).order('date', 'DESC').all()
 )
 
@@ -20,14 +22,14 @@ const allTags = computed(() => {
   return [...tagSet].sort()
 })
 
-const title = t('tag.view_all_tags')
+const title = computed(() => t('tag.view_all_tags'))
 const description = `Browse all article tags on ${siteConfig.name}.`
-const canonicalUrl = absoluteSiteUrl('/tags')
+const canonicalUrl = computed(() => absoluteSiteUrl(route.path))
 
 useSeoMeta({
   title,
   description,
-  ogTitle: `${title} | ${siteConfig.name}`,
+  ogTitle: computed(() => `${title.value} | ${siteConfig.name}`),
   ogDescription: description,
   ogType: 'website',
   ogUrl: canonicalUrl,
@@ -38,9 +40,9 @@ useSeoMeta({
   twitterImage: absoluteSiteUrl(siteConfig.defaultOgImage),
 })
 
-useHead({
-  link: [{ rel: 'canonical', href: canonicalUrl }],
-})
+useHead(() => ({
+  link: [{ rel: 'canonical', href: canonicalUrl.value }],
+}))
 </script>
 
 <template>
@@ -56,7 +58,7 @@ useHead({
           <NuxtLink
             v-for="tag in allTags"
             :key="tag"
-            :to="`/tags/${tag}`"
+            :to="localePath(`/tags/${tag}`)"
           >
             <UBadge
               :label="tag"

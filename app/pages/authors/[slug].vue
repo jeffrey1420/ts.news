@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
-import { getCollectionName, DEFAULT_LOCALE } from '~~/shared/utils/locale'
+import { getCollectionName, DEFAULT_LOCALE, getLocalizedPath } from '~~/shared/utils/locale'
 
 const route = useRoute()
 const { locale, t } = useI18n()
+const localePath = useLocalePath()
 const slug = route.params.slug as string
 
 const authorsCollection = computed(() => getCollectionName('authors', locale.value))
 const articlesCollection = computed(() => getCollectionName('articles', locale.value))
 
-const { data: author } = await useAsyncData(`author-${slug}`, async () => {
+const { data: author } = await useAsyncData(() => `author:${route.path}`, async () => {
   // Try current locale first
   let content = await queryCollection(authorsCollection.value).path(`/authors/${slug}`).first()
 
@@ -31,7 +32,7 @@ if (!author.value) {
   throw createError({ statusCode: 404, statusMessage: 'Author not found', fatal: true })
 }
 
-const { data: articles } = await useAsyncData(`author-${slug}-articles`, async () => {
+const { data: articles } = await useAsyncData(() => `author:${route.path}:articles`, async () => {
   const allArticles = await queryCollection(articlesCollection.value)
     .order('date', 'DESC')
     .all()
@@ -41,7 +42,7 @@ const { data: articles } = await useAsyncData(`author-${slug}-articles`, async (
 
 const authorName = author.value.name
 const authorBio = author.value.bio
-const canonicalUrl = absoluteSiteUrl(`/authors/${slug}`)
+const canonicalUrl = computed(() => absoluteSiteUrl(route.path))
 
 const authorImage = author.value.avatar
   ? (author.value.avatar.startsWith('http') ? author.value.avatar : absoluteSiteUrl(author.value.avatar))
@@ -61,8 +62,8 @@ useSeoMeta({
   twitterImage: authorImage,
 })
 
-useHead({
-  link: [{ rel: 'canonical', href: canonicalUrl }],
+useHead(() => ({
+  link: [{ rel: 'canonical', href: canonicalUrl.value }],
   script: [
     {
       key: 'author-schema',
@@ -72,7 +73,7 @@ useHead({
         '@type': 'Person',
         name: authorName,
         description: authorBio,
-        url: canonicalUrl,
+        url: canonicalUrl.value,
         sameAs: [
           author.value.github,
           author.value.twitter,
@@ -91,25 +92,25 @@ useHead({
             '@type': 'ListItem',
             position: 1,
             name: t('nav.home'),
-            item: absoluteSiteUrl('/'),
+            item: absoluteSiteUrl(getLocalizedPath('/', locale.value)),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: t('nav.about'),
-            item: absoluteSiteUrl('/authors'),
+            item: absoluteSiteUrl(getLocalizedPath('/authors', locale.value)),
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: authorName,
-            item: canonicalUrl,
+            item: canonicalUrl.value,
           },
         ],
       }),
     },
   ],
-})
+}))
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString(locale.value === 'en' ? 'en-US' : locale.value === 'fr' ? 'fr-FR' : 'de-DE', {
@@ -125,7 +126,7 @@ function formatDate(date: string) {
     <!-- Breadcrumb -->
     <nav class="mb-8">
       <ol class="flex items-center gap-2 text-sm text-muted">
-        <li><NuxtLink to="/" class="hover:text-default transition-colors">{{ t('nav.home') }}</NuxtLink></li>
+        <li><NuxtLink :to="localePath('/')" class="hover:text-default transition-colors">{{ t('nav.home') }}</NuxtLink></li>
         <li>/</li>
         <li class="text-default">{{ author.name }}</li>
       </ol>

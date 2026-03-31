@@ -1,24 +1,33 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
+import { getLocaleLanguage, getLocaleOgTag, getLocalizedPath } from '~~/shared/utils/locale'
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 
 const { loggedIn, user, clear } = useUserSession()
 const { locale, t } = useI18n()
+const localePath = useLocalePath()
+
+const localeLanguage = computed(() => getLocaleLanguage(locale.value))
+const localeOgTag = computed(() => getLocaleOgTag(locale.value))
+const localizedHomeUrl = computed(() => absoluteSiteUrl(getLocalizedPath('/', locale.value)))
 
 const navItems = computed<NavigationMenuItem[]>(() => [
-  { label: t('nav.home'), icon: 'i-lucide-home', to: '/' },
-  { label: t('nav.articles'), icon: 'i-lucide-newspaper', to: '/articles' },
-  { label: t('nav.about'), icon: 'i-lucide-user', to: '/authors/lschvn' },
+  { label: t('nav.home'), icon: 'i-lucide-home', to: localePath('/') },
+  { label: t('nav.articles'), icon: 'i-lucide-newspaper', to: localePath('/articles') },
+  { label: t('nav.about'), icon: 'i-lucide-user', to: localePath('/authors/lschvn') },
   { label: t('nav.topics'), icon: 'i-lucide-tag', children: [
-    { label: 'TypeScript', to: '/tags/typescript' },
-    { label: t('tags.security'), to: '/tags/security' },
-    { label: t('tags.frameworks'), to: '/tags/framework' },
-    { label: t('tags.tooling'), to: '/tags/tooling' },
-    { label: 'AI Devtools', to: '/tags/ai' },
+    { label: 'TypeScript', to: localePath('/tags/typescript') },
+    { label: t('tags.security'), to: localePath('/tags/security') },
+    { label: t('tags.frameworks'), to: localePath('/tags/framework') },
+    { label: t('tags.tooling'), to: localePath('/tags/tooling') },
+    { label: 'AI Devtools', to: localePath('/tags/ai') },
   ] },
 ])
 
-useHead({
+useHead(() => ({
+  htmlAttrs: {
+    lang: localeLanguage.value,
+  },
   titleTemplate: (title) => title ? `${title} · ${siteConfig.name}` : siteConfig.name,
   meta: [
     { name: 'application-name', content: siteConfig.name },
@@ -32,9 +41,9 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         name: siteConfig.name,
-        url: siteConfig.url,
+        url: localizedHomeUrl.value,
         description: siteConfig.description,
-        inLanguage: 'en-US',
+        inLanguage: localeLanguage.value,
         publisher: {
           '@type': 'Organization',
           name: siteConfig.name,
@@ -47,25 +56,25 @@ useHead({
       }),
     },
   ],
-})
+}))
 
 useSeoMeta({
   applicationName: siteConfig.name,
   ogSiteName: siteConfig.name,
-  ogLocale: siteConfig.locale,
+  ogLocale: localeOgTag,
   twitterCard: 'summary_large_image',
 })
 
 async function logout() {
   await $fetch('/api/auth/logout', { method: 'POST' })
   await clear()
-  navigateTo('/')
+  navigateTo(localePath('/'))
 }
 </script>
 
 <template>
   <UApp>
-    <UHeader>
+    <UHeader :to="localePath('/')">
       <template #title>
         <span class="font-bold text-xl tracking-tight">
           typescript<span class="text-primary">.news</span>
@@ -77,7 +86,7 @@ async function logout() {
       <template #right>
         <LanguageSwitcher />
         <UButton icon="i-lucide-github" variant="ghost" color="neutral" size="sm" to="https://github.com/jeffrey1420/ts.news" target="_blank" />
-        <UButton icon="i-lucide-rss" variant="ghost" color="neutral" size="sm" to="/rss.xml" />
+        <UButton icon="i-lucide-rss" variant="ghost" color="neutral" size="sm" href="/rss.xml" external />
 
         <UColorModeButton />
 
@@ -85,7 +94,7 @@ async function logout() {
           <span class="text-sm text-muted hidden sm:inline">{{ user?.name }}</span>
           <UButton icon="i-lucide-log-out" variant="ghost" color="neutral" size="sm" @click="logout" />
         </template>
-        <UButton v-else icon="i-lucide-user" variant="ghost" color="neutral" size="sm" to="/login" />
+        <UButton v-else icon="i-lucide-user" variant="ghost" color="neutral" size="sm" :to="localePath('/login')" />
       </template>
 
       <template #body>
@@ -112,10 +121,10 @@ async function logout() {
 
       <template #right>
         <div class="flex items-center gap-4 text-sm">
-          <NuxtLink to="/tags/typescript" class="text-muted hover:text-default transition-colors">TypeScript</NuxtLink>
-          <NuxtLink to="/tags/security" class="text-muted hover:text-default transition-colors">Security</NuxtLink>
-          <NuxtLink to="/tags/ai" class="text-muted hover:text-default transition-colors">AI Devtools</NuxtLink>
-          <NuxtLink to="/rss.xml" class="text-muted hover:text-default transition-colors">RSS</NuxtLink>
+          <NuxtLink :to="localePath('/tags/typescript')" class="text-muted hover:text-default transition-colors">TypeScript</NuxtLink>
+          <NuxtLink :to="localePath('/tags/security')" class="text-muted hover:text-default transition-colors">Security</NuxtLink>
+          <NuxtLink :to="localePath('/tags/ai')" class="text-muted hover:text-default transition-colors">AI Devtools</NuxtLink>
+          <a href="/rss.xml" class="text-muted hover:text-default transition-colors">RSS</a>
         </div>
       </template>
     </UFooter>

@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
-import { getCollectionName, DEFAULT_LOCALE } from '~~/shared/utils/locale'
+import { getCollectionName, getLocalizedPath } from '~~/shared/utils/locale'
 
 const route = useRoute()
 const { locale, t } = useI18n()
+const localePath = useLocalePath()
 const tag = route.params.tag as string
 
 const articlesCollection = computed(() => getCollectionName('articles', locale.value))
 
-const { data: allArticles } = await useAsyncData(`tag-${tag}`, () =>
+const { data: allArticles } = await useAsyncData(() => `tag:${route.path}`, () =>
   queryCollection(articlesCollection.value).order('date', 'DESC').all()
 )
 
@@ -18,9 +19,9 @@ const taggedArticles = computed(() =>
   )
 )
 
-const canonicalUrl = absoluteSiteUrl('/tags/' + tag)
+const canonicalUrl = computed(() => absoluteSiteUrl(route.path))
 const pageTitle = `Articles tagged "${tag}"`
-const pageDescription = t('tag.no_tagged', { tag })
+const pageDescription = computed(() => t('tag.no_tagged', { tag }))
 
 useSeoMeta({
   title: pageTitle,
@@ -36,8 +37,8 @@ useSeoMeta({
   twitterImage: absoluteSiteUrl(siteConfig.defaultOgImage),
 })
 
-useHead({
-  link: [{ rel: 'canonical', href: canonicalUrl }],
+useHead(() => ({
+  link: [{ rel: 'canonical', href: canonicalUrl.value }],
   script: [
     {
       key: 'tag-collection-schema',
@@ -46,8 +47,8 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
         name: pageTitle,
-        description: pageDescription,
-        url: canonicalUrl,
+        description: pageDescription.value,
+        url: canonicalUrl.value,
         mainEntity: {
           '@type': 'ItemList',
           itemListElement: taggedArticles.value.map((article, index) => ({
@@ -70,25 +71,25 @@ useHead({
             '@type': 'ListItem',
             position: 1,
             name: t('nav.home'),
-            item: absoluteSiteUrl('/'),
+            item: absoluteSiteUrl(getLocalizedPath('/', locale.value)),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: t('nav.topics'),
-            item: absoluteSiteUrl('/tags'),
+            item: absoluteSiteUrl(getLocalizedPath('/tags', locale.value)),
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: tag,
-            item: canonicalUrl,
+            item: canonicalUrl.value,
           },
         ],
       }),
     },
   ],
-})
+}))
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString(locale.value === 'en' ? 'en-US' : locale.value === 'fr' ? 'fr-FR' : 'de-DE', {
@@ -137,7 +138,7 @@ function formatDate(date: string) {
           <template #footer>
             <UButton
               :label="t('tag.browse_all')"
-              to="/articles"
+              :to="localePath('/articles')"
               color="primary"
             />
           </template>
@@ -149,7 +150,7 @@ function formatDate(date: string) {
       <div class="text-center">
         <UButton
           :label="t('tag.view_all_tags')"
-          to="/tags"
+          :to="localePath('/tags')"
           variant="outline"
           color="neutral"
           size="sm"
