@@ -1,6 +1,6 @@
 ---
 title: "Claude Code Source Map Leak Exposes Hidden Agent OS, Chrome Automation, and Privacy Gaps"
-description: "On March 30–31 2026, developers discovered that the npm package @anthropic-ai/claude-code@v2.1.88 included a production source map file that exposed the full TypeScript source code — revealing undocumented multi-agent orchestration, a hidden Chrome MCP server, and a three-tier telemetry system."
+description: "On March 30–31 2026, developers discovered that the npm package @anthropic-ai/claude-code@v2.1.88 included a production source map file that exposed the full TypeScript source code — revealing undocumented multi-agent orchestration, a hidden Chrome MCP server, an internal query engine, a tool permission system, and a three-tier telemetry system."
 date: 2026-03-31
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
 author: "ts.news"
@@ -28,6 +28,8 @@ The most striking discovery was a comprehensive agent orchestration system. The 
 Alongside these, the code contains `TeamCreateTool` and `TeamDeleteTool`, suggesting that Claude Code can create and destroy teams of agents. The system uses a `coordinatorMode.ts` for multi-agent coordination, and agents communicate through a file-based inbox system at `.claude/teams/{team_name}/inboxes/{agent_name}.json`. A `forkSubagent.ts` file handles spawning subagents, and execution isolation is maintained through `AsyncLocalStorage`.
 
 The system prompt itself has **three distinct prefixes**: `DEFAULT_PREFIX`, `AGENT_SDK_CLAUDE_CODE_PRESET_PREFIX`, and `AGENT_SDK_PREFIX` — suggesting at least three distinct operational modes or contexts for the AI, none of which Anthropic has documented publicly.
+
+**Tool permissions** are enforced via a `checkPermissions` method on each tool. Three modes exist: `allow` (runs immediately), `ask` (pauses and shows a confirmation dialog), and `deny` (rejected, with an error returned to the model). A `bypassPermissions` mode skips all checks entirely — a significant capability that works in conjunction with the `--dangerously-skip-permissions` flag. The `acceptEdits` mode auto-approves file edits but not bash commands, providing a middle ground between full bypass and interactive approval.
 
 ### Hidden Chrome Integration: The claude-in-chrome MCP Server
 
@@ -85,6 +87,23 @@ With 506 telemetry-related files, the extent of data collection in Claude Code i
 - Environment metadata collection: platform, runtime, GitHub Actions presence
 
 The presence of GrowthBook for feature flags (`getFeatureValue_CACHED_MAY_BE_STALE`) suggests that Anthropic runs A/B tests and gradual rollouts directly within Claude Code.
+
+### Inside the Query Engine: How Each Turn Executes
+
+A Mintlify-hosted internal documentation page (from VineeTagarwaL-code/claude-code/concepts/how-it-works) provides rare insight into Claude Code's per-turn execution engine, corroborating and extending what the source map revealed.
+
+**The Query Engine** (`query.ts`) is the central dispatcher for every user turn. It streams tokens to the terminal, handles `tool_use` blocks as they arrive, enforces per-turn token and tool-call budgets, and triggers **context compaction** when the conversation window fills up. Results exceeding `maxResultSizeChars` are saved to a temporary file; the model receives only a preview with the file path.
+
+**Every API call prepends two context blocks:**
+
+- `getSystemContext()` — injects Git status (current branch, git username, last 5 commit messages) and a cache-breaking injection token. Memoized for the conversation duration.
+- `getUserContext()` — loads CLAUDE.md memory files and the current date. Also memoized.
+
+When `CLAUDE_CODE_REMOTE=1` is set (cloud mode), the Git status fetch is skipped entirely — an important detail for developers using Claude Code in environments where Git metadata may be sensitive or unavailable.
+
+**Conversation storage** uses JSON transcript files saved to `~/.claude/`, making sessions fully resumable via the `--resume <session-id>` flag. Sessions are indexed separately, and the transcripts are stored as structured JSON files on disk.
+
+**Sub-agents** run via a `Task` tool. Each sub-agent runs its own nested agentic loop with an isolated conversation context and an optional restricted toolset. They can execute in-process (using `AsyncLocalStorage` for isolation, matching what the source map showed) or on remote compute.
 
 ### Other Findings
 
