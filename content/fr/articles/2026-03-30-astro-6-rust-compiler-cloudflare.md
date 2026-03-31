@@ -1,45 +1,45 @@
 ---
-title: "Astro 6 en vedette : Compilateur Rust, Contenu Live et futur Cloudflare"
-description: "Astro 6.0 et 6.1 débarquent à quelques semaines d'intervalle, apportant un compilateur Rust expérimental, des collections de contenu request-time, une Fonts API intégrée, des outils CSP, et une intégration Cloudflare approfondie — tout cela tandis que le framework double son adoption pour la troisième année consécutive."
+title: "Astro 6 en scène : Compilateur Rust, Contenu vivant, et un futur Cloudflare"
+description: "Astro 6.0 et 6.1 atterrissent à quelques semaines d'intervalle, apportant un compilateur Rust expérimental, des collections de contenu request-time, une API Fonts intégrée, des outils CSP, et une intégration Cloudflare approfondie."
 image: "https://astro.build/_astro/og-astro-6.DDjHPVzL.webp"
 date: "2026-03-30"
 category: Framework
 author: lschvn
 readingTime: 5
 tags: ["astro", "cloudflare", "javascript", "webdev", "rust", "framework", "release", "vite"]
+tldr:
+  - "Astro 6.0 (10 mars) et 6.1 (26 mars) expédient un serveur de dev rebuild qui exécute votre runtime de production réel pendant le développement."
+  - "Les Live Content Collections récupèrent le contenu à la requête plutôt qu'au build, en utilisant les mêmes API que les collections au build."
+  - "Un compilateur Rust expérimental pour les fichiers .astro est opt-in ; une API Fonts intégrée et CSP au niveau framework sont aussi nouvelles."
+  - "Astro Technology Company a rejoint Cloudflare mais reste sous licence MIT et agnostique quant à la plateforme."
 faq:
   - question: "Quoi de neuf dans Astro 6 ?"
-    answer: "Astro 6.0 introduit un serveur de dev rebuilt qui exécute votre runtime de production actuel pendant le développement, des Live Content Collections pour la récupération de contenu request-time, une Fonts API intégrée, une API CSP de première classe, et un compilateur expérimental basé sur Rust pour les fichiers .astro. Astro 6.1 a suivi avec les défauts Sharp spécifiques au codec et un support typographique amélioré."
+    answer: "Astro 6.0 introduit un serveur de dev reconstruit qui exécute votre runtime de production réel pendant le développement, des Live Content Collections pour la récupération de contenu à la requête, une API Fonts intégrée, une API Content Security Policy de première classe, et un compilateur expérimental basé sur Rust pour les fichiers .astro. Astro 6.1 a suivi avec des valeurs par défaut Sharp spécifiques au codec et un support typographique amélioré."
   - question: "Astro 6 nécessite-t-il Cloudflare ?"
-    answer: "Non. Astro reste sous licence MIT, open-source, et platform-agnostic. Toutes les cibles de déploiement incluant Node.js, Vercel, Deno, Bun et Cloudflare Workers sont pleinement supportées. Le partenariat Cloudflare fournit des ressources et du focus pour l'équipe Astro mais ne crée aucun lock-in."
-tldr:
-  - "Astro 6.0 (10 mars) et 6.1 (26 mars) livrent un serveur de dev rebuilt exécutant les runtimes de production réels via l'Environment API de Vite."
-  - "Les Live Content Collections récupèrent le contenu au moment de la requête plutôt qu'au build, en utilisant les mêmes APIs que les collections build-time."
-  - "Un compilateur Rust expérimental pour les fichiers .astro est opt-in ; une Fonts API intégrée et des outils CSP au niveau framework sont également nouveaux."
-  - "Astro Technology Company a rejoint Cloudflare mais reste sous licence MIT et platform-agnostic sur toutes les cibles de déploiement."
+    answer: "Non. Astro reste sous licence MIT, open-source et agnostique quant à la plateforme. Toutes les cibles de déploiement incluant Node.js, Vercel, Deno, Bun et Cloudflare Workers sont pleinement supportées. Le partenariat avec Cloudflare apporte des ressources et du fokus pour l'équipe Astro mais ne crée aucun lock-in."
 ---
 
-Astro a expédié deux versions significatives en moins de trois semaines — Astro 6.0 le 10 mars et Astro 6.1 le 26 mars — couronnant une période qui a également vu l'Astro Technology Company rejoindre officiellement Cloudflare. Les versions successives apportent des changements architecturaux, de nouvelles APIs, et un signal clair sur la direction du framework : plus rapide par défaut, plus proche de l'edge, et ouvert à tout le web.
+Astro a expédié deux releases significatives en moins de trois semaines — Astro 6.0 le 10 mars et Astro 6.1 le 26 mars — concluant une période qui a aussi vu l'Astro Technology Company rejoindre officiellement Cloudflare. Les releases consécutives apportent des changements architecturaux, de nouvelles API, et un signal clair sur la direction du framework : plus rapide par défaut, plus proche de l'edge, et ouvert à tout le web.
 
 ## La question Cloudflare — Répondue
 
-Back en janvier, quand Astro a annoncé rejoindre Cloudflare, la préoccupation naturelle de la communauté était le lock-in. Astro devenant-il un framework Cloudflare-only ? La version 6.0 dissip эту озабоченность rapidement. L'équipe a été explicite : Astro reste sous licence MIT, open-source, et platform-agnostic. Toutes les cibles de déploiement — Node.js, Vercel, Deno, Bun, Cloudflare Workers — continuent d'être supportées.
+Back en janvier, quand Astro a annoncé qu'il rejoignait Cloudflare, la préoccupation naturelle de la communauté était le lock-in. Est-ce qu'Astro allait devenir un framework Cloudflare-only ? La release 6.0 dissipé rapidement cela. L'équipe a été explicite : Astro reste sous licence MIT, open-source et agnostique quant à la plateforme. Toutes les cibles de déploiement — Node.js, Vercel, Deno, Bun, Cloudflare Workers — continuent d'être supportées.
 
-Ce que Cloudflare apporte, ce sont des ressources et du focus. Fred Schott a décrit des années à chase paid hosting primitives qui n'ont jamais cliqué, drainant les cycles du framework lui-même. Avec Cloudflare backing the company, l'équipe core Astro peut retourner au travail open source à temps plein.
+Ce que Cloudflare apporte, ce sont des ressources et du fokus. Fred Schott a décrit des années à courir après les primitives d'hébergement payées qui n'ont jamais cliqué, drainant des cycles du framework lui-même. Avec Cloudflare backing the company, l'équipe core Astro peut retourner au travail open source à temps plein.
 
-L'alignement est logique : Cloudflare a heavily investi dans l'infrastructure edge globale rapide. Astro a construit un framework optimized pour les sites web driven par le contenu qui expédient minimal JavaScript. Ensemble, l'écart entre le développement local et le déploiement en production se réduit — et 6.0 est la première version qui attaque seriously ce problème.
+L'alignement est logique : Cloudflare a heavily invested dans l'infrastructure edge globale rapide. Astro a construit un framework optimisé pour les sites web driven par le contenu qui expédient minimal JavaScript. Ensemble, le fossé entre le développement local et le déploiement de production se rétrécit — et 6.0 est la première release qui attaque seriously ce problème.
 
-## Serveur de dev redesigned : Fonctionne comme en production
+## Serveur de dev redesigné : Fonctionne comme en production
 
-Le changement le plus pratique dans Astro 6.0 est le serveur de dev rebuilt. Auparavant lié à Node.js, il exécute désormais votre runtime de production actuel pendant le développement grâce à la nouvelle Environment API de Vite. Pour la plupart des projets ce changement est invisible — vous exécutez toujours `astro dev` et ça marche. Mais pour les utilisateurs Cloudflare Workers, Bun et Deno, cela signifie que le comportement que vous voyez localement est finalement ce que vous obtenez en production.
+Le changement le plus pratique dans Astro 6.0 est le serveur de dev rebuild. Auparavant lié à Node.js, il exécute maintenant votre runtime de production réel pendant le développement grâce à la nouvelle API Environment de Vite. Pour la plupart des projets ce changement est invisible — vous exécutez toujours `astro dev` et les choses fonctionnent. Mais pour les utilisateurs Cloudflare Workers, Bun et Deno, cela signifie que le comportement que vous voyez localement est finalement ce que vous obtenez en production.
 
-Cloudflare Workers avait la version la plus douloureuse de ce problème. L'ancien serveur de dev tournait sur Node.js, tandis que la production tournait sur le runtime `workrd` de Cloudflare. Les bindings Cloudflare — KV, D1, R2, Durable Objects — étaient indisponibles pendant le développement local. Vous testiez en déployant. L'adapter `@astrojs/cloudflare` rebuilt fonctionne désormais `workrd` à chaque étape : développement, pré-rendu et production. Vous écrivez des imports `cloudflare:workers` et ils se résolvent localement, avec de vraies réponses de binding.
+Cloudflare Workers avait la version la plus douloureuse de ce problème. L'ancien serveur de dev fonctionnait sur Node.js, alors que la production fonctionnait sur le runtime `workerd` de Cloudflare. Les bindings Cloudflare — KV, D1, R2, Durable Objects — étaient indisponibles pendant le développement local. Vous testiez en déployant. L'adapter `@astrojs/cloudflare` rebuildoked exécute maintenant `workerd` à chaque étape : développement, pré-rendu et production. Vous écrivez des imports `cloudflare:workers` et ils se résolvent localement, avec de vraies réponses de binding.
 
-## Live Content Collections : Contenu au moment de la requête
+## Live Content Collections : Contenu à la requête
 
-Les Content Collections sont une fonctionnalité core Astro depuis la version 2.0, mais elles ont toujours nécessité un rebuild quand le contenu changeait. Astro 6.0 stabilise les Live Content Collections — un moyen de récupérer le contenu au moment de la requête plutôt qu'au build, avec les mêmes APIs que vous avez déjà utilisées.
+Les Content Collections sont une fonctionnalité core Astro depuis la version 2.0, mais elles ont toujours nécessité un rebuild quand le contenu changeait. Astro 6.0 stabilise les Live Content Collections — un moyen de récupérer le contenu à la requête plutôt qu'au build, avec les mêmes API que vous utilisez déjà.
 
-La distinction compte pour le contenu qui change fréquemment : contenu éditorial piloté par CMS, données backed par API, scores de sports live. Auparavant, n'importe lequel de ceux-ci aurait bypass le layer de contenu Astro. Maintenant vous définissez une collection live avec un loader dans `src/live.config.ts`, et le contenu est récupéré à chaque requête — pas de rebuild, pas de cache invalidation à gérer.
+La distinction compte pour le contenu qui change fréquemment : contenu éditorial driven par CMS, données backed par API, scores de sports en direct. Auparavant, n'importe lequel de ceux-ci contournait entièrement la couche de contenu d'Astro. Maintenant vous définissez une collection live avec un loader dans `src/live.config.ts`, et le contenu est récupéré à chaque requête — pas de rebuild, pas de invalidation de cache à gérer.
 
 ```ts
 import { defineLiveCollection } from 'astro:content';
@@ -58,13 +58,13 @@ const updates = defineLiveCollection({
 export const collections = { updates };
 ```
 
-Les collections build-time et live coexistent dans le même projet. Si votre contenu ne change pas souvent, continuez à utiliser la version build-time pour des performances optimales. Si la fraîcheur prime sur la livraison statique, passez à un live loader et le contenu est live au moment de la publication.
+Les collections au build et live coexistent dans le même projet. Si votre contenu ne change pas souvent, continuez à utiliser la version au build pour une performance maximale. Si la fraîcheur compte plus que la livraison statique, basculez vers un loader live et le contenu est en ligne au moment de sa publication.
 
-## Compilateur Rust expérimental : La prochaine phase de la toolchain Astro
+## Compilateur Rust expérimental : La prochaine phase de l'outillage Astro
 
-Astro travaille discrètement sur un compilateur basé sur Rust pour les fichiers `.astro` depuis plus d'un an. Astro 6.0 le ship comme experimental opt-in — le successor du compilateur original basé sur Go que le framework utilise depuis ses débuts. L'équipe est franche sur le statut : c'est early, mais les résultats impressionnent déjà dans certains cas, et la fiabilité rattrape.
+Astro travaille quietly sur un compilateur basé sur Rust pour les fichiers `.astro` depuis plus d'un an. Astro 6.0 l'expédie comme un opt-in expérimental — le successeur du compilateur original basé sur Go que le framework utilise depuis ses débuts. L'équipe est franche sur le statut : c'est tôt, mais les résultats impressionnent déjà dans certains cas, et la fiabilité rattrape.
 
-Cela fait partie d'une tendance plus large dans l'écosystème JavaScript : les rewrites d'outils en langages natifs. Vite 8's [Rolldown bundler](/articles/2026-03-26-vite-8-rolldown-era) et la [réécriture du compilateur TypeScript en Go](/articles/2026-03-23-typescript-7-native-preview-go-compiler) suivent le même pattern. Le compilateur Rust se branche sur le pipeline de build existant d'Astro. Activez-le dans votre `astro.config.mjs` :
+Cela fait partie d'une tendance plus large dans l'écosystème JavaScript : réécritures d'outillage en langages natifs. Le [bundleur Rolldown de Vite 8](/articles/2026-03-26-vite-8-rolldown-era) et [la réécriture Go du compilateur TypeScript](/articles/2026-03-23-typescript-7-native-preview-go-compiler) suivent le même pattern. Le compilateur Rust se branche sur le pipeline de build existant d'Astro. Activez-le dans votre `astro.config.mjs`:
 
 ```js
 import { defineConfig } from 'astro/config';
@@ -76,15 +76,15 @@ export default defineConfig({
 });
 ```
 
-Les améliorations de performance sont la cible évidente. Un compilateur écrit en Rust peut exploiter la sécurité mémoire et le parallélisme d'une manière qu'une toolchain basée sur Go ne peut pas facilement égaler. L'implication plus large est que la tendance de réécriture des outils JavaScript — TypeScript en Go, Vite avec Rolldown, le linter et formateur Oxc — touche désormais Astro aussi.
+Les améliorations de performance sont la cible évidente. Un compilateur écrit en Rust peut tirer parti de la sécurité mémoire et du parallélisme d'une manière qu'une boîte à outils basée sur Go ne peut pas facilement égaler. L'implication plus large est que la tendance de réécriture de l'outillage JavaScript — TypeScript en Go, Vite avec Rolldown, le linter et formateur d'Oxc — touche maintenant Astro aussi.
 
-L'équipe Astro s'est engagée à investir continuellement dans les outils powered by Rust tout au long de la ligne de release 6.x. Si l'expérience maturité, les futures versions point 6.x pourraient basculer le flag d'experimental à stable.
+L'équipe Astro s'est engagée à investir continuellement dans l'outillage alimenté par Rust tout au long de la ligne de release 6.x. Si l'expérience mûrit, les futures releases point 6.x pourraient basculer le flag d'expérimental à stable.
 
-## Fonts API intégrée : Best practices sans la configuration
+## API Fonts intégrée : Meilleures pratiques sans la configuration
 
-Les polices personnalisées sont nearly universelles sur le web moderne, et nearly universally mal configurées. Astro 6.0 ship une Fonts API qui gère les parties difficiles : téléchargement et caching des fichiers de police pour le self-hosting, génération de polices de fallback optimisées, et insertion automatique des hints de preload.
+Les polices personnalisées sont nearly universelles sur le web moderne, et nearly universellement mal configurées. Astro 6.0 expédiemne une Fonts API qui gère les parties difficiles : téléchargement et mise en cache des fichiers de police pour l'auto-hébergement, génération de polices de fallback optimisées, et insertion automatique des indices de preload.
 
-Configurez les polices une fois dans `astro.config.mjs` :
+Configurez les polices une fois dans `astro.config.mjs`:
 
 ```js
 import { defineConfig, fontProviders } from 'astro/config';
@@ -100,13 +100,13 @@ export default defineConfig({
 });
 ```
 
-Ensuite, déposez un composant `<Font />` dans n'importe quel layout ou page. Astro gère le reste — vous obtenez le chargement correct des polices sans auditer chaque page pour les régressions de performance.
+Puis déposez un composant `<Font />` dans n'importe quelle layout ou page. Astro gère le reste — vous obtenez le chargement de police correct sans auditer chaque page pour les régressions de performance.
 
 ## Content Security Policy : CSP au niveau framework
 
-Astro 6.0 stabilise une API CSP intégrée — l'une des premières implémentations CSP ship comme fonctionnalité de première classe dans un méta-framework JavaScript. Le défi avec CSP dans un framework component-based est que les scripts et styles peuvent venir de n'importe où, et une CSP doit toutes les connaître pour générer des hashs valides.
+Astro 6.0 stabilise une API Content Security Policy intégrée — l'une des premières implémentations CSP expédiées comme fonctionnalité de première classe dans un méta-framework JavaScript. Le défi avec CSP dans un framework basé sur les composants est que les scripts et styles peuvent venir de n'importe où, et une CSP doit tous les connaître pour générer des hashs valides.
 
-Pour les pages statiques, c'est calculable au build time. Pour les pages dynamiques où le contenu change par requête, les hashs CSP doivent être calculés à runtime et injectés par réponse. Astro gère les deux cas avec la même API :
+Pour les pages statiques, c'est calculable au build. Pour les pages dynamiques où le contenu change par requête, les hashs CSP doivent être calculés à l'exécution et injectés par réponse. Astro gère les deux cas avec la même API :
 
 ```js
 import { defineConfig } from 'astro/config';
@@ -118,11 +118,11 @@ export default defineConfig({
 });
 ```
 
-Ce flag unique suffit pour la plupart des sites. Pour plus de contrôle — algorithmes de hash personnalisés, directives supplémentaires pour les scripts tiers — l'API de configuration complète est disponible. CSP s'intègre également avec la fonctionnalité d'images responsives d'Astro : les styles d'images responsives sont calculés au build time, ils peuvent donc être hashés et inclus dans la policy automatiquement.
+Ce flag unique suffit pour la plupart des sites. Pour plus de contrôle — algorithmes de hashage personnalisés, directives supplémentaires pour les scripts tiers — l'API de configuration complète est disponible. CSP s'intègre aussi avec la fonctionnalité d'image responsive d'Astro : les styles d'image responsive sont calculés au build, donc ils peuvent être hashés et inclus dans la politique automatiquement.
 
-## Astro 6.1 : Sharp Defaults, typographie plus inteligente
+## Astro 6.1 : Valeurs par défaut Sharp, Typographie plus intelligente
 
-Astro 6.1 est arrivé le 26 mars avec des améliorations plus petites mais pratiques. Le headline est les défauts Sharp spécifiques au codec — un moyen de définir les options d'encodage JPEG, WebP, AVIF et PNG une fois dans `astro.config.mjs` plutôt que sur chaque composant `<Image />` individuellement :
+Astro 6.1 est arrivé le 26 mars avec des améliorations plus petites mais pratiques. Le titre est les valeurs par défaut Sharp spécifiques au codec — un moyen de définir les options d'encodage JPEG, WebP, AVIF et PNG une fois dans `astro.config.mjs` au lieu de sur chaque composant `<Image />` individuellement :
 
 ```js
 import { defineConfig } from 'astro/config';
@@ -141,21 +141,21 @@ export default defineConfig({
 });
 ```
 
-La typographie a également reçu un boost : le processeur SmartyPants qui gère la conversion automatique de la ponctuation en équivalents typographiques expose désormais sa configuration complète. Les projets ciblant des audiences non-anglophones peuvent enfin définir les guillemets français, les signes de citation allemands, ou un comportement em-dash non standard sans désactiver SmartyPants entièrement.
+La typographie a aussi eu un boost : le processeur SmartyPants qui gère la conversion automatique de la ponctuation en équivalents typographiques expose maintenant sa configuration complète. Les projets ciblant des audiences non-anglophones peuvent enfin définir des guillemets français, des marques de quotation allemandes, ou un comportement em-dash non standard sans désactiver SmartyPants entièrement.
 
-Pour round out the release : les routes de fallback i18n sont désormais exposées au hook system d'Astro pour que les intégrations comme `@astrojs/sitemap` puissent inclure automatiquement les pages de fallback, les view transitions sur mobile ne double-animent plus avec les gestures swipe, et les warnings de compatibilité Vite 8 surface désormais au démarrage du serveur de dev.
+Pour compléter la release : les routes de fallback i18n sont maintenant exposées au système de hooks d'Astro pour que les intégrations comme `@astrojs/sitemap` puissent inclure les pages de fallback automatiquement, les view transitions sur mobile ne font plus de double animation avec les gestes swipe, et les avertissements de compatibilité Vite 8 sont maintenant affichés au démarrage du serveur de dev.
 
-## Ce que cela signifie pour l'écosystème
+## Ce que ça signifie pour l'écosystème
 
-La trajectoire d'Astro est distincte de React ou Vue — il n'a jamais essayé d'être un framework d'application. Au lieu de cela, il a misé sur l'hypothèse que la majeure partie du web est du contenu, pas un état interactif, et que servir HTML efficacement compte. Le partenariat Cloudflare et l'investissement dans le compilateur Rust suggèrent que cette thèse ne fait que s'aiguiser.
+La trajectoire d'Astro est distincte de React ou Vue — il n'a jamais essayé d'être un framework d'application. Au lieu de cela, il a misé sur l'hypothèse que la majeure partie du web est du contenu, pas un état interactif, et que servir du HTML efficacement compte. Le partenariat Cloudflare et l'investissement dans le compilateur Rust suggèrent que cette thèse ne fait que s'aiguiser.
 
-L'alignement Cloudflare s'étend au-delà de l'hébergement — voyez comment Cloudflare a également [rebuilt Next.js avec l'IA](/articles/vinext-cloudflare-vercel) dans le cadre de sa stratégie de plateforme développeur plus large.
+L'alignement Cloudflare s'étend au-delà de l'hébergement — voyez comment Cloudflare a aussi [rebuildé Next.js avec l'IA](/articles/vinext-cloudflare-vercel) dans le cadre de sa stratégie plus large de plateforme développeur.
 
-Le compilateur Rust en particulier mérite d'être regardé. Si le compilateur `.astro` d'Astro atterrit en Rust avec des gains de performance et de fiabilité, il crée un deuxième point de données crédible au-delà d'Oxc/Rolldown que la réécriture des outils JavaScript en langages natifs a un vrai momentum.
+Le compilateur Rust en particulier vaut la peine d'être regardé. Si le compilateur `.astro` d'Astro atterrit en Rust avec des gains de performance et de fiabilité, il crée un deuxième point de données crédible au-delà d'Oxc/Rolldown que la réécriture par la communauté JavaScript de l'outillage en langages natifs a un vrai élan.
 
 ```bash
 # Mettre à niveau vers Astro 6
 npx @astrojs/upgrade
 ```
 
-Pour les détails complets sur Astro 6.0, voir le [billet de release officiel](https://astro.build/blog/astro-6/). Pour 6.1, le changelog et la documentation sont live sur [docs.astro.build](https://docs.astro.build).
+Pour les détails complets sur Astro 6.0, voir le [post de release officiel](https://astro.build/blog/astro-6/). Pour 6.1, le changelog et la documentation sont en ligne sur [docs.astro.build](https://docs.astro.build).

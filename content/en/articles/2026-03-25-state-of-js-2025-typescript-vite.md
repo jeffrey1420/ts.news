@@ -12,6 +12,13 @@ tldr:
   - "Vite hits 84% usage with a 98% satisfaction score, while Webpack satisfaction collapsed to 26% (down from 36% in 2024)."
   - "React remains most-used at 83.6%, but Next.js draws growing criticism over complexity and Vercel's business incentives."
   - "Rolldown jumped from 1% to 10% usage in one year, signaling a Rust-based future for the JavaScript build pipeline."
+faq:
+  - question: "Is TypeScript replacing JavaScript as the default choice?"
+    answer: "Almost. 40% of developers now write exclusively in TypeScript (up from 34% in 2024), while only 6% stick with plain JavaScript exclusively. Daniel Roe, Nuxt core team leader, put it bluntly: 'TypeScript has won. Not as a bundler, but as a language.' With Node.js type stripping now stable, the last technical barriers are gone."
+  - question: "Why is Webpack satisfaction collapsing and what replaces it?"
+    answer: "Webpack's satisfaction rating fell to 26% in 2025, down from 36% in 2024, as developers grew frustrated with its complexity and steep learning curve. Vite dominates with 98% satisfaction at 84% usage. Turbopack sits at just 28% usage, and Rolldown — the Rust-based Rollup-compatible toolchain — jumped from 1% to 10% usage in a single year."
+  - question: "What's driving the criticism of Next.js despite its high usage?"
+    answer: "Next.js posts a 21% positive sentiment against a concerning 17% negative — generating more comment activity than any other project. Developers cite mounting complexity ('the Next.js complexity has gotten absurd') and concerns about Vercel's business incentives shaping the framework's direction. Solid.js maintains the highest satisfaction rating among major frameworks."
 ---
 
 The [State of JavaScript 2025](https://2025.stateofjs.com/en-US) survey, published in February 2026 after collecting responses through November 2025, paints a picture of a maturing ecosystem. TypeScript has firmly won the language war, Vite has won the build tool war — at least in sentiment — and developers are increasingly vocal about framework complexity.

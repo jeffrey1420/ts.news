@@ -18,7 +18,7 @@ faq:
   - question: "Should I wait for TypeScript 7.0?"
     answer: "No — TypeScript 6.0 is designed as a bridge release. The breaking changes in 6.0 prepare your codebase for 7.0, so upgrading now and fixing deprecation warnings will make the eventual 7.0 migration smoother."
   - question: "What is the Go rewrite of TypeScript?"
-    answer: "TypeScript 7.0 is a full rewrite of the TypeScript compiler in Go, replacing the original JavaScript-based codebase. The Go rewrite targets native execution speed and shared-memory multithreading, which the current architecture cannot leverage effectively. Early benchmarks show significantly faster type-checking on large projects."
+    answer: "TypeScript 7.0 is a full rewrite of the TypeScript compiler in Go, replacing the original JavaScript-based codebase. The Go rewrite targets native execution speed and shared-memory multithreading, which the current architecture cannot leverage effectively. Early benchmarks show significantly faster type-checking on large projects — the VS Code codebase compiles roughly 10x faster under the Go-based compiler."
 ---
 
 Microsoft released TypeScript 6.0 on March 23, 2026. It is, by design, the end of an era. This is the last major version of TypeScript built on the original JavaScript-based compiler codebase. [TypeScript 7.0](/articles/2026-03-23-typescript-7-native-preview-go-compiler), currently in development and written in Go, will arrive later this year with native execution speeds and shared-memory multithreading.

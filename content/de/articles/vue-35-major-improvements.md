@@ -1,6 +1,6 @@
 ---
-title: "Vue 3.5: Das 'Minor'-Release, das die Regeln der Frontend-Performance neu schrieb"
-description: "Vue 3.5 arrived mit keinen breaking Changes und einer Reihe von Internals-Verbesserungen, die jeden Entwickler aufhorchen lassen sollten — 56% weniger Speichernutzung, Lazy Hydration und eine stabilisierte Reactive Props API."
+title: "Vue 3.5: Das 'Minor'-Release, das die Regeln der Frontend-Performance neu geschrieben hat"
+description: "Vue 3.5 kam ohne Breaking Changes und mit einer Reihe von internen Verbesserungen, die jeden Entwickler aufhorchen lassen sollten — 56% weniger Speicherverbrauch, Lazy Hydration und eine stabilisierte reaktive Props-API."
 date: "2026-03-22"
 category: "deep-dive"
 author: lschvn
@@ -8,31 +8,34 @@ tags: ["vue", "javascript", "frontend", "performance", "ssr", "typescript"]
 readingTime: 10
 image: "https://opengraph.githubassets.com/f7b424ad79df220a2cc8c8a5cc2d08e45d1657724c9600dc28af967788f7a38a/vuejs/core"
 tldr:
-  - "Vue 3.5 liefert 56% niedrigere Speichernutzung und bis zu 10x schnellere Operationen auf großen tief reaktiven Arrays via ein Reaktivitätssystem-Refactor."
-  - "Reactive Props Destructuring ist stabilisiert — Destrukturierung in `<script setup>` bewahrt jetzt Reaktivität ohne withDefaults()."
-  - "Neue Lazy Hydration API (hydrateOnVisible) und useId() für stabile Server/Client-IDs lösen lange bestehende SSR-Schmerzpunkte."
-  - "Vue 3.6 zielt auf Vapor Mode — Kompilierung von Templates zu direkten DOM-Operationen mit einem Ziel von 100.000 Komponenten-Mounts in 100ms."
+  - "Vue 3.5 delivers 56% lower memory usage and up to 10x faster operations on large deeply reactive arrays via a reactivity system refactor."
+  - "Reactive props destructuring is stabilized — destructuring in `<script setup>` now preserves reactivity without withDefaults()."
+  - "New lazy hydration API (hydrateOnVisible) and useId() for stable server/client IDs solve long-standing SSR pain points."
+  - "Vue 3.6 targets Vapor Mode — compiling templates to direct DOM ops with a goal of 100,000 component mounts in 100ms."
+faq:
+  - question: "Ist Vue 3.5 wirklich ein 'Minor'-Release?"
+    answer: "Trotz dass Evan You es als Minor-Release bezeichnete, lieferte Vue 3.5 eine vollständige Überarbeitung des Reaktivitätssystems mit 56% weniger Speicherverbrauch und bis zu 10× schnelleren Operationen auf großen, tief reaktiven Arrays. Das sind keine inkrementellen Verbesserungen."
+  - question: "Was ist Vapor Mode in Vue 3.6?"
+    answer: "Vapor Mode ist eine Kompilierungsstrategie, die das virtuelle DOM vollständig eliminiert. Statt bei jedem Update einen virtuellen DOM-Baum zu diffen, kompiliert es Vue-Templates in direkte DOM-Operationen — dieselbe Strategie wie Solid.js. Die interessante Behauptung: erreicht Solid.js-Level-Performance bei gleicher Vue-API."
+  - question: "Funktioniert reaktives Props-Destructuring jetzt ohne withDefaults()?"
+    answer: "Ja. In Vue 3.5 funktioniert Destrukturieren von Props in <script setup> jetzt reaktiv. Sie brauchen withDefaults() nicht mehr, um Reaktivität bei Destrukturierung aufrechtzuerhalten. Aber Computeds und Composables, die destrukturierte Props konsumieren, brauchen immer noch einen Getter-Wrapper."
 ---
 
-Vue 3.5 wurde im September 2024 veröffentlicht mit dem, was Evan You ein Minor-Release nannte — und einem refaktorierten Reaktivitätssystem, das **56% weniger Speichernutzung** und **bis zu 10× schnellere Operationen auf großen, tief reaktiven Arrays** liefert. Die Reaktion der Entwickler-Community war ungefähr: *"Das fühlt sich nicht wie ein Minor-Release an."*
+Vue 3.5 erschien im September 2024 mit dem, was Evan You ein Minor-Release nannte — und einem überarbeiteten Reaktivitätssystem, das **56% weniger Speicherverbrauch** und **bis zu 10× schnellere Operationen auf großen, tief reaktiven Arrays** liefert. Die Reaktion der Entwickler-Community war ungefähr: *"Das fühlt sich nicht wie ein Minor-Release an."*
 
-Die Zahlen bestätigen dieses Instinkt. Vue 3.5's refaktoriertes Reaktivitätssystem liefert **56% niedrigere Speichernutzung** und **bis zu 10× schnellere Operationen auf großen, tief reaktiven Arrays**. Das sind keine inkrementellen Gewinne — sie sind die Art von Verbesserungen, die ändern, was "großskaliges Vue" in der Praxis bedeutet.
+Die Zahlen bestätigen diesen Instinkt. Vue 3.5's überarbeitetes Reaktivitätssystem liefert **56% weniger Speicherverbrauch** und **bis zu 10× schnellere Operationen auf großen, tief reaktiven Arrays**. Das sind keine inkrementellen Verbesserungen — sie sind die Art von Verbesserungen, die definieren, was "großskaliges Vue" in der Praxis bedeutet.
 
-Dieser Artikel ist ein Blick darauf, was sich tatsächlich geändert hat, was es für Ihre Anwendungen bedeutet und wohin Vue als nächstes geht.
+## Was Vue 3.5 Upgrade-würdig machte
 
-## Was Vue 3.5 das Upgrade wert machte
+### Ein überarbeitetes Reaktivitätssystem
 
-### Ein neu geschriebenes Reaktivitätssystem
+Die zentrale Änderung ist eine vollständige interne Überarbeitung, wie Vue reaktiven Zustand verfolgt. Das Ziel war, stale Computed-Werte und Memory Leaks zu eliminieren, die sich während Server-Side-Rendering ansammeln konnten — eine Klasse von Bugs, die unter Dauerlast in Produktion auftauchen.
 
-Die Kernänderung ist ein vollständiger interner Refactor dessen, wie Vue reaktiven State verfolgt. Das Ziel war, stale berechnete Werte und Speicherlecks zu eliminieren, die sich während des serverseitigen Renderings ansammeln konnten — eine Klasse von Bugs, die dazu neigen, in Produktion unter anhaltender Last aufzutreten.
+Das Ergebnis war ein Nettogewinn überall: weniger Speicherverbrauch, bessere Performance bei tief verschachtelten reaktiven Strukturen, und Lösung langjähriger Probleme mit "hängenden Computeds" in SSR-Kontexten. Entscheidend: Die Überarbeitung hatte **keine Verhaltensänderungen**.
 
-Das Ergebnis war ein Nettogewinn über die ganze Linie: niedrigere Speichernutzung, bessere Performance auf tief verschachtelten reaktiven Strukturen und Lösung von lange bestehenden Problemen mit "hängenden Computeds" in SSR-Kontexten. Kritisch: der Refactor hatte **keine Verhaltensänderungen** — alles, was vorher funktionierte, funktioniert noch. Es ist rein eine interne Verbesserung.
+### Reaktives Props-Destructuring, jetzt stabilisiert
 
-Für Anwendungen, die große reaktive Datenstrukturen pflegen — denken Sie an Dashboards mit Echtzeit-Daten, komplexe Formulare oder kollaborative Bearbeitungsoberflächen — summieren sich diese Gewinne zu messbar schnelleren Interaktionen.
-
-### Reactive Props Destructure, jetzt stabilisiert
-
-Eines der meistgewünschten Features aus dem Composition API RFC-Prozess landete in 3.5 mit seiner Stabilisierung. Zuvor würde Destrukturierung von Props in `<script setup>` die Reaktivität brechen. Der Workaround war `withDefaults()` und explizite Prop-Typisierung, was funktionierte, aber umständlich wirkte.
+Eine der meistgewünschten Features aus dem Composition-API-RFC-Prozess landete in 3.5 mit ihrer Stabilisierung. Zuvor brach Destrukturieren von Props in `<script setup>` die Reaktivität.
 
 ```typescript
 // Vor 3.5 — die einzige zuverlässige Methode
@@ -44,20 +47,16 @@ const props = withDefaults(
   { count: 0, message: 'hello' }
 )
 
-// Nach 3.5 — native Destrukturierung funktioniert reaktiv
+// Nach 3.5 — natives Destrukturieren funktioniert reaktiv
 const { count = 0, message = 'hello' } = defineProps<{
   count?: number
   message?: string
 }>()
 ```
 
-Der Haken: berechnete Eigenschaften und Composables, die destrukturierte Props konsumieren, benötigen immer noch einen Getter-Wrapper, um Reaktivitätsverfolgung aufrechtzuerhalten. `watch(() => count)` funktioniert; `watch(count)` wirft einen Kompilierfehler. Dies ist ein bewusster Guard Rail, kein Bug.
-
 ### Lazy Hydration für SSR
 
-Serverseitige Rendering-Performance war ein bekannter Schmerzpunkt im Vue-Ökosystem. Das traditionelle SSR-Hydrationsmodell hydratisiert die gesamte Seite auf einmal, was eine Kaskade von Arbeit auf dem Client erzeugt, die Nutzer als langsame Time-to-Interactive erleben.
-
-Vue 3.5 führt eine API auf niedrigerer Ebene zur Steuerung der Hydrationsstrategie ein. `defineAsyncComponent()` akzeptiert jetzt eine `hydrate`-Option, die es Ihnen ermöglicht anzugeben, wann eine Komponente hydratisiert werden sollte:
+Server-Side-Rendering-Performance war ein bekannter Schmerzpunkt im Vue-Ökosystem. Vue 3.5 führt eine Low-Level-API zur Kontrolle der Hydrationsstrategie ein. `defineAsyncComponent()` akzeptiert jetzt eine `hydrate`-Option:
 
 ```typescript
 import { defineAsyncComponent, hydrateOnVisible } from 'vue'
@@ -68,13 +67,13 @@ const AsyncComp = defineAsyncComponent({
 })
 ```
 
-Komponenten können jetzt verzögert werden, bis sie beim Scrollen in den Viewport kommen, interaktiv werden oder andere Bedingungen erfüllen. Das Nuxt-Team begann sofort, höherrangige Syntax auf dieser API aufzubauen, was Ihnen sagt, wie lange diese Fähigkeit gebraucht wurde.
+Komponenten können jetzt verzögert werden, bis sie in den Viewport scrollen.
 
 ### useId(): Stabile IDs über Server und Client
 
-Formular-Barrierefreiheit erfordert eindeutige `for`/`id`-Paare. In SSR-Anwendungen ist das Generieren dieser auf dem Server und das Zuordnen auf dem Client eine häufige Quelle für Hydrations-Mismatches — der Server generiert eine ID, der Client eine andere.
+Form-Zugänglichkeit erfordert eindeutige `for`/`id`-Paare. In SSR-Anwendungen ist die Generierung auf dem Server und das Matching auf dem Client eine häufige Ursache für Hydration-Mismatches.
 
-`useId()` löst dies, indem es IDs generiert, die über die Server/Client-Grenze hinweg stabil sind:
+`useId()` löst das durch IDs, die stabil über die Server/Client-Grenze sind:
 
 ```vue
 <script setup>
@@ -90,32 +89,24 @@ const id = useId()
 </template>
 ```
 
-Dieselbe Komponente, auf dem Server oder Client gerendert, produziert dieselbe ID. Keine Hydrations-Warnungen mehr von mismatched Formularfeld-Zuordnungen.
+Dieselbe Komponente, auf dem Server oder Client gerendert, produziert dieselbe ID.
 
 ### data-allow-mismatch
 
-SSR-Anwendungen produzieren häufig Content, der legitimerweise zwischen Server- und Client-Renders differenziert — Zeitstempel, angezeigt in der lokalen Zeitzone des Benutzers, Daten formatiert von `Intl`, Content, der von clientseitigem State abhängt, der erst nach Hydration verfügbar ist.
-
-Zuvor würden diese Differenzen Warnungen produzieren, die Rauschen statt Signal waren. `data-allow-mismatch` ermöglicht Ihnen, Warnungen für bekannte, akzeptable Diskrepanzen explizit zu unterdrücken:
+`data-allow-mismatch` ermöglicht explizites Unterdrücken von Warnungen für bekannte, akzeptable Diskrepanzen:
 
 ```html
 <span data-allow-mismatch>{{ user.localBirthday }}</span>
 ```
 
-Sie können es auf spezifische Mismatch-Typen eingrenzen: `text`, `children`, `class`, `style` oder `attribute`. Dies ist eine ruhige Quality-of-Life-Verbesserung, die SSR-Debugging in komplexen Anwendungen tatsächlich tractable macht.
-
 ### useTemplateRef()
 
-Template Refs in Vue 3 erforderten, dass Ref-Attribute statisch vom Compiler analysierbar waren — meaning they had to be static strings, not dynamic bindings. Wenn Sie einen Ref wollten, dessen Name aus einer Variablen kam, hatten Sie Pech.
-
-`useTemplateRef()` löst dies, indem esRefs per Runtime-String-ID matching statt Compile-Time-Analyse:
+`useTemplateRef()` löst das Problem, dass Template-Refs statisch analysierbar sein mussten:
 
 ```vue
 <script setup>
 import { useTemplateRef } from 'vue'
-
 const inputRef = useTemplateRef('input')
-// funktioniert mit dynamischen Ref-Namen
 </script>
 
 <template>
@@ -123,42 +114,32 @@ const inputRef = useTemplateRef('input')
 </template>
 ```
 
-### Andere bemerkenswerte Ergänzungen
+## TypeScript: Leise wird besser
 
-- **Deferred Teleport**: `<Teleport>` required its target to exist at mount time previously. The `defer` prop in 3.5 lets you teleport to elements that don't exist yet but will be rendered later in the same cycle.
-- **onWatcherCleanup()**: Eine global importierte API zum Registrieren von Cleanup-Callbacks innerhalb von Watchern — die Vue-native Antwort auf das AbortController-Pattern zum Canceln von stale async Operations.
-- **Custom Elements improvements**: `useHost()`, `useShadowRoot()`, `this.$host`, `shadowRoot: false` mounting option und Nonce-Injection für sicherheitssensitive CSP-Umgebungen.
-
-## TypeScript: Leise wird es besser
-
-Vue 3.5 verbesserte auch die TypeScript-Inferenz auf Weisen, die für große Codebases wichtig sind. Bessere Inferenz für generische Komponententypen, verbesserte Typisierung für exponierte Template Refs und Utility-Type-Fixes, die den Bedarf an manuellen Type-Assertions reduzieren.
-
-Wenn Sie Vue mit TypeScript verwendet haben und mit Inferenzproblemen in `<script setup>` gekämpft haben, wird 3.5 einige dieser Kämpfe verschwinden lassen.
+Vue 3.5 verbesserte auch die TypeScript-Inferenz auf Arten, die für große Codebases wichtig sind.
 
 ## Vue 3.6: Was kommt
 
-Während 3.5 die Gegenwart aufräumte, zielt Vue 3.6 auf die Zukunft — und das Kopf-feature ist **Vapor Mode**.
+Der Headline-Feature von Vue 3.6 ist **Vapor Mode**.
 
-Vapor Mode ist eine Kompilierungsstrategie, die den virtuellen DOM komplett eliminiert. Statt einen virtuellen DOM-Baum bei jedem Update zu diffen, kompiliert es Vue-Templates zu direkten DOM-Operationen — dieselbe Strategie, die Solid.js verwendet, um seine benchmark-toppende Performance zu erreichen.
+Vapor Mode ist eine Kompilierungsstrategie, die das virtuelle DOM vollständig eliminiert. Statt bei jedem Update einen virtuellen DOM-Baum zu diffen, kompiliert es Vue-Templates zu direkten DOM-Operationen — dieselbe Strategie, die Solid.js verwendet.
 
-Die überzeugende Behauptung von Evan You: **Vapor Mode erlaubt Vue, Solid.js-level Rendering-Performance zu erreichen, während die exakt gleiche Vue-API behalten wird.** Sie schreiben Ihre Komponenten nicht um. Sie optieren individuelle Sub-Trees in Vapor Mode, und der Compiler übernimmt den Rest.
+Die interessante Behauptung von Evan You: **Vapor Mode erlaubt Vue, Solid.js-Level-Rendering-Performance zu erreichen, während die exakt gleiche Vue-API behalten wird.**
 
-Das Performance-Ziel ist bemerkenswert: **100.000 Komponenten-Mounts in 100ms**. Zum Vergleich: Vue 3's virtueller DOM bewältigt ungefähr 10.000-20.000 Komponenten-Mounts in demselben Zeitrahmen. Dieser Kompilierungsansatz sitzt innerhalb einer breiteren Verschiebung in der JavaScript-Toolchain — see our coverage of [Vite+ and the Rust-based toolchain](/articles/vite-plus-unified-toolchain) that's reshaping how frameworks bauen und ship.
+Das Performance-Ziel: **100.000 Komponenten-Mounts in 100ms**. Zum Vergleich: Vue 3's virtuelles DOM bewältigt etwa 10.000-20.000 Komponenten-Mounts in derselben Zeit.
 
-Vapor Mode ist derzeit in Beta (3.6.0-beta-Versionen sind jetzt auf npm). Die Integration in das Core Vue Repository ist im Gange. Eine stabile Veröffentlichung wird für 2026 erwartet.
+Vapor Mode ist derzeit in Beta. Die Integration in das Haupt-Vue-Repository läuft. Ein stabiles Release wird für 2026 erwartet.
 
 Auch bemerkenswert in der 3.6-Pipeline:
-
-- **Alien Signals**: Eine Reaktivitätsoptimierung, die die Speichernutzung um weitere 14% im Vergleich zu 3.5 reduziert, entwickelt von Johnson Chu
-- **Vue base bundle under 10KB**: Der Runtime-Footprint schrumpft erheblich
-- **Rolldown 1.0**: Der Rust-basierte Rollup-Ersatz ist jetzt in Produktion, was der Bundler ist, der Vite untermauert — schnellere Builds für jeden, der Vite in 2026 verwendet
+- **Alien Signals**: Eine weitere 14%ige Speicherverbrauchsreduzierung gegenüber 3.5
+- **Vue Base Bundle unter 10KB**: Der Runtime-Fußabdruck schrumpft erheblich
 
 ## Warum es wichtig ist
 
-Vue's Evolution hat einem interessanten Muster gefolgt. Jede Version hat das Framework weiter von "einfaches Tool für kleine Projekte" und näher an "seriöse Infrastruktur für große Anwendungen" gebracht — ohne die Entwicklererfahrung aufzugeben, die Vue ursprünglich ansprechend machte.
+Vue's Evolution hat einem interessanten Muster gefolgt. Jede Version hat das Framework weiter von "einfaches Tool für kleine Projekte" und näher an "seriöse Infrastruktur für große Anwendungen" geführt — ohne die Developer Experience aufzugeben, die Vue attraktiv gemacht hat.
 
-Vue 3.5 ist eine Fallstudie in dieser Balance. Die Speicher- und Performance-Verbesserungen sind die Art, die Produktionssysteme messbar besser machen — nicht kosmetisch, nicht theoretisch, sondern real. Die neuen APIs (Lazy Hydration, `useId`, `useTemplateRef`) adressieren Probleme, für die Entwickler jahrelang Workarounds gebaut haben.
+Vue 3.5 ist eine Fallstudie in dieser Balance. Die Speicher- und Performance-Verbesserungen sind die Art, die Produktionssysteme messbar besser macht — nicht kosmetisch, nicht theoretisch, sondern real.
 
-Die Trajektorie hin zu 3.6 und Vapor Mode deutet darauf hin, dass Vue nicht zufrieden damit ist, die Konkurrenz zu matchen. Es will die Performance-Bar setzen. Das ist eine interessante Ambition für ein Framework, das sich immer durch Zugänglichkeit und Ergonomie definiert hat, nicht durch rohe Geschwindigkeit.
+Die Richtung zu 3.6 und Vapor Mode suggeriert, dass Vue nicht zufrieden ist, nur mit der Konkurrenz gleichzuziehen. Es will die Performance-Blattr setzen. Das ist eine interessante Ambition für ein Framework, das sich immer über Zugänglichkeit und Ergonomie definiert hat, nicht über rohe Geschwindigkeit.
 
-Ob Vapor Mode sein Versprechen einlöst — und ob es die Kompatibilität mit dem existierenden Ökosystem während der Transition aufrechterhalten kann — wird bestimmen, ob Vue 3.6 als Pivot-Punkt erinnert wird oder nur als ein weiteres Release. Die frühen Signale sind vielversprechend.
+Ob Vapor Mode sein Versprechen hält, wird bestimmen, ob Vue 3.6 als Wendepunkt oder als weitere Release erinnert wird. Die frühen Signale sind vielversprechend.
