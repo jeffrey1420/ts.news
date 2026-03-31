@@ -146,7 +146,7 @@ The library also matters for:
 - **Game UIs** built on canvas
 - **Native app toolkits** that embed a JS engine but don't expose the browser's layout system
 
-[Bun](/articles/2026-03-30--bun-v1-3-11-cron-anthropic) is one such environment where Pretext's approach shines — with its embedded JavaScript engine and native TypeScript support, Pretext can calculate layouts server-side without a DOM at all.
+[Bun](/articles/2026-03-30-bun-v1-3-11-cron-anthropic) is one such environment where Pretext's approach shines — with its embedded JavaScript engine and native TypeScript support, Pretext can calculate layouts server-side without a DOM at all.
 
 ## Installation
 

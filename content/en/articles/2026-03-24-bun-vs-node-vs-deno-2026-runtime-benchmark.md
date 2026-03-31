@@ -40,7 +40,7 @@ Independent testing across a consistent hardware profile tells a fairly clear st
 
 Bun consistently leads in HTTP server throughput benchmarks — often 2-3x faster than Node.js on the same hardware. The gap narrows under heavy concurrent load but never closes entirely. Deno sits somewhere in the middle, usually outperforming Node.js but well behind Bun.
 
-The reason is architecture: Bun uses JavaScriptCore (Safari's engine) with a Zig-based standard library. Zig gives Bun much tighter control over memory allocation and syscall overhead than V8-based runtimes. For the latest performance benchmarks and new Bun features shipping in recent releases, see our [Bun v1.3.11 breakdown](/articles/2026-03-30--bun-v1-3-11-cron-anthropic).
+The reason is architecture: Bun uses JavaScriptCore (Safari's engine) with a Zig-based standard library. Zig gives Bun much tighter control over memory allocation and syscall overhead than V8-based runtimes. For the latest performance benchmarks and new Bun features shipping in recent releases, see our [Bun v1.3.11 breakdown](/articles/2026-03-30-bun-v1-3-11-cron-anthropic).
 
 ### Cold Start Time
 
@@ -68,7 +68,7 @@ Performance is one thing. The npm ecosystem is another.
 
 Node.js runs npm, yarn, and pnpm natively. Every package you're likely to need works. The compatibility story is 15 years of accumulated trust.
 
-Bun positions itself as a "drop-in replacement" for Node.js. In practice, this means it runs most npm packages without modification. The compatibility rate sits around 95% for popular packages — impressive, but that remaining 5% can be a painful surprise. (The npm ecosystem's security surface area is a related concern: a [recent axios supply chain attack](/articles/2026-03-31--axios-npm-supply-chain-attack) underscored that even the most widely-used packages carry risk.)
+Bun positions itself as a "drop-in replacement" for Node.js. In practice, this means it runs most npm packages without modification. The compatibility rate sits around 95% for popular packages — impressive, but that remaining 5% can be a painful surprise. (The npm ecosystem's security surface area is a related concern: a [recent axios supply chain attack](/articles/2026-03-31-axios-npm-supply-chain-attack) underscored that even the most widely-used packages carry risk.)
 
 ```bash
 # Bun installs packages 3-10x faster than npm
@@ -95,7 +95,7 @@ For security-conscious deployments — multi-tenant SaaS, plugins from untrusted
 
 ## What to Choose
 
-**Choose Bun if:** Performance is a priority, you're comfortable with occasional compatibility debugging, and you want a modern toolchain with built-in bundling, testing, and package management. (Bun's recent [v1.3.11 release](/articles/2026-03-30--bun-v1-3-11-cron-anthropic) added OS-level cron scheduling and a 4 MB binary size reduction, further strengthening its case as an all-in-one runtime.)
+**Choose Bun if:** Performance is a priority, you're comfortable with occasional compatibility debugging, and you want a modern toolchain with built-in bundling, testing, and package management. (Bun's recent [v1.3.11 release](/articles/2026-03-30-bun-v1-3-11-cron-anthropic) added OS-level cron scheduling and a 4 MB binary size reduction, further strengthening its case as an all-in-one runtime.)
 
 **Choose Node.js if:** You need maximum ecosystem compatibility, you're working with established enterprise tooling, or you're already invested in the Node ecosystem and don't have a specific performance problem to solve.
 

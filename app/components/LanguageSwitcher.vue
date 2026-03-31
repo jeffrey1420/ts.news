@@ -1,21 +1,19 @@
 <script setup lang="ts">
-aimport { en, fr, de } from '@nuxt/ui/locale'
-import { getLocalizedPath } from '~~/shared/utils/locale'
+import { en, fr, de } from '@nuxt/ui/locale'
 
-const route = useRoute()
 const switchLocalePath = useSwitchLocalePath()
-const { locale, setLocale, setLocaleCookie } = useI18n()
+const { locale } = useI18n()
 
 async function onLocaleChange(nextLocale: string) {
   if (!nextLocale || nextLocale === locale.value) {
     return
   }
 
-  const target = switchLocalePath(nextLocale) || getLocalizedPath(route.path, nextLocale)
+  const target = switchLocalePath(nextLocale)
 
-  setLocaleCookie(nextLocale)
-  await setLocale(nextLocale)
-  await navigateTo(target)
+  if (target) {
+    await navigateTo(target)
+  }
 }
 </script>
 

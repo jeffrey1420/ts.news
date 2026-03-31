@@ -46,7 +46,7 @@ Les patterns de développement assisté par IA changent. L'utilisation de Claude
 
 ## Backend : Node tient, Bun grandit
 
-Du côté des runtimes, Node.js reste dominant à 90 pour cent. [Bun](/articles/2026-03-30--bun-v1-3-11-cron-anthropic) se place en troisième position à 21 pour cent — un gain de 4 pour cent sur l'année précédente — bien devant Deno à 11 pour cent. Pour un regard plus profond sur comment les trois runtimes se comparent en throughput, cold starts, et performance async, voyez notre [analyse de benchmark des runtimes 2026](/articles/2026-03-24-bun-vs-node-vs-deno-2026-runtime-benchmark).
+Du côté des runtimes, Node.js reste dominant à 90 pour cent. [Bun](/articles/2026-03-30-bun-v1-3-11-cron-anthropic) se place en troisième position à 21 pour cent — un gain de 4 pour cent sur l'année précédente — bien devant Deno à 11 pour cent. Pour un regard plus profond sur comment les trois runtimes se comparent en throughput, cold starts, et performance async, voyez notre [analyse de benchmark des runtimes 2026](/articles/2026-03-24-bun-vs-node-vs-deno-2026-runtime-benchmark).
 
 L'API Temporal, la proposition de longue date pour remplacer l'objet `Date` problématique de JavaScript, a vu son enthousiasme décliner de 22 pour cent d'année en année alors qu'elle passe de proposition à implémentation navigateur. L'API reste la proposition la plus anticipée de l'enquête.
 
