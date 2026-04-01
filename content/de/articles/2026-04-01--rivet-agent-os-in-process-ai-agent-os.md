@@ -1,26 +1,26 @@
 ---
-title: "Rivet Agent OS: The In-Process OS That Runs AI Agents 500x Cheaper Than Sandboxes"
-description: "YC and a16z-backed Rivet built an agent runtime on V8 isolates and WebAssembly that cold-starts in 4.8ms — 92x faster than E2B, at 1/17th the cost. We deeply researched the architecture, the benchmarks, and what it means for every agent framework."
+title: "Rivet Agent OS: Das In-Process-Betriebssystem, das KI-Agenten 500x günstiger als Sandboxes ausführt"
+description: "Von YC und a16z unterstützt, baute Rivet einen Agent-Runtime auf V8-Isolaten und WebAssembly, der in 4,8 ms cold startet — 92x schneller als E2B, zu 1/17 der Kosten. Wir haben die Architektur, Benchmarks und Implikationen tief erforscht."
 date: 2026-04-01
 image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=630&fit=crop"
 author: lschvn
 tags: ["AI agents", "Rivet", "WebAssembly", "V8", "sandbox", "infrastructure", "open source"]
 readingTime: 9
 tldr:
-  - "Rivet Agent OS runs AI agents in 4.8ms cold start — 92x faster than E2B sandboxes at 1/17th the cost, powered by V8 isolates and WebAssembly."
-  - "Built by YC W23 + a16z backed founders on game-infrastructure DNA, agentOS is literally an in-process OS kernel: virtual filesystem, process table, pipes, PTYs, and network stack."
-  - "Apache 2.0 open source + $20/mo cloud tier. Primary buyer: backend engineers at startups building AI agent features — not solo devs."
+  - "Rivet Agent OS führt KI-Agenten in 4,8 ms Cold-Start aus — 92x schneller als E2B-Sandboxes zu 1/17 der Kosten, angetrieben durch V8-Isolate und WebAssembly."
+  - "Von YC W23 + a16z-Stack-Gründern mit Spiele-Infrastruktur-Hintergrund gebaut, ist agentOS buchstäblich ein In-Process-OS-Kernel: virtuelle Dateisysteme, Prozesstabelle, Pipes, PTYs und Netzwerk-Stack."
+  - "Apache 2.0 Open Source + 20$/Monat Cloud-Tier. Hauptkäufer: Backend-Ingenieure bei Startups, die KI-Agenten-Features bauen — keine Solo-Devs."
 faq:
-  - question: "How does agentOS achieve 92x faster cold starts than E2B?"
-    answer: "agentOS uses V8 isolates — the same sandboxing technology in Chrome — running inside the host process. E2B boots a full Linux VM. No VM to boot means p50 cold start of 4.8ms vs 440ms. Memory footprint drops to ~131MB vs ~1GB."
-  - question: "Is agentOS a replacement for E2B or Daytona sandboxes?"
-    answer: "No — and that's the point. agentOS explicitly offers a sandbox mounting extension so you can spin up E2B on demand when workloads need a real browser or native binaries. agentOS wins for the 80% of agent tasks that don't need a full OS."
-  - question: "ACP vs MCP — which protocol wins?"
-    answer: "MCP (Anthropic) has overwhelming mindshare and adoption. ACP (Agent Communication Protocol) is architecturally superior — it defines sessions, transcripts, reconnection, and universal agent formats. Think LSP (language servers) — it took 10 years to win despite being obviously right. ACP is early."
-  - question: "Should startups adopt agentOS today?"
-    answer: "For production agent features: yes if you're a backend/platform engineer building in Node.js. For general use: it's beta, only Pi agent is production-ready, and there's no third-party security audit yet. The architecture is sound; the ecosystem is nascent."
-  - question: "What can't agentOS do?"
-    answer: "No browser automation (needs a real OS for that), no GPU workloads, no native Linux binaries outside WASM targets, no macOS/Windows agents. The WASM POSIX layer is partial — git and make are planned but not yet shipped."
+  - question: "Wie erreicht agentOS 92x schnellere Cold Starts als E2B?"
+    answer: "agentOS nutzt V8-Isolate — dieselbe Sandbox-Technologie wie in Chrome — die im Host-Prozess laufen. E2B bootet eine vollständige Linux-VM. Keine VM zu booten bedeutet p50 Cold Start von 4,8 ms vs. 440 ms. Der Speicherbedarf sinkt auf ~131 MB vs. ~1 GB."
+  - question: "Ist agentOS ein Ersatz für E2B- oder Daytona-Sandboxes?"
+    answer: "Nein — und das ist der Punkt. agentOS bietet explizit eine Sandbox-Mount-Erweiterung, sodass Sie bei Bedarf E2B starten können, wenn Workloads einen echten Browser oder native Binaries benötigen. agentOS gewinnt bei den 80 % der Agentenaufgaben, die kein vollständiges OS brauchen."
+  - question: "ACP vs. MCP — welches Protokoll setzt sich durch?"
+    answer: "MCP (Anthropic) hat überwältigenden Mindshare und Verbreitung. ACP (Agent Communication Protocol) ist architektonisch überlegen — es definiert Sessions, Transkripte, Reconnect-Logik und universelle Agent-Formate. Denken Sie an LSP (Language Servers) — es dauerte 10 Jahre, bis es sich durchsetzte, obwohl die Lösung offensichtlich richtig war. ACP steht noch am Anfang."
+  - question: "Sollten Startups agentOS heute einsetzen?"
+    answer: "Für Produktiv-Agenten-Features: Ja, wenn Sie ein Backend-/Platform-Ingenieur sind, der in Node.js entwickelt. Für den allgemeinen Gebrauch: Es ist Beta, nur der Pi-Agent ist produktionsreif, und es gibt noch kein Drittanbieter-Sicherheitsaudit. Die Architektur ist solide; das Ökosystem ist noch jung."
+  - question: "Was kann agentOS nicht tun?"
+    answer: "Keine Browser-Automatisierung (dafür wird ein echtes OS benötigt), keine GPU-Workloads, keine nativen Linux-Binaries außerhalb von WASM-Targets, keine macOS/Windows-Agenten. Die WASM-POSIX-Schicht ist unvollständig — git und make sind geplant, aber noch nicht ausgeliefert."
 ---
 
 Wir haben vollständige Linux-Virtual Machines eingesetzt, um KI-Agenten auszuführen. Dann hat jemand erkannt, dass wir das整个都做错了.
