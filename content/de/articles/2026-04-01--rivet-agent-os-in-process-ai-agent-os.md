@@ -23,7 +23,7 @@ faq:
     answer: "Keine Browser-Automatisierung (dafür wird ein echtes OS benötigt), keine GPU-Workloads, keine nativen Linux-Binaries außerhalb von WASM-Targets, keine macOS/Windows-Agenten. Die WASM-POSIX-Schicht ist unvollständig — git und make sind geplant, aber noch nicht ausgeliefert."
 ---
 
-Wir haben vollständige Linux-Virtual Machines eingesetzt, um KI-Agenten auszuführen. Dann hat jemand erkannt, dass wir das整个都做错了.
+Wir haben vollständige Linux-Virtual Machines eingesetzt, um KI-Agenten auszuführen. Dann hat jemand erkannt, dass wir es komplett falsch gemacht haben.
 
 In den letzten zwei Jahren lautete die Standardantwort auf die Frage „Wie führt man einen Coding-Agenten sicher aus?"ans: Starten Sie eine Cloud-VM, booten Sie Linux, öffnen Sie eine Shell-Session, führen Sie Ihren Agenten aus. E2B. Daytona. Modal. Jedes Agent-Framework setzte auf dasselbe mentale Modell wie beim Bereitstellen eines Webservers — ein vollständiges Betriebssystem, ein vollständiges Dateisystem, Syscalls an einen echten Kernel, und das alles für einen Agenten, der 95 % seiner Zeit darauf wartet, dass ein LLM antwortet.
 
