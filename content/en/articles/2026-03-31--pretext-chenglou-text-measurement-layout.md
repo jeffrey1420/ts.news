@@ -28,7 +28,7 @@ Pretext sidesteps this entirely. It measures text using a hidden canvas and the 
 import { prepare, layout } from '@chenglou/pretext'
 
 // One-time preparation (done once per text+font combination)
-const prepared = prepare('AGI 春天到了. 시작했다 🚀', '16px Inter')
+const prepared = prepare('AGI spring is here. 시작했다 🚀', '16px Inter')
 
 // Hot path: pure arithmetic, no DOM involved
 const { height, lineCount } = layout(prepared, textWidth, 20)
@@ -62,7 +62,7 @@ If you need the actual line contents — for canvas/SVG rendering, for text wrap
 ```typescript
 import { prepareWithSegments, layoutWithLines } from '@chenglou/pretext'
 
-const prepared = prepareWithSegments('AGI 春天到了. 시작했다 🚀', '18px "Helvetica Neue"')
+const prepared = prepareWithSegments('AGI spring is here. 시작했다 🚀', '18px "Helvetica Neue"')
 const { lines } = layoutWithLines(prepared, 320, 26) // 320px max width, 26px line height
 
 for (let i = 0; i < lines.length; i++) {
@@ -113,7 +113,7 @@ Pretext handles text shaping correctly across all languages. The README specific
 
 ```typescript
 // Mixed scripts, emojis, bidirectional — all handled correctly
-prepare('AGI 春天到了. بدأت الرحلة 🚀', '16px Inter')
+prepare('AGI spring is here. بدأت الرحلة 🚀', '16px Inter')
 ```
 
 ### Two-Step Cache Architecture

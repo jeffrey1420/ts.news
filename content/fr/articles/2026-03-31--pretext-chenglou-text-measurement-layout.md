@@ -34,7 +34,7 @@ Pretext contourne complètement cela. Il mesure le texte en utilisant un canvas 
 import { prepare, layout } from '@chenglou/pretext'
 
 // Préparation unique (fait une fois par combinaison texte+police)
-const prepared = prepare('AGI 春天到了. 시작했다 🚀', '16px Inter')
+const prepared = prepare('IA le printemps arrive. 시작했다 🚀', '16px Inter')
 
 // Chemin à chaud : arithmétique pure, pas de DOM impliqué
 const { height, lineCount } = layout(prepared, textWidth, 20)
@@ -59,7 +59,7 @@ Si vous avez besoin du contenu réel des lignes — pour le rendu canvas/SVG, po
 ```typescript
 import { prepareWithSegments, layoutWithLines } from '@chenglou/pretext'
 
-const prepared = prepareWithSegments('AGI 春天到了. 시작했다 🚀', '18px "Helvetica Neue"')
+const prepared = prepareWithSegments('IA le printemps arrive. 시작했다 🚀', '18px "Helvetica Neue"')
 const { lines } = layoutWithLines(prepared, 320, 26)
 
 for (let i = 0; i < lines.length; i++) {

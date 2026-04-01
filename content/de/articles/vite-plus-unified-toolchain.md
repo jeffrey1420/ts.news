@@ -11,7 +11,7 @@ tldr:
   - "Vite+ ist eine Alpha-CLI von VoidZero (Evan You), die Vite, Vitest, Oxlint, Oxfmt, Rolldown und tsdown unter dem einzelnen Befehl `vp` bündelt."
   - "Rolldown liefert 1,6x–7,7x schnellere Production-Builds als Vite 7 ; Oxlint ist 50–100x schneller als ESLint ; Oxfmt ~30x schneller als Prettier."
   - "Alle Tools teilen denselben Oxc-Parser/Resolver und eliminieren so redundante AST-Neuerstellung über die Pipeline hinweg."
-  - "Vite+ ist MIT-lizenziert ; VoidZeros Einnahmen kommen von der geplanten VoidCloud-Enterprise-Schicht — das Open-Source-Commitment ist echt, aber值得关注."
+  - "Vite+ ist MIT-lizenziert ; VoidZeros Einnahmen kommen von der geplanten VoidCloud-Enterprise-Schicht — das Open-Source-Commitment ist echt, aber bemerkenswert."
 faq:
   - question: "Ist Vite+ produktionsreif?"
     answer: "Vite+ ist explizit Alpha. Einige APIs werden sich vor dem stabilen Release ändern, Plugin-Kompatibilität für Edge-Cases ist möglicherweise nicht vollständig getestet, und die Dokumentation ist unvollständig. Die darunterliegenden Tools — Vite 8, Rolldown, Oxc — sind jedoch reifer, als das 'Alpha'-Label vermuten lässt."

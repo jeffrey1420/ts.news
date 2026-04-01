@@ -8,7 +8,7 @@ tags: ["bun", "runtime", "javascript", "typescript", "ai", "anthropic", "news"]
 tldr:
   - "Anthropic a acquis Bun en décembre 2025 pour alimenter Claude Code ; Bun reste sous licence MIT et open source avec l'équipe core intacte."
   - "Bun v1.3.11 intègre Bun.cron pour les jobs planifiés au niveau OS multi-plateforme (crontab/launchd/Task Scheduler)."
-  - "Le binaire Linux x64 est réduit de 4 Mo ; Bun v1.3.10 a ajouté les décorateurs ES TC39标准和 un REPL natif Zig."
+  - "Le binaire Linux x64 est réduit de 4 Mo ; Bun v1.3.10 a ajouté les décorateurs ES TC39 standards et un REPL natif Zig."
   - "L'optimisation des importations barrel en v1.3.10 réduit les temps de build jusqu'à 2x pour les grosses bibliothèques."
 ---
 
@@ -64,7 +64,7 @@ Le binaire Linux x64 est maintenant 4 Mo plus petit. C'est une amélioration sig
 
 Atterrissant juste sous la release v1.3.11, la mise à jour du 26 février a apporté deux fonctionnalités que les développeurs TypeScript attendaient depuis des années.
 
-### Décorateurs ES TC39標準 complets
+### Décorateurs ES TC39 standards complets
 
 Le transpileur de Bun supporte maintenant entièrement les **décorateurs ES de stage-3 TC39** — la variante non-héritée qui s'active quand `experimentalDecorators` n'est *pas* défini dans votre `tsconfig.json`. Cela signifie que le code utilisant la syntaxe moderne des décorateurs — incluant le mot-clé `accessor`, les métadonnées de décorateur via `Symbol.metadata`, et les API `ClassMethodDecoratorContext` / `ClassFieldDecoratorContext` — fonctionne maintenant correctement out of the box.
 

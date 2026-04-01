@@ -1,6 +1,6 @@
 ---
 title: "Knip v6 Intègre le Parser oxc pour des Gains de Performance de 2 à 4x"
-description: "L'outil populaire de détection de code mort en JavaScript et TypeScript换上 Rust 版解析器，性能提升 2 到 4 倍。"
+description: "L'outil populaire de détection de code mort en JavaScript et TypeScript adopte le parser Rust oxc, avec des gains de performance de 2 à 4 fois."
 date: 2026-04-01
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
 author: lschvn

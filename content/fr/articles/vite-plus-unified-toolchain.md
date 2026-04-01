@@ -18,7 +18,7 @@ faq:
   - question: "Quelle est la différence entre Vite+ et utiliser les outils individuellement ?"
     answer: "Vite+ ajoute de la commodité : un seul binaire, un seul fichier de configuration, un seul modèle mental pour le cycle de développement complet. Pour les nouveaux projets et équipes frustrées par la complexité des outils, cette commodité a de la valeur. Mais les outils eux-mêmes valent la peine d'être connus, que vous utilisiez l'enveloppe ou non."
   - question: "VoidZero va-t-il changer la licence comme Terraform ou Redis ?"
-    answer: "La licence MIT est un engagement réel — VoidZero a explicitement abandonné un modèle de licence payant après les retours de la communauté. Mais le modèle commercial dépend de VoidCloud, pas encore public. L'histoire de HashiCorp avec Terraform est值得注意, mais VoidZero a été explicite sur ses intentions."
+    answer: "La licence MIT est un engagement réel — VoidZero a explicitement abandonné un modèle de licence payant après les retours de la communauté. Mais le modèle commercial dépend de VoidCloud, pas encore public. L'histoire de HashiCorp avec Terraform est notable, mais VoidZero a été explicite sur ses intentions."
 ---
 
 Tous les quelques années, quelqu'un dans l'écosystème JavaScript annonce un outilchain unifié — moins de fichiers de config, une seule commande à apprendre. Le résultat est généralement plus compliqué qu'annoncé. Mais Vite+, de VoidZero (fondé par Evan You, créateur de Vue.js et Vite, avec 4,6M$ de Accel), arrive avec des outils dont les affirmations de performance sont indépendamment vérifiées : Rolldown livre des builds production 1,6× à 7,7× plus rapides que Vite 7, et Oxlint fonctionne 50-100× plus vite que ESLint.

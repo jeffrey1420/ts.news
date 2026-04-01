@@ -33,7 +33,7 @@ Pretext umgeht das vollständig. Es misst Text mit einer versteckten Canvas und 
 ```typescript
 import { prepare, layout } from '@chenglou/pretext'
 
-const prepared = prepare('AGI 春天到了. 시작했다 🚀', '16px Inter')
+const prepared = prepare('AGI le printemps arrive. 시작했다 🚀', '16px Inter')
 const { height, lineCount } = layout(prepared, textWidth, 20)
 ```
 
