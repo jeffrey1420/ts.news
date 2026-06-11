@@ -2,9 +2,9 @@
 title: "GitHub Copilots stillschweigender Richtungswechsel: Euer Code trainiert ihre Modelle — außer ihr widersprecht"
 description: "Ab dem 24. April 2026 verwendet GitHub Interaktionsdaten von Free-, Pro- und Pro+-Copilot-Nutzern, um KI-Modelle zu trainieren — sofern nicht manuell widersprochen wird. Business- und Enterprise-Tarife sind nicht betroffen."
 date: 2026-04-02
-image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-02--github-copilot-ai-training-data-policy.png"
 author: lschvn
-tags: ["GitHub", "Copilot", "KI", "Datenschutz", "Machine Learning", "Open Source"]
+tags: ["security", "ai", "ecosystem"]
 readingTime: 5
 tldr:
   - "Ab dem 24. April verwendet GitHub standardmäßig Copilot-Free/Pro/Pro+-Interaktionsdaten (Eingaben, Ausgaben, Code-Snippets, Kontext) zum Trainieren von KI-Modellen — Widerspruch erforderlich."

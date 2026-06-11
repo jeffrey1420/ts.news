@@ -2,9 +2,9 @@
 title: "JetBrains Öffnet die Tore: JavaScript und TypeScript ab jetzt kostenlos in IntelliJ IDEA"
 description: "Seit März 2026 enthält IntelliJ IDEA v2026.1 JavaScript, TypeScript, HTML, CSS und grundlegendes React kostenlos — Features, die zuvor ein kostenpflichtiges Ultimate-Abonnement erforderten. Haken: Angular, Vue und erweitertes Debugging bleiben Ultimate-exklusiv."
 date: 2026-04-02
-image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-02--intellij-idea-javascript-typescript-free.png"
 author: lschvn
-tags: ["JetBrains", "IntelliJ IDEA", "TypeScript", "JavaScript", "IDE", "React"]
+tags: ["frameworks", "tooling", "typescript"]
 readingTime: 4
 tldr:
   - "IntelliJ IDEA v2026.1 enthält JS, TS, HTML, CSS und grundlegendes React kostenlos — zuvor nur im kostenpflichtigen Ultimate-Tarif verfügbar."

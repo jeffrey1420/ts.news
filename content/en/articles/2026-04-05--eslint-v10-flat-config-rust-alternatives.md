@@ -2,9 +2,9 @@
 title: "ESLint v10 Drops Legacy Config — And the JS Ecosystem Is Taking Notes"
 description: "ESLint's biggest breaking-change release in years finalises flat config, removes eslintrc support entirely, and adds JSX reference tracking. But the bigger story might be what's nipping at its heels."
 date: "2026-04-05"
-image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-05--eslint-v10-flat-config-rust-alternatives.png"
 author: lschvn
-tags: ["javascript", "typescript", "eslint", "tooling", "openjs"]
+tags: ["tooling", "typescript", "javascript"]
 ---
 
 ESLint v10 landed this month, and while the headline reads like an internal cleanup — flat config is now final, legacy eslintrc is gone — the release exposes a fracture line in the JavaScript tooling landscape that's been building for years.

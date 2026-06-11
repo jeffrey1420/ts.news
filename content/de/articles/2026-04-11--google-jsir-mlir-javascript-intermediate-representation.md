@@ -1,25 +1,25 @@
 ---
 title: "Google JSIR: Eine MLIR-basierte Zwischenrepräsentation für JavaScript-Analyse"
 description: "Google hat JSIR quelloffen gemacht, ein neuartiges JavaScript-Analysewerkzeug auf MLIR-Basis. Es unterstützt sowohl hochrangige Datenflussanalyse als auch verlustfreie Quellcode-Transformation — intern genutzt für Hermes-Bytecode-Dekompilierung und KI-gestützte JavaScript-Deobfuskation."
-image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-11--google-jsir-mlir-javascript-intermediate-representation.png"
 date: "2026-04-11"
 category: Open Source
 author: lschvn
 readingTime: 5
-tags: ["Google", "JSIR", "MLIR", "JavaScript", "Werkzeuge", "Analyse", "Dekompilierung", "Open Source"]
+tags: ["security", "tooling", "javascript"]
 tldr:
   - "JSIR ist Googles neue MLIR-basierte Zwischenrepräsentation für JavaScript, die sowohl hochrangige Datenflussanalyse als auch verlustfreie Quellcode-Transformation gleichzeitig unterstützt — eine Kombination, die bestehende IRs typischerweise opfern."
   - "Google nutzt JSIR intern bereits für die Dekompilierung von Hermes-Bytecode und KI-gestützte JavaScript-Deobfuskation, wobei Gemini LLM mit JSIR kombiniert wird, um obfuskierten Code rückgängig zu machen."
   - "Das Projekt richtet sich an Werkzeugentwickler: bessere Linter, intelligentere Bundler, leistungsfähigere Refactoring-Tools — nicht direkt an Endentwickler, aber die Auswirkungen wird das Ökosystem downstream spüren."
 faq:
-  - q: "Was unterscheidet JSIR von anderen JavaScript-IRs?"
-    a: "Die meisten IRs für JavaScript müssen sich zwischen Hochrangig (genug Struktur bewahren, um Quellcode wiederherzustellen) und Niedrigrangig (ermöglicht tiefe Datenflussanalyse) entscheiden. Die meisten Systeme wählen eines. JSIR nutzt MLIR-Regionen, um die Kontrollflussstrukturen von JavaScript — Closures, try-catch-finally, Async-Funktionen, Generator-Frames — so präzise zu modellieren, dass beide Richtungen gleichzeitig unterstützt werden."
-  - q: "Was ist MLIR?"
-    a: "MLIR (Multi-Level Intermediate Representation) ist ein LLVM-Projekt, das ein flexibles Framework für Zwischenrepräsentationen bietet. Es wurde entwickelt, um verschiedene IRs in der Compiler-Infrastruktur zu vereinheitlichen. Durch den Aufbau von JSIR auf MLIR erhält Google Kompatibilität mit dem breiteren LLVM-Ökosystem und dessen Tools."
-  - q: "Was ist Hermes-Bytecode?"
-    a: "Hermes ist Facebooks JavaScript-Engine, die für React Native optimiert ist. Sie kompiliert JavaScript zu Hermes-Bytecode für schnellere Startzeiten. JSIR kann diesen Bytecode zurück nach JavaScript dekomilieren, indem es seine Quellcode-Hebbarkeit nutzt — eine Fähigkeit, die bestehenden Tools fehlt."
-  - q: "Wie ermöglicht JSIR KI-Deobfuskation?"
-    a: "Google hat Forschung veröffentlicht (CASCADE-Paper, arXiv:2507.17691), die zeigt, wie sie Gemini LLM mit JSIR zur JavaScript-Deobfuskation kombinieren. JSIRs strukturierte Darstellung liefert der KI eine saubere, analysierbare Ansicht des obfuskierten Codes, und die KI kann Transformationen generieren, die JSIR dann zurück auf den Quellcode anwendet."
+  - question: "Was unterscheidet JSIR von anderen JavaScript-IRs?"
+    answer: "Die meisten IRs für JavaScript müssen sich zwischen Hochrangig (genug Struktur bewahren, um Quellcode wiederherzustellen) und Niedrigrangig (ermöglicht tiefe Datenflussanalyse) entscheiden. Die meisten Systeme wählen eines. JSIR nutzt MLIR-Regionen, um die Kontrollflussstrukturen von JavaScript — Closures, try-catch-finally, Async-Funktionen, Generator-Frames — so präzise zu modellieren, dass beide Richtungen gleichzeitig unterstützt werden."
+  - question: "Was ist MLIR?"
+    answer: "MLIR (Multi-Level Intermediate Representation) ist ein LLVM-Projekt, das ein flexibles Framework für Zwischenrepräsentationen bietet. Es wurde entwickelt, um verschiedene IRs in der Compiler-Infrastruktur zu vereinheitlichen. Durch den Aufbau von JSIR auf MLIR erhält Google Kompatibilität mit dem breiteren LLVM-Ökosystem und dessen Tools."
+  - question: "Was ist Hermes-Bytecode?"
+    answer: "Hermes ist Facebooks JavaScript-Engine, die für React Native optimiert ist. Sie kompiliert JavaScript zu Hermes-Bytecode für schnellere Startzeiten. JSIR kann diesen Bytecode zurück nach JavaScript dekomilieren, indem es seine Quellcode-Hebbarkeit nutzt — eine Fähigkeit, die bestehenden Tools fehlt."
+  - question: "Wie ermöglicht JSIR KI-Deobfuskation?"
+    answer: "Google hat Forschung veröffentlicht (CASCADE-Paper, arXiv:2507.17691), die zeigt, wie sie Gemini LLM mit JSIR zur JavaScript-Deobfuskation kombinieren. JSIRs strukturierte Darstellung liefert der KI eine saubere, analysierbare Ansicht des obfuskierten Codes, und die KI kann Transformationen generieren, die JSIR dann zurück auf den Quellcode anwendet."
 ---
 
 Wenn eine Compiler-Zwischenrepräsentation (IR) in den Nachrichten auftaucht, weiß man, dass sie wichtig ist. Google hat [JSIR](https://github.com/google/jsir) veröffentlicht, ein neuartiges JavaScript-Analysewerkzeug auf [MLIR](https://mlir.llvm.org)-Basis, das bereits intern für Aufgaben eingesetzt wird, die zeigen, wie ambitioniert das Projekt ist: Dekomilierung von Hermes-Bytecode zurück nach JavaScript und KI-gestützte Deobfuskations-Pipelines, die JSIR mit Gemini kombinieren.

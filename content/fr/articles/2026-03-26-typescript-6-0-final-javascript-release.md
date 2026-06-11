@@ -1,12 +1,12 @@
 ---
 title: "TypeScript 6.0 Sort : La Dernière Release Basée sur JavaScript Avant la Réécriture Go"
 description: "Microsoft livre TypeScript 6.0 comme la dernière release construite sur le codebase JavaScript original. Mises à jour des types DOM, inférence améliorée, imports de sous-chemins et un flag de migration préparent le terrain pour le TypeScript 7.0 natif basé sur Go."
-image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-03-26-typescript-6-0-final-javascript-release.png"
 date: "2026-03-26"
 category: Release
 author: lschvn
 readingTime: 4
-tags: ["typescript", "javascript", "microsoft", "release", "compiler", "nodejs"]
+tags: ["runtimes", "tooling", "typescript"]
 tldr:
   - "TypeScript 6.0 publié le 23 mars 2026 — la dernière version majeure sur le compilateur basé sur JS avant la réécriture Go dans TypeScript 7."
   - "Fonctionnalités clés : inférence améliorée pour les fonctions contextuellement sensibles, mises à jour des types DOM pour les API Temporelles et imports de sous-chemins."

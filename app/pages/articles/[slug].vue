@@ -171,7 +171,7 @@ useHead(() => ({
           children: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
-            mainEntity: (article.value.faq ?? []).map((item: any) => ({
+            mainEntity: (article.value.faq ?? []).map((item: { question: string, answer: string }) => ({
               '@type': 'Question',
               name: item.question,
               acceptedAnswer: {
@@ -299,7 +299,7 @@ async function postComment() {
         </p>
 
         <UCarousel
-          v-slot="{ item, index }"
+          v-slot="{ item }"
           :items="relatedArticles"
           orientation="horizontal"
           :arrows="true"

@@ -1,10 +1,10 @@
 ---
 title: "Bun v1.3.11 avec Cron natif au niveau OS et intégration au stack IA d'Anthropic"
 description: "Bun v1.3.11 réduit le binaire de 4 Mo, intègre Bun.cron pour les jobs planifiés au niveau OS, et marque un moment pivot alors que le runtime rejoint Anthropic pour alimenter Claude Code."
-image: "https://bun.com/og/blog.png"
+image: "/images/heroes/2026-03-30--bun-v1-3-11-cron-anthropic.png"
 date: "2026-03-30"
 author: lschvn
-tags: ["bun", "runtime", "javascript", "typescript", "ai", "anthropic", "news"]
+tags: ["ai", "runtimes", "typescript"]
 tldr:
   - "Anthropic a acquis Bun en décembre 2025 pour alimenter Claude Code ; Bun reste sous licence MIT et open source avec l'équipe core intacte."
   - "Bun v1.3.11 intègre Bun.cron pour les jobs planifiés au niveau OS multi-plateforme (crontab/launchd/Task Scheduler)."

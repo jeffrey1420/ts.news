@@ -2,9 +2,9 @@
 title: "Astro 6.4.4 Corrige Sept Bugs sur le Routage, l'i18n et l'Expérience Dev"
 description: "Astro 6.4.4 est un patch corrigeant des problèmes de routes dynamiques, de routage i18n par domaine, d'édition de composants côté client et de la casse des patterns de route."
 date: 2026-06-05
-image: "https://rolldown.rs/og.jpg"
+image: "/images/heroes/2026-06-05--astro-6-4-4-routing-i18n-dev-fixes.png"
 author: lschvn
-tags: [astro, framework, javascript, ssr, web]
+tags: ["frameworks", "javascript"]
 tldr:
   - Correction de Astro.routePattern qui préserve désormais correctement la casse des paramètres depuis les noms de fichiers
   - Résolution des routes dynamiques renvoyant des erreurs 500 avec le routage i18n par domaine en mode SSR

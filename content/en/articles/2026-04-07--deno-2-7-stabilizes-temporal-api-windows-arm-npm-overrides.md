@@ -2,9 +2,9 @@
 title: "Deno 2.7 Stabilizes the Temporal API, Adds Windows ARM Support and npm Overrides"
 description: "Deno 2.7 is a substantial mid-cycle release: the Temporal API is now production-ready, native Windows on ARM builds land, npm overrides work like in Node, and dozens of Node.js compatibility improvements land across worker_threads, child_process, zlib, and sqlite."
 date: "2026-04-07"
-image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-07--deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides.png"
 author: lschvn
-tags: ["deno", "javascript", "typescript", "runtime", "temporal-api", "nodejs"]
+tags: ["runtimes", "typescript", "javascript"]
 ---
 
 Deno 2.7 dropped on February 25th, and it is one of the most feature-rich releases in the 2.x line. The headline items are Temporal API stabilization, official Windows on ARM builds, and npm `overrides` support — but the release also ships a significant batch of Node.js compatibility work that makes migrating existing projects easier.

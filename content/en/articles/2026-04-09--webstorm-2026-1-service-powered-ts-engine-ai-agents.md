@@ -1,26 +1,26 @@
 ---
 title: "WebStorm 2026.1 Ships Service-Powered TypeScript Engine and a Full AI Agent Roster"
 description: "JetBrains' March release turns on a service-based TypeScript engine by default, puts Junie, Claude Agent, Codex, and Cursor in the AI chat sidebar, sunsets Code With Me, and adds native Wayland support on Linux."
-image: "https://blog.jetbrains.com/wp-content/uploads/2026/03/WS-releases-BlogSocialShare-1280x720-1.png"
+image: "/images/heroes/2026-04-09--webstorm-2026-1-service-powered-ts-engine-ai-agents.png"
 date: "2026-04-09"
 category: IDE
 author: lschvn
 readingTime: 5
-tags: ["webstorm", "jetbrains", "TypeScript", "IDE", "AI", "AI-agents", "release"]
+tags: ["ai", "tooling", "typescript"]
 tldr:
   - "WebStorm 2026.1 enables the service-powered TypeScript engine by default, reducing CPU usage and improving responsiveness in large projects without changing how you work."
   - "The AI chat now surfaces Junie, Claude Agent, Codex, Cursor, and GitHub Copilot via the new ACP Registry — install any agent in one click without leaving the IDE."
   - "Next edit suggestions are available without consuming your AI quota, extending traditional code completion to intelligently propagate related changes across an entire file."
   - "Code With Me is being sunset in 2026.1 — JetBrains calls out declining demand and is directing users toward more modern collaborative workflows."
 faq:
-  - q: "What does 'service-powered TypeScript engine' mean?"
-    a: "WebStorm now delegates TypeScript parsing, type checking, and language services to an external process rather than running them in the main IDE thread. The result is lower CPU usage and faster responsiveness in large monorepos. It was opt-in before; it's on by default in 2026.1."
-  - q: "Is Cursor actually available inside WebStorm now?"
-    a: "Cursor joined the ACP Registry in March 2026, which means its agent capabilities can be accessed directly from WebStorm's AI chat panel via the Agent Client Protocol. This is different from running Cursor as your primary IDE — it's more like adding Cursor's reasoning model as a backend to WebStorm's chat."
-  - q: "What happened to Code With Me?"
-    a: "JetBrains is sunsetting Code With Me, its pair programming and collaborative coding service, starting with 2026.1. It will be unbundled from all JetBrains IDEs and moved to JetBrains Marketplace as a separate plugin. 2026.1 is the last IDE version to officially support it."
-  - q: "Does this release support TypeScript 6?"
-    a: "Yes. WebStorm 2026.1 aligns with TypeScript 6's changed defaults for the `types` value and `rootDir`, and已经开始 preparing for TypeScript 7's changes to `baseUrl` handling."
+  - question: "What does 'service-powered TypeScript engine' mean?"
+    answer: "WebStorm now delegates TypeScript parsing, type checking, and language services to an external process rather than running them in the main IDE thread. The result is lower CPU usage and faster responsiveness in large monorepos. It was opt-in before; it's on by default in 2026.1."
+  - question: "Is Cursor actually available inside WebStorm now?"
+    answer: "Cursor joined the ACP Registry in March 2026, which means its agent capabilities can be accessed directly from WebStorm's AI chat panel via the Agent Client Protocol. This is different from running Cursor as your primary IDE — it's more like adding Cursor's reasoning model as a backend to WebStorm's chat."
+  - question: "What happened to Code With Me?"
+    answer: "JetBrains is sunsetting Code With Me, its pair programming and collaborative coding service, starting with 2026.1. It will be unbundled from all JetBrains IDEs and moved to JetBrains Marketplace as a separate plugin. 2026.1 is the last IDE version to officially support it."
+  - question: "Does this release support TypeScript 6?"
+    answer: "Yes. WebStorm 2026.1 aligns with TypeScript 6's changed defaults for the `types` value and `rootDir`, and已经开始 preparing for TypeScript 7's changes to `baseUrl` handling."
 ---
 
 WebStorm 2026.1 landed in March with a release that tightens the bond between the IDE and the tools developers actually use every day. The headline is a more efficient TypeScript engine by default, but the more visible change for many will be what's in the AI chat sidebar.

@@ -39,29 +39,29 @@ const registerFields = [
   { name: 'password', type: 'password' as const, label: 'Password', placeholder: 'At least 6 characters', required: true },
 ]
 
-async function onLogin(event: any) {
+async function onLogin(event: { data: Record<string, unknown> }) {
   loading.value = true
   error.value = ''
   try {
     await $fetch('/api/auth/login', { method: 'POST', body: event.data })
     await refreshSession()
     navigateTo(localePath('/'))
-  } catch (e: any) {
-    error.value = e.data?.message || 'Login failed.'
+  } catch (e) {
+    error.value = (e as { data?: { message?: string } }).data?.message || 'Login failed.'
   } finally {
     loading.value = false
   }
 }
 
-async function onRegister(event: any) {
+async function onRegister(event: { data: Record<string, unknown> }) {
   loading.value = true
   error.value = ''
   try {
     await $fetch('/api/auth/register', { method: 'POST', body: event.data })
     await refreshSession()
     navigateTo(localePath('/'))
-  } catch (e: any) {
-    error.value = e.data?.message || 'Registration failed.'
+  } catch (e) {
+    error.value = (e as { data?: { message?: string } }).data?.message || 'Registration failed.'
   } finally {
     loading.value = false
   }

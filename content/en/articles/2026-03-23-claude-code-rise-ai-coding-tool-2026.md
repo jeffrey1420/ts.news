@@ -4,9 +4,9 @@ description: "By early 2026, Claude Code held a 46% 'most loved' rating among de
 date: "2026-03-23"
 category: "news"
 author: lschvn
-tags: ["ai", "claude-code", "cursor", "copilot", "developer-tools", "anthropic", "typescript"]
+tags: ["ai", "tooling", "typescript"]
 readingTime: 11
-image: "https://cursor.com/public/opengraph-image.png"
+image: "/images/heroes/2026-03-23-claude-code-rise-ai-coding-tool-2026.png"
 tldr:
   - "Claude Code hit a 46% 'most loved' rating in early 2026, surpassing Cursor (19%) and GitHub Copilot (9%) just eight months after its May 2025 launch."
   - "95% of developers now use AI coding tools weekly, with 75% relying on AI for more than half their coding work."
@@ -29,7 +29,7 @@ But metrics don't tell you when to use which tool. They don't tell you that Curs
 
 ## The Landscape in 2026: Why This Comparison Actually Matters
 
-The AI coding tool category underwent a fundamental shift in 2025. By early 2026, 95% of developers use AI tools at least weekly, and 75% use AI for more than half of their coding work. This isn't a niche anymore. The tooling also matured — these tools aren't just autocomplete with extra steps. They plan features, write and run tests, refactor across dozens of files, and execute agentic loops that can take a problem from description to working implementation without you touching the keyboard.
+The AI coding tool category underwent a fundamental shift in 2025. By early 2026, 95% of developers use AI tools at least weekly, and 75% use AI for more than half of their coding work. That stopped being a niche a while ago. The tooling matured past autocomplete, too: these tools plan features, write and run tests, refactor across dozens of files, and execute agentic loops that can take a problem from description to working implementation without you touching the keyboard.
 
 The approach has a new name too: "agentic engineering" replaced "vibe coding." Whatever you call it, it represents a meaningfully different way of working — and the tools that do it well have pulled ahead of the ones that don't.
 

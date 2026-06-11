@@ -2,9 +2,9 @@
 title: "Axios npm Supply-Chain-Angriff: Bösartige Versionen tropften Remote-Access-Trojaner ab"
 description: "Zwei vergiftete Releases von axios — einer der am häufigsten verwendeten Node.js-HTTP-Client-Bibliotheken — wurden veröffentlicht und innerhalb von Stunden von npm entfernt. Was passiert ist, wie der Angriff funktionierte und was Sie jetzt tun müssen."
 date: 2026-03-31
-image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-03-31--axios-npm-supply-chain-attack.png"
 author: lschvn
-tags: ["security", "npm", "supply-chain", "javascript", "node.js"]
+tags: ["security", "runtimes", "javascript"]
 tldr:
   - "Bösartige axios@1.14.1 und axios@0.30.4 wurden am 31. März 2026 veröffentlicht, ca. 3 Stunden lang auf npm live, bevor sie entfernt wurden."
   - "Der Angreifer kompromittierte das npm-Konto des Lead-Maintainers und umging OIDC Trusted Publishers, um manuell zu veröffentlichen."

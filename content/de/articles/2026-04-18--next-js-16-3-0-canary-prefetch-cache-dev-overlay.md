@@ -2,9 +2,9 @@
 title: "Next.js v16.3.0-Canary: Prefetch-Kontrolle, Dedup-Verbesserungen und Neuer Dev-Overlay"
 description: "Next.js 16.3.0-canary bringt granulare Prefetch-Konfigurationsoptionen, besseres Deduplizieren für die 'use cache'-Direktive und einen redesiginierten Blocking-Route-Dev-Overlay — mit sccache jetzt über cargo-binstall."
 date: 2026-04-18
-image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-18--next-js-16-3-0-canary-prefetch-cache-dev-overlay.png"
 author: lschvn
-tags: ["Next.js", "React", "Vercel", "JavaScript", "Turbopack", "Web"]
+tags: ["frameworks", "tooling", "javascript"]
 tldr:
   - Next.js 16.3.0-canary fügt granulare Prefetch-Konfigurationsoptionen hinzu und verbessert das 'use cache' Deduplizieren, um redundante Server-Aufrufe zu reduzieren
   - Der Blocking-Route-Dev-Overlay und Build-Fehler-Seiten wurden für ein besseres Entwicklererlebnis neu gestaltet

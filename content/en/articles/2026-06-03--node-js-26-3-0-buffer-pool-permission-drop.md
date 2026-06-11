@@ -2,21 +2,21 @@
 title: "Node.js 26.3.0: Buffer Pool Doubles, Permission API Gains drop(), Intel Macs at Risk"
 description: "Node.js 26.3.0 lands with a doubled default Buffer.poolSize to 64 KiB, a new permission.drop() method for granular capability surrender, macOS universal binary warnings, and hardened WebCrypto. npm is bumped to 11.16.0."
 date: 2026-06-03
-image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200"
+image: "/images/heroes/2026-06-03--node-js-26-3-0-buffer-pool-permission-drop.png"
 author: lschvn
-tags: ["TypeScript", "Node.js", "JavaScript", "Runtime", "Performance", "Security"]
+tags: ["security", "runtimes", "typescript"]
 tldr:
   - Buffer.poolSize default doubles from 32 KiB to 64 KiB, reducing allocator contention in high-throughput HTTP and I/O-heavy workloads
   - permission.drop() API lets running processes surrender granted permissions one at a time without exiting, enabling least-privilege patterns
   - macOS universal binary (Intel + Apple Silicon) may not be maintained for Node.js 26's full lifetime as Apple winds down x86 support
   - WebCrypto is hardened against prototype pollution and gains a CryptoJob mode; npm is updated to 11.16.0
 faq:
-  - q: "Why does Buffer.poolSize matter for application performance?"
-    a: "Buffer uses a slab allocator internally. A larger pool means fewer small allocations are served directly from the heap, reducing fragmentation and syscall overhead. Doubling the default from 32 KiB to 64 KiB helps most HTTP servers and streaming pipelines without requiring manual tuning."
-  - q: "How does permission.drop() differ from the existing permission model?"
-    a: "Previously, Node.js permissions were all-or-nothing at startup. permission.drop() allows a running process to surrender specific permissions — such as file-system or environment access — while keeping others. This makes it possible to implement progressive privilege reduction, such as dropping fs access after an initialization phase."
-  - q: "Will my Intel Mac still run Node.js 26?"
-    a: "Yes — Node.js 26 will ship universal binaries for now. The warning signals that if Apple continues deprecating x86 toolchain support, the Node.js project may drop Intel builds before Node.js 26 goes EOL. Apple Silicon (arm64) is now Tier 1; Intel is Tier 2."
+  - question: "Why does Buffer.poolSize matter for application performance?"
+    answer: "Buffer uses a slab allocator internally. A larger pool means fewer small allocations are served directly from the heap, reducing fragmentation and syscall overhead. Doubling the default from 32 KiB to 64 KiB helps most HTTP servers and streaming pipelines without requiring manual tuning."
+  - question: "How does permission.drop() differ from the existing permission model?"
+    answer: "Previously, Node.js permissions were all-or-nothing at startup. permission.drop() allows a running process to surrender specific permissions — such as file-system or environment access — while keeping others. This makes it possible to implement progressive privilege reduction, such as dropping fs access after an initialization phase."
+  - question: "Will my Intel Mac still run Node.js 26?"
+    answer: "Yes — Node.js 26 will ship universal binaries for now. The warning signals that if Apple continues deprecating x86 toolchain support, the Node.js project may drop Intel builds before Node.js 26 goes EOL. Apple Silicon (arm64) is now Tier 1; Intel is Tier 2."
 ---
 
 Node.js 26.3.0 landed June 1, 2026 on the Current release line. It is a substantial mid-cycle update: the Buffer allocator gets a meaningful tuning change, the experimental permission system gains its most-requested feature, Apple signals another step toward dropping Intel Macs, and the crypto team lands a multi-PR hardening of WebCrypto.

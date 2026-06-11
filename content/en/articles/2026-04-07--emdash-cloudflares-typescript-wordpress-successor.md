@@ -2,9 +2,9 @@
 title: "EmDash: Cloudflare's TypeScript-Based WordPress Successor with Sandboxed Plugins"
 description: "Cloudflare has built EmDash, a new open-source CMS written entirely in TypeScript and powered by Astro. Plugins run in isolated Dynamic Workers, solving WordPress's decades-old plugin security crisis where 96% of security issues originate."
 date: "2026-04-07"
-image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-07--emdash-cloudflares-typescript-wordpress-successor.png"
 author: lschvn
-tags: ["cloudflare", "typescript", "astro", "cms", "wordpress", "security", "javascript"]
+tags: ["security", "frameworks", "typescript"]
 ---
 
 Cloudflare launched EmDash this week, an open-source content management system it calls "the spiritual successor to WordPress." The project is notable for being built entirely in TypeScript, powered by Astro under the hood, and shipping with a fundamentally different approach to plugin security.

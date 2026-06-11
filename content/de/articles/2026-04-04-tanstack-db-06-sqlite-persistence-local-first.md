@@ -2,9 +2,9 @@
 title: "TanStack DB 0.6 macht den Client zur lokalen Datenbank"
 description: "SQLite-Persistenz auf allen Runtimes, hierarchische Datenprojektionen und reaktive Agent-Workflows — v0.6 ist das Release, das TanStack DB zu einer vollständigen Anwendung datenebene macht."
 date: "2026-04-04"
-image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-04-tanstack-db-06-sqlite-persistence-local-first.png"
 author: lschvn
-tags: ["typescript", "database", "local-first", "sqlite", "tanstack"]
+tags: ["frameworks", "typescript"]
 ---
 
 TanStack DB, die transaktionale Client-seitige Datenbank vom Team hinter React Query und Router, hat letzte Woche Version 0.6 veröffentlicht. Die Hauptfunktionen — SQLite-Persistenz, hierarchische Datenprojektionen und reaktive Agent-Workflows — sind keine inkrementellen Ergänzungen. Es sind die fehlenden Teile, die das gesamte System für echte Anwendungen praktisch machen.

@@ -2,9 +2,9 @@
 title: "Next.js 16.2 Stabilisiert die Adapter-API — und das ist wichtiger als es klingt"
 description: "Vercel, Netlify, Cloudflare, AWS und Google Cloud haben alle denselben öffentlichen Vertrag unterzeichnet. Next.js 16.2 macht plattformübergreifendes Deployment zu einem Erste-Klasse-Feature."
 date: "2026-04-04"
-image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-04-next-js-16-2-stable-adapter-api-cross-platform.png"
 author: lschvn
-tags: ["typescript", "nextjs", "vercel", "deployment", "javascript"]
+tags: ["frameworks", "typescript", "javascript"]
 ---
 
 Next.js 16.2 hat letzte Woche eine stabile Adapter-API veröffentlicht. Oberflächlich klingt das nach einem internen Refactoring. Ist es nicht. Es ist das Ergebnis von zwei Jahren Zusammenarbeit zwischen dem Next.js-Team, OpenNext, Netlify, Cloudflare, AWS Amplify und Google Cloud — und es bedeutet eine konkrete Sache: Next.js hat jetzt einen typisierten, versionierten, öffentlichen Vertrag, den jede Plattform implementieren kann, um Ihre App korrekt auszuführen.

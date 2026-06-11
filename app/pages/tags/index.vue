@@ -36,7 +36,7 @@ useSeoMeta({
   ogUrl: canonicalUrl,
   ogImage: absoluteSiteUrl(siteConfig.defaultOgImage),
   ogImageAlt: siteConfig.name,
-  twitterTitle: `${title} | ${siteConfig.name}`,
+  twitterTitle: `${title.value} | ${siteConfig.name}`,
   twitterDescription: description,
   twitterImage: absoluteSiteUrl(siteConfig.defaultOgImage),
 })

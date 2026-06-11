@@ -1,24 +1,24 @@
 ---
 title: "Vite 8 Stable Lands, Seven Patches Follow in Three Weeks"
 description: "Vite 8.0.0 shipped stable on March 12, and the patch releases haven't stopped — v8.0.7 landed April 7 with fixes across CSS, SSR, WASM, and dev server behavior. A contrast to the long beta cycle."
-image: "https://opengraph.githubassets.com/80d818d1ffc6c3698c6a86f9be7dc3212b3713a3d3403d7bdb434efaba84e7fa/vitejs/vite"
+image: "/images/heroes/2026-04-08--vite-8-stable-seven-patches-in-three-weeks.png"
 date: "2026-04-08"
 category: Tooling
 author: lschvn
 readingTime: 4
-tags: ["vite", "javascript", "build-tools", "tooling", "release", "rolldown"]
+tags: ["tooling", "javascript"]
 tldr:
   - "Vite 8.0.0 stable shipped March 12, 2026, with Rolldown as the unified bundler replacing both ESBuild and Rollup."
   - "Seven patch releases (v8.0.1 through v8.0.7) followed in three weeks, addressing CSS, WASM SSR, dev server restarts, and sourcemap handling."
   - "Forwarding browser console output to the dev server terminal was a highly requested DX improvement added in the beta cycle."
   - "The rapid patch cadence reflects the challenges of a major bundler swap — plugin authors and large projects should monitor the changelog closely."
 faq:
-  - q: "Is Vite 8 stable safe to use in production?"
-    a: "With seven patches in three weeks, the Vite team is actively addressing regressions. For new projects, v8 is reasonable. For large existing projects with custom plugin configurations, review the changelog and test before upgrading."
-  - q: "What's the difference between this article and the March 26 Vite 8 beta article?"
-    a: "The March 26 article covered the beta features and the Rolldown migration in depth. This article focuses on the stable release and the unusually rapid patch cadence that followed it."
-  - q: "Should I skip to v8 or stay on v7?"
-    a: "If you're starting a new project, use v8. If you have a stable v7 project with complex build config, the v7 to v8 migration guide should be reviewed before upgrading. The Rolldown swap introduces edge-case differences in plugin behavior."
+  - question: "Is Vite 8 stable safe to use in production?"
+    answer: "With seven patches in three weeks, the Vite team is actively addressing regressions. For new projects, v8 is reasonable. For large existing projects with custom plugin configurations, review the changelog and test before upgrading."
+  - question: "What's the difference between this article and the March 26 Vite 8 beta article?"
+    answer: "The March 26 article covered the beta features and the Rolldown migration in depth. This article focuses on the stable release and the unusually rapid patch cadence that followed it."
+  - question: "Should I skip to v8 or stay on v7?"
+    answer: "If you're starting a new project, use v8. If you have a stable v7 project with complex build config, the v7 to v8 migration guide should be reviewed before upgrading. The Rolldown swap introduces edge-case differences in plugin behavior."
 ---
 
 Vite 8.0.0 went stable on March 12, 2026. Three weeks and seven patch releases later, the Vite team is on v8.0.7 as of April 7. That's a faster response cadence than most major releases in the JavaScript ecosystem, and it reflects the complexity inherent in swapping out both ESBuild and Rollup for Rolldown as the unified bundler.

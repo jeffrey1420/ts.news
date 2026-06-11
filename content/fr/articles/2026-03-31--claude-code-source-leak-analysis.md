@@ -2,18 +2,9 @@
 title: "Fuite de Source Map Claude Code : L'agent OS caché, l'automatisation Chrome et les failles de vie privée"
 description: "Les développeurs ont découvert que le package npm @anthropic-ai/claude-code@v2.1.88 incluait un fichier source map de production exposant le code source TypeScript complet — révélant une orchestration multi-agents non documentée, un serveur MCP Chrome caché, un moteur de requêtes interne, un système de permissions d'outils, et un système de télémétrie à trois niveaux."
 date: 2026-03-31
-image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-03-31--claude-code-source-leak-analysis.png"
 author: "lschvn"
-tags:
-  [
-    "security",
-    "anthropic",
-    "claude-code",
-    "npm",
-    "typescript",
-    "agents",
-    "privacy",
-  ]
+tags: ["security", "ai", "typescript"]
 readingTime: 5
 tldr:
   - "Claude Code v2.1.88 a été livré avec une source map de production (cli.js.map) exposant ~4 756 fichiers sources, dont une orchestration multi-agents non documentée."

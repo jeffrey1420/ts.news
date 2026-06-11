@@ -4,9 +4,9 @@ description: "Wie Cloudflare KI nutzte, um Vercels Flaggschiff-Framework neu zu 
 date: "2026-03-21"
 category: "deep-dive"
 author: lschvn
-tags: ["cloudflare", "vercel", "controversy", "vinext"]
+tags: ["frameworks", "ecosystem"]
 readingTime: 12
-image: "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/64oL10LCSz30EiEHWVdJPG/aeaed48a681ec3d5bc9d8cb6e5e30a96/BLOG-3194_1.png"
+image: "/images/heroes/vinext-cloudflare-vercel.png"
 tldr:
   - "vinext reimplementiert die Next.js-API-Oberfläche als Vite-Plugin, größtenteils von KI (Claude Code) für ~1.100$ an API-Tokens in einer Woche erstellt."
   - "Bei einer 33-Routen-App baut vinext 4,4x schneller (1,67s vs 7,38s) mit 57% kleineren Client-Bundles (72,9KB vs 168,9KB)."
@@ -26,6 +26,8 @@ Am 24. Februar 2026 veröffentlichte Cloudflare einen Blogbeitrag, der Schockwel
 ## Was ist vinext?
 
  vinext ist ein Vite-Plugin, das die öffentliche Next.js-API reimplementiert — Routing, Server-Side Rendering, React Server Components, Server Actions, Caching, Middleware und mehr — auf Vites Build-Infrastruktur statt auf Next.js' proprietären Compiler.
+
+![vinext baut dieselbe 33-Routen-App 4,4x schneller als Next.js 16](/images/charts/vinext-build.png)
 
 Der entscheidende Unterschied ist die Deployment-Flexibilität. Wo Next.js traditionell Vercel benötigt, shipped vinext nativ zu Cloudflare Workers mit einem einzigen Befehl:
 

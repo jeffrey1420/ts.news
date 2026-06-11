@@ -4,9 +4,9 @@ description: "Vue 3.5 est arrivé sans changements cassants et avec un ensemble 
 date: "2026-03-22"
 category: "deep-dive"
 author: lschvn
-tags: ["vue", "javascript", "frontend", "performance", "ssr", "typescript"]
+tags: ["frameworks", "typescript", "performance"]
 readingTime: 10
-image: "https://opengraph.githubassets.com/f7b424ad79df220a2cc8c8a5cc2d08e45d1657724c9600dc28af967788f7a38a/vuejs/core"
+image: "/images/heroes/vue-35-major-improvements.png"
 tldr:
   - "Vue 3.5 delivers 56% lower memory usage and up to 10x faster operations on large deeply reactive arrays via a reactivity system refactor."
   - "Reactive props destructuring is stabilized — destructuring in `<script setup>` now preserves reactivity without withDefaults()."

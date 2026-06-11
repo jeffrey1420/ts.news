@@ -2,27 +2,21 @@
 title: "Node.js 26.3.0: Buffer-Pool verdoppelt, permission.drop() Methode,macOS Intel-Binary vor dem Aus"
 description: "Node.js 26.3.0 bringt einen standardmäßigen Buffer.poolSize von 64 KiB, die neue Methode permission.drop() zur feingranularen Abgabe von Berechtigungen, eine Warnung zu macOS Universal-Binaries und gehärtetes WebCrypto. npm wird auf 11.16.0 aktualisiert."
 date: 2026-06-03
-image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200"
+image: "/images/heroes/2026-06-03--node-js-26-3-0-buffer-pool-permission-drop.png"
 author: lschvn
-tags:
-  - TypeScript
-  - Node.js
-  - JavaScript
-  - Runtime
-  - Performance
-  - Sicherheit
+tags: ["security", "runtimes", "typescript"]
 tldr:
   - Buffer.poolSize Standardwert steigt von 32 auf 64 KiB, was Allocator-Contention bei HTTP- und I/O-intensiven Workloads reduziert
   - permission.drop() erlaubt laufenden Prozessen, einzelne Berechtigungen Schritt für Schritt abzugeben, ohne den Prozess zu beenden
   - Das macOS Universal Binary (Intel + Apple Silicon) wird möglicherweise nicht mehr für die gesamte Lebensdauer von Node.js 26 gepflegt
   - WebCrypto wird gegen Prototype Pollution gehärtet und erhält einen CryptoJob-Modus; npm aktualisiert auf 11.16.0
 faq:
-  - q: "Warum beeinflusst Buffer.poolSize die Anwendungsleistung?"
-    a: "Node verwendet intern einen Slab-Allocator. Ein größerer Pool bedeutet, dass weniger kleine Allokationen direkt aus dem Heap bedient werden, was Fragmentierung und Syscall-Overhead reduziert. Die Verdopplung des Standardwerts von 32 auf 64 KiB hilft den meisten HTTP-Servern und Streaming-Pipelines ohne manuelle Konfiguration."
-  - q: "Wie unterscheidet sich permission.drop() vom bestehenden Berechtigungsmodell?"
-    a: "Bisher waren Node.js-Berechtigungen beim Start all-oder-nichts. permission.drop() erlaubt laufendem Code, einzelne Berechtigungshandles — Dateisystem, Umgebung, Kindprozess — abzugeben, während andere erhalten bleiben. Dies ermöglicht progressive Privilegienreduzierung, z.B. fs-Zugriff nach einer Initialisierungsphase abzugeben."
-  - q: "Kann mein Intel-Mac weiterhin Node.js 26 ausführen?"
-    a: "Ja — Node.js 26 wird vorerst weiter Universal-Binaries ausliefern. Die Warnung signalisiert, dass das Node.js-Projekt die Intel-Builds möglicherweise entfernt, bevor Node.js 26 EOL erreicht, falls Apple die x86-Toolchain-Unterstützung weiter einstellt. Apple Silicon (arm64) ist jetzt Tier 1; Intel ist Tier 2."
+  - question: "Warum beeinflusst Buffer.poolSize die Anwendungsleistung?"
+    answer: "Node verwendet intern einen Slab-Allocator. Ein größerer Pool bedeutet, dass weniger kleine Allokationen direkt aus dem Heap bedient werden, was Fragmentierung und Syscall-Overhead reduziert. Die Verdopplung des Standardwerts von 32 auf 64 KiB hilft den meisten HTTP-Servern und Streaming-Pipelines ohne manuelle Konfiguration."
+  - question: "Wie unterscheidet sich permission.drop() vom bestehenden Berechtigungsmodell?"
+    answer: "Bisher waren Node.js-Berechtigungen beim Start all-oder-nichts. permission.drop() erlaubt laufendem Code, einzelne Berechtigungshandles — Dateisystem, Umgebung, Kindprozess — abzugeben, während andere erhalten bleiben. Dies ermöglicht progressive Privilegienreduzierung, z.B. fs-Zugriff nach einer Initialisierungsphase abzugeben."
+  - question: "Kann mein Intel-Mac weiterhin Node.js 26 ausführen?"
+    answer: "Ja — Node.js 26 wird vorerst weiter Universal-Binaries ausliefern. Die Warnung signalisiert, dass das Node.js-Projekt die Intel-Builds möglicherweise entfernt, bevor Node.js 26 EOL erreicht, falls Apple die x86-Toolchain-Unterstützung weiter einstellt. Apple Silicon (arm64) ist jetzt Tier 1; Intel ist Tier 2."
 ---
 
 Node.js 26.3.0 wurde am 1. Juni 2026 auf der Current-Release-Linie veröffentlicht. Es ist ein umfangreiches Mid-Cycle-Update: der Buffer-Allocator erhält eine bedeutende Abstimmung, das experimentelle Berechtigungssystem bekommt das am häufigsten angefragte Feature, Apple signalisiert einen weiteren Schritt zum Aus für Intel-Macs, und das Crypto-Team landet mehre PRs zur WebCrypto-Härtung.

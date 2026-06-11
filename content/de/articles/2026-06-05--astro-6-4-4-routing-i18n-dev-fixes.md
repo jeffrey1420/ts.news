@@ -2,9 +2,9 @@
 title: "Astro 6.4.4 Behebt Sieben Bugs bei Routing, i18n und Dev-Erfahrung"
 description: "Astro 6.4.4 ist ein Patch-Release, das Probleme mit dynamischen Routen, i18n-Domain-Routing, Bearbeitung von Client-Komponenten und der Groß-/Kleinschreibung von Routenmustern behebt."
 date: 2026-06-05
-image: "https://rolldown.rs/og.jpg"
+image: "/images/heroes/2026-06-05--astro-6-4-4-routing-i18n-dev-fixes.png"
 author: lschvn
-tags: [astro, framework, javascript, ssr, web]
+tags: ["frameworks", "javascript"]
 tldr:
   - Fix: Astro.routePattern behält jetzt korrekt die Groß-/Kleinschreibung von Parametern aus Dateinamen bei
   - Dynamische Routen werfen keine 500-Fehler mehr bei domain-basiertem i18n-Routing im SSR-Modus

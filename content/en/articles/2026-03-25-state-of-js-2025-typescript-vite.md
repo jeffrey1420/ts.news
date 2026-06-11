@@ -1,12 +1,12 @@
 ---
 title: "State of JavaScript 2025: TypeScript Dominates, Vite Overtakes Webpack"
 description: "The State of JavaScript 2025 survey reveals TypeScript usage at an all-time high, Vite crushing Webpack in satisfaction, and growing concerns about Next.js complexity."
-image: "https://assets.devographics.com/surveys/js2025-og.png"
+image: "/images/heroes/2026-03-25-state-of-js-2025-typescript-vite.png"
 date: "2026-03-25"
 category: Ecosystem
 author: lschvn
 readingTime: 5
-tags: ["typescript", "javascript", "state-of-js", "survey", "vite", "ecosystem"]
+tags: ["tooling", "typescript", "javascript"]
 tldr:
   - "40% of developers now write exclusively in TypeScript (up from 34% in 2024); only 6% use plain JavaScript exclusively."
   - "Vite hits 84% usage with a 98% satisfaction score, while Webpack satisfaction collapsed to 26% (down from 36% in 2024)."

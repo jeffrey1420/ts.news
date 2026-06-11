@@ -2,9 +2,9 @@
 title: "Rolldown 1.1.0 Lands with lazyBarrel Enabled by Default"
 description: "Rolldown 1.1.0 introduces two notable behavior changes: experimental.lazyBarrel is now enabled by default, and tsconfig project-reference resolution has been updated to match TypeScript's behavior."
 date: 2026-06-05
-image: "https://rolldown.rs/og.jpg"
+image: "/images/heroes/2026-06-05--rolldown-1-1-0-lazybarrel-default-tsconfig.png"
 author: lschvn
-tags: [rolldown, bundler, rust, javascript, vite]
+tags: ["tooling", "javascript"]
 tldr:
   - "experimental.lazyBarrel" now defaults to true, skipping compilation of unused barrel exports for significant build-time speedups on large component libraries
   - oxc_resolver upgraded to 11.21.0, fixing tsconfig project-reference resolution to match TypeScript's behavior exactly
@@ -56,9 +56,9 @@ Rolldown 1.1.0 is available on npm now.
 ---
 
 faq:
-  - q: "What does 'lazyBarrel' mean in Rolldown?"
-    a: "A 'barrel' is a file that re-exports from multiple other modules. lazyBarrel optimization detects when a barrel has no side effects and skips compiling the unused re-exported modules, speeding up builds for large libraries."
-  - q: "My build broke after upgrading Rolldown. What should I check?"
-    a: "First, check if you're relying on side effects from a barrel file's re-exports. You can temporarily opt out with `experimental: { lazyBarrel: false }`. Second, if you use TypeScript project references, verify your tsconfig structure matches TypeScript's expected layout."
-  - q: "How does this affect Vite users?"
-    a: "Rolldown is the bundler powering Vite 8 and later. These changes apply automatically when you upgrade Rolldown as a dependency or when Vite ships a new Rolldown version."
+  - question: "What does 'lazyBarrel' mean in Rolldown?"
+    answer: "A 'barrel' is a file that re-exports from multiple other modules. lazyBarrel optimization detects when a barrel has no side effects and skips compiling the unused re-exported modules, speeding up builds for large libraries."
+  - question: "My build broke after upgrading Rolldown. What should I check?"
+    answer: "First, check if you're relying on side effects from a barrel file's re-exports. You can temporarily opt out with `experimental: { lazyBarrel: false }`. Second, if you use TypeScript project references, verify your tsconfig structure matches TypeScript's expected layout."
+  - question: "How does this affect Vite users?"
+    answer: "Rolldown is the bundler powering Vite 8 and later. These changes apply automatically when you upgrade Rolldown as a dependency or when Vite ships a new Rolldown version."

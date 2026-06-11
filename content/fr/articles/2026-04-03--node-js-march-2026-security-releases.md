@@ -2,9 +2,9 @@
 title: "Node.js Mars 2026 : Six Correctifs de Sécurité Sur Toutes les Branches Actives"
 description: "Node.js a publié des correctifs de sécurité d'urgence pour v25, v24, v22 et v20 le 24 mars 2026, corrigeant deux CVE à haute sévérité dont un crash TLS SNICallback et un risque de pollution prototype HTTP. Détails."
 date: 2026-04-03
-image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-03--node-js-march-2026-security-releases.png"
 author: lschvn
-tags: ["Node.js", "sécurité", "CVE", "TLS", "HTTP", "TypeScript"]
+tags: ["security", "runtimes", "typescript"]
 readingTime: 5
 tldr:
   - "Node.js a publié des correctifs de sécurité pour v25.8.2, v24.14.1, v22.22.2 et v20.20.2 le 24 mars 2026, fermant six CVE sur toutes les branches actives."

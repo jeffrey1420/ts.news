@@ -2,9 +2,9 @@
 title: "Oxc v0.126.0 : Turbopack Magic Comments im Parser, Breaking Changes beim Allocator"
 description: "Oxc v0.126.0 bringt Parser-Unterstützung für Turbopack Magic Comments, eine breaking Umbenennung der Box- und Vec-Methoden im Allocator, neue NAPI-Transform-Optionen für Enum-Optimierung und weitere Performance-Verbesserungen."
 date: 2026-04-18
-image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-18--oxc-v0-126-turbopack-magic-comments-allocator-breaking.png"
 author: lschvn
-tags: ["Oxc", "Rust", "JavaScript", "Turbopack", "Rolldown", "SWC", "Tooling"]
+tags: ["tooling", "javascript"]
 tldr:
   - Oxc v0.126.0 fügt Parser-Unterstützung für Turbopack Magic Comments hinzu, was die Kompatibilität mit webpack-annotiertem Code verbessert
   - Eine Breaking Change benennt Box- und Vec-Methoden im Allocator um – Projekte mit direkter Abhängigkeit müssen an更新时间

@@ -1,60 +1,93 @@
 ---
-title: "numpy-ts 1.2 Erreicht 50% der nativen NumPy-Performance mit Float16-Support"
-description: "Die reine TypeScript-Implementierung von NumPy erreicht einen neuen Performance-Meilenstein und fügt Float16-Unterstützung hinzu — ein Schritt hin zu echtem wissenschaftlichem Rechnen im Browser."
+title: "numpy-ts 1.2: Bit-genaue NumPy-RNG-Parität und Float16-Support in purem TypeScript"
+description: "Die reine TypeScript-Implementierung von NumPy erreicht einen Korrektheits-Meilenstein: Die Zufallszahlengenerierung stimmt jetzt Bit für Bit mit NumPy überein, Float16 kommt als vollwertiger dtype, und das Paket braucht keine Runtime-spezifischen Entry-Points mehr."
 date: 2026-04-01
-image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-01-numpy-ts-1-2-half-native-performance.png"
 author: lschvn
-tags: ["typescript", "javascript", "numpy", "wissenschaftliches-rechnen", "webassembly", "browser"]
+tags: ["javascript", "typescript", "performance"]
 faq:
   - question: "Was ist numpy-ts?"
-    answer: "numpy-ts ist eine reine TypeScript-Implementierung der NumPy-API, die ohne native Abhängigkeiten in Browsern und Node.js läuft. Sie deckt etwa 94% der NumPy-API ab und wird gegen die echte NumPy-Testsuite validiert."
-  - question: "Wie schnell ist numpy-ts im Vergleich zu nativem NumPy?"
-    answer: "Version 1.2 erreicht ungefähr 50% der nativen NumPy-Performance — ein signifikanter Sprung. Für viele webbasierte Anwendungsfälle ist das mehr als ausreichend."
-  - question: "Was ist Float16 und warum ist es wichtig?"
-    answer: "Float16 (Halbpräzision) verwendet 16 Bits pro Zahl statt 32 oder 64. Es wird häufig im ML-Inferencing verwendet, wo Speicherbandbreite der Flaschenhals ist."
-  - question: "Kann man mit numpy-ts ML-Modelle trainieren?"
-    answer: "numpy-ts ist für Inferencing und allgemeine numerische Berechnungen gedacht, nicht für Training. Für browserbasiertes ML-Training eignen sich WebGPU-Lösungen wie JAX.js."
+    answer: "numpy-ts ist eine reine TypeScript-Implementierung der NumPy-API von Nico Dupont, die in Browsern, Node.js, Bun und Deno ohne native Abhängigkeiten läuft. Sie deckt rund 94 % der NumPy-API ab (476 von 507 Funktionen) und validiert ihre Ausgaben mit über 6.000 Tests direkt gegen NumPy."
+  - question: "Wie schnell ist es im Vergleich zum echten NumPy?"
+    answer: "Langsamer — der Autor misst im Schnitt etwa 15x langsamer als natives NumPy, was für pures JavaScript gegen C/BLAS zu erwarten ist. Die Optimierungs-Roadmap umfasst algorithmische Verbesserungen und gezieltes WebAssembly. Für Preprocessing, Statistik und interaktive Browser-Tools reicht es in der Regel; für schweres Number-Crunching gewinnt natives NumPy deutlich."
+  - question: "Was bedeutet bit-genaue RNG-Parität und warum ist sie wichtig?"
+    answer: "Mit demselben Seed erzeugt numpy-ts 1.2 exakt dieselbe Zufallszahlenfolge wie NumPy — nicht statistisch ähnlich, sondern identisch. Das zählt beim Reproduzieren von Experimenten, beim Portieren von Test-Fixtures und beim Validieren eines TypeScript-Ports von Python-Code gegen dessen Referenzausgabe."
+  - question: "Kann ich mit numpy-ts Machine-Learning-Modelle trainieren?"
+    answer: "numpy-ts ist für inferenznahe Arbeit und allgemeines numerisches Rechnen gedacht, nicht fürs Training. Für ML-Training im Browser lohnt sich ein Blick auf WebGPU-basierte Projekte wie JAX.js. Für Daten-Preprocessing, Visualisierungs-Pipelines und statistische Operationen ist numpy-ts dagegen gut geeignet."
 tldr:
-  - "numpy-ts 1.2 erreicht ~50% der nativen NumPy-Performance in reinem TypeScript/JavaScript, ohne native Binärdateien oder WebAssembly."
-  - "Das Release fügt Float16-Dtype-Support hinzu, was speichereffiziente Workflows für ML-Inferencing und Signalverarbeitung ermöglicht."
-  - "Mit 94% API-Abdeckung ist numpy-ts die vollständigste NumPy-Portierung im JavaScript-Ökosystem."
-  - "Installation: `npm install numpy-ts` — funktioniert in Node.js und modernen Browsern."
+  - "numpy-ts 1.2 erzeugt aus demselben Seed Bit für Bit identische Zufallszahlenfolgen wie NumPy — frühere Versionen wichen nach den ersten Werten ab."
+  - "Float16 (halbe Präzision) kommt als vollwertiger dtype, obwohl JavaScript kein natives float16 kennt — nützlich für ML-nahe Workflows und Signalverarbeitung."
+  - "Ein Entry-Point funktioniert jetzt auf Node.js, Bun, Deno und im Browser; die Runtime-spezifischen Imports sind Geschichte."
+  - "Mit ~94 % API-Abdeckung, validiert gegen NumPy selbst, ist numpy-ts der vollständigste NumPy-Port im JavaScript-Ökosystem. Schnell ist er nicht (~15x langsamer als natives NumPy) — er ist kompatibel, und genau darum geht es."
 ---
 
-[numpy-ts](https://numpyts.dev), die umfassendste NumPy-Implementierung in TypeScript, hat Version 1.2 veröffentlicht — ein bedeutender Meilenstein. Die Bibliothek erreicht jetzt etwa **50% der nativen NumPy-Performance** und fügt **Float16-Support** für speichereffiziente numerische Workflows hinzu.
+[numpy-ts](https://numpyts.dev), die vollständigste komplett in TypeScript geschriebene NumPy-Implementierung, hat Version 1.2 veröffentlicht — und die Schlagzeile ist nicht Geschwindigkeit. Sie ist strenger: **Mit demselben Seed erzeugt numpy-ts jetzt exakt dieselben Zufallszahlen wie NumPy, Bit für Bit.** Daneben bringt das Release vollwertigen **Float16-Support** und führt die Runtime-spezifischen Entry-Points zu einem Paket zusammen, das überall läuft.
 
-## Das Problem, das numpy-ts löst
+## Welches Problem numpy-ts lösen will
 
-Python's NumPy ist der De-facto-Standard für arraybasiertes Rechnen — von linearer Algebra über Signalverarbeitung bis zur Datenvorverarbeitung für Machine Learning. Diese API in JavaScript und TypeScript verfügbar zu machen, ohne auf native Binärdateien oder WebAssembly-Kompilierung zu setzen, erfüllt einen lange bestehenden Bedarf.
+Pythons NumPy ist der De-facto-Standard für Array-Computing — lineare Algebra, Signalverarbeitung, Daten-Preprocessing fürs Machine Learning. Diese API nach TypeScript zu bringen, hat offensichtlichen Reiz für Web-Tools, Notebooks und Browser-native Datenanwendungen.
 
-Reines JavaScript/TypeScript hatte immer mit demselben Problem zu kämpfen: NumPy erreicht seine Geschwindigkeit durch hochoptimierten C- und Fortran-Code. numpy-ts umgeht das, indem es heiße Pfade optimiert und SIMD-freundliche Datenstrukturen nutzt, wo die JavaScript-Engine es erlaubt — und validiert die Ergebnisse gegen die echte NumPy-Testsuite.
+Der schwierige Teil war nie die API-Oberfläche, sondern NumPys *Verhalten* zu treffen. numpy-ts geht das an, indem es direkt gegen NumPy validiert: Über 6.000 Tests vergleichen die Ausgaben mit dem Original — über Arithmetik, FFT, lineare Algebra und Zufallsverteilungen hinweg. Die Abdeckung liegt bei rund **94 % der NumPy-API** — 476 von 507 Funktionen — und macht numpy-ts mit Abstand zum vollständigsten Port im JavaScript-Ökosystem.
 
-## Float16: der neue Datentyp
+## Die RNG-Geschichte: identisch, nicht ähnlich
 
-Float16 verwendet 16 Bits pro Zahl statt der üblichen 32 oder 64. Es ist ein Standard in der GPU-Programmierung — NVIDIA Tensor Cores arbeiten nativ in Float16 — weil es den Speicherverbrauch drastisch reduziert.
+Vor 1.2 nutzte numpy-ts Annäherungen an NumPys Zufallszahlengenerierung — für Gelegenheitsnutzung ausreichend, aber die Folgen wichen nach den ersten Werten von NumPy ab. Für wissenschaftliche Arbeit ist das disqualifizierend: Man kann kein Paper-Experiment reproduzieren, keine Test-Fixture portieren und keine Migration verifizieren, wenn `seed(42)` andere Zahlen liefert.
 
-numpy-ts 1.2 fügt Float16 neben Float32, Float64, Int8/16/32, Uint8/16/32 und komplexen Zahlentypen hinzu.
+Version 1.2 implementiert die Generatoren neu, sodass sie NumPy **Bit für Bit** entsprechen:
+
+```typescript
+import { random } from 'numpy-ts';
+
+const rng = random.default_rng(42);
+rng.random(3);
+// [0.7739560485559633, 0.4388784397520523, 0.8585979199113825]
+// — exakt die drei Zahlen, die NumPy für default_rng(42) ausgibt
+```
+
+Wer eine NumPy-Pipeline portiert und in Tests auf geseedete Zufallsdaten prüft, kann diese Fixtures jetzt unverändert übernehmen.
+
+## Float16, ohne native Unterstützung
+
+Float16 (halbe Präzision) nutzt 16 Bit pro Zahl und gehört seit Jahren zur GPU-Inferenz — Speicherbandbreite ist meist der Engpass, und halbe Präzision reicht oft. JavaScript kennt keinen nativen float16-Typ, also implementiert numpy-ts Konvertierung und Speicherung selbst — neben Float32, Float64, den Integer-dtypes und komplexen Zahlen.
+
+## Ein Paket, jede Runtime
+
+Bisher brauchten verschiedene Runtimes verschiedene Entry-Points — ein Import für Node, ein anderer für Browser. Version 1.2 vereinheitlicht das: ein Paket, das sich auf Node.js, Bun, Deno und im Browser identisch verhält, bei rund 93 kB minifiziert und gzipped, ohne Abhängigkeiten.
+
+## Und wie schnell ist es ehrlicherweise?
+
+Hier lohnt Präzision: numpy-ts ist **nicht** annähernd so schnell wie natives NumPy, und sein Autor behauptet das auch nicht. NumPy holt seine Geschwindigkeit aus Jahrzehnten von C, BLAS und LAPACK; eine reine TypeScript-Implementierung läuft im Schnitt etwa **15x langsamer**. Die Roadmap zielt auf algorithmische Optimierungen und gezieltes WebAssembly für heiße Pfade.
+
+![Das ehrliche Performance-Bild: natives NumPy vs. numpy-ts](/images/charts/numpy-ts-performance.png)
+
+In der Praxis wiegt die Lücke für die eigentlichen Anwendungsfälle der Bibliothek weniger schwer, als es klingt — ein Dataset in einem Browser-Tool säubern, deskriptive Statistiken berechnen, eine kleine Matrixoperation in einer Visualisierung. Sie wiegt schwer, wenn man echtes numerisches Rechnen auf großen Arrays versucht. Man sollte wissen, in welchem Fall man ist.
 
 ## API-Kompatibilität mit NumPy
 
-Das Projekt zielt auf API-Kompatibilität mit NumPy, nicht nur auf konzeptionelle Ähnlichkeit. Die Dokumentation enthält einen Migrationsleitfaden:
+Ziel des Projekts ist API-Kompatibilität, nicht nur die Konzepte, und der [Migration Guide](https://numpyts.dev) zeigt Übersetzungen Seite an Seite. Der meiste Code lässt sich direkt übertragen:
 
 ```python
 import numpy as np
+
 a = np.array([[1, 2], [3, 4]])
 b = np.linalg.inv(a)
+c = np.dot(a, b)
+d = np.sum(a, axis=0)
 ```
 
 ```typescript
-import { array, linalg } from 'numpy-ts';
+import { array, linalg, dot, sum } from 'numpy-ts';
+
 const a = array([[1, 2], [3, 4]]);
 const b = linalg.inv(a);
+const c = dot(a, b);
+const d = sum(a, { axis: 0 });
 ```
 
-## Installation
+## Loslegen
 
 ```bash
 npm install numpy-ts
 ```
 
-Dokumentation unter [numpyts.dev](https://numpyts.dev).
+Keine Runtime-Abhängigkeiten, läuft auf Node.js (CommonJS und ESM) und in modernen Browsern. Vollständige Dokumentation, Migration Guide und API-Referenz unter [numpyts.dev](https://numpyts.dev), Quellcode auf [github.com/dupontcyborg/numpy-ts](https://github.com/dupontcyborg/numpy-ts).

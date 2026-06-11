@@ -6,7 +6,7 @@ export const siteConfig = {
   description: 'Daily TypeScript, JavaScript, and web platform news for developers who ship code.',
   locale: 'en_US',
   rssPath: '/rss.xml',
-  defaultOgImage: '/og-default.svg',
+  defaultOgImage: '/og-default.png',
 } as const
 
 export const locales = [

@@ -2,20 +2,20 @@
 title: "TypeScript 6.0: Die letzte JavaScript-Version vor dem nativen Go-Compiler"
 description: "TypeScript 6.0 erscheint als Brücken-Release mit neuen Features wie #/-Subpath-Imports, stabiler Type-Order und dem Weg zu TypeScript 7.0s nativem Go-Compiler."
 date: 2026-04-17
-image: "https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2026/03/ts-6.0-2.png"
+image: "/images/heroes/2026-04-17--typescript-6-0-bridge-to-go-native.png"
 author: lschvn
-tags: ["TypeScript", "JavaScript", "Microsoft", "Compiler", "Go"]
+tags: ["tooling", "typescript", "javascript"]
 tldr:
   - TypeScript 6.0 ist die letzte Version auf der aktuellen JavaScript-Codebasis — TypeScript 7.0 wird in Go für native Geschwindigkeit und Shared-Memory-Parallelität gebaut
   - Neue Features: #/-Subpath-Imports, Map.getOrInsert/getOrInsertComputed, Typen für die Temporal-API, und relaxierte Typinferenz für Methoden ohne `this`
   - Mehrere Defaults ändern sich: strict=true, module=esnext, types=[], rootDir=. — viele Projekte werden 20-50% schnellere Builds sehen, müssen aber möglicherweise explizit Types konfigurieren
 faq:
-  - q: "Wie bereite ich mich auf TypeScript 7.0 vor?"
-    a: "Verwenden Sie TypeScript 6.0 jetzt. Testen Sie die TypeScript-7.0-Native-Preview in VS Code (Erweiterung: TypeScriptTeam.native-preview) oder über npmx.dev. Das neue Flag --stableTypeOrdering hilft, Unterschiede früh zu erkennen."
-  - q: "Warum hat TypeScript nach Go neu geschrieben?"
-    a: "Der Go-Compiler zielt auf native Ausführungsgeschwindigkeit und Shared-Memory-Multithreading, was die aktuelle TypeScript-Implementierung nicht effizient erreichen kann. Das Team kündigte dies 2025 an und 7.0 wird als 'extrem nah an der Fertigstellung' beschrieben."
-  - q: "Was tun, wenn mein Projekt nach dem Upgrade bricht?"
-    a: "Setzen Sie 'types' explizit (z.B. ['node', 'jest']), konfigurieren Sie 'rootDir' falls Sources verschachtelt sind, setzen Sie 'strict': false falls Sie sich auf den alten Default verlassen haben, und prüfen Sie die ignoreDeprecations-Option."
+  - question: "Wie bereite ich mich auf TypeScript 7.0 vor?"
+    answer: "Verwenden Sie TypeScript 6.0 jetzt. Testen Sie die TypeScript-7.0-Native-Preview in VS Code (Erweiterung: TypeScriptTeam.native-preview) oder über npmx.dev. Das neue Flag --stableTypeOrdering hilft, Unterschiede früh zu erkennen."
+  - question: "Warum hat TypeScript nach Go neu geschrieben?"
+    answer: "Der Go-Compiler zielt auf native Ausführungsgeschwindigkeit und Shared-Memory-Multithreading, was die aktuelle TypeScript-Implementierung nicht effizient erreichen kann. Das Team kündigte dies 2025 an und 7.0 wird als 'extrem nah an der Fertigstellung' beschrieben."
+  - question: "Was tun, wenn mein Projekt nach dem Upgrade bricht?"
+    answer: "Setzen Sie 'types' explizit (z.B. ['node', 'jest']), konfigurieren Sie 'rootDir' falls Sources verschachtelt sind, setzen Sie 'strict': false falls Sie sich auf den alten Default verlassen haben, und prüfen Sie die ignoreDeprecations-Option."
 ---
 
 TypeScript 6.0 ist diesen Monat erschienen, und es trägt ein Gewicht, das die meisten Nebenversionen nicht tragen: Es ist die letzte Version auf der aktuellen JavaScript-Codebasis. Alles ab 7.0 wird auf einem nativen Go-Compiler laufen, den das Team seit über einem Jahr aufbaut.

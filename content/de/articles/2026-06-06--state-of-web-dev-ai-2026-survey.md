@@ -2,22 +2,22 @@
 title: "State of Web Dev AI 2026: KI-generierter Code Steigt auf 54%, Claude dominiert bei Bezahl-Nutzung"
 description: "Der State of Web Dev AI 2026 zeigt: 54% des Codes werden von KI generiert (vs. 28% 2025), Coding-Agents steigen auf, und 60% der Befragten sehen eine KI-Blase."
 date: 2026-06-06
-image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-06-06--state-of-web-dev-ai-2026-survey.png"
 author: lschvn
-tags: ["KI", "TypeScript", "JavaScript", "umfrage", "coding-agents"]
+tags: ["ai", "typescript", "javascript"]
 tldr:
   - "Der Anteil KI-generierten Codes stieg von 28% (2025) auf 54% (2026), das 75%+-Segment wächst am stärksten."
   - "Coding-Agents verdrängen Chatbots und App-Generatoren — ChatGPT führt bei Rohtpopularität, aber Claude ist das Modell, das Entwickler am meisten tatsächlich bezahlen."
   - "60% der Befragten halten sich in einer 'KI-Blase', und Jobverlust ist die Top-Sorge, von 41% der Entwickler genannt."
 faq:
-  - q: "Wie viele Entwickler wurden befragt?"
-    a: "7.258 Entwickler antworteten auf den State of Web Dev AI 2026, durchgeführt zwischen dem 8. April und 8. Mai 2026."
-  - q: "Was ist die größte Veränderung im KI-Einsatz gegenüber letztem Jahr?"
-    a: "Der durchschnittliche Anteil KI-generierten Codes stieg von 28% auf 54% innerhalb eines Jahres. Der Anteil der Entwickler, die KI 'konstant' nutzen, verdoppelte sich ebenfalls."
-  - q: "Welches KI-Modell bezahlen Entwickler am meisten?"
-    a: "Obwohl ChatGPT bei Markenbekanntheit und Rohtnutzung führt, ist Claude das Modell, das Entwickler und Unternehmen am meisten tatsächlich bezahlen, laut den Monetarisierungsdaten der Umfrage."
-  - q: "Was sind die größten Bedenken der Entwickler gegenüber KI?"
-    a: "Jobverlust (41%) und militärischer KI-Einsatz (39%) sind die Top-Sorgen. Halluzinationen und Ungenauigkeiten bleiben der meistgenannte praktische Reibungspunkt bei der Nutzung von KI-Tools."
+  - question: "Wie viele Entwickler wurden befragt?"
+    answer: "7.258 Entwickler antworteten auf den State of Web Dev AI 2026, durchgeführt zwischen dem 8. April und 8. Mai 2026."
+  - question: "Was ist die größte Veränderung im KI-Einsatz gegenüber letztem Jahr?"
+    answer: "Der durchschnittliche Anteil KI-generierten Codes stieg von 28% auf 54% innerhalb eines Jahres. Der Anteil der Entwickler, die KI 'konstant' nutzen, verdoppelte sich ebenfalls."
+  - question: "Welches KI-Modell bezahlen Entwickler am meisten?"
+    answer: "Obwohl ChatGPT bei Markenbekanntheit und Rohtnutzung führt, ist Claude das Modell, das Entwickler und Unternehmen am meisten tatsächlich bezahlen, laut den Monetarisierungsdaten der Umfrage."
+  - question: "Was sind die größten Bedenken der Entwickler gegenüber KI?"
+    answer: "Jobverlust (41%) und militärischer KI-Einsatz (39%) sind die Top-Sorgen. Halluzinationen und Ungenauigkeiten bleiben der meistgenannte praktische Reibungspunkt bei der Nutzung von KI-Tools."
 ---
 
 Die zweite Ausgabe des **State of Web Dev AI** ist erschienen, und die Zahlen bestätigen, was die meisten Entwickler bereits vermuteten: KI-gestütztes Coding hat die Schwelle vom Experiment zur Routine überschritten. In diesem Jahr wurden 7.258 Antworten zwischen dem 8. April und 8. Mai 2026 gesammelt und zeichnen das Bild einer Industrie im Umbruch — schnell und ungleichmäßig.

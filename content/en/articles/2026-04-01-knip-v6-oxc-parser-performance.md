@@ -2,9 +2,9 @@
 title: "Knip v6 Lands oxc Parser for 2-4x Performance Gains Across the Board"
 description: "The popular dependency and unused-code scanner for JavaScript and TypeScript gets a major overhaul, replacing its TypeScript backend with the Rust-based oxc-parser — and the results are dramatic."
 date: 2026-04-01
-image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-01-knip-v6-oxc-parser-performance.png"
 author: lschvn
-tags: ["typescript", "javascript", "tooling", "performance", "open-source", "rust"]
+tags: ["tooling", "typescript", "performance"]
 faq:
   - question: "What is Knip?"
     answer: "Knip is an open-source CLI tool that finds unused files, dependencies, and exports in JavaScript and TypeScript projects. Think of it as a linting tool for dead code — it helps you clean up your repo before shipping."

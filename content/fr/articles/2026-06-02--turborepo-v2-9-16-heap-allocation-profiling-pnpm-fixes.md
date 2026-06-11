@@ -2,15 +2,9 @@
 title: "Turborepo v2.9.16 Ajoute le Profiling Mémoire et des Correctifs pnpm"
 description: "Les dernières versions stables de Turborepo ajoutent le profiling heap allocation via OpenTelemetry, corrigent le comportement des peers injectés pnpm, harden la validation OTEL endpoint, et règlent les hangs de shutdown PTY."
 date: 2026-06-02
-image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=1200"
+image: "/images/heroes/2026-06-02--turborepo-v2-9-16-heap-allocation-profiling-pnpm-fixes.png"
 author: lschvn
-tags:
-  - Turborepo
-  - monorepo
-  - build-tools
-  - JavaScript
-  - TypeScript
-  - OpenTelemetry
+tags: ["tooling", "typescript", "javascript"]
 tldr:
   - Turborepo v2.9.16 intègre le profiling heap allocation dans les traces OpenTelemetry, offrant de la visibilité sur l'utilisation mémoire par task et par package
   - Les workspaces pnpm avec peer dependencies injectées fonctionnent maintenant correctement — Turborepo ne drop plus ces entrées pendant l'exécution

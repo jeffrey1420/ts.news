@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 import { getCollectionName } from '~~/shared/utils/locale'
+import { getTopicMeta } from '~~/shared/utils/topics'
 
 const route = useRoute()
 const { locale, t } = useI18n()
@@ -44,7 +45,7 @@ useSeoMeta({
   ogUrl: canonicalUrl,
   ogImage,
   ogImageAlt: siteConfig.name,
-  twitterTitle: `${title} | ${siteConfig.name}`,
+  twitterTitle: `${title.value} | ${siteConfig.name}`,
   twitterDescription: description,
   twitterImage: ogImage,
 })
@@ -109,7 +110,8 @@ function formatDate(date: string) {
           <UButton
             v-for="tag in allTags"
             :key="tag"
-            :label="tag"
+            :label="getTopicMeta(tag, t).label"
+            :icon="getTopicMeta(tag, t).icon"
             size="xs"
             :variant="selectedTag === tag ? 'solid' : 'outline'"
             :color="selectedTag === tag ? 'primary' : 'neutral'"

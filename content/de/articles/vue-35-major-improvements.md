@@ -4,11 +4,11 @@ description: "Vue 3.5 kam ohne Breaking Changes und mit einer Reihe von internen
 date: "2026-03-22"
 category: "deep-dive"
 author: lschvn
-tags: ["vue", "javascript", "frontend", "performance", "ssr", "typescript"]
+tags: ["frameworks", "typescript", "performance"]
 readingTime: 10
-image: "https://opengraph.githubassets.com/f7b424ad79df220a2cc8c8a5cc2d08e45d1657724c9600dc28af967788f7a38a/vuejs/core"
+image: "/images/heroes/vue-35-major-improvements.png"
 tldr:
-  - "Vue 3.5 delivers 56% lower memory usage and up to 10x faster operations on large deeply reactive arrays via a reactivity system refactor."
+  - "Vue 3.5 liefert 56% weniger Speicherverbrauch und bis zu 10x schnellere Operationen auf großen, tief reaktiven Arrays dank eines Reaktivitäts-Refactorings."
   - "Reactive props destructuring is stabilized — destructuring in `<script setup>` now preserves reactivity without withDefaults()."
   - "New lazy hydration API (hydrateOnVisible) and useId() for stable server/client IDs solve long-standing SSR pain points."
   - "Vue 3.6 targets Vapor Mode — compiling templates to direct DOM ops with a goal of 100,000 component mounts in 100ms."
@@ -23,7 +23,7 @@ faq:
 
 Vue 3.5 erschien im September 2024 mit dem, was Evan You ein Minor-Release nannte — und einem überarbeiteten Reaktivitätssystem, das **56% weniger Speicherverbrauch** und **bis zu 10× schnellere Operationen auf großen, tief reaktiven Arrays** liefert. Die Reaktion der Entwickler-Community war ungefähr: *"Das fühlt sich nicht wie ein Minor-Release an."*
 
-Die Zahlen bestätigen diesen Instinkt. Vue 3.5's überarbeitetes Reaktivitätssystem liefert **56% weniger Speicherverbrauch** und **bis zu 10× schnellere Operationen auf großen, tief reaktiven Arrays**. Das sind keine inkrementellen Verbesserungen — sie sind die Art von Verbesserungen, die definieren, was "großskaliges Vue" in der Praxis bedeutet.
+Das sind keine inkrementellen Verbesserungen — sie sind die Art von Verbesserungen, die definieren, was "großskaliges Vue" in der Praxis bedeutet.
 
 ## Was Vue 3.5 Upgrade-würdig machte
 

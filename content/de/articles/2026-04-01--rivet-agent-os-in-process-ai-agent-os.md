@@ -2,9 +2,9 @@
 title: "Rivet Agent OS: Das In-Process-Betriebssystem, das KI-Agenten 500x günstiger als Sandboxes ausführt"
 description: "Von YC und a16z unterstützt, baute Rivet einen Agent-Runtime auf V8-Isolaten und WebAssembly, der in 4,8 ms cold startet — 92x schneller als E2B, zu 1/17 der Kosten. Wir haben die Architektur, Benchmarks und Implikationen tief erforscht."
 date: 2026-04-01
-image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-01--rivet-agent-os-in-process-ai-agent-os.png"
 author: lschvn
-tags: ["AI agents", "Rivet", "WebAssembly", "V8", "sandbox", "infrastructure", "open source"]
+tags: ["security", "ai", "runtimes"]
 readingTime: 9
 tldr:
   - "Rivet Agent OS führt KI-Agenten in 4,8 ms Cold-Start aus — 92x schneller als E2B-Sandboxes zu 1/17 der Kosten, angetrieben durch V8-Isolate und WebAssembly."

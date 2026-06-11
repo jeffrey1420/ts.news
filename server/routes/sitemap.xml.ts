@@ -1,6 +1,6 @@
 import { defineEventHandler, setHeader } from 'h3'
+import { queryCollection } from '@nuxt/content/server'
 import { absoluteSiteUrl } from '~~/shared/utils/site'
-import { getCollectionName } from '~~/shared/utils/locale'
 
 function escapeXml(value: string) {
   return value

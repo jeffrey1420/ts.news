@@ -2,9 +2,9 @@
 title: "Attaque supply chain npm sur Axios : Versions malveillantes déposent un cheval de Troie d'accès à distance"
 description: "Deux releases empoisonnées d'axios — l'une des bibliothèques HTTP client Node.js les plus utilisées — ont été publiées puis retirées de npm en quelques heures. Ce qui s'est passé, comment l'attaque a fonctionné, et ce que vous devez faire maintenant."
 date: 2026-03-31
-image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-03-31--axios-npm-supply-chain-attack.png"
 author: lschvn
-tags: ["security", "npm", "supply-chain", "javascript", "node.js"]
+tags: ["security", "runtimes", "javascript"]
 tldr:
   - "Les versions malveillantes axios@1.14.1 et axios@0.30.4 ont été publiées le 31 mars 2026, en ligne pendant ~3 heures avant suppression de npm."
   - "L'attaquant a compromis le compte npm du mainteneur principal, contournant OIDC Trusted Publishers pour publier manuellement."

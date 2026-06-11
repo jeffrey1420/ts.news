@@ -2,20 +2,20 @@
 title: "TypeScript 6.0: The Last JS Release Before the Go-Based Native Compiler"
 description: "TypeScript 6.0 lands as a bridge release with new features like #/ subpath imports, stable type ordering, and a path toward TypeScript 7.0's native Go codebase."
 date: 2026-04-17
-image: "https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2026/03/ts-6.0-2.png"
+image: "/images/heroes/2026-04-17--typescript-6-0-bridge-to-go-native.png"
 author: lschvn
-tags: ["TypeScript", "JavaScript", "Microsoft", "Compiler", "Go"]
+tags: ["tooling", "typescript", "javascript"]
 tldr:
   - TypeScript 6.0 is the final release on the current JavaScript codebase — TypeScript 7.0 will be built in Go for native speed and shared-memory parallelism
   - New features include #/ subpath imports, Map.getOrInsert/getOrInsertComputed, Temporal API types, and relaxed type inference for methods not using `this`
   - Several defaults change: strict=true, module=esnext, types=[], rootDir=. — many projects will see 20-50% faster builds and may need explicit types config
 faq:
-  - q: "How do I prepare for TypeScript 7.0?"
-    a: "Use TypeScript 6.0 now. Try the TypeScript 7.0 native preview in VS Code (extension ID: TypeScriptTeam.native-preview) or via npmx.dev. Use the new --stableTypeOrdering flag to catch potential differences early."
-  - q: "Why did TypeScript rewrite in Go?"
-    a: "The Go-based compiler aims for native execution speed and shared-memory multi-threading, which the current TypeScript implementation cannot efficiently achieve. The team announced this in 2025 and 7.0 is described as 'extremely close to completion'."
-  - q: "What if my project breaks after upgrading to 6.0?"
-    a: "Set 'types' explicitly (e.g. ['node', 'jest']), set 'rootDir' if sources are nested, set 'strict': false if you relied on the old default, and review the ignoreDeprecations option in tsconfig."
+  - question: "How do I prepare for TypeScript 7.0?"
+    answer: "Use TypeScript 6.0 now. Try the TypeScript 7.0 native preview in VS Code (extension ID: TypeScriptTeam.native-preview) or via npmx.dev. Use the new --stableTypeOrdering flag to catch potential differences early."
+  - question: "Why did TypeScript rewrite in Go?"
+    answer: "The Go-based compiler aims for native execution speed and shared-memory multi-threading, which the current TypeScript implementation cannot efficiently achieve. The team announced this in 2025 and 7.0 is described as 'extremely close to completion'."
+  - question: "What if my project breaks after upgrading to 6.0?"
+    answer: "Set 'types' explicitly (e.g. ['node', 'jest']), set 'rootDir' if sources are nested, set 'strict': false if you relied on the old default, and review the ignoreDeprecations option in tsconfig."
 ---
 
 TypeScript 6.0 shipped this month, and it carries a weight most point releases don't: this is the last version built on the current JavaScript codebase. Everything from 7.0 onward will run on a Go-based native compiler that the team has been building for over a year.

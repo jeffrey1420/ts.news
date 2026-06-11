@@ -2,20 +2,20 @@
 title: "Astro 6.1.8 corrige un bug critique de nom de fichier sur Netlify et une faille de sécurité sur /_image"
 description: "Astro 6.1.8 corrige une régression où les noms de fichiers de build contenant des caractères spéciaux cassaient les déploiements Netlify et Vercel, et colmate une faille de confusion content-type dans l'endpoint image intégré qui pouvait servir du non-SVG comme SVG."
 date: 2026-04-20
-image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-20--astro-6-1-8-critical-filename-bug-netlify-security.png"
 author: lschvn
-tags: ["TypeScript", "Astro", "Framework", "JavaScript", "Netlify", "Security"]
+tags: ["security", "frameworks", "typescript"]
 tldr:
   - Astro 6.1.8 corrige un bug où les fichiers de build avec des caractères spéciaux (!, ~, {, }) cassaient les déploiements Netlify et Vercel à cause de la protection anti-skew qui strip ces caractères
   - L'endpoint /_image avait une faille de content-type : passer f=svg pouvait retourner du contenu non-SVG en image/svg+xml ; la correction valide désormais que la source est bien du SVG
   - Le serveur de dev gagne un cache pour le crawling des dépendances, réduisant le travail redondant entre les rechargements
 faq:
-  - q: "Qu'est-ce qui causait les échecs de déploiement Netlify dans Astro 6.1.7 et antérieur ?"
-    a: "Le naming des fichiers de build Astro pouvait inclure des caractères comme !, ~, {, ou } dans les noms de chunks. La protection anti-skew de Netlify supprime ou rejette ces caractères, causant des références HTML pointant vers des fichiers introuvables sur le CDN."
-  - q: "Quelle gravité pour la faille de sécurité de /_image ?"
-    a: "Modérée. Un attaquant pouvait construire une requête vers /_image?url=<endpoint-interne>&f=svg retournant du JSON ou HTML interne avec un header Content-Type image/svg+xml. L'impact est limité par le fait que l'endpoint nécessite allowedDomains explicite."
-  - q: "Faut-il升级 immédiatement ?"
-    a: "Oui, particulièrement si vous déployez sur Netlify ou Vercel. Le bug de nom de fichier peut produire des déploiements cassés sans message d'erreur de build."
+  - question: "Qu'est-ce qui causait les échecs de déploiement Netlify dans Astro 6.1.7 et antérieur ?"
+    answer: "Le naming des fichiers de build Astro pouvait inclure des caractères comme !, ~, {, ou } dans les noms de chunks. La protection anti-skew de Netlify supprime ou rejette ces caractères, causant des références HTML pointant vers des fichiers introuvables sur le CDN."
+  - question: "Quelle gravité pour la faille de sécurité de /_image ?"
+    answer: "Modérée. Un attaquant pouvait construire une requête vers /_image?url=<endpoint-interne>&f=svg retournant du JSON ou HTML interne avec un header Content-Type image/svg+xml. L'impact est limité par le fait que l'endpoint nécessite allowedDomains explicite."
+  - question: "Faut-il升级 immédiatement ?"
+    answer: "Oui, particulièrement si vous déployez sur Netlify ou Vercel. Le bug de nom de fichier peut produire des déploiements cassés sans message d'erreur de build."
 ---
 
 Astro 6.1.8 est sorti le 18 avril avec deux correctifs que les développeurs déployant sur Netlify ou Vercel devraient appliquer immédiatement.

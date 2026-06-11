@@ -2,22 +2,22 @@
 title: "Turborepo Ist Jetzt 96% Schneller — Vercels KI-Agenten-Experiment"
 description: "Vercel-Ingenieure haben KI-Coding-Agenten eingesetzt, um die Rust-Codebasis von Turborepo zu optimieren und eine 81–96% schnellere Taskgraph-Berechnung zu erreichen. Hier sind der Prozess, die Erfolge und die Grenzen."
 date: "2026-04-14"
-image: "https://opengraph.githubassets.com/vercel/turborepo"
+image: "/images/heroes/2026-04-14--turborepo-96-percent-faster-ai-agents-humans.png"
 category: Werkzeuge
 author: lschvn
 readingTime: 5
-tags: ["turborepo", "vercel", "monorepo", "build-tools", "rust", "ai-agents"]
+tags: ["ai", "tooling", "ecosystem"]
 tldr:
   - "Die Taskgraph-Berechnung von Turborepo ist nun je nach Repository-Größe 81 bis 96% schneller, nach einer Woche KI-gestützter Rust-Optimierung."
   - "Das Vercel-Team kombinierte KI-Agenten mit LLM-lesbaren Markdown-Profiling-Formaten —Plain-Text-Stack-Traces verbesserten die Qualität der Agentenvorschläge drastisch."
   - "Die größten Gewinne kamen aus Parallelisierung (gleichzeitige Git-, Glob- und Lockfile-Operationen), Beseitigung redundanter Allokationen und Bündelung syscall-intensiver Operationen."
 faq:
-  - q: "Können KI-Agenten menschliche Ingenieure bei Performance-Arbeit ersetzen?"
-    a: "Nein — Vercels Ingenieure fanden heraus, dass Agenten sich auf Microbenchmarks fixierten, irreführende Verbesserungen produzierten und nie Regressionstests schrieben. Menschliches Urteilsvermögen blieb für die Validierung unerlässlich."
-  - q: "Was machte das Profiling für Agenten effektiver?"
-    a: "Das Standard-Chrome-Trace-JSON-Format war für Agenten schwer zu parsen. Der Wechsel zu einem Markdown-Profil-Format — sortiert nach Eigzeit, greppbar, einzeilige Einträge — führte zu deutlich besseren Optimierungsvorschlägen."
-  - q: "Was genau wurde in Turborepo schneller?"
-    a: "Die Rust-Implementierung wurde in drei Bereichen optimiert: Parallelisierung sequentieller Operationen, Beseitigung redundanter Allokationen und Klone sowie Bündelung syscall-intensiver Git-Operationen mit schnelleren Bibliotheken wie gix-index."
+  - question: "Können KI-Agenten menschliche Ingenieure bei Performance-Arbeit ersetzen?"
+    answer: "Nein — Vercels Ingenieure fanden heraus, dass Agenten sich auf Microbenchmarks fixierten, irreführende Verbesserungen produzierten und nie Regressionstests schrieben. Menschliches Urteilsvermögen blieb für die Validierung unerlässlich."
+  - question: "Was machte das Profiling für Agenten effektiver?"
+    answer: "Das Standard-Chrome-Trace-JSON-Format war für Agenten schwer zu parsen. Der Wechsel zu einem Markdown-Profil-Format — sortiert nach Eigzeit, greppbar, einzeilige Einträge — führte zu deutlich besseren Optimierungsvorschlägen."
+  - question: "Was genau wurde in Turborepo schneller?"
+    answer: "Die Rust-Implementierung wurde in drei Bereichen optimiert: Parallelisierung sequentieller Operationen, Beseitigung redundanter Allokationen und Klone sowie Bündelung syscall-intensiver Git-Operationen mit schnelleren Bibliotheken wie gix-index."
 ---
 
 Vercel-Ingenieure verbrachten eine Woche im März 2026 damit, KI-Coding-Agenten einzusetzen, um den Rust-Task-Scheduler von Turborepo zu optimieren. Das Ergebnis: Die Taskgraph-Berechnung ist nun **81 bis 96% schneller**, je nach Repository-Größe. Bei einem 1.000-Pakete-Monorepo sank der `turbo run`-Overhead von 10 Sekunden auf ein quasi-sofortes Gefühl. Der Bericht ist für jeden lesenswert, der an leistungsstarken JavaScript-Tools arbeitet.
@@ -25,6 +25,8 @@ Vercel-Ingenieure verbrachten eine Woche im März 2026 damit, KI-Coding-Agenten 
 ## Start mit Unbeaufsichtigten Agenten
 
 Das Experiment begann mit acht Hintergrund-Coding-Agenten, die jeweils unterschiedliche Bereiche der Rust-Codebasis ansteuerten. Jeder Agent erhielt ein locker definiertes Ziel — Performance-Probleme finden — ohne Schritt-für-Schritt-Anleitung. Bis zum Morgen hatten drei brauchbare Ergebnisse geliefert: eine 25%ige Reduzierung der Wanduhrzeit durch Wechsel zu referenzbasiertem Hashing, ein 6%iger Gewinn durch Ersetzen der `twox-hash`-Crate durch `xxhash-rust` und eine Bereinigung eines unnötigen Floyd-Warshall-Algorithmus.
+
+![Turborepo 2.9, Zeit bis zur ersten Task: 81 bis 96 Prozent schneller](/images/charts/turborepo-time-to-first-task.png)
 
 Aber die Ingenieure identifizierten schnell ein Muster: **Agenten produzierten beeindruckende Microbenchmarks, die sich nicht in reale Gewinne übersetzten**. Ein Agent lieferte eine „97%ige Verbesserung" bei einem Microbenchmark, die in der Praxis 0,02% ausmachte. Agenten schrieben nie Regressionstests. Sie nutzten nie das `--profile`-Flag. Und entscheidend: Sie benchmarkten gegen synthetische Ziele statt gegen die eigentliche Turborepo-Codebasis.
 

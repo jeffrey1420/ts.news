@@ -2,9 +2,9 @@
 title: "Inertia.js 3.0 Bridges the Gap Between SPAs and Server-Side Frameworks"
 description: "Inertia.js 3.0 ships with support for React, Vue, and Svelte SPAs backed by Laravel, Rails, or Django — no API layer required. Here's what's new in the 'Modern Monolith' approach to building web applications."
 date: 2026-04-03
-image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-03--inertia-js-3-0-release-modern-monolith.png"
 author: lschvn
-tags: ["Inertia.js", "Laravel", "Rails", "Django", "React", "Vue", "Svelte", "SPA", "TypeScript"]
+tags: ["frameworks", "typescript"]
 readingTime: 4
 tldr:
   - "Inertia.js 3.0 lets you build React, Vue, or Svelte single-page apps backed by server-side frameworks like Laravel, Rails, or Django — no building a separate REST or GraphQL API."

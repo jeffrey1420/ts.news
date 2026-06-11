@@ -2,9 +2,9 @@
 title: "Oxc Construisit Discrètement En Rust Le Toolkit JavaScript Le Plus Rapide — Et Il Est Presque Prêt"
 description: "Alors qu'ESLint v10 se battait avec le ménage legacy, le projet Oxc a livré un linter 100x plus rapide, un formateur 30x plus rapide que Prettier, et un parser qui laisse SWC dans la poussière. Voici ce qu'est réellement le compilateur d'oxydation JavaScript."
 date: "2026-04-05"
-image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-05--oxc-rust-javascript-toolchain-benchmarks.png"
 author: lschvn
-tags: ["javascript", "rust", "tooling", "oxc", "performance", "typescript"]
+tags: ["tooling", "typescript", "performance"]
 ---
 
 Il y a un projet appelé [Oxc](https://oxc.rs/) que la plupart des développeurs JavaScript n'ont pas encore entendu. C'est le compilateur d'oxydation JavaScript — une collection d'outils JavaScript haute performance écrits en Rust. Et selon le benchmark que vous regardez, il pourrait déjà être la chose la plus rapide de sa catégorie.

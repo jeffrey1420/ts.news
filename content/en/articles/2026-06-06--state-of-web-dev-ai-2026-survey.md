@@ -2,22 +2,22 @@
 title: "State of Web Dev AI 2026: Code Generation Jumps to 54%, Claude Dominates Paid Usage"
 description: "The 2026 State of Web Dev AI survey of 7,258 developers reveals AI-generated code占比 hit 54%, AI coding agents are rising, and 60% of respondents believe we are in an AI bubble."
 date: 2026-06-06
-image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-06-06--state-of-web-dev-ai-2026-survey.png"
 author: lschvn
-tags: ["AI", "TypeScript", "JavaScript", "survey", "coding-agents"]
+tags: ["ai", "typescript", "javascript"]
 tldr:
   - "The proportion of AI-generated code produced by developers jumped from 28% in 2025 to 54% in 2026, with the 75%+ segment seeing the highest growth."
   - "Coding agents are replacing chatbots and app generators — while ChatGPT leads in raw popularity, Claude is the model developers actually pay for most."
   - "60% of respondents agree or strongly agree that we are in an 'AI bubble,' and job displacement is the top concern cited by 41% of developers."
 faq:
-  - q: "How many developers were surveyed?"
-    a: "7,258 developers responded to the 2026 State of Web Dev AI survey, which ran from April 8 to May 8, 2026."
-  - q: "What is the biggest change in AI usage compared to last year?"
-    a: "The average proportion of AI-generated code jumped from 28% to 54% year-over-year. The percentage of developers using AI 'constantly' also doubled."
-  - q: "Which AI model do developers pay for most?"
-    a: "Despite ChatGPT leading in raw popularity, Claude is the model developers and companies pay for most, according to the survey's monetization data."
-  - q: "What are developers most worried about with AI?"
-    a: "Job displacement (41%) and military use of AI (39%) are the top concerns. Hallucinations and inaccuracies remain the most cited practical pain point when using AI tools."
+  - question: "How many developers were surveyed?"
+    answer: "7,258 developers responded to the 2026 State of Web Dev AI survey, which ran from April 8 to May 8, 2026."
+  - question: "What is the biggest change in AI usage compared to last year?"
+    answer: "The average proportion of AI-generated code jumped from 28% to 54% year-over-year. The percentage of developers using AI 'constantly' also doubled."
+  - question: "Which AI model do developers pay for most?"
+    answer: "Despite ChatGPT leading in raw popularity, Claude is the model developers and companies pay for most, according to the survey's monetization data."
+  - question: "What are developers most worried about with AI?"
+    answer: "Job displacement (41%) and military use of AI (39%) are the top concerns. Hallucinations and inaccuracies remain the most cited practical pain point when using AI tools."
 ---
 
 The second annual **State of Web Dev AI** survey has landed, and the numbers confirm what most developers already suspected: AI-assisted coding has crossed the threshold from experiment to routine practice. This year's survey collected 7,258 responses between April 8 and May 8, 2026, painting a picture of an industry being reshaped — rapidly and unevenly.

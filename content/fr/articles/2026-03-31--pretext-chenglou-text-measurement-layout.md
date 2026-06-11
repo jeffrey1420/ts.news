@@ -2,9 +2,9 @@
 title: "Pretext : La bibliothèque de mesure de texte sans DOM que les agents de codage IA utilisent déjà"
 description: "Cheng Lou vient de publier Pretext, une bibliothèque JavaScript pure qui mesure et dispose du texte multiligne sans toucher au DOM. Voici pourquoi c'est important pour la virtualisation, le contrôle de layout et les agents IA qui génèrent du code UI."
 date: "2026-03-31"
-image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-03-31--pretext-chenglou-text-measurement-layout.png"
 author: lschvn
-tags: ["javascript", "typescript", "layout", "performance", "DOM", "library"]
+tags: ["css", "typescript", "performance"]
 readingTime: 7
 tldr:
   - "Pretext (@chenglou/pretext) mesure et dispose le texte multiligne sans toucher au DOM, en utilisant measureText du canvas comme vérité terrain."

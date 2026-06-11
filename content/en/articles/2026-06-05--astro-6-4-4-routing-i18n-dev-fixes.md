@@ -2,9 +2,9 @@
 title: "Astro 6.4.4 Patches Seven Bugs Across Routing, i18n, and Dev Experience"
 description: "Astro 6.4.4 is a patch release fixing issues with dynamic routes, i18n domain routing, client-side component editing, and route pattern casing."
 date: 2026-06-05
-image: "https://rolldown.rs/og.jpg"
+image: "/images/heroes/2026-06-05--astro-6-4-4-routing-i18n-dev-fixes.png"
 author: lschvn
-tags: [astro, framework, javascript, ssr, web]
+tags: ["frameworks", "javascript"]
 tldr:
   - Fixes Astro.routePattern correctly preserving parameter casing from filenames (previously lowercased internally)
   - Resolves dynamic routes returning 500 errors when using domain-based i18n routing in SSR mode

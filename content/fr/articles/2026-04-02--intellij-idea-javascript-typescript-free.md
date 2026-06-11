@@ -2,9 +2,9 @@
 title: "JetBrains Ouvrir le Coffre : JavaScript et TypeScript Disponibles Gratuitement dans IntelliJ IDEA"
 description: "Depuis mars 2026, IntelliJ IDEA v2026.1 intègre gratuitement les fonctionnalités JavaScript, TypeScript, HTML, CSS et React basique — auparavant réservées à l'abonnement Ultimate payant. Nuance : Angular, Vue et le débogage avancé restent payants."
 date: 2026-04-02
-image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-02--intellij-idea-javascript-typescript-free.png"
 author: lschvn
-tags: ["JetBrains", "IntelliJ IDEA", "TypeScript", "JavaScript", "IDE", "React"]
+tags: ["frameworks", "tooling", "typescript"]
 readingTime: 4
 tldr:
   - "IntelliJ IDEA v2026.1 intègre gratuitement JS, TS, HTML, CSS et React basique — auparavant réservés à l'abonnement Ultimate payant."

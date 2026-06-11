@@ -4,9 +4,9 @@ description: "La décision de Microsoft de porter le compilateur TypeScript et l
 date: "2026-03-23"
 category: "news"
 author: lschvn
-tags: ["typescript", "compiler", "performance", "go", "tooling", "project-corsa", "nodejs"]
+tags: ["runtimes", "tooling", "typescript"]
 readingTime: 12
-image: "https://opengraph.githubassets.com/80d818d1ffc6c3698c6a86f9be7dc3212b3713a3d3403d7bdb434efaba84e7fa/microsoft/TypeScript"
+image: "/images/heroes/2026-03-23-typescript-7-native-preview-go-compiler.png"
 tldr:
   - "Project Corsa porte le compilateur TypeScript en Go, réduisant la compilation VS Code de 77,8s à 7,5s — environ 10x plus rapide."
   - "TypeScript 6.0 sera la dernière release basée sur JS ; TypeScript 7 est l'ère native Go avec du multithreading à mémoire partagée."
@@ -28,6 +28,8 @@ TypeScript 7 change cela. Ou plutôt, il le changera — mais l'aperçu est déj
 ## Project Corsa : Le Port Natif
 
 Début 2025, Microsoft a annoncé [Project Corsa](https://devblogs.microsoft.com/typescript/typescript-native-port/), un port natif complet du compilateur TypeScript et du service de langage vers Go. L'objectif était ambitieux : des temps de build environ 10x plus rapides et une réactivité significativement améliorée de l'éditeur.
+
+![Compilation de VS Code : tsc 5.8 en 77,8 s contre 7,5 s pour la preview native de TS 7](/images/charts/typescript-native-compile.png)
 
 Les premiers benchmarks étaient frappants. Sur le codebase VS Code lui-même — un grand projet TypeScript réel — la compilation est passée de **77,8 secondes à 7,5 secondes**. Sur la suite de tests Playwright, elle est passée de 11,1 secondes à 1,1 seconde. Ce ne sont pas des micro-benchmarks synthétiques. C'est le même codebase que Microsoft utilise pour construire VS Code, fonctionnant sur le même matériel.
 

@@ -2,9 +2,9 @@
 title: "Bun vs Node vs Deno 2026: Der Runtime-Showdown, Den Niemand Wollte (Aber Alle Haben)"
 description: "Drei JavaScript-Runtimes. Drei verschiedene Philosophien. Unabhängige Benchmarks bei HTTP-Throughput, Cold Starts und asynchroner Performance erzählen eine klarere Geschichte als Marketing es je könnte. Hier ist der schonungslos ehrliche Breakdown für Entwickler, die ihre nächste serverseitige JS-Plattform wählen."
 date: "2026-03-24"
-image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-03-24-bun-vs-node-vs-deno-2026-runtime-benchmark.png"
 author: lschvn
-tags: ["javascript", "bun", "deno", "nodejs", "runtime", "benchmark", "performance"]
+tags: ["runtimes", "performance", "javascript"]
 readingTime: 8
 category: "analysis"
 tldr:

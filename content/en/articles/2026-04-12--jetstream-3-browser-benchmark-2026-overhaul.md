@@ -1,25 +1,25 @@
 ---
 title: "JetStream 3: The Benchmark That Actually Reflects How Modern Web Apps Run"
 description: "WebKit, Google, and Mozilla just released JetStream 3 — the first major overhaul of the benchmark suite since 2019. It drops microbenchmarks in favor of realistic workloads, rewrites WebAssembly scoring, and introduces Dart, Kotlin, and Rust compiled to Wasm."
-image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-12--jetstream-3-browser-benchmark-2026-overhaul.png"
 date: "2026-04-12"
 category: Standards
 author: lschvn
 readingTime: 6
-tags: ["JetStream", "benchmark", "WebAssembly", "JavaScript", "WebKit", "browser", "performance", "Wasm"]
+tags: ["runtimes", "performance", "javascript"]
 tldr:
   - "JetStream 3 replaces the old startup/runtime Wasm scoring with a unified lifecycle model, matching how JavaScript benchmarks have always worked — engines now optimize for the full execution, not just instantiation speed."
   - "The benchmark now includes 12 WebAssembly workloads using C++, C#, Dart, Java, Kotlin, and Rust, covering WasmGC, SIMD, and Exception Handling — reflecting real-world usage far better than the asm.js leftovers from 2019."
   - "WebKit's JavaScriptCore team documented a 40% WasmGC improvement from inlining GC allocations directly into generated machine code and restructuring object layouts to eliminate double-allocation overhead."
 faq:
-  - q: "What's the difference between JetStream 2 and JetStream 3?"
-    a: "JetStream 2 was released in 2019. Its WebAssembly scoring used a separate startup and runtime phase that became obsolete as engines got faster — some workloads reached sub-millisecond instantiation, making the startup score effectively infinite. JetStream 3 treats Wasm like JavaScript: running the full lifecycle across multiple iterations and capturing first compilation, worst-case jank, and sustained throughput in one geometric average."
-  - q: "Why did the three browser engines collaborate on this?"
-    a: "Benchmarks only drive real optimization if they're credible. A single engine publishing its own benchmark would be self-serving. By pooling expertise from WebKit (Safari), V8 (Chrome), and SpiderMonkey (Firefox), JetStream 3 has the legitimacy to actually influence how all three engines optimize — which benefits developers across every browser."
-  - q: "What are WasmGC, SIMD, and Exception Handling in Wasm?"
-    a: "WasmGC adds garbage-collected memory (structs and arrays) to WebAssembly, enabling languages like Dart, Kotlin, and Java to compile to Wasm with idiomatic allocation patterns. SIMD (Single Instruction Multiple Data) lets one instruction operate on multiple data values in parallel — critical for codecs, image processing, and ML inference. Exception Handling lets Wasm throw and catch exceptions, matching how languages like C++ and Java manage control flow."
-  - q: "What is Cohen's type display algorithm?"
-    a: "It's a technique for fast subtype checking: each type stores a fixed-size array (the 'display') of pointers to all ancestor types. To check if type A is a subtype of type B, the engine looks up one entry in A's display at B's inheritance depth and compares pointers — O(1) rather than walking a parent chain. WebKit embedded the first six entries directly in each type's runtime record to keep the common case within a single cache line."
+  - question: "What's the difference between JetStream 2 and JetStream 3?"
+    answer: "JetStream 2 was released in 2019. Its WebAssembly scoring used a separate startup and runtime phase that became obsolete as engines got faster — some workloads reached sub-millisecond instantiation, making the startup score effectively infinite. JetStream 3 treats Wasm like JavaScript: running the full lifecycle across multiple iterations and capturing first compilation, worst-case jank, and sustained throughput in one geometric average."
+  - question: "Why did the three browser engines collaborate on this?"
+    answer: "Benchmarks only drive real optimization if they're credible. A single engine publishing its own benchmark would be self-serving. By pooling expertise from WebKit (Safari), V8 (Chrome), and SpiderMonkey (Firefox), JetStream 3 has the legitimacy to actually influence how all three engines optimize — which benefits developers across every browser."
+  - question: "What are WasmGC, SIMD, and Exception Handling in Wasm?"
+    answer: "WasmGC adds garbage-collected memory (structs and arrays) to WebAssembly, enabling languages like Dart, Kotlin, and Java to compile to Wasm with idiomatic allocation patterns. SIMD (Single Instruction Multiple Data) lets one instruction operate on multiple data values in parallel — critical for codecs, image processing, and ML inference. Exception Handling lets Wasm throw and catch exceptions, matching how languages like C++ and Java manage control flow."
+  - question: "What is Cohen's type display algorithm?"
+    answer: "It's a technique for fast subtype checking: each type stores a fixed-size array (the 'display') of pointers to all ancestor types. To check if type A is a subtype of type B, the engine looks up one entry in A's display at B's inheritance depth and compares pointers — O(1) rather than walking a parent chain. WebKit embedded the first six entries directly in each type's runtime record to keep the common case within a single cache line."
 ---
 
 Benchmarks are only useful if they drive real improvements. And a benchmark that rewards engines for optimizing specifically for itself — rather than for actual applications — becomes counterproductive over time.

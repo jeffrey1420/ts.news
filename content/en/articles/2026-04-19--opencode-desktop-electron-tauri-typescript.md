@@ -2,9 +2,9 @@
 title: "OpenCode Desktop Drops Tauri for Electron: A Pragmatic Choice for a TypeScript-First AI Coding Agent"
 description: "OpenCode, the open source AI coding agent with 145K GitHub stars, has rebuilt its Desktop app on Electron after concluding that WebKit performance and bundled CLI startup issues made Tauri a poor fit for its all-TypeScript architecture."
 date: 2026-04-19
-image: "https://repository-images.githubusercontent.com/975734319/2c2c3389-c647-405c-a499-f80e4d521277"
+image: "/images/heroes/2026-04-19--opencode-desktop-electron-tauri-typescript.png"
 author: lschvn
-tags: ["TypeScript", "AI", "Electron", "Tauri", "OpenCode"]
+tags: ["ai", "tooling", "typescript"]
 tldr:
   - "OpenCode Desktop is switching from Tauri to Electron, citing WebKit rendering inconsistencies and performance gaps compared to Chromium across macOS and Linux"
   - "The move also eliminated a bundled CLI that added startup latency and occasional failures, allowing the server to run directly in Electron's Node process"

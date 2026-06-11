@@ -1,12 +1,12 @@
 ---
 title: "Astro 6 Takes Center Stage: Rust Compiler, Live Content, and a Cloudflare Future"
 description: "Astro 6.0 and 6.1 land within weeks of each other, bringing an experimental Rust compiler, request-time content collections, a built-in Fonts API, CSP tooling, and deeper Cloudflare integration — all while the framework doubles its adoption for the third year running."
-image: "https://astro.build/_astro/og-astro-6.DDjHPVzL.webp"
+image: "/images/heroes/2026-03-30-astro-6-rust-compiler-cloudflare.png"
 date: "2026-03-30"
 category: Framework
 author: lschvn
 readingTime: 5
-tags: ["astro", "cloudflare", "javascript", "webdev", "rust", "framework", "release", "vite"]
+tags: ["frameworks", "tooling", "javascript"]
 faq:
   - question: "What's new in Astro 6?"
     answer: "Astro 6.0 introduces a rebuilt dev server that runs your actual production runtime during development, Live Content Collections for request-time content fetching, a built-in Fonts API, a first-class Content Security Policy API, and an experimental Rust-based compiler for .astro files. Astro 6.1 followed with codec-specific Sharp defaults and improved typography support."

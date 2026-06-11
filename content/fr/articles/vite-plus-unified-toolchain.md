@@ -4,9 +4,9 @@ description: "Vite+ de VoidZero promet d'unifier runtime, gestionnaire de paquet
 date: "2026-03-22"
 category: "deep-dive"
 author: lschvn
-tags: ["vite", "javascript", "tooling", "rolldown", "oxc", "build-tools", "open-source"]
+tags: ["tooling", "javascript", "ecosystem"]
 readingTime: 14
-image: "https://viteplus.dev/og.jpg"
+image: "/images/heroes/vite-plus-unified-toolchain.png"
 tldr:
   - "Vite+ est une CLI alpha par VoidZero (Evan You) enveloppant Vite, Vitest, Oxlint, Oxfmt, Rolldown et tsdown sous une seule commande `vp`."
   - "Rolldown delivers 1,6x–7,7x faster production builds than Vite 7 ; Oxlint is 50–100x faster than ESLint ; Oxfmt ~30x faster than Prettier."

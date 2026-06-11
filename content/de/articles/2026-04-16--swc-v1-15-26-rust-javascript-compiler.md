@@ -1,23 +1,23 @@
 ---
 title: "SWC v1.15.26: Der Rust-basierte JavaScript-Compiler bleibt in Bewegung"
 description: "Der vom swc-project herausgegebene Rust-basierte JavaScript/TypeScript-Compiler veröffentlicht v1.15.26 mit Fehlerbehebungen, Leistungsverbesserungen und einer immer tieferen Integration im Node.js-Ökosystem."
-image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-16--swc-v1-15-26-rust-javascript-compiler.png"
 date: "2026-04-16"
 category: Werkzeuge
 author: lschvn
 readingTime: 4
-tags: ["SWC", "Rust", "JavaScript", "TypeScript", "Compiler", "Bundler", "Parcel", "Next.js"]
+tags: ["frameworks", "tooling", "typescript"]
 tldr:
   - "SWC v1.15.26 wurde am 14. April 2026 veröffentlicht und setzt den schnellen Release-Zyklus des Rust-basierten JavaScript/TypeScript-Compilers mit Fehlerbehebungen und Kompatibilitätsverbesserungen fort."
   - "SWC (speedy web compiler) wird produktiv von Next.js, Parcel und Deno eingesetzt und konkurriert mit Babel und esbuild im Bereich der JavaScript-Kompilierung."
   - "Der Rust-basierte Ansatz bietet SWC erhebliche Leistungsvorteile gegenüber JavaScript-basierten Compilern — typischerweise 20- bis 70-mal schneller als Babel — bei gleichzeitiger Wartung der Kompatibilität mit TypeScript und JSX."
 faq:
-  - q: "Was ist SWC?"
-    a: "SWC ist eine erweiterbare Rust-basierte Plattform für das Web. Es begann als hochschneller TypeScript/JavaScript-Compiler, geschrieben in Rust, um Babel zu ersetzen. Es wird von Next.js (als Option), Parcel und Deno für die interne Transpilierung verwendet. Es erzeugt Ausgaben, die mit Babel-Transforms kompatibel sind, aber deutlich schneller laufen."
-  - q: "Wie unterscheidet sich SWC von esbuild oder OXC?"
-    a: "SWC, esbuild und OXC sind alles Rust-basierte JavaScript-Tooling-Projekte, die im Bereich Kompilierung und Bundling konkurrieren. esbuild ist das älteste und konzentriert sich auf rohe Kompilierungsgeschwindigkeit. OXC ist das neueste Projekt, unterstützt vom Vercel/Nx-Team, das die vollständige TypeScript-Typprüfungs-Abdeckung und Rollup-kompatibles Bundling anstrebt. SWC liegt dazwischen — es ist länger produktionserprobt als OXC und hat ein größeres Plugin-Ökosystem."
-  - q: "Wird SWC in Next.js verwendet?"
-    a: "Ja. Next.js fügte SWC als optionalen Compiler ab Version 12 hinzu, und er wurde zum Standard-Compiler in Next.js 13. Benutzer können sich bei spezifischen Transform-Kompatibilitätsanforderungen für Babel entscheiden."
+  - question: "Was ist SWC?"
+    answer: "SWC ist eine erweiterbare Rust-basierte Plattform für das Web. Es begann als hochschneller TypeScript/JavaScript-Compiler, geschrieben in Rust, um Babel zu ersetzen. Es wird von Next.js (als Option), Parcel und Deno für die interne Transpilierung verwendet. Es erzeugt Ausgaben, die mit Babel-Transforms kompatibel sind, aber deutlich schneller laufen."
+  - question: "Wie unterscheidet sich SWC von esbuild oder OXC?"
+    answer: "SWC, esbuild und OXC sind alles Rust-basierte JavaScript-Tooling-Projekte, die im Bereich Kompilierung und Bundling konkurrieren. esbuild ist das älteste und konzentriert sich auf rohe Kompilierungsgeschwindigkeit. OXC ist das neueste Projekt, unterstützt vom Vercel/Nx-Team, das die vollständige TypeScript-Typprüfungs-Abdeckung und Rollup-kompatibles Bundling anstrebt. SWC liegt dazwischen — es ist länger produktionserprobt als OXC und hat ein größeres Plugin-Ökosystem."
+  - question: "Wird SWC in Next.js verwendet?"
+    answer: "Ja. Next.js fügte SWC als optionalen Compiler ab Version 12 hinzu, und er wurde zum Standard-Compiler in Next.js 13. Benutzer können sich bei spezifischen Transform-Kompatibilitätsanforderungen für Babel entscheiden."
 ---
 
 swc-project/swc v1.15.26 erschien am 14. April 2026 und markiert einen weiteren Wartungs-Release im regelmäßigen Zyklus des Rust-basierten JavaScript- und TypeScript-Compilers. Das Projekt, das durch seine Integration in Next.js, Parcel und Deno produktionserprobt wurde, liefert weiterhin Kompatibilitätskorrekturen und Leistungsverbesserungen ohne größere neue Funktionen in diesem Zyklus.

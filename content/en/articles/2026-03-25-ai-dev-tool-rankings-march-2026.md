@@ -1,12 +1,12 @@
 ---
 title: "AI Dev Tool Power Rankings March 2026: Antigravity Rises, Codex Re-enters"
 description: "LogRocket's March 2026 AI development tool rankings show major shifts as Antigravity climbs to second place and OpenAI's Codex re-enters the top five."
-image: "https://blog.logrocket.com/wp-content/uploads/2025/07/ai_dev_tool_power_rankings_july_2025_web.png"
+image: "/images/heroes/2026-03-25-ai-dev-tool-rankings-march-2026.png"
 date: "2026-03-25"
 category: AI Tools
 author: lschvn
 readingTime: 4
-tags: ["ai", "developer-tools", "claude-code", "copilot", "cursor", "rankings", "tooling"]
+tags: ["ai", "tooling", "ecosystem"]
 tldr:
   - "LogRocket's March 2026 rankings: Cursor #1, Antigravity surges to #2 (free preview with Claude Opus 4.5, Gemini 3 Flash, GPT-OSS), Claude Code #3."
   - "Claude 4.6 Opus and 4.5 Opus lead the AI model rankings; SWE-bench accounts for 30% of the overall score."

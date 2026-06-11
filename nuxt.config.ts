@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/a11y',
     '@nuxt/eslint',
+    '@nuxt/fonts',
     '@nuxt/hints',
     '@nuxt/image',
     '@nuxt/ui',

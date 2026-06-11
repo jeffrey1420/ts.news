@@ -2,9 +2,9 @@
 title: "Node.js März 2026: Sechs Sicherheitspatches Auf Allen Aktiven Branches"
 description: "Node.js veröffentlichte am 24. März 2026 Notfall-Sicherheitspatches für v25, v24, v22 und v20, darunter zwei High-Severity-CVEs. Hier sind die Details."
 date: 2026-04-03
-image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-03--node-js-march-2026-security-releases.png"
 author: lschvn
-tags: ["Node.js", "Sicherheit", "CVE", "TLS", "HTTP", "TypeScript"]
+tags: ["security", "runtimes", "typescript"]
 readingTime: 5
 tldr:
   - "Node.js veröffentlichte Sicherheitspatches für v25.8.2, v24.14.1, v22.22.2 und v20.20.2 am 24. März 2026, mit sechs geschlossenen CVEs auf allen aktiven Branches."

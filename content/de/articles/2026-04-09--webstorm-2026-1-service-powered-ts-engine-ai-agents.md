@@ -1,26 +1,26 @@
 ---
 title: "WebStorm 2026.1: TypeScript-Engine mit Service-Backend und vollständiger KI-Agent-Roster"
 description: "Jetzt mit standardmäßig aktiviertem servicebasiertem TypeScript-Engine, Junie, Claude Agent, Codex und Cursor im KI-Chat, Code With Me wird eingestellt, und native Wayland-Unterstützung unter Linux."
-image: "https://blog.jetbrains.com/wp-content/uploads/2026/03/WS-releases-BlogSocialShare-1280x720-1.png"
+image: "/images/heroes/2026-04-09--webstorm-2026-1-service-powered-ts-engine-ai-agents.png"
 date: "2026-04-09"
 category: IDE
 author: lschvn
 readingTime: 5
-tags: ["webstorm", "jetbrains", "TypeScript", "IDE", "KI", "KI-Agenten", "release"]
+tags: ["ai", "tooling", "typescript"]
 tldr:
   - "WebStorm 2026.1 aktiviert standardmäßig die servicebasierte TypeScript-Engine, reduziert die CPU-Auslastung und verbessert die Reaktionsfähigkeit in großen Projekten."
   - "Der KI-Chat bietet jetzt Junie, Claude Agent, Codex, Cursor und GitHub Copilot über die neue ACP-Registry — jeder Agent lässt sich mit einem Klick installieren."
   - "Next-Edit-Vorschläge sind ohne KI-Kontingent verfügbar und verbreiten zusammenhängende Änderungen intelligent über die gesamte Datei."
   - "Code With Me wird mit 2026.1 eingestellt — JetBrains verweist auf zurückgehende Nachfrage und lenkt Nutzer auf modernere kollaborative Workflows."
 faq:
-  - q: "Was bedeutet 'servicebasierte TypeScript-Engine'?"
-    a: "WebStorm delegiert TypeScript-Parsing, Typprüfung und Sprachdienste jetzt an einen externen Prozess statt sie im Haupt-IDE-Thread auszuführen. Das Ergebnis: geringere CPU-Auslastung und bessere Reaktionsfähigkeit in großen Monorepos."
-  - q: "Ist Cursor jetzt tatsächlich in WebStorm verfügbar?"
-    a: "Cursor ist der ACP-Registry im März 2026 beigetreten, was bedeutet, dass seine Agent-Funktionen direkt über das Agent-Client-Protokoll im KI-Chat-Panel von WebStorm zugänglich sind."
-  - q: "Was ist mit Code With Me passiert?"
-    a: "JetBrains stellt Code With Me, seinen In-IDE-Paarprogrammierdienst, mit Wirkung ab 2026.1 ein. Er wird aus allen JetBrains-IDEs herausgelöst und als eigenständiges Plugin auf dem Marketplace angeboten. 2026.1 ist die letzte IDE-Version mit offizieller Unterstützung."
-  - q: "Unterstützt dieses Release TypeScript 6?"
-    a: "Ja. WebStorm 2026.1 ist auf TypeScript 6 ausgerichtet — einschließlich der geänderten Standardwerte für `types` und `rootDir` — und bereitet sich bereits auf die `baseUrl`-Änderungen in TypeScript 7 vor."
+  - question: "Was bedeutet 'servicebasierte TypeScript-Engine'?"
+    answer: "WebStorm delegiert TypeScript-Parsing, Typprüfung und Sprachdienste jetzt an einen externen Prozess statt sie im Haupt-IDE-Thread auszuführen. Das Ergebnis: geringere CPU-Auslastung und bessere Reaktionsfähigkeit in großen Monorepos."
+  - question: "Ist Cursor jetzt tatsächlich in WebStorm verfügbar?"
+    answer: "Cursor ist der ACP-Registry im März 2026 beigetreten, was bedeutet, dass seine Agent-Funktionen direkt über das Agent-Client-Protokoll im KI-Chat-Panel von WebStorm zugänglich sind."
+  - question: "Was ist mit Code With Me passiert?"
+    answer: "JetBrains stellt Code With Me, seinen In-IDE-Paarprogrammierdienst, mit Wirkung ab 2026.1 ein. Er wird aus allen JetBrains-IDEs herausgelöst und als eigenständiges Plugin auf dem Marketplace angeboten. 2026.1 ist die letzte IDE-Version mit offizieller Unterstützung."
+  - question: "Unterstützt dieses Release TypeScript 6?"
+    answer: "Ja. WebStorm 2026.1 ist auf TypeScript 6 ausgerichtet — einschließlich der geänderten Standardwerte für `types` und `rootDir` — und bereitet sich bereits auf die `baseUrl`-Änderungen in TypeScript 7 vor."
 ---
 
 WebStorm 2026.1 erschien im März mit einem Release, das die Bindung zwischen der IDE und den täglich genutzten Werkzeugen der Entwickler stärkt. DasHauptthema ist eine effizientere TypeScript-Engine standardmäßig, aber die für viele sichtbarere Änderung ist der KI-Chat in der Seitenleiste.

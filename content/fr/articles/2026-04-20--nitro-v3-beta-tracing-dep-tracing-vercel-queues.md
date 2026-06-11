@@ -2,20 +2,20 @@
 title: "Nitro v3 Beta : Tracing intégré, détection inteligente des dépendances et support Vercel Queues"
 description: "La mise à jour beta Nitro v3 d'avril 2026 apporte des canaux de tracing intégrés, une détection des dépendances en mode full-trace avec reconnaissance des packages natifs, le support des queues Vercel, et le déploiement sur Tencent EdgeOne Pages."
 date: 2026-04-20
-image: "https://ts.news/images/nitro-og.png"
+image: "/images/heroes/2026-04-20--nitro-v3-beta-tracing-dep-tracing-vercel-queues.png"
 author: lschvn
-tags: ["TypeScript", "Nitro", "Server", "Framework", "Vue", "Nuxt", "Vercel"]
+tags: ["frameworks", "typescript", "ecosystem"]
 tldr:
   - Nitro v3 introduit des canaux de tracing intégrés pour l'observabilité, et une détection des dépendances en full-trace qui reconnaît automatiquement les dépendances optionnelles et les packages natifs
   - Le preset Vercel supporte désormais les queues pour le traitement asynchrone et les config de fonction par route (mémoire, timeout, maxDuration)
   - Tencent EdgeOne Pages rejoint la liste des presets de déploiement, et H3 v2 apporte des vérifications de streaming plus strictes, la conformité RFC 6265bis pour les cookies, et une protection contre le path traversal
 faq:
-  - q: "En quoi le tracing intégré de Nitro v3 diffère-t-il des intégrations OpenTelemetry existantes ?"
-    a: "Les canaux de tracing de Nitro fournissent une couche d'observabilité plus basse et native au framework. Sans nécessiter de SDK OpenTelemetry externe, vous obtenez du tracing span requête depuis les internes de Nitro — les spans pour le traitement des routes, les requêtes base de données et les opérations cache sont émis automatiquement."
-  - q: "Quels packages natifs sont maintenant détectés automatiquement par traceDeps ?"
-    a: "Le mode full-trace de traceDeps utilise une base de données croissante de packages natifs pour identifier les dépendances optionnelles avec des binaires pré-compilés (comme node-sqlite3, canvas ou sharp). Si Nitro les détecte, il évite de les bundler incorrectement."
-  - q: "Comment fonctionnent les Vercel Queues dans Nitro ?"
-    a: "Vous définissez des handlers de tâches avec nitro.tasks, déployez sur Vercel, et utilisez le SDK Vercel depuis vos handlers. Le preset Vercel gère la configuration automatiquement, vous offrant une exécution asynchrone durable sans infrastructure de queue séparée."
+  - question: "En quoi le tracing intégré de Nitro v3 diffère-t-il des intégrations OpenTelemetry existantes ?"
+    answer: "Les canaux de tracing de Nitro fournissent une couche d'observabilité plus basse et native au framework. Sans nécessiter de SDK OpenTelemetry externe, vous obtenez du tracing span requête depuis les internes de Nitro — les spans pour le traitement des routes, les requêtes base de données et les opérations cache sont émis automatiquement."
+  - question: "Quels packages natifs sont maintenant détectés automatiquement par traceDeps ?"
+    answer: "Le mode full-trace de traceDeps utilise une base de données croissante de packages natifs pour identifier les dépendances optionnelles avec des binaires pré-compilés (comme node-sqlite3, canvas ou sharp). Si Nitro les détecte, il évite de les bundler incorrectement."
+  - question: "Comment fonctionnent les Vercel Queues dans Nitro ?"
+    answer: "Vous définissez des handlers de tâches avec nitro.tasks, déployez sur Vercel, et utilisez le SDK Vercel depuis vos handlers. Le preset Vercel gère la configuration automatiquement, vous offrant une exécution asynchrone durable sans infrastructure de queue séparée."
 ---
 
 La beta publique de Nitro v3 continue de évoluer rapidement. La mise à jour du 15 avril (v3.0.260415-beta) apporte un ensemble de fonctionnalités axées sur l'expérience développeur et la production.

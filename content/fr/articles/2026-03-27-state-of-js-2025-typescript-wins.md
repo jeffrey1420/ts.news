@@ -1,12 +1,12 @@
 ---
 title: "State of JavaScript 2025 : TypeScript atteint 40% d'utilisation exclusive, l'écosystème se stabilise"
 description: "L'enquête State of JavaScript 2025 montre l'utilisation exclusive de TypeScript à 40%, la satisfaction Vite à 98% contre 26% pour Webpack, et Claude doublant sa part développeurs. L'écosystème murit plutôt qu'il ne brûle."
-image: "https://assets.devographics.com/surveys/js2025-og.png"
+image: "/images/heroes/2026-03-27-state-of-js-2025-typescript-wins.png"
 date: "2026-03-27"
 category: Survey
 author: lschvn
 readingTime: 4
-tags: ["typescript", "javascript", "state-of-js", "survey", "vite", "ecosystem"]
+tags: ["tooling", "typescript", "javascript"]
 tldr:
   - "L'utilisation exclusive de TypeScript a atteint 40% (contre 34% en 2024, 28% en 2022) ; seulement 6% utilisent du JS pur exclusivement."
   - "La satisfaction Vite est de 98% contre 26% pour Webpack ; React à 83,6% mais le sentiment négatif de Next.js atteint 17%."

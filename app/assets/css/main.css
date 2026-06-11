@@ -1,12 +1,80 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-@theme {
-  --font-sans: 'Geist', sans-serif;
+/*
+ * Design system derived from the Cursor DESIGN.md analysis:
+ * warm cream canvas, warm near-black ink, one orange voltage,
+ * hairline-only depth, editorial 400-weight display type.
+ */
+@theme static {
+  --font-sans: 'Inter', system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  /* Cursor Orange scale (500 = brand #f54e00, 600 = press state #d04200) */
+  --color-cursor-50: #fff3ec;
+  --color-cursor-100: #ffe5d6;
+  --color-cursor-200: #ffc8aa;
+  --color-cursor-300: #ffa274;
+  --color-cursor-400: #fb763a;
+  --color-cursor-500: #f54e00;
+  --color-cursor-600: #d04200;
+  --color-cursor-700: #ab3700;
+  --color-cursor-800: #8a2d02;
+  --color-cursor-900: #712706;
+  --color-cursor-950: #3d1402;
+
+  /* AI-timeline pastel palette — decorative accents only */
+  --color-pastel-peach: #dfa88f;
+  --color-pastel-mint: #9fc9a2;
+  --color-pastel-blue: #9fbbe0;
+  --color-pastel-lavender: #c0a8dd;
+  --color-pastel-gold: #c08532;
 }
 
 :root {
-  --ui-radius: 0rem;
+  /* CTA radius 8px; cards pick up rounded-lg (12px) */
+  --ui-radius: 0.375rem;
+
+  /* Warm cream canvas + warm ink (light mode) */
+  --ui-bg: #f7f7f4;
+  --ui-bg-muted: #fafaf7;
+  --ui-bg-elevated: #ffffff;
+  --ui-bg-accented: #e6e5e0;
+  --ui-text-dimmed: #a09c92;
+  --ui-text-muted: #807d72;
+  --ui-text-toned: #5a5852;
+  --ui-text: #3f3d36;
+  --ui-text-highlighted: #26251e;
+  --ui-border: #e6e5e0;
+  --ui-border-muted: #efeee8;
+  --ui-border-accented: #cfcdc4;
+}
+
+.dark {
+  /* Warm dark inversion of the same hues */
+  --ui-bg: #161512;
+  --ui-bg-muted: #1b1a16;
+  --ui-bg-elevated: #201f1a;
+  --ui-bg-accented: #2c2a24;
+  --ui-text-dimmed: #6e6a5f;
+  --ui-text-muted: #8c887c;
+  --ui-text-toned: #aaa69a;
+  --ui-text: #c4c0b4;
+  --ui-text-highlighted: #f0efe9;
+  --ui-border: #2c2a24;
+  --ui-border-muted: #232219;
+  --ui-border-accented: #3d3a32;
+}
+
+/* Editorial voice: display stays at weight 400 with negative tracking */
+h1, h2, h3, .display {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--color-cursor-500);
+  color: #ffffff;
 }
 
 .page-enter-active,
@@ -22,4 +90,11 @@
 .page-leave-to {
   opacity: 0;
   transform: translateY(-8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter-active,
+  .page-leave-active {
+    transition: none;
+  }
 }

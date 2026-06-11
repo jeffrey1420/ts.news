@@ -2,30 +2,46 @@
   "nav": {
     "home": "Startseite",
     "articles": "Artikel",
-    "about": "\u00dcber uns",
+    "about": "Über uns",
     "topics": "Themen"
   },
   "tags": {
     "security": "Sicherheit",
     "frameworks": "Frameworks",
-    "tooling": "Werkzeuge"
+    "tooling": "Werkzeuge",
+    "runtimes": "Laufzeiten",
+    "ai": "KI-Tools",
+    "performance": "Performance",
+    "ecosystem": "Ökosystem"
   },
   "home": {
-    "hero_description": "T\u00e4gliche TypeScript-, JavaScript- und Web-Plattform-Nachrichten f\u00fcr Entwickler, die Code ausliefern.",
+    "hero_description": "Tägliche TypeScript-, JavaScript- und Web-Plattform-Nachrichten für Entwickler, die Code ausliefern.",
     "read_articles": "Artikel lesen",
     "stay_in_loop": "Auf dem Laufenden bleiben",
-    "rss_description": "Abonnieren Sie unseren RSS-Feed \u2014 verpassen Sie keine Geschichte.",
+    "rss_description": "Abonnieren Sie unseren RSS-Feed — verpassen Sie keine Geschichte.",
     "subscribe_rss": "Per RSS abonnieren",
     "featured": "Empfohlen",
     "this_week": "Diese Woche bei TS",
     "this_week_description": "Was diese Woche passiert ist",
     "latest_in_topic": "Neueste in {topic}",
-    "no_articles": "Noch keine Artikel."
+    "no_articles": "Noch keine Artikel.",
+    "hero_kicker": "Täglich · English / Français / Deutsch",
+    "hero_title_1": "Die Titelseite des",
+    "hero_title_2": "TypeScript-Ökosystems.",
+    "latest_headlines": "Neueste Meldungen",
+    "browse_topics": "Nach Thema stöbern",
+    "view_all": "Alle ansehen",
+    "scroll": "Scrollen",
+    "stat_articles": "veröffentlichte Artikel",
+    "stat_topics": "verfolgte Themen",
+    "stat_languages": "Sprachen",
+    "stat_rhythm": "Erscheinungsrhythmus",
+    "daily": "täglich"
   },
   "articles": {
     "title": "Artikel",
     "description": "TypeScript-, JavaScript-, Tooling-, Sicherheits- und Web-Plattform-Berichterstattung in einem Archiv.",
-    "explore": "Entdecken Sie jede auf typescript.news ver\u00f6ffentlichte Geschichte, von TypeScript-Versionen bis hin zu Sicherheitsvorf\u00e4llen in der Lieferkette.",
+    "explore": "Entdecken Sie jede auf typescript.news veröffentlichte Geschichte, von TypeScript-Versionen bis hin zu Sicherheitsvorfällen in der Lieferkette.",
     "all": "Alle",
     "showing_tagged": "{count} Artikel mit dem Tag \"{tag}\"",
     "no_articles": "Noch keine Artikel",
@@ -33,9 +49,9 @@
   },
   "article": {
     "tldr": "Kurzfassung",
-    "faq_title": "H\u00e4ufig gestellte Fragen",
+    "faq_title": "Häufig gestellte Fragen",
     "related": "Verwandte Artikel",
-    "related_description": "Weitere Berichterstattung zu \u00e4hnlichen Themen und Tags.",
+    "related_description": "Weitere Berichterstattung zu ähnlichen Themen und Tags.",
     "comments": "Kommentare",
     "post_comment": "Kommentar posten",
     "login_to_comment": "Melden Sie sich an, um an der Diskussion teilzunehmen.",
@@ -45,7 +61,7 @@
   },
   "author": {
     "articles_by": "Artikel von {name}",
-    "no_articles": "Noch keine Artikel ver\u00f6ffentlicht."
+    "no_articles": "Noch keine Artikel veröffentlicht."
   },
   "tag": {
     "no_articles": "Keine Artikel gefunden",
@@ -54,7 +70,7 @@
     "view_all_tags": "Alle Tags anzeigen"
   },
   "footer": {
-    "copyright": "\u00a9 {year} typescript.news"
+    "copyright": "© {year} typescript.news"
   },
   "common": {
     "login": "Anmelden"

@@ -2,9 +2,9 @@
 title: "Bun v1.3.12 — Automatisation Naveau Et Native, Supporte `using` et `await using`"
 description: "La dernière version de Bun ajoute WebView pour l'automatisation naveau, supporte nativement la proposition TC39 using/await using dans JavaScriptCore, et accélère URLPattern jusqu'à 2,3×."
 date: 2026-04-13
-image: "https://bun.com/og/blog.png"
+image: "/images/heroes/2026-04-13--bun-1-3-12-webview-browser-automation-using-await-using.png"
 author: lschvn
-tags: ["bun", "javascript", "typescript", "runtime", "browser-automation"]
+tags: ["runtimes", "typescript", "javascript"]
 ---
 
 Bun v1.3.12 est arrivé le 10 avril avec l'un des ensembles de fonctionnalités les plus ambitieux des dernières versions. Deux avancées redéfinissent ce qu'un runtime JavaScript peut faire nativement : l'automatisation naveau sans navigateur et le support natif de la proposition TC39 Explicit Resource Management. Voici ce qui a changé.

@@ -1,12 +1,12 @@
 ---
 title: "TypeScript 7 Native Preview: Project Corsa Rewrites the Compiler in Go — and It Changes Everything"
-description: "Microsoft's decision to port the TypeScript compiler and language service to Go isn't just a tech demo — early benchmarks show the VS Code codebase compiling in 7.5 seconds versus 77.8 seconds. Here's what the native era means for your build pipeline and editor performance."
+description: "Microsoft's port of the TypeScript compiler and language service to Go is now measurable: the VS Code codebase compiles in 7.5 seconds instead of 77.8. Here's what the native era means for your build pipeline and editor performance."
 date: "2026-03-23"
 category: "news"
 author: lschvn
-tags: ["typescript", "compiler", "performance", "go", "tooling", "project-corsa", "nodejs"]
+tags: ["runtimes", "tooling", "typescript"]
 readingTime: 12
-image: "https://opengraph.githubassets.com/80d818d1ffc6c3698c6a86f9be7dc3212b3713a3d3403d7bdb434efaba84e7fa/microsoft/TypeScript"
+image: "/images/heroes/2026-03-23-typescript-7-native-preview-go-compiler.png"
 tldr:
   - "Project Corsa ports the TypeScript compiler to Go, cutting VS Code compilation from 77.8s to 7.5s — roughly 10x faster."
   - "TypeScript 6.0 will be the last JS-based release; TypeScript 7 is the native Go era with shared-memory multithreading."
@@ -28,6 +28,8 @@ TypeScript 7 changes that. Or rather, it will — but the preview is already her
 ## Project Corsa: The Native Port
 
 In early 2025, Microsoft announced [Project Corsa](https://devblogs.microsoft.com/typescript/typescript-native-port/), a full native port of the TypeScript compiler and language service to Go. The goal was ambitious: ~10x faster build times and significantly improved editor responsiveness.
+
+![Compiling VS Code: tsc 5.8 at 77.8s vs TS 7 native preview at 7.5s](/images/charts/typescript-native-compile.png)
 
 The initial benchmarks were striking. On the VS Code codebase itself — a large, real-world TypeScript project — compilation dropped from **77.8 seconds to 7.5 seconds**. On the Playwright test suite, it went from 11.1 seconds to 1.1 seconds. These aren't synthetic micro-benchmarks. They're the same codebase Microsoft uses to build VS Code, running on the same hardware.
 

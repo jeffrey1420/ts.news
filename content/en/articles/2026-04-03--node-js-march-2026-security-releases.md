@@ -2,9 +2,9 @@
 title: "Node.js March 2026: Six Security Patches Land Across All Active Branches"
 description: "Node.js shipped emergency security releases for v25, v24, v22, and v20 on March 24, 2026, patching two high-severity CVEs including a TLS SNICallback crash and an HTTP header prototype pollution risk. Here's what each fix does and which versions are affected."
 date: 2026-04-03
-image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-03--node-js-march-2026-security-releases.png"
 author: lschvn
-tags: ["Node.js", "security", "CVE", "TLS", "HTTP", "TypeScript"]
+tags: ["security", "runtimes", "typescript"]
 readingTime: 5
 tldr:
   - "Node.js released security patches for v25.8.2, v24.14.1, v22.22.2, and v20.20.2 on March 24, 2026, closing six CVEs across all active branches."

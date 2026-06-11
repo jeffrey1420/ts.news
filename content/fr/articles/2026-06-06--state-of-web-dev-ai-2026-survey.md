@@ -2,22 +2,22 @@
 title: "State of Web Dev AI 2026 : le Code Généré par IA passe à 54%, Claude domine les Paiements"
 description: "Le State of Web Dev AI 2026 révèle que 54% du code produit par les développeurs est généré par IA (vs 28% en 2025), les coding agents montent, et 60% des sondés estiment être dans une bulle IA."
 date: 2026-06-06
-image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-06-06--state-of-web-dev-ai-2026-survey.png"
 author: lschvn
-tags: ["IA", "TypeScript", "JavaScript", "enquête", "coding-agents"]
+tags: ["ai", "typescript", "javascript"]
 tldr:
   - "La proportion de code généré par IA est passée de 28% en 2025 à 54% en 2026, le segment 75%+ étant celui qui croît le plus vite."
   - "Les coding agents remplacent les chatbots et générateurs d'apps — ChatGPT domine en popularité brute, mais Claude est le modèle que les développeurs paient réellement le plus."
   - "60% des sondés estiment être dans une 'bulle IA', et le remplacement des emplois est la première préoccupation, citée par 41% des développeurs."
 faq:
-  - q: "Combien de développeurs ont été sondés ?"
-    a: "7 258 développeurs ont répondu au State of Web Dev AI 2026, conduit entre le 8 avril et le 8 mai 2026."
-  - q: "Quel est le plus grand changement d'usage de l'IA par rapport à l'an dernier ?"
-    a: "La proportion moyenne de code généré par IA est passée de 28% à 54% d'une année sur l'autre. Le pourcentage de développeurs utilisant l'IA 'constamment' a aussi doublé."
-  - q: "Quel modèle d'IA les développeurs paient-ils le plus ?"
-    a: "Malgré ChatGPT en tête en reconnaissance de marque et volume, c'est Claude que les développeurs et entreprises paient le plus, selon les données demonétisation de l'enquête."
-  - q: "Quelles sont les principales inquiétudes des développeurs concernant l'IA ?"
-    a: "Le remplacement des emplois (41%) et l'usage militaire de l'IA (39%) sont les premières préoccupations. Hallucinations et imprécisions restent le point de friction pratique le plus cité."
+  - question: "Combien de développeurs ont été sondés ?"
+    answer: "7 258 développeurs ont répondu au State of Web Dev AI 2026, conduit entre le 8 avril et le 8 mai 2026."
+  - question: "Quel est le plus grand changement d'usage de l'IA par rapport à l'an dernier ?"
+    answer: "La proportion moyenne de code généré par IA est passée de 28% à 54% d'une année sur l'autre. Le pourcentage de développeurs utilisant l'IA 'constamment' a aussi doublé."
+  - question: "Quel modèle d'IA les développeurs paient-ils le plus ?"
+    answer: "Malgré ChatGPT en tête en reconnaissance de marque et volume, c'est Claude que les développeurs et entreprises paient le plus, selon les données demonétisation de l'enquête."
+  - question: "Quelles sont les principales inquiétudes des développeurs concernant l'IA ?"
+    answer: "Le remplacement des emplois (41%) et l'usage militaire de l'IA (39%) sont les premières préoccupations. Hallucinations et imprécisions restent le point de friction pratique le plus cité."
 ---
 
 La deuxième édition du **State of Web Dev AI** est tombée, et les chiffres confirment ce que la plupart des développeurs soupçonnaient : le coding assisté par IA a dépassé le stade de l'expérimentation pour devenir une pratique courante. Cette année, 7 258 réponses ont été collectées entre le 8 avril et le 8 mai 2026, dressant le portrait d'une industrie en pleine transformation — rapidement et de manière inégale.

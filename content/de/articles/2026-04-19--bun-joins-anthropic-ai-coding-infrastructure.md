@@ -2,9 +2,9 @@
 title: "Bun tritt Anthropic bei: Was die Übernahme für das JavaScript-Ökosystem bedeutet"
 description: "Die JavaScript-Runtime, der Bundler und das Toolkit, das von einem 14-köpfigen Team aufgebaut wurde und von Millionen Entwicklern genutzt wird, wurde von Anthropic übernommen. Bun bleibt Open Source und MIT-lizenziert, aber die Roadmap biegt nun in Richtung KI-Coding-Infrastruktur ab."
 date: 2026-04-19
-image: "https://opengraph.githubassets.com/0d28e9b3ac4dfd5536d7cc7636993191f76820b868588c2ae9731ee4bb06673c/oven-sh/bun"
+image: "/images/heroes/2026-04-19--bun-joins-anthropic-ai-coding-infrastructure.png"
 author: lschvn
-tags: ["TypeScript", "Bun", "Anthropic", "AI", "Runtime"]
+tags: ["ai", "runtimes", "typescript"]
 tldr:
   - "Bun wurde von Anthropic übernommen und dient als Infrastrukturschicht für Claude Code, den Claude Agent SDK und zukünftige KI-Coding-Produkte"
   - "Bun bleibt MIT-lizenziert und Open Source, mit demselben Team, das die aktive Entwicklung fortsetzt — kein Umsatzmodell-Druck in Sicht"

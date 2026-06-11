@@ -2,9 +2,9 @@
 title: "Bun v1.3.12 — Headless Browser-Automation und Native Explicit Resource Management"
 description: "Buns neuestes Release fügt WebView für headless Browser-Automatisierung hinzu, landet TC39s using/await using in JavaScriptCore und liefert einen 2,3-fachen Speedup für URLPattern."
 date: 2026-04-13
-image: "https://bun.com/og/blog.png"
+image: "/images/heroes/2026-04-13--bun-1-3-12-webview-browser-automation-using-await-using.png"
 author: lschvn
-tags: ["bun", "javascript", "typescript", "runtime", "browser-automation"]
+tags: ["runtimes", "typescript", "javascript"]
 ---
 
 Bun v1.3.12 erschien am 10. April mit einem der ambitioniertesten Feature-Sets der letzten Releases. Zwei Highlights verändern, was ein JavaScript-Runtime out of the box kann: native headless Browser-Automatisierung und nativer Support für den TC39 Explicit Resource Management-Vorschlag. Hier ist, was sich geändert hat.

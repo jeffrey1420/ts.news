@@ -1,25 +1,25 @@
 ---
 title: "QuickBEAM: Ein JavaScript-Runtime für die BEAM-VM — JavaScript trifft Erlangs OTP"
 description: "QuickBEAM ist ein JavaScript-Runtime, der innerhalb der BEAM-VM läuft — derselben virtuellen Maschine, die Erlang und Elixir antreibt. Es integriert JavaScript in OTP-Supervision-Trees, ermöglicht JS den Aufruf von Elixir-Funktionen und OTP-Bibliotheken und wird mit einem eingebauten TypeScript-Toolkit ausgeliefert."
-image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-11--quickbeam-javascript-runtime-beam-vm-elixir-otp.png"
 date: "2026-04-11"
 category: Runtimes
 author: lschvn
 readingTime: 5
-tags: ["QuickBEAM", "BEAM", "Erlang", "Elixir", "JavaScript", "Runtime", "OTP", "TypeScript"]
+tags: ["runtimes", "typescript", "javascript"]
 tldr:
   - "QuickBEAM bettet JavaScript-Runtimes als GenServer-Prozesse in BEAMs Supervision-Trees ein, was bedeutet, dass Crash-Wiederherstellung, Prozess-Verknüpfung und OTP-Supervisoren transparent mit JavaScript-Code funktionieren."
   - "JavaScript-Code, der auf QuickBEAM läuft, kann Elixir-Funktionen aufrufen und auf OTP-Bibliotheken direkt über Beam.call() zugreifen, Nachrichten an beliebige BEAM-Prozesse senden und neue JS-Runtimes als BEAM-Prozesse spawnen."
   - "QuickBEAM enthält ein eingebautes TypeScript-Toolkit, das auf Zig 0.15+ abzielt und über Hex als Elixir-Abhängigkeit verteilt wird — was es zum am stärksten integrierten Weg zwischen JavaScript und dem BEAM-Ökosystem macht."
 faq:
-  - q: "Was ist die BEAM-VM?"
-    a: "BEAM ist die virtuelle Maschine, die Erlang- und Elixir-Code ausführt. Sie ist bekannt für ihre Fehlertoleranz, weiche Echtzeit-Scheduling und die Fähigkeit, Millionen gleichzeitiger Prozesse mit eingebauter Isolation zu betreiben. Sie ist das Rückgrat von WhatsApp, Discord, RabbitMQ und vielen anderen Systemen, bei denen Zuverlässigkeit unter Last kritisch ist."
-  - q: "Welches Problem löst QuickBEAM?"
-    a: "QuickBEAM ermöglicht es Entwicklern, JavaScript zu schreiben, das vom FEHLERTOLERANZ-MODELL VON BEAM profitiert — Supervision-Trees, Prozess-Verknüpfung, Hot-Code-Reloading — ohne das JavaScript-Ökosystem zu verlassen. Es ist eine Brücke für Teams, die BEAM-Zuverlässigkeit für bestimmte Komponenten wollen, aber bestehenden JavaScript-Code haben oder JavaScript für bestimmte Workloads bevorzugen."
-  - q: "Wie ruft JavaScript Elixir-Code auf?"
-    a: "QuickBEAM exponiert eine Beam.call()-API, die JavaScript aufrufen kann, um jeden registrierten Elixir-Handler zu erreichen. Handler werden beim Start des QuickBEAM-Runtimes registriert, und sie können beliebigen Elixir-Code ausführen — Datenbankabfragen, OTP-Bibliotheken aufrufen, Prozesse spawnen. Ergebnisse werden zurück nach JavaScript serialisiert."
-  - q: "Was ist ein GenServer?"
-    a: "Ein GenServer (Generic Server) ist ein Behaviour-Modul in OTP, das das Client-Server-Muster implementiert. QuickBEAM-Runtimes sind GenServers — sie leben in Supervision-Trees, können benannt werden, können Nachrichten empfangen und werden von OTP's Fehlertoleranz-Maschinerie verwaltet."
+  - question: "Was ist die BEAM-VM?"
+    answer: "BEAM ist die virtuelle Maschine, die Erlang- und Elixir-Code ausführt. Sie ist bekannt für ihre Fehlertoleranz, weiche Echtzeit-Scheduling und die Fähigkeit, Millionen gleichzeitiger Prozesse mit eingebauter Isolation zu betreiben. Sie ist das Rückgrat von WhatsApp, Discord, RabbitMQ und vielen anderen Systemen, bei denen Zuverlässigkeit unter Last kritisch ist."
+  - question: "Welches Problem löst QuickBEAM?"
+    answer: "QuickBEAM ermöglicht es Entwicklern, JavaScript zu schreiben, das vom FEHLERTOLERANZ-MODELL VON BEAM profitiert — Supervision-Trees, Prozess-Verknüpfung, Hot-Code-Reloading — ohne das JavaScript-Ökosystem zu verlassen. Es ist eine Brücke für Teams, die BEAM-Zuverlässigkeit für bestimmte Komponenten wollen, aber bestehenden JavaScript-Code haben oder JavaScript für bestimmte Workloads bevorzugen."
+  - question: "Wie ruft JavaScript Elixir-Code auf?"
+    answer: "QuickBEAM exponiert eine Beam.call()-API, die JavaScript aufrufen kann, um jeden registrierten Elixir-Handler zu erreichen. Handler werden beim Start des QuickBEAM-Runtimes registriert, und sie können beliebigen Elixir-Code ausführen — Datenbankabfragen, OTP-Bibliotheken aufrufen, Prozesse spawnen. Ergebnisse werden zurück nach JavaScript serialisiert."
+  - question: "Was ist ein GenServer?"
+    answer: "Ein GenServer (Generic Server) ist ein Behaviour-Modul in OTP, das das Client-Server-Muster implementiert. QuickBEAM-Runtimes sind GenServers — sie leben in Supervision-Trees, können benannt werden, können Nachrichten empfangen und werden von OTP's Fehlertoleranz-Maschinerie verwaltet."
 ---
 
 Es gibt einen langlaufenden Witz in der Erlang-Community: "Warum lachen Erlang-Entwickler über andere Sprachen? Weil ihre Prozesse Supervisoren haben, die auf sie aufpassen." Das Fehlertoleranz-Modell der BEAM-VM — wo abgestürzte Prozesse automatisch von Supervisoren neugestartet werden, wo Fehler in einem Prozess andere nicht zum Absturz bringen, wo Hot-Code-Reloading in den Runtime eingebaut ist — ist genuin anders als das, woran die meisten Entwickler gewöhnt sind.

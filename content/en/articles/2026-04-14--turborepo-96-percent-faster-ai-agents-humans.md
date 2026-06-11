@@ -2,22 +2,22 @@
 title: "Turborepo Is Now 96% Faster — Vercel's AI Agent Experiment"
 description: "Vercel engineers used AI coding agents to optimize Turborepo's Rust codebase, achieving 81–96% faster task graph computation. Here's the process, the wins, and the sharp limits they ran into."
 date: "2026-04-14"
-image: "https://opengraph.githubassets.com/vercel/turborepo"
+image: "/images/heroes/2026-04-14--turborepo-96-percent-faster-ai-agents-humans.png"
 category: Tooling
 author: lschvn
 readingTime: 5
-tags: ["turborepo", "vercel", "monorepo", "build-tools", "rust", "ai-agents"]
+tags: ["ai", "tooling", "ecosystem"]
 tldr:
   - "Turborepo's task graph computation is now 81–96% faster depending on repository size, after a week of AI-assisted Rust optimization."
   - "Vercel's team combined AI agents with LLM-friendly Markdown profiling formats — plain-text stack traces dramatically improved the quality of agent suggestions."
   - "The biggest gains came from parallelization (concurrent git, glob, and lockfile operations), allocation elimination, and batching syscall-heavy operations."
 faq:
-  - q: "Can AI agents replace human engineers for performance work?"
-    a: "No — Vercel's engineers found that agents hyperfixated on microbenchmarks, produced misleading speedups, and never wrote regression tests. Human judgment remained essential for validation and prioritization."
-  - q: "What made the profiling approach work better for agents?"
-    a: "Standard Chrome Trace JSON format was hard for agents to parse. Switching to a Markdown profile format — sorted by self-time, greppable, single-line entries — produced dramatically better optimization suggestions from the same model."
-  - q: "What exactly got faster in Turborepo?"
-    a: "The Rust implementation was optimized across three areas: parallelizing sequential operations (git indexing, glob walks, lockfile parsing), eliminating redundant allocations and clones, and batching syscall-heavy git operations using faster libraries like gix-index."
+  - question: "Can AI agents replace human engineers for performance work?"
+    answer: "No — Vercel's engineers found that agents hyperfixated on microbenchmarks, produced misleading speedups, and never wrote regression tests. Human judgment remained essential for validation and prioritization."
+  - question: "What made the profiling approach work better for agents?"
+    answer: "Standard Chrome Trace JSON format was hard for agents to parse. Switching to a Markdown profile format — sorted by self-time, greppable, single-line entries — produced dramatically better optimization suggestions from the same model."
+  - question: "What exactly got faster in Turborepo?"
+    answer: "The Rust implementation was optimized across three areas: parallelizing sequential operations (git indexing, glob walks, lockfile parsing), eliminating redundant allocations and clones, and batching syscall-heavy git operations using faster libraries like gix-index."
 ---
 
 Vercel engineers spent a week in March 2026 using AI coding agents to optimize Turborepo's Rust task scheduler. The result: task graph computation is now **81 to 96% faster**, depending on repository size. On a 1,000-package monorepo, `turbo run` went from 10 seconds of overhead to feeling near-instant. The write-up is值得 reading for anyone working on high-performance JavaScript tooling.
@@ -25,6 +25,8 @@ Vercel engineers spent a week in March 2026 using AI coding agents to optimize T
 ## Starting With Unsupervised Agents
 
 The experiment began with eight background coding agents, each targeting a different area of the Rust codebase. Each agent was given a loosely defined goal — find performance issues — without step-by-step guidance. By morning, three had produced usable results: a 25% wall-clock reduction by switching to reference-based hashing, a 6% win from replacing the `twox-hash` crate with `xxhash-rust`, and a cleanup of an unnecessary Floyd-Warshall algorithm.
+
+![Turborepo 2.9 time-to-first-task: 81 to 96 percent faster](/images/charts/turborepo-time-to-first-task.png)
 
 But the engineers quickly identified a pattern: **agents produced impressive microbenchmarks that didn't translate to real-world gains**. One agent cranked out a "97% improvement" on a microbenchmark that amounted to 0.02% in practice. Agents never wrote regression tests. They never used the `--profile` flag. And critically, they benchmarked against synthetic targets rather than the actual Turborepo codebase.
 

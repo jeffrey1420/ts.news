@@ -2,9 +2,9 @@
 title: "The CSS vertical-align Problem Is Finally Solved: text-box-trim and margin-block"
 description: "For decades, centering text vertically in buttons, badges, and layouts felt slightly off. The culprit: leading space — invisible padding built into every font's metrics. Two CSS properties now solve this at different levels: text-box-trim for inline text and margin-block with cap/lh units for block layouts."
 date: 2026-04-13
-image: "https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-13--css-text-box-trim-margin-block-vertical-center.png"
 author: lschvn
-tags: ["CSS", "frontend", "typography", "web development", "layout"]
+tags: ["css", "javascript"]
 readingTime: 7
 tldr:
   - "Text never truly centers in CSS because browsers align to the line-height box, not the visual letters. Leading space (invisible padding above and below cap height) throws off every button, badge, and heading."

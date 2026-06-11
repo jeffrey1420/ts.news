@@ -8,7 +8,11 @@
   "tags": {
     "security": "Security",
     "frameworks": "Frameworks",
-    "tooling": "Tooling"
+    "tooling": "Tooling",
+    "runtimes": "Runtimes",
+    "ai": "AI Devtools",
+    "performance": "Performance",
+    "ecosystem": "Ecosystem"
   },
   "home": {
     "hero_description": "Daily TypeScript, JavaScript, and web platform news for developers who ship code.",
@@ -20,7 +24,19 @@
     "this_week": "This Week in TS",
     "this_week_description": "What happened this week",
     "latest_in_topic": "Latest in {topic}",
-    "no_articles": "No articles yet."
+    "no_articles": "No articles yet.",
+    "hero_kicker": "Daily · English / Français / Deutsch",
+    "hero_title_1": "The front page of",
+    "hero_title_2": "the TypeScript ecosystem.",
+    "latest_headlines": "Latest headlines",
+    "browse_topics": "Browse by topic",
+    "view_all": "View all",
+    "scroll": "Scroll",
+    "stat_articles": "articles published",
+    "stat_topics": "topics tracked",
+    "stat_languages": "languages",
+    "stat_rhythm": "news rhythm",
+    "daily": "daily"
   },
   "articles": {
     "title": "Articles",

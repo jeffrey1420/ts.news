@@ -2,29 +2,21 @@
 title: "Nitro v3.0.260522-beta: Build-Time Tracing-Wrapper, VFS-Performance-Boost, Vercel Queues Lokal"
 description: "Das Nitro v3 Beta vom 22. Mai bringt automatische Tracing-Span-Wrapper für Route-Handler zur Build-Zeit, einen VFS-Cache für dynamischen Nitro-App-Code und Vercel-Queue-Support im lokalen Development — zusammen mit den Sicherheitspatches der vorherigen Beta."
 date: 2026-06-03
-image: "https://ts.news/images/nitro-og.png"
+image: "/images/heroes/2026-06-03--nitro-v3-0-260522-beta-tracing-vfs-vercel-queues.png"
 author: lschvn
-tags:
-  - TypeScript
-  - Nitro
-  - Server
-  - Framework
-  - Vue
-  - Nuxt
-  - Vercel
-  - Performance
+tags: ["frameworks", "typescript", "performance"]
 tldr:
   - Nitro umschließt jetzt jeden Route-Handler zur Build-Zeit mit Tracing-Spans und bietet so Request-Span-Observability ohne OpenTelemetry-SDK-Einrichtung
   - Der VFS-Cache für dynamischen Nitro-App-Code verkürzt Dev-Server-Restarts erheblich, da die vollständige Neuauswertung des Modulgraphen entfällt
   - Das Vercel-Preset stellt Queues jetzt lokal über vercel dev bereit, sodass Entwickler Queue-Handler vor dem Deployment debuggen können
   - Zwei Sicherheitspatches schließen eine Proxy-Request-Smuggling- und eine Open-Redirect-Schwachstelle (GHSA-5w89-w975-hf9q, GHSA-9phm-9p8f-hw5m)
 faq:
-  - q: "Wie unterscheidet sich Build-Time-Tracing von der bestehenden OpenTelemetry-Integration?"
-    a: "Nitros Tracing-Kanäle werden auf der Framework-Ebene emitiert — Spans für Route-Handling, Cache-Operationen und Datenbankabfragen werden direkt in Nitros internem Router generiert. Das bedeutet, dass Spans Framework-spezifischen Kontext (Routenname, Handler-Dauer, Cache Treffer/Fehlschläge) enthalten, den generisches OpenTelemetry-Middleware nicht liefern kann, ohne benutzerdefinierte Instrumentierung."
-  - q: "Was ist der VFS-Dynamic-Code-Cache und wem hilft er?"
-    a: "Der VFS-Cache speichert den aufgelösten Zustand von Nitros internem Registry und Router. Bei nachfolgenden Dev-Server-Restarts lädt Nitro diesen Snapshot, anstatt jeden Route-Handler und jeden Modul-Import neu auszuwerten. Bei großen Anwendungen mit vielen Routes oder teuren Dynamic Imports spart dies Sekunden bei jedem Restart."
-  - q: "Wie funktionieren Vercel Queues lokal?"
-    a: "Der vercel dev-Befehl in Nitros Vercel-Preset erkennt jetzt Queue-Handler-Definitionen (nitro.tasks) und führt sie über einen lokalen Vercel Runtime Stub aus. Sie können Arbeit aus einem Route-Handler in die Queue einreihen und den vollständigen async Flow — inklusive Retries und Dead-Letter-Queue — vollständig lokal debuggen."
+  - question: "Wie unterscheidet sich Build-Time-Tracing von der bestehenden OpenTelemetry-Integration?"
+    answer: "Nitros Tracing-Kanäle werden auf der Framework-Ebene emitiert — Spans für Route-Handling, Cache-Operationen und Datenbankabfragen werden direkt in Nitros internem Router generiert. Das bedeutet, dass Spans Framework-spezifischen Kontext (Routenname, Handler-Dauer, Cache Treffer/Fehlschläge) enthalten, den generisches OpenTelemetry-Middleware nicht liefern kann, ohne benutzerdefinierte Instrumentierung."
+  - question: "Was ist der VFS-Dynamic-Code-Cache und wem hilft er?"
+    answer: "Der VFS-Cache speichert den aufgelösten Zustand von Nitros internem Registry und Router. Bei nachfolgenden Dev-Server-Restarts lädt Nitro diesen Snapshot, anstatt jeden Route-Handler und jeden Modul-Import neu auszuwerten. Bei großen Anwendungen mit vielen Routes oder teuren Dynamic Imports spart dies Sekunden bei jedem Restart."
+  - question: "Wie funktionieren Vercel Queues lokal?"
+    answer: "Der vercel dev-Befehl in Nitros Vercel-Preset erkennt jetzt Queue-Handler-Definitionen (nitro.tasks) und führt sie über einen lokalen Vercel Runtime Stub aus. Sie können Arbeit aus einem Route-Handler in die Queue einreihen und den vollständigen async Flow — inklusive Retries und Dead-Letter-Queue — vollständig lokal debuggen."
 ---
 
 Nitro v3.0.260522-beta wurde am 22. Mai 2026 veröffentlicht und erweitert die im April begonnene v3-Beta. Die Version fügt drei Funktionen hinzu, die zusammen die Developer Experience für produktionsorientierte serverseitige TypeScript-Anwendungen erheblich verbessern: automatische Tracing-Instrumentierung zur Build-Zeit, einen VFS-gestützten dynamischen Code-Cache und lokale Vercel-Queue-Emulation.

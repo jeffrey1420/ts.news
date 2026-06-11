@@ -1,23 +1,23 @@
 ---
 title: "SWC v1.15.26: Rust-Powered JavaScript Compiler Keeps Shipping"
 description: "The swc-project Rust compiler released v1.15.26 with bug fixes, performance improvements, and continued integration across the Node.js and bundler ecosystem."
-image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-16--swc-v1-15-26-rust-javascript-compiler.png"
 date: "2026-04-16"
 category: Tooling
 author: lschvn
 readingTime: 4
-tags: ["SWC", "Rust", "JavaScript", "TypeScript", "compiler", "bundler", "Parcel", "Next.js"]
+tags: ["frameworks", "tooling", "typescript"]
 tldr:
   - "SWC v1.15.26 was released on April 14, 2026, continuing the Rust-based JavaScript/TypeScript compiler's rapid release cycle with bug fixes and compatibility improvements."
   - "SWC (speedy web compiler) is used in production by Next.js, Parcel, and Deno, competing with Babel and esbuild in the JavaScript compilation space."
   - "The Rust-based approach gives SWC significant performance advantages over JavaScript-based compilers — typically 20-70x faster than Babel — while maintaining compatibility with TypeScript and JSX."
 faq:
-  - q: "What is SWC?"
-    a: "SWC is an extensible Rust-based platform for the web. It started as a high-speed TypeScript/JavaScript compiler written in Rust, designed to replace Babel. It is used by Next.js (as an optional compiler), Parcel, and Deno's internal transpilation. It produces output compatible with Babel transforms while running significantly faster."
-  - q: "How does SWC compare to esbuild or OXC?"
-    a: "SWC, esbuild, and OXC are all Rust-based JavaScript tooling projects that compete in the compilation and bundling space. esbuild is the oldest and focuses on speed above all else. OXC (Oxidation Compiler) is a more recent project backed by the Vercel/Nx team, targeting feature parity with TypeScript's type checker and Rollup's bundler. SWC sits between them — it's been production-hardened for longer than OXC and has a larger plugin ecosystem."
-  - q: "Is SWC used in Next.js?"
-    a: "Yes. Next.js added SWC as an optional compiler starting with version 12, and it became the default compiler in Next.js 13. Users can opt into using Babel instead for specific transform compatibility needs. The SWC transform is what enables Next.js's fast refresh and compilation speeds at scale."
+  - question: "What is SWC?"
+    answer: "SWC is an extensible Rust-based platform for the web. It started as a high-speed TypeScript/JavaScript compiler written in Rust, designed to replace Babel. It is used by Next.js (as an optional compiler), Parcel, and Deno's internal transpilation. It produces output compatible with Babel transforms while running significantly faster."
+  - question: "How does SWC compare to esbuild or OXC?"
+    answer: "SWC, esbuild, and OXC are all Rust-based JavaScript tooling projects that compete in the compilation and bundling space. esbuild is the oldest and focuses on speed above all else. OXC (Oxidation Compiler) is a more recent project backed by the Vercel/Nx team, targeting feature parity with TypeScript's type checker and Rollup's bundler. SWC sits between them — it's been production-hardened for longer than OXC and has a larger plugin ecosystem."
+  - question: "Is SWC used in Next.js?"
+    answer: "Yes. Next.js added SWC as an optional compiler starting with version 12, and it became the default compiler in Next.js 13. Users can opt into using Babel instead for specific transform compatibility needs. The SWC transform is what enables Next.js's fast refresh and compilation speeds at scale."
 ---
 
 swc-project/swc v1.15.26 landed on April 14, 2026, marking another point release in the Rust-based JavaScript and TypeScript compiler's steady release cadence. The project, which has been production-hardened through its integration in Next.js, Parcel, and Deno, continues to ship compatibility fixes and performance refinements without major new features in this cycle.

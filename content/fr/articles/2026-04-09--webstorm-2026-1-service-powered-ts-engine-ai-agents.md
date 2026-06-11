@@ -1,26 +1,26 @@
 ---
 title: "WebStorm 2026.1 : TypeScript Engine basé sur un service et une liste complète d'agents IA"
 description: "La version de mars de JetBrains active par défaut un moteur TypeScript basé sur un service, intègre Junie, Claude Agent, Codex et Cursor dans le panneau de chat IA, enterre Code With Me, et ajoute le support natif de Wayland sur Linux."
-image: "https://blog.jetbrains.com/wp-content/uploads/2026/03/WS-releases-BlogSocialShare-1280x720-1.png"
+image: "/images/heroes/2026-04-09--webstorm-2026-1-service-powered-ts-engine-ai-agents.png"
 date: "2026-04-09"
 category: IDE
 author: lschvn
 readingTime: 5
-tags: ["webstorm", "jetbrains", "TypeScript", "IDE", "IA", "agents-IA", "release"]
+tags: ["ai", "tooling", "typescript"]
 tldr:
   - "WebStorm 2026.1 active par défaut le moteur TypeScript basé sur un service externe, réduisant l'utilisation CPU et améliorant la réactivité dans les grands projets."
   - "Le chat IA intègre désormais Junie, Claude Agent, Codex, Cursor et GitHub Copilot via le nouveau registre ACP — installez n'importe quel agent en un clic."
   - "Les suggestions de prochaine édition sont disponibles sans consommer votre quota IA, propageant intelligemment les modifications apparentées dans tout un fichier."
   - "Code With Me est abandonné dans la 2026.1 — JetBrains invoque une baisse de la demande et oriente les utilisateurs vers des workflows collaboratifs plus modernes."
 faq:
-  - q: "Que signifie 'moteur TypeScript alimenté par un service' ?"
-    a: "WebStorm délègue désormais l'analyse TypeScript, la vérification de types et les services linguistiques à un processus externe au lieu de les exécuter dans le thread principal de l'IDE. Le résultat : une utilisation CPU réduite et une meilleure réactivité dans les grands monorepos."
-  - q: "Cursor est-il vraiment disponible dans WebStorm maintenant ?"
-    a: "Cursor a rejoint le registre ACP en mars 2026, ce qui signifie que ses capacités d'agent sont accessibles depuis le panneau de chat IA de WebStorm via le protocole Agent Client. C'est différent de faire de Cursor votre IDE principal."
-  - q: "Qu'est-il arrivé à Code With Me ?"
-    a: "JetBrains enterre Code With Me, son service de programmation en binôme intégré à l'IDE, à partir de la 2026.1. Il sera désolidarisé de tous les IDEs JetBrains et déplacé sur le Marketplace comme plugin distinct. La 2026.1 est la dernière version à le supporter officiellement."
-  - q: "Cette version supporte-t-elle TypeScript 6 ?"
-    a: "Oui. WebStorm 2026.1 s'aligne sur les valeurs par défaut modifiées de TypeScript 6 pour `types` et `rootDir`, et prépare déjà le terrain pour les changements de `baseUrl` de TypeScript 7."
+  - question: "Que signifie 'moteur TypeScript alimenté par un service' ?"
+    answer: "WebStorm délègue désormais l'analyse TypeScript, la vérification de types et les services linguistiques à un processus externe au lieu de les exécuter dans le thread principal de l'IDE. Le résultat : une utilisation CPU réduite et une meilleure réactivité dans les grands monorepos."
+  - question: "Cursor est-il vraiment disponible dans WebStorm maintenant ?"
+    answer: "Cursor a rejoint le registre ACP en mars 2026, ce qui signifie que ses capacités d'agent sont accessibles depuis le panneau de chat IA de WebStorm via le protocole Agent Client. C'est différent de faire de Cursor votre IDE principal."
+  - question: "Qu'est-il arrivé à Code With Me ?"
+    answer: "JetBrains enterre Code With Me, son service de programmation en binôme intégré à l'IDE, à partir de la 2026.1. Il sera désolidarisé de tous les IDEs JetBrains et déplacé sur le Marketplace comme plugin distinct. La 2026.1 est la dernière version à le supporter officiellement."
+  - question: "Cette version supporte-t-elle TypeScript 6 ?"
+    answer: "Oui. WebStorm 2026.1 s'aligne sur les valeurs par défaut modifiées de TypeScript 6 pour `types` et `rootDir`, et prépare déjà le terrain pour les changements de `baseUrl` de TypeScript 7."
 ---
 
 WebStorm 2026.1 est sorti en mars avec une version qui resserre le lien entre l'EDI et les outils que les développeurs utilisent au quotidien. L'événement principal est un moteur TypeScript plus efficace par défaut, mais le changement le plus visible pour beaucoup sera ce qui se trouve dans la barre latérale du chat IA.

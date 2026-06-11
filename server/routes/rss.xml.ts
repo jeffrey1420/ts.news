@@ -1,4 +1,5 @@
 import { defineEventHandler, setHeader } from 'h3'
+import { queryCollection } from '@nuxt/content/server'
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 const feedUrl = absoluteSiteUrl('/rss.xml')
 

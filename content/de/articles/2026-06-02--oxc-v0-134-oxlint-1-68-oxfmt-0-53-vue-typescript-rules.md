@@ -2,16 +2,9 @@
 title: "Oxc v0.134: oxlint v1.68 Bringt Vue-Linter-Regeln und TypeScript-Accessor-Prüfungen"
 description: "Oxc's Juni-Release liefert oxlint v1.68.0 mit zwei neuen Vue-Regeln, einer method-signature-style TypeScript-Regel und Parser-Verbesserungen, die Ambient-Context-Missbrauch ablehnen."
 date: 2026-06-02
-image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200"
+image: "/images/heroes/2026-06-02--oxc-v0-134-oxlint-1-68-oxfmt-0-53-vue-typescript-rules.png"
 author: lschvn
-tags:
-  - Oxc
-  - Rust
-  - JavaScript
-  - TypeScript
-  - Vue
-  - linting
-  - formatter
+tags: ["frameworks", "tooling", "typescript"]
 tldr:
   - oxlint v1.68.0 fügt die Vue-Regeln no-reserved-component-names und component-definition-name hinzu, die Namenskonflikte bei Komponentendefinitionen erkennen
   - Die neue method-signature-style TypeScript-Regel erzwingt Konsistenz zwischen Interface-Methodensyntax und Klassenmethodensyntax

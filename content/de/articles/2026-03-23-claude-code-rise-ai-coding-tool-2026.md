@@ -4,9 +4,9 @@ description: "Anfang 2026 hielt Claude Code eine 46% 'Most Loved'-Bewertung unte
 date: "2026-03-23"
 category: "news"
 author: lschvn
-tags: ["ai", "claude-code", "cursor", "copilot", "developer-tools", "anthropic", "typescript"]
+tags: ["ai", "tooling", "typescript"]
 readingTime: 11
-image: "https://cursor.com/public/opengraph-image.png"
+image: "/images/heroes/2026-03-23-claude-code-rise-ai-coding-tool-2026.png"
 tldr:
   - "Claude Code erreichte eine 46% 'Most Loved'-Bewertung Anfang 2026 und überholte Cursor (19%) und GitHub Copilot (9%) nur acht Monate nach seinem Start im Mai 2025."
   - "95% der Entwickler nutzen inzwischen wöchentlich KI-Coding-Tools, 75% verlassen sich für mehr als die Hälfte ihrer Coding-Arbeit auf KI."

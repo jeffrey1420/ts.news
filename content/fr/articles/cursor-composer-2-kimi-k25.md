@@ -4,9 +4,9 @@ description: "Comment un développeur a découvert un ID de modèle caché, déc
 date: "2026-03-22"
 category: "deep-dive"
 author: lschvn
-tags: ["cursor", "kimi", "moonshot", "ai", "open-source", "licensing", "coding-tools"]
+tags: ["ai", "ecosystem"]
 readingTime: 12
-image: "https://cursor.com/public/opengraph-image.png"
+image: "/images/heroes/cursor-composer-2-kimi-k25.png"
 tldr:
   - "Cursor Composer 2 a atteint 61,7% sur Terminal-Bench 2.0 mais s'est révélé basé sur Kimi K2.5, pas un modèle entièrement maison."
   - "Un développeur a découvert l'ID de modèle 'kimi-k2p5' dans les réponses API ; l'analyse du tokenizer a confirmé l'identité octet par octet avec Kimi."

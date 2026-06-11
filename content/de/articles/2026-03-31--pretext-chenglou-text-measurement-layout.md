@@ -2,9 +2,9 @@
 title: "Pretext: Die DOM-freie Textmessungsbibliothek, die KI-Coding-Agents bereits verwenden"
 description: "Cheng Lou hat Pretext veröffentlicht, eine reine JavaScript-Bibliothek, die mehrzeiligen Text misst und layoutet, ohne das DOM zu berühren. Hier erfahren Sie, warum das für Virtualisierung, Layout-Kontrolle und KI-Agenten wichtig ist, die UI-Code schreiben."
 date: "2026-03-31"
-image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-03-31--pretext-chenglou-text-measurement-layout.png"
 author: lschvn
-tags: ["javascript", "typescript", "layout", "performance", "DOM", "library"]
+tags: ["css", "typescript", "performance"]
 readingTime: 7
 tldr:
   - "Pretext (@chenglou/pretext) misst und layoutet mehrzeiligen Text ohne DOM-Zugriff, mit canvas measureText als Grundlage."

@@ -2,9 +2,9 @@
 title: "Axios npm Supply Chain Attack: Malicious Versions Drop Remote Access Trojan"
 description: "Two poisoned releases of axios — one of the most widely-used Node.js HTTP client libraries — were published and pulled from npm within hours. Here's what happened, how the attack worked, and what you need to do right now."
 date: 2026-03-31
-image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-03-31--axios-npm-supply-chain-attack.png"
 author: lschvn
-tags: ["security", "npm", "supply-chain", "javascript", "node.js"]
+tags: ["security", "runtimes", "javascript"]
 faq:
   - question: "Is Axios still safe to use?"
     answer: "Yes — axios itself is safe. The attack compromised two specific versions (1.14.1 and 0.30.4) which were published and removed within hours. If you are using any other version of axios, you are not affected. The last known clean versions are axios@1.14.0 and axios@0.30.3."

@@ -25,12 +25,12 @@ export function isValidLocale(locale: string): locale is SupportedLocale {
   return SUPPORTED_LOCALES.includes(locale as SupportedLocale)
 }
 
-export function getCollectionName(
-  type: 'articles' | 'authors',
+export function getCollectionName<T extends 'articles' | 'authors'>(
+  type: T,
   locale: string
-): `${typeof type}_${SupportedLocale}` {
+): `${T}_${SupportedLocale}` {
   const validLocale = isValidLocale(locale) ? locale : DEFAULT_LOCALE
-  return `${type}_${validLocale}` as `${typeof type}_${SupportedLocale}`
+  return `${type}_${validLocale}` as `${T}_${SupportedLocale}`
 }
 
 export function getLocaleLanguage(locale: string): string {

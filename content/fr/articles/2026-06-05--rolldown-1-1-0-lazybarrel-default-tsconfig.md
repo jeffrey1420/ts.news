@@ -2,9 +2,9 @@
 title: "Rolldown 1.1.0 : lazyBarrel activé par défaut"
 description: "Rolldown 1.1.0 introduit deux changements notables : experimental.lazyBarrel est maintenant activé par défaut, et la résolution des références de projet tsconfig alignée sur le comportement de TypeScript."
 date: 2026-06-05
-image: "https://rolldown.rs/og.jpg"
+image: "/images/heroes/2026-06-05--rolldown-1-1-0-lazybarrel-default-tsconfig.png"
 author: lschvn
-tags: [rolldown, bundler, rust, javascript, vite]
+tags: ["tooling", "javascript"]
 tldr:
   - "experimental.lazyBarrel" est désormais true par défaut, ignorant les exports de barrel non utilisés pour des gains significatifs sur les grandes bibliothèques de composants
   - oxc_resolver passe en 11.21.0, corrigeant la résolution des références de projet tsconfig pour correspondre exactement au comportement de TypeScript
@@ -56,9 +56,9 @@ Rolldown 1.1.0 est disponible sur npm.
 ---
 
 faq:
-  - q: "Que signifie 'lazyBarrel' dans Rolldown ?"
-    a: "Un 'barrel' est un fichier qui réexporte depuis plusieurs autres modules. L'optimisation lazyBarrel détecte quand un barrel n'a pas d'effets secondaires et ignore la compilation des modules réexportés non utilisés, accélérant les builds pour les grandes bibliothèques."
-  - q: "Mon build ne fonctionne plus après la mise à jour de Rolldown. Que vérifier ?"
-    a: "Vérifiez d'abord si vous comptez sur des effets secondaires des réexports d'un barrel. Vous pouvez temporairement désactiver avec `experimental: { lazyBarrel: false }`. Ensuite, si vous utilisez les références de projet TypeScript, vérifiez que votre structure tsconfig correspond aux attentes de TypeScript."
-  - q: "Quel impact pour les utilisateurs de Vite ?"
-    a: "Rolldown est le bundler qui équipe Vite 8 et supérieur. Ces changements s'appliquent automatiquement quand vous mettez à jour Rolldown ou quand Vite publie une nouvelle version de Rolldown."
+  - question: "Que signifie 'lazyBarrel' dans Rolldown ?"
+    answer: "Un 'barrel' est un fichier qui réexporte depuis plusieurs autres modules. L'optimisation lazyBarrel détecte quand un barrel n'a pas d'effets secondaires et ignore la compilation des modules réexportés non utilisés, accélérant les builds pour les grandes bibliothèques."
+  - question: "Mon build ne fonctionne plus après la mise à jour de Rolldown. Que vérifier ?"
+    answer: "Vérifiez d'abord si vous comptez sur des effets secondaires des réexports d'un barrel. Vous pouvez temporairement désactiver avec `experimental: { lazyBarrel: false }`. Ensuite, si vous utilisez les références de projet TypeScript, vérifiez que votre structure tsconfig correspond aux attentes de TypeScript."
+  - question: "Quel impact pour les utilisateurs de Vite ?"
+    answer: "Rolldown est le bundler qui équipe Vite 8 et supérieur. Ces changements s'appliquent automatiquement quand vous mettez à jour Rolldown ou quand Vite publie une nouvelle version de Rolldown."

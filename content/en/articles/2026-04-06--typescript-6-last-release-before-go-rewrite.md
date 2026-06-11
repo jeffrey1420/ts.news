@@ -2,9 +2,9 @@
 title: "TypeScript 6.0 Lands as the Last Release Before the Go Rewrite"
 description: "TypeScript 6.0 is out — and the Microsoft team is clear: it's a bridge release. The real story is what comes next: TypeScript 7, written in Go and already available as a preview, promises a 10x speedup."
 date: "2026-04-06"
-image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-06--typescript-6-last-release-before-go-rewrite.png"
 author: lschvn
-tags: ["typescript", "javascript", "microsoft", "compiler", "performance"]
+tags: ["tooling", "typescript", "performance"]
 ---
 
 TypeScript 6.0 landed on March 23, 2026, and the Microsoft team is not hiding the ball: this is a bridge release. TypeScript 6.0 smooths the path toward TypeScript 7 — a ground-up rewrite of the compiler and language service in Go, with a 10x speedup claim already verified in preview builds.

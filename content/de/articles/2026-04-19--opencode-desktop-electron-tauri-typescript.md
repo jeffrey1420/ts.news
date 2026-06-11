@@ -2,9 +2,9 @@
 title: "OpenCode Desktop wechselt von Tauri zu Electron: Eine pragmatische Entscheidung für einen TypeScript-first KI-Coding-Agenten"
 description: "OpenCode, der Open-Source-KI-Coding-Agent mit 145.000 GitHub-Sternen, hat seine Desktop-App auf Electron umgestellt, nachdem Performance-Probleme mit WebKit und Startverzögerungen durch den gebündelten CLI die Entscheidung gegen Tauri reiften."
 date: 2026-04-19
-image: "https://repository-images.githubusercontent.com/975734319/2c2c3389-c647-405c-a499-f80e4d521277"
+image: "/images/heroes/2026-04-19--opencode-desktop-electron-tauri-typescript.png"
 author: lschvn
-tags: ["TypeScript", "AI", "Electron", "Tauri", "OpenCode"]
+tags: ["ai", "tooling", "typescript"]
 tldr:
   - "OpenCode Desktop steigt von Tauri auf Electron um —主要原因是因为 WebKit auf macOS und Linux konsistente Rendering-Probleme und schlechtere Performance als Chromium bot"
   - "Der Umstieg beseitigte auch einen gebündelten CLI, der Startverzögerungen und gelegentliche Abstürze verursachte; der Server läuft nun direkt in Electron Node"

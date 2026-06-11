@@ -2,20 +2,20 @@
 title: "Svelte March 2026: Programmatic Context, HTML Comments, and Server Error Boundaries"
 description: "Svelte's March update brings createContext for programmatic component instantiation, HTML comments inside tags, SSR error boundaries, and navigation callbacks with scroll position data."
 date: 2026-04-17
-image: "https://svelte.dev/blog/whats-new-in-svelte-march-2026/card.png"
+image: "/images/heroes/2026-04-17--svelte-march-2026-context-html-comments-error-boundaries.png"
 author: lschvn
-tags: ["Svelte", "SvelteKit", "JavaScript", "Framework", "State of JS"]
+tags: ["frameworks", "javascript", "ecosystem"]
 tldr:
   - createContext can now be used when instantiating Svelte components programmatically via new Component({ target }), fixing a long-standing limitation
   - HTML comments are now valid inside HTML tags in templates, and error boundaries work on the server for SSR error handling
   - Svelte remains the top-ranked reactive framework in the State of JS 2025 survey, holding its position from the previous year
 faq:
-  - q: "How do I use createContext programmatically in Svelte 5?"
-    a: "Pass a context map as the second argument to the component constructor: new Component({ target: element, props: {...}, context: new Map([[key, value]]) })"
-  - q: "What does TrustedHTML support mean in practice?"
-    a: "{@html} expressions in Svelte templates now accept TrustedHTML (from the Secure Types API), which tells the type checker that the HTML string is already sanitized and safe to insert."
-  - q: "How do server error boundaries work in SvelteKit?"
-    a: "Use the svelte:boundary component with transformError to catch and transform server-side errors, similar to how client-side error boundaries already worked."
+  - question: "How do I use createContext programmatically in Svelte 5?"
+    answer: "Pass a context map as the second argument to the component constructor: new Component({ target: element, props: {...}, context: new Map([[key, value]]) })"
+  - question: "What does TrustedHTML support mean in practice?"
+    answer: "{@html} expressions in Svelte templates now accept TrustedHTML (from the Secure Types API), which tells the type checker that the HTML string is already sanitized and safe to insert."
+  - question: "How do server error boundaries work in SvelteKit?"
+    answer: "Use the svelte:boundary component with transformError to catch and transform server-side errors, similar to how client-side error boundaries already worked."
 ---
 
 Svelte's March 2026 release lands a set of improvements that close longstanding gaps — most notably around programmatic component instantiation and server-side error handling — while continuing to refine SvelteKit's navigation APIs.

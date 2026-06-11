@@ -2,14 +2,9 @@
 title: "Astro 6.4 : Processeur Markdown Rust Sätteri et Temps de Build Réduits"
 description: "Astro 6.4 introduit un processeur markdown optionnel basé sur Rust, une nouvelle option de configuration markdown.processor, et une préservation indépendante du répertoire serveur."
 date: 2026-06-01
-image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200"
+image: "/images/heroes/2026-06-01--astro-6-4-rust-satteri-markdown-optimizer.png"
 author: lschvn
-tags:
-  - astro
-  - javascript
-  - typescript
-  - sites-statiques
-  - web
+tags: ["frameworks", "typescript", "javascript"]
 ---
 
 Astro 6.4 est arrivé le 28 mai avec une fonctionnalité majeure qui compte pour tout site à fort contenu : un processeur markdown optionnel basé sur Rust appelé Sätteri, conçu pour remplacer l'écosystème unified sur les sites contenant des centaines ou des milliers de fichiers Markdown.

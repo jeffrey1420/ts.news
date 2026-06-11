@@ -1,25 +1,25 @@
 ---
 title: "Node.js 25.9 : L'API stream/iter Arrive Enfin en Expérimental"
 description: "Node.js 25.9 ajoute un module stream/iter expérimental pour l'itération asynchrone sur les streams, un flag CLI --max-heap-size, AsyncLocalStorage avec using scopes, la crypto TurboSHAKE, et npm 11.12.1."
-image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-12--nodejs-25-stream-iter-async-streams.png"
 date: "2026-04-12"
 category: Runtimes
 author: lschvn
 readingTime: 5
-tags: ["Node.js", "JavaScript", "streams", "async-iteration", "performance", "CLI", "crypto", "npm"]
+tags: ["security", "runtimes", "tooling"]
 tldr:
   - "stream/iter est le nouveau module expérimental permettant des boucles for-await-of sur tout Readable stream — remplaçant les bidouillages Readable.from() et donnant aux streams une interface d'itération asynchrone native."
   - "--max-heap-size permet de fixer un plafond mémoire V8 par processus via flag CLI, comblant un manque longtemps ressenti pour les workloads Node.js conteneurisés nécessitant des bounds mémoire prévisibles."
   - "AsyncLocalStorage supporte désormais les 'using' scopes — un pattern emprunté à IDisposable de C#, garantissant un nettoyage déterministe des ressources à la sortie du scope, même en cas d'erreur."
 faq:
-  - q: "En quoi stream/iter diffère-t-il de l'approche Readable.from() existante ?"
-    a: "Readable.from(iterable) enveloppe un itérable en Readable stream, mais est conçu pour créer des streams, pas les consommer. stream/iter fournit stream.iter(readable) et stream.consume(readable) — des fonctions pour lire et itérer sur un stream existant en utilisant la syntaxe standard d'itération asynchrone. C'est la primitive manquante qui rend la programmation par streams composable avec les protocoles d'itération natifs de JavaScript."
-  - q: "Qu'est-ce que la syntaxe 'using' scope dans AsyncLocalStorage ?"
-    a: "Le mot-clé using (proposal ECMAScript Explicit Resource Management stage 3) appelle une méthode [Symbol.dispose]() à la sortie d'un bloc — normalement ou via throw. Node.js 25.9 ajoute les using scopes à AsyncLocalStorage, permettant de lier une instance AsyncLocalStorage à un scope pour qu'elle soit automatiquement nettoyée à la sortie du scope, sans nettoyage try/finally explicite. Ce pattern élimine une classe de fuites mémoire AsyncLocalStorage dans les serveurs longue durée."
-  - q: "Qu'est-ce que --max-heap-size et quand l'utiliser ?"
-    a: "--max-heap-size fixe une taille maximale du tas V8 en mégaoctets. C'est un flag CLI passé au démarrage du processus : node --max-heap-size=512 server.js. Dans les environnements conteneurisés (Docker, Kubernetes), fixer un plafond mémoire dur aide l'orchestrateur à tuer proprement les processus OOM plutôt que de laisser le tueur OOM de l'OS agir de façon imprévisible."
-  - q: "Que sont TurboSHAKE et KangarooTwelve ?"
-    a: "Ce sont des fonctions de hachage cryptographiques. TurboSHAKE est une fonction de hachage à longueur variable haute vitesse, conçue pour les applications nécessitant un hachage rapide à haut débit — données en streaming, tree hashing, proof-of-work. KangarooTwelve est un variant rapide de SHA-3 (SHA-3/128) avec une sortie 128 bits, conçu comme alternative plus rapide à SHA-256 pour les usages quotidiens. Node.js les expose désormais via l'API WebCrypto."
+  - question: "En quoi stream/iter diffère-t-il de l'approche Readable.from() existante ?"
+    answer: "Readable.from(iterable) enveloppe un itérable en Readable stream, mais est conçu pour créer des streams, pas les consommer. stream/iter fournit stream.iter(readable) et stream.consume(readable) — des fonctions pour lire et itérer sur un stream existant en utilisant la syntaxe standard d'itération asynchrone. C'est la primitive manquante qui rend la programmation par streams composable avec les protocoles d'itération natifs de JavaScript."
+  - question: "Qu'est-ce que la syntaxe 'using' scope dans AsyncLocalStorage ?"
+    answer: "Le mot-clé using (proposal ECMAScript Explicit Resource Management stage 3) appelle une méthode [Symbol.dispose]() à la sortie d'un bloc — normalement ou via throw. Node.js 25.9 ajoute les using scopes à AsyncLocalStorage, permettant de lier une instance AsyncLocalStorage à un scope pour qu'elle soit automatiquement nettoyée à la sortie du scope, sans nettoyage try/finally explicite. Ce pattern élimine une classe de fuites mémoire AsyncLocalStorage dans les serveurs longue durée."
+  - question: "Qu'est-ce que --max-heap-size et quand l'utiliser ?"
+    answer: "--max-heap-size fixe une taille maximale du tas V8 en mégaoctets. C'est un flag CLI passé au démarrage du processus : node --max-heap-size=512 server.js. Dans les environnements conteneurisés (Docker, Kubernetes), fixer un plafond mémoire dur aide l'orchestrateur à tuer proprement les processus OOM plutôt que de laisser le tueur OOM de l'OS agir de façon imprévisible."
+  - question: "Que sont TurboSHAKE et KangarooTwelve ?"
+    answer: "Ce sont des fonctions de hachage cryptographiques. TurboSHAKE est une fonction de hachage à longueur variable haute vitesse, conçue pour les applications nécessitant un hachage rapide à haut débit — données en streaming, tree hashing, proof-of-work. KangarooTwelve est un variant rapide de SHA-3 (SHA-3/128) avec une sortie 128 bits, conçu comme alternative plus rapide à SHA-256 pour les usages quotidiens. Node.js les expose désormais via l'API WebCrypto."
 ---
 
 Node.js 25.9.0 est sorti le 1er avril avec un ensemble d'ajouts qualité-de-vie, plusieurs en préparation depuis plus d'un an. Les fonctionnalités principales sont le nouveau module expérimental `stream/iter` et le flag CLI `--max-heap-size`, mais il y a plus à connaître.

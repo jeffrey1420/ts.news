@@ -2,20 +2,20 @@
 title: "Astro 6.1.8 behebt kritischen Netlify-Deploy-Bug und Sicherheitslücke im /_image-Endpoint"
 description: "Astro 6.1.8 behebt eine Regression, bei der Build-Output-Dateinamen mit Sonderzeichen Deployments auf Netlify und Vercel brach, und patcht ein Content-Type-Confusion-Problem im integrierten Bild-Endpoint, das nicht-SVG-Inhalte als SVG ausliefern konnte."
 date: 2026-04-20
-image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-20--astro-6-1-8-critical-filename-bug-netlify-security.png"
 author: lschvn
-tags: ["TypeScript", "Astro", "Framework", "JavaScript", "Netlify", "Security"]
+tags: ["security", "frameworks", "typescript"]
 tldr:
   - Astro 6.1.8 behebt einen Bug, bei dem Build-Output-Dateien mit Sonderzeichen (!, ~, {, }) Deployments auf Netlify und Vercel wegen der Plattform-Skew-Protection brachen
   - Der /_image-Endpoint hatte eine Content-Type-Confusion-Schwachstelle: f=svg konnte nicht-SVG-Inhalte als image/svg+xml ausliefern ; der Fix validiert nun, dass die Quelle tatsächlich SVG ist
   - Performance-Verbesserung: Der Dev-Server cached nun das Crawling der Projekt-Abhängigkeiten zwischen Requests
 faq:
-  - q: "Was verursachte die Netlify-Deploy-Fehler in Astro 6.1.7 und früher?"
-    a: "Astro's Build-Output-Namensgebung konnte Sonderzeichen (!, ~, {, }) in Dateinamen von Chunks erzeugen. Netlify's Skew-Protection streift diese Zeichen vor dem Deployment, sodass die HTML-Referenzen auf nicht existierende Dateien auf dem CDN zeigen."
-  - q: "Wie schwerwiegend ist die /_image-Endpoint-Sicherheitslücke?"
-    a: "Mittel. Ein Angreifer konnte eine Anfrage an /_image?url=<interner-endpoint>&f=svg basteln, die internen JSON oder HTML mit einem image/svg+xml Content-Type Header zurückgab. Die Auswirkung wird durch das erforderliche allowedDomains begrenzt."
-  - q: "Sollte ich sofort upgraden?"
-    a: "Ja, besonders wenn Sie auf Netlify oder Vercel deployen. Der Dateinamen-Bug kann stillschweigend kaputte Deployments produzieren — der Build läuft durch, aber manche Seiten laden in der Produktion nicht."
+  - question: "Was verursachte die Netlify-Deploy-Fehler in Astro 6.1.7 und früher?"
+    answer: "Astro's Build-Output-Namensgebung konnte Sonderzeichen (!, ~, {, }) in Dateinamen von Chunks erzeugen. Netlify's Skew-Protection streift diese Zeichen vor dem Deployment, sodass die HTML-Referenzen auf nicht existierende Dateien auf dem CDN zeigen."
+  - question: "Wie schwerwiegend ist die /_image-Endpoint-Sicherheitslücke?"
+    answer: "Mittel. Ein Angreifer konnte eine Anfrage an /_image?url=<interner-endpoint>&f=svg basteln, die internen JSON oder HTML mit einem image/svg+xml Content-Type Header zurückgab. Die Auswirkung wird durch das erforderliche allowedDomains begrenzt."
+  - question: "Sollte ich sofort upgraden?"
+    answer: "Ja, besonders wenn Sie auf Netlify oder Vercel deployen. Der Dateinamen-Bug kann stillschweigend kaputte Deployments produzieren — der Build läuft durch, aber manche Seiten laden in der Produktion nicht."
 ---
 
 Astro 6.1.8 erschien am 18. April mit zwei Fixes, die Entwickler auf Netlify oder Vercel sofort anwenden sollten.

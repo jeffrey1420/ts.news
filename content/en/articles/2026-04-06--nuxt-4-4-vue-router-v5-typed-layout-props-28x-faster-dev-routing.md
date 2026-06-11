@@ -2,9 +2,9 @@
 title: "Nuxt 4.4 Ships Vue Router v5, Typed Layout Props, and 28x Faster Dev Routing"
 description: "Nuxt's latest point release brings major under-the-hood improvements: Vue Router v5, a custom useFetch factory API, an accessibility announcer composable, and a routing system migration that makes hot-module replacement up to 28x faster."
 date: "2026-04-06"
-image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-06--nuxt-4-4-vue-router-v5-typed-layout-props-28x-faster-dev-routing.png"
 author: lschvn
-tags: ["nuxt", "vue", "javascript", "typescript", "router", "accessibility"]
+tags: ["css", "frameworks", "typescript"]
 ---
 
 Nuxt 4.4 landed on March 12, 2026, and it's one of the most substantial point releases in the 4.x cycle. The headline additions — Vue Router v5, custom `useFetch` factories, and an accessibility announcer composable — sit alongside a routing engine migration that dramatically speeds up the development experience.

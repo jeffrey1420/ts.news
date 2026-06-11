@@ -2,18 +2,9 @@
 title: "Quellcode-Leck bei Claude Code: Verstecktes Agent-OS, Chrome-Automatisierung und Datenschutzlücken"
 description: "Am 30.–31. März 2026 entdeckten Entwickler, dass das npm-Paket @anthropic-ai/claude-code@v2.1.88 eine Produktions-Source-Map-Datei enthielt, die den vollständigen TypeScript-Quellcode offenlegte — einschließlich nicht dokumentierter Multi-Agent-Orchestrierung, eines versteckten Chrome-MCP-Servers, einer internen Query-Engine, eines Tool-Berechtigungssystems und eines dreistufigen Telemetriesystems."
 date: 2026-03-31
-image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-03-31--claude-code-source-leak-analysis.png"
 author: "lschvn"
-tags:
-  [
-    "security",
-    "anthropic",
-    "claude-code",
-    "npm",
-    "typescript",
-    "agents",
-    "privacy",
-  ]
+tags: ["security", "ai", "typescript"]
 readingTime: 5
 tldr:
   - "Claude Code v2.1.88 wurde mit einer Produktions-Source-Map (cli.js.map) ausgeliefert, die ~4.756 Quelldateien einschließlich nicht dokumentierter Multi-Agent-Orchestrierung freigab."

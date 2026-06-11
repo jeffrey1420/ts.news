@@ -2,9 +2,9 @@
 title: "Le Changement Silencieux de GitHub Copilot : Votre Code Entrainera Leurs Modèles — Sauf si Vous Vous Y Opposez"
 description: "À partir du 24 avril 2026, GitHub utilisera les données d'interaction des utilisateurs Free, Pro et Pro+ de Copilot pour entraîner des modèles IA — sauf opposition manuelle. Les offres Business et Enterprise ne sont pas concernées."
 date: 2026-04-02
-image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-02--github-copilot-ai-training-data-policy.png"
 author: lschvn
-tags: ["GitHub", "Copilot", "IA", "vie privée", "machine learning", "open source"]
+tags: ["security", "ai", "ecosystem"]
 readingTime: 5
 tldr:
   - "À partir du 24 avril, GitHub utilisera les données d'interaction Copilot Free/Pro/Pro+ (entrées, sorties, extraits de code, contexte) pour entraîner des modèles IA par défaut — sauf opposition."

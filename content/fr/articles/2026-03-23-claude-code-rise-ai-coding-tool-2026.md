@@ -4,9 +4,9 @@ description: "Début 2026, Claude Code affichait un taux de « plus aimé » de 
 date: "2026-03-23"
 category: "news"
 author: lschvn
-tags: ["ai", "claude-code", "cursor", "copilot", "developer-tools", "anthropic", "typescript"]
+tags: ["ai", "tooling", "typescript"]
 readingTime: 11
-image: "https://cursor.com/public/opengraph-image.png"
+image: "/images/heroes/2026-03-23-claude-code-rise-ai-coding-tool-2026.png"
 tldr:
   - "Claude Code a atteint un taux de « plus aimé » de 46% début 2026, dépassant Cursor (19%) et GitHub Copilot (9%) seulement huit mois après son lancement en mai 2025."
   - "95% des développeurs utilisent désormais des outils de coding IA au moins une fois par semaine, 75% comptant sur l'IA pour plus de la moitié de leur travail de coding."

@@ -4,9 +4,9 @@ description: "How a developer found a hidden model ID, sparked a global debate a
 date: "2026-03-22"
 category: "deep-dive"
 author: lschvn
-tags: ["cursor", "kimi", "moonshot", "ai", "open-source", "licensing", "coding-tools"]
+tags: ["ai", "ecosystem"]
 readingTime: 12
-image: "https://cursor.com/public/opengraph-image.png"
+image: "/images/heroes/cursor-composer-2-kimi-k25.png"
 tldr:
   - "Cursor Composer 2 hit 61.7% on Terminal-Bench 2.0 but was revealed to be built on Kimi K2.5, not a fully in-house model."
   - "A developer discovered the model ID 'kimi-k2p5' in API responses; tokenizer analysis confirmed byte-for-byte identity with Kimi."

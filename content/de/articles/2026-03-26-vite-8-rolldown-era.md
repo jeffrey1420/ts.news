@@ -1,12 +1,12 @@
 ---
 title: "Vite 8 Beta ist da: Rolldown ist das neue Herz des Build-Pipeline"
 description: "Die Vite 8 Beta streicht ESBuild und Rollup zugunsten von Rolldown und signalisiert eine vollständige Rust-basierte Zukunft für das JavaScript-Build-Tooling. Was sich ändert, was kaputtgeht und warum es wichtig ist."
-image: "https://opengraph.githubassets.com/80d818d1ffc6c3698c6a86f9be7dc3212b3713a3d3403d7bdb434efaba84e7fa/vitejs/vite"
+image: "/images/heroes/2026-03-26-vite-8-rolldown-era.png"
 date: "2026-03-26"
 category: Tooling
 author: lschvn
 readingTime: 4
-tags: ["vite", "javascript", "rolldown", "oxc", "build-tools", "tooling", "release"]
+tags: ["tooling", "javascript"]
 tldr:
   - "Vite 8 Beta ersetzt sowohl ESBuild als auch Rollup durch Rolldown als einheitlichen Bundler — die größte interne Änderung seit Vites erstem Release."
   - "Rolldown wird vom Oxc-Team entwickelt und bietet schnellere Builds mit geringerem Speicherverbrauch, besonders bei großen Codebasen."

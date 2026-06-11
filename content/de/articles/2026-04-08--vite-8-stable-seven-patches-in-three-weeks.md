@@ -1,24 +1,24 @@
 ---
 title: "Vite 8 Stable: Sieben Patches in drei Wochen nach dem Stable-Release"
 description: "Vite 8.0.0 stable wurde am 12. März veröffentlicht, und die Patches haben nicht aufgehört — v8.0.7 landete am 7. April mit Fixes für CSS, SSR, WASM und Dev-Server-Verhalten. Ein Kontrast zum langen Beta-Zyklus."
-image: "https://opengraph.githubassets.com/80d818d1ffc6c3698c6a86f9be7dc3212b3713a3d3403d7bdb434efaba84e7fa/vitejs/vite"
+image: "/images/heroes/2026-04-08--vite-8-stable-seven-patches-in-three-weeks.png"
 date: "2026-04-08"
 category: Tooling
 author: lschvn
 readingTime: 4
-tags: ["vite", "javascript", "build-tools", "tooling", "release", "rolldown"]
+tags: ["tooling", "javascript"]
 tldr:
   - "Vite 8.0.0 stable wurde am 12. März 2026 veröffentlicht, mit Rolldown als unified Bundler, der sowohl ESBuild als auch Rollup ersetzt."
   - "Sieben Patches (v8.0.1 bis v8.0.7) folgten in drei Wochen, mit Fixes für CSS, WASM SSR, Dev-Server-Neustarts und Sourcemap-Handling."
   - "Die Weiterleitung der Browser-Konsole an das Dev-Server-Terminal war eine stark nachgefragte DX-Verbesserung, die im Beta-Zyklus hinzugefügt wurde."
   - "Die rasante Patch-Frequenz spiegelt die Herausforderungen eines großen Bundler-Wechsels wider — Plugin-Autoren und große Projekte sollten das Changelog genau beobachten."
 faq:
-  - q: "Ist Vite 8 stable sicher für die Produktion?"
-    a: "Mit sieben Patches in drei Wochen adressiert das Vite-Team aktiv Regressionen. Für neue Projekte ist v8 vertretbar. Für große bestehende Projekte mit komplexer Build-Konfiguration: vor dem Upgrade testen."
-  - q: "Was ist der Unterschied zu dem Vite-8-Beta-Artikel vom 26. März?"
-    a: "Der Artikel vom 26. März behandelte die Beta-Features und die Rolldown-Migration. Dieser Artikel konzentriert sich auf das Stable-Release und die ungewöhnlich rasante Patch-Frequenz."
-  - q: "Sollte ich auf v8 upgraden oder bei v7 bleiben?"
-    a: "Für neue Projekte v8 verwenden. Für stabile v7-Projekte mit komplexer Build-Konfiguration den v7-zu-v8-Migrationsleitfaden prüfen, bevor upgegraded wird."
+  - question: "Ist Vite 8 stable sicher für die Produktion?"
+    answer: "Mit sieben Patches in drei Wochen adressiert das Vite-Team aktiv Regressionen. Für neue Projekte ist v8 vertretbar. Für große bestehende Projekte mit komplexer Build-Konfiguration: vor dem Upgrade testen."
+  - question: "Was ist der Unterschied zu dem Vite-8-Beta-Artikel vom 26. März?"
+    answer: "Der Artikel vom 26. März behandelte die Beta-Features und die Rolldown-Migration. Dieser Artikel konzentriert sich auf das Stable-Release und die ungewöhnlich rasante Patch-Frequenz."
+  - question: "Sollte ich auf v8 upgraden oder bei v7 bleiben?"
+    answer: "Für neue Projekte v8 verwenden. Für stabile v7-Projekte mit komplexer Build-Konfiguration den v7-zu-v8-Migrationsleitfaden prüfen, bevor upgegraded wird."
 ---
 
 Vite 8.0.0 ist am 12. März 2026 stable geworden. Drei Wochen und sieben Patches später ist das Vite-Team bei v8.0.7 (7. April). Das ist eine schnellere Reaktionsgeschwindigkeit als bei den meisten Major-Releases im JavaScript-Ökosystem, und es spiegelt die Komplexität wider, die mit dem gleichzeitigen Ersetzen von ESBuild und Rollup durch Rolldown als unified Bundler einhergeht.

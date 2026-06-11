@@ -1,24 +1,24 @@
 ---
 title: "Astro 6.1: Feinsteuerung für Bilder und verbessertes i18n-Routing"
 description: "Astro 6.1 ermöglicht die Konfiguration der Sharp-Encoder auf Pipeline-Ebene, fügt erweiterte SmartyPants-Optionen hinzu und macht i18n-Fallback-Routen für Integrationen zugänglich. Die Cloudflare-Übernahme prägt weiterhin die Roadmap."
-image: "https://opengraph.githubassets.com/1/withastro/astro"
+image: "/images/heroes/2026-04-08--astro-6-1-sharp-images-smartypants-i18n-fallback-routes.png"
 date: "2026-04-08"
 category: Frameworks
 author: lschvn
 readingTime: 4
-tags: ["astro", "javascript", "frameworks", "images", "i18n", "markdown", "release"]
+tags: ["frameworks", "tooling", "javascript"]
 tldr:
   - "Astro 6.1 bietet jetzt Encoder-spezifische Standardwerte für den Sharp-Pipeline — MozJPEG, WebP-Effort, AVIF-Chroma-Subsampling und PNG-Komprimierung können als Defaults gesetzt werden."
   - "SmartyPants akzeptiert nun ein vollständiges Optionsobjekt für die Feinjustierung von Gedankenstrichen, Anführungszeichen, Backticks und Auslassungspunkten — nützlich für Lokalisierung und typografische Standards."
   - "Integrationen können jetzt über `fallbackRoutes` auf dem `IntegrationResolvedRoute`-Typ auf i18n-Fallback-Routen zugreifen, was sitemap- und Routing-Integrationen korrigiert."
   - "Astro ist im Januar 2026 zu Cloudflare gestoßen; die Übernahme zeigt sich in der Priorisierung von content-lastigen, Edge-deployten Workloads."
 faq:
-  - q: "Was ist neu in Astro 6.1 im Vergleich zu 6.0?"
-    a: "Die Kernfunktionen sind Pipeline-Level Sharp-Encoder-Konfiguration, Optionsobjekt-Support für SmartyPants und die Exposition von `fallbackRoutes` auf dem Integrations-Hook. Dies sind gezielte Ergänzungen im Vergleich zu 6.0."
-  - q: "Muss ich beim Upgrade von Astro 6.0 etwas ändern?"
-    a: "Astro 6.1 ist ein Minor-Release — keine Breaking Changes zu erwarten. Die Sharp-Image-Defaults sind additiv, und das SmartyPants-Verhalten bleibt erhalten, sofern nicht explizit neu konfiguriert."
-  - q: "Was bedeutet 'i18n-Fallback-Routen für Integrationen'?"
-    a: "Seiten mit `fallbackType: 'rewrite'` erzeugen zusätzliche Routen, die vorher für Integrationen nicht sichtbar waren. Astro 6.1 macht diese über den `astro:routes:resolved`-Hook zugänglich."
+  - question: "Was ist neu in Astro 6.1 im Vergleich zu 6.0?"
+    answer: "Die Kernfunktionen sind Pipeline-Level Sharp-Encoder-Konfiguration, Optionsobjekt-Support für SmartyPants und die Exposition von `fallbackRoutes` auf dem Integrations-Hook. Dies sind gezielte Ergänzungen im Vergleich zu 6.0."
+  - question: "Muss ich beim Upgrade von Astro 6.0 etwas ändern?"
+    answer: "Astro 6.1 ist ein Minor-Release — keine Breaking Changes zu erwarten. Die Sharp-Image-Defaults sind additiv, und das SmartyPants-Verhalten bleibt erhalten, sofern nicht explizit neu konfiguriert."
+  - question: "Was bedeutet 'i18n-Fallback-Routen für Integrationen'?"
+    answer: "Seiten mit `fallbackType: 'rewrite'` erzeugen zusätzliche Routen, die vorher für Integrationen nicht sichtbar waren. Astro 6.1 macht diese über den `astro:routes:resolved`-Hook zugänglich."
 ---
 
 Astro 6.1 wurde am 31. März veröffentlicht — nicht so dramatisch wie Astros 6.0 mit dem experimentellen Rust-Compiler, aber mit drei gezielten Verbesserungen, die reale Reibungspunkte für content-lastige, Edge-deployte Sites adressieren.

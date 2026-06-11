@@ -2,22 +2,22 @@
 title: "npm Supply-Chain-Angriff: Red Hat durch Mini Shai-Hulud Kompromittiert"
 description: "Wiz Research entdeckt Miasma, einen neuen Supply-Chain-Angriff, der Credential-Diebstahl-Malware in 32+ Red Hat npm-Pakete einschleust."
 date: 2026-06-06
-image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-06-06--npm-supply-chain-attack-red-hat-mini-shai-hulud.png"
 author: lschvn
-tags: ["npm", "sicherheit", "supply-chain", "TypeScript", "JavaScript"]
+tags: ["security", "typescript", "javascript"]
 tldr:
   - "Am 1. Juni 2026 wurden 32+ @redhat-cloud-services npm-Pakete mit Mini-Shai-Hulud-Malware kompromittiert, mit insgesamt ca. 80.000 Weekly Downloads."
   - "Angreifer kompromittierten ein Red-Hat-Mitarbeiter-GitHub-Konto, um bösartige Orphan-Commits zu推送, die die Code-Review umgingen und gültige SLSA-Provenienz-Attestierungen erzeugten."
   - "Die Malware zielt jetzt auf GCP- und Azure-Cloud-Identitäten mit Per-Infection-Verschlüsselung ab, was die Hash-basierte Erkennung deutlich erschwert."
 faq:
-  - q: "Welche npm-Pakete waren betroffen?"
-    a: "32+ Pakete im @redhat-cloud-services-Namensraum wurden kompromittiert, darunter topological-inventory-client, compliance-client, rbac-client, insights-client, frontend-components und weitere."
-  - q: "Was ist Mini Shai-Hulud?"
-    a: "Mini Shai-Hulud ist Open-Source-npm-Supply-Chain-Angriffs-Malware, die ursprünglich von der Bedrohungsgruppe TeamPCP Ende 2025 veröffentlicht wurde. Der Miasma-Variant verwendet dieselbe Technik, ersetzt aber Dune-Referenzen durch griechische Mythologie ('spartan')."
-  - q: "Wie umging der Angriff die Sicherheitskontrollen?"
-    a: "Der Angreifer nutzte einen GitHub-Actions-Workflow, der ein OIDC-Identitätstoken (id-token: write) anforderte, um Pakete mit gültigen SLSA-Attestierungen zu veröffentlichen, was sie als vertrauenswürdig erscheinen ließ."
-  - q: "Was sollten Entwickler tun?"
-    a: "Systeme auf betroffene Pakete, GitHub-Aktivität und VSCode-Erweiterungen prüfen. GitHub-Tokens, SSH-Schlüssel und Cloud-Credentials erneuern. Dependency-Allowlisting und SBOM-Generierung einführen."
+  - question: "Welche npm-Pakete waren betroffen?"
+    answer: "32+ Pakete im @redhat-cloud-services-Namensraum wurden kompromittiert, darunter topological-inventory-client, compliance-client, rbac-client, insights-client, frontend-components und weitere."
+  - question: "Was ist Mini Shai-Hulud?"
+    answer: "Mini Shai-Hulud ist Open-Source-npm-Supply-Chain-Angriffs-Malware, die ursprünglich von der Bedrohungsgruppe TeamPCP Ende 2025 veröffentlicht wurde. Der Miasma-Variant verwendet dieselbe Technik, ersetzt aber Dune-Referenzen durch griechische Mythologie ('spartan')."
+  - question: "Wie umging der Angriff die Sicherheitskontrollen?"
+    answer: "Der Angreifer nutzte einen GitHub-Actions-Workflow, der ein OIDC-Identitätstoken (id-token: write) anforderte, um Pakete mit gültigen SLSA-Attestierungen zu veröffentlichen, was sie als vertrauenswürdig erscheinen ließ."
+  - question: "Was sollten Entwickler tun?"
+    answer: "Systeme auf betroffene Pakete, GitHub-Aktivität und VSCode-Erweiterungen prüfen. GitHub-Tokens, SSH-Schlüssel und Cloud-Credentials erneuern. Dependency-Allowlisting und SBOM-Generierung einführen."
 ---
 
 Am 1. Juni 2026 identifizierte Wiz Research eine neue Welle von npm-Supply-Chain-Kompromittierungen, die auf den npm-Namensraum `@redhat-cloud-services` abzielten. Die Kampagne, genannt **Miasma**, schleuste Credential-Diebstahl-Malware in mindestens 32 Paket-Releases ein, mit insgesamt rund 80.000 Weekly Downloads. Der bösartige Code wurde inzwischen größtenteils widerrufen, aber der Vorfall zeigt, wie weit Supply-Chain-Angreifer sich entwickelt haben.

@@ -2,9 +2,9 @@
 title: "GitHub Copilot's Quiet Policy Shift: Your Code Will Train Their Models Unless You Opt Out"
 description: "Starting April 24, 2026, GitHub will use interaction data from Free, Pro, and Pro+ Copilot users to train AI models — unless they manually opt out. Business and Enterprise tiers are unaffected. Here's what changes and how to protect your code."
 date: 2026-04-02
-image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-02--github-copilot-ai-training-data-policy.png"
 author: lschvn
-tags: ["GitHub", "Copilot", "AI", "data privacy", "machine learning", "open source"]
+tags: ["security", "ai", "ecosystem"]
 readingTime: 5
 tldr:
   - "From April 24, GitHub will use Free/Pro/Pro+ Copilot interaction data (inputs, outputs, code snippets, context) to train AI models by default — opt-out required."

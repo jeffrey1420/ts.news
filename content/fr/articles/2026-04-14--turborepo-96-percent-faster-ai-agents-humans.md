@@ -2,22 +2,22 @@
 title: "Turborepo Est 96% Plus Rapide — L'Expérience AI Agents Chez Vercel"
 description: "Les ingénieurs de Vercel ont utilisé des agents de coding IA pour optimiser la base de code Rust de Turborepo, atteignant 81 à 96% de réduction du temps de calcul du graphe de tâches. Voici le processus, les gains et les limites rencontrées."
 date: "2026-04-14"
-image: "https://opengraph.githubassets.com/vercel/turborepo"
+image: "/images/heroes/2026-04-14--turborepo-96-percent-faster-ai-agents-humans.png"
 category: Outillage
 author: lschvn
 readingTime: 5
-tags: ["turborepo", "vercel", "monorepo", "build-tools", "rust", "ai-agents"]
+tags: ["ai", "tooling", "ecosystem"]
 tldr:
   - "Le calcul du graphe de tâches de Turborepo est désormais 81 à 96% plus rapide selon la taille du dépôt, après une semaine d'optimisation Rust assistée par IA."
   - "L'équipe Vercel a combiné des agents IA avec des formats de profilage Markdown lisibles par LLMs — les stack traces en texte brut ont considérablement amélioré la qualité des suggestions des agents."
   - "Les gains les plus importants viennent de la parallélisation (opérations git, glob et lockfile simultanées), de l'élimination des allocations redondantes et du regroupement des opérations syscalls lourdes."
 faq:
-  - q: "Les agents IA peuvent-ils remplacer les ingénieurs humains pour le travail de performance ?"
-    a: "Non — les ingénieurs Vercel ont constaté que les agents se focalisaient sur des microbenchmarks, produisaient des améliorations trompeuses et n'écrivaient jamais de tests de régression. Le jugement humain est resté essentiel pour la validation."
-  - q: "Qu'est-ce qui a rendu l'approche de profilage plus efficace pour les agents ?"
-    a: "Le format JSON standard Chrome Trace était difficile à parser pour les agents. Passer à un format de profil Markdown — trié par temps propre, greppable, entrées sur une seule ligne — a produit des suggestions d'optimisation nettement meilleures."
-  - q: "Qu'est-ce qui a exactement accéléré dans Turborepo ?"
-    a: "L'implémentation Rust a été optimisée selon trois axes : la parallélisation des opérations séquentielles, l'élimination des allocations et clones redondants, et le regroupement des opérations git lourdes en syscalls via des bibliothèques plus rapides comme gix-index."
+  - question: "Les agents IA peuvent-ils remplacer les ingénieurs humains pour le travail de performance ?"
+    answer: "Non — les ingénieurs Vercel ont constaté que les agents se focalisaient sur des microbenchmarks, produisaient des améliorations trompeuses et n'écrivaient jamais de tests de régression. Le jugement humain est resté essentiel pour la validation."
+  - question: "Qu'est-ce qui a rendu l'approche de profilage plus efficace pour les agents ?"
+    answer: "Le format JSON standard Chrome Trace était difficile à parser pour les agents. Passer à un format de profil Markdown — trié par temps propre, greppable, entrées sur une seule ligne — a produit des suggestions d'optimisation nettement meilleures."
+  - question: "Qu'est-ce qui a exactement accéléré dans Turborepo ?"
+    answer: "L'implémentation Rust a été optimisée selon trois axes : la parallélisation des opérations séquentielles, l'élimination des allocations et clones redondants, et le regroupement des opérations git lourdes en syscalls via des bibliothèques plus rapides comme gix-index."
 ---
 
 Les ingénieurs de Vercel ont passé une semaine en mars 2026 à utiliser des agents de coding IA pour optimiser le planificateur de tâches Rust de Turborepo. Le résultat : le calcul du graphe de tâches est désormais **81 à 96% plus rapide**, selon la taille du dépôt. Sur un monorepo de 1 000 paquets, `turbo run` est passé de 10 secondes de surcharge à une sensation quasi instantanée. Le compte-rendu mérite d'être lu pour tous ceux qui travaillent sur des outils JavaScript haute performance.
@@ -25,6 +25,8 @@ Les ingénieurs de Vercel ont passé une semaine en mars 2026 à utiliser des ag
 ## Commencer Avec des Agents Non Supervisés
 
 L'expérience a commencé avec huit agents de coding en arrière-plan, chacun ciblant une zone différente de la base de code Rust. Chaque agent recevait un objectif vague — trouver des problèmes de performance — sans guidance détaillée. Le lendemain matin, trois avaient produit des résultats exploitables : une réduction de 25% du temps réel en passant au hachage par référence, un gain de 6% grâce au remplacement de la crate `twox-hash` par `xxhash-rust`, et un nettoyage d'un algorithme de Floyd-Warshall devenu inutile.
+
+![Turborepo 2.9, délai avant la première tâche : 81 à 96 % plus rapide](/images/charts/turborepo-time-to-first-task.png)
 
 Mais les ingénieurs ont rapidement identifié un schéma : **les agents produisaient des microbenchmarks impressionnants qui ne se traduisaient pas en gains réels**. Un agent a produit une « amélioration de 97% » sur un microbenchmark qui ne représentait que 0,02% en pratique. Les agents n'écrivaient jamais de tests de régression. Ils n'utilisaient jamais le flag `--profile`. Et surtout, ils effectuaient leurs tests sur des cibles synthétiques plutôt que sur la base de code Turborepo réelle.
 

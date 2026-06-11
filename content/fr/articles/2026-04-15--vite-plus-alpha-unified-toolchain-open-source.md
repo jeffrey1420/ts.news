@@ -1,23 +1,23 @@
 ---
 title: "Vite+ Alpha : la toolchain unifiée de VoidZero veut remplacer tout votre écosystème JS"
 description: "Vite+ Alpha sort en licence MIT, unifiant Vite, Vitest, Oxlint, Oxfmt et Rolldown dans un seul binaire vp. Gestion du runtime Node.js et du gestionnaire de paquets incluse."
-image: "https://viteplus.dev/og.jpg"
+image: "/images/heroes/2026-04-15--vite-plus-alpha-unified-toolchain-open-source.png"
 date: "2026-04-15"
 category: Outils
 author: lschvn
 readingTime: 5
-tags: ["vite", "javascript", "outillage", "voidzero", "rolldown", "oxc", "release"]
+tags: ["tooling", "javascript"]
 tldr:
   - "Vite+ Alpha est disponible en licence MIT, combinant Vite, Vitest, Oxlint, Oxfmt, Rolldown et tsdown dans un seul binaire vp."
   - "Le nouveau runner de tâches Vite Task gère les builds monorepo avec du cache automatique — sans configuration manuelle."
   - "VoidZero a publié Vite+ en open source après avoir envisagé une licence payante, citant le feedback communautaire comme raison du passage au MIT."
 faq:
-  - q: "Vite+ remplace-t-il Vite ?"
-    a: "Non. Vite+ est une surcouche au-dessus de Vite 8 (et Vitest, Oxlint, Oxfmt, Rolldown, tsdown). Les projets sous-jacents restent indépendants."
-  - q: "Comment Vite+ diffère-t-il de l'utilisation directe de Vite 8 ?"
-    a: "Vite 8 gère le serveur de dev et les builds de prod. Vite+ ajoute vp install (gestionnaire de paquets intelligent), vp check (linting + formatage + typage), vp test (Vitest), vp run (task runner avec cache), vp pack (bundling library via tsdown), et vp env (gestion de version Node.js) — le tout dans un binaire avec un seul fichier de config."
-  - q: "Qu'en est-il de la licence ? C'est vraiment gratuit ?"
-    a: "Oui, licence MIT. VoidZero avait initialement prévu une licence commerciale mais a changé de cap. Leur modèle repose sur Void Cloud, leur plateforme hébergée."
+  - question: "Vite+ remplace-t-il Vite ?"
+    answer: "Non. Vite+ est une surcouche au-dessus de Vite 8 (et Vitest, Oxlint, Oxfmt, Rolldown, tsdown). Les projets sous-jacents restent indépendants."
+  - question: "Comment Vite+ diffère-t-il de l'utilisation directe de Vite 8 ?"
+    answer: "Vite 8 gère le serveur de dev et les builds de prod. Vite+ ajoute vp install (gestionnaire de paquets intelligent), vp check (linting + formatage + typage), vp test (Vitest), vp run (task runner avec cache), vp pack (bundling library via tsdown), et vp env (gestion de version Node.js) — le tout dans un binaire avec un seul fichier de config."
+  - question: "Qu'en est-il de la licence ? C'est vraiment gratuit ?"
+    answer: "Oui, licence MIT. VoidZero avait initialement prévu une licence commerciale mais a changé de cap. Leur modèle repose sur Void Cloud, leur plateforme hébergée."
 ---
 
 VoidZero publie aujourd'hui Vite+ Alpha, une toolchain de développement unifiée qui condense la complexité croissante de l'écosystème JavaScript en un seul binaire appelé `vp`. L'annonce couvre tout, de la gestion du runtime à la build de production, et tout est open source sous licence MIT.

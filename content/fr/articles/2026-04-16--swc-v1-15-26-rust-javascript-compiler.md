@@ -1,23 +1,23 @@
 ---
 title: "SWC v1.15.26 : le compilateur JavaScript propulsé par Rust continue d'avancer"
 description: "Le compilateur JavaScript/TypeScript écrit en Rust publié par swc-project sort la v1.15.26 avec des corrections de bugs, des améliorations de performance et une intégration toujours plus profonde dans l'écosystème Node.js."
-image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-16--swc-v1-15-26-rust-javascript-compiler.png"
 date: "2026-04-16"
 category: Outils
 author: lschvn
 readingTime: 4
-tags: ["SWC", "Rust", "JavaScript", "TypeScript", "compilateur", "bundler", "Parcel", "Next.js"]
+tags: ["frameworks", "tooling", "typescript"]
 tldr:
   - "SWC v1.15.26 est sorti le 14 avril 2026, poursuivant le cycle de release rapide du compilateur JavaScript/TypeScript écrit en Rust avec des corrections de bugs et des améliorations de compatibilité."
   - "SWC (speedy web compiler) est utilisé en production par Next.js, Parcel et Deno, en concurrence avec Babel et esbuild dans l'espace de la compilation JavaScript."
   - "L'approche basée sur Rust offre à SWC des avantages de performance significatifs par rapport aux compilateurs JavaScript — typiquement 20 à 70 fois plus rapide que Babel — tout en maintenant la compatibilité avec TypeScript et JSX."
 faq:
-  - q: "Qu'est-ce que SWC ?"
-    a: "SWC est une plateforme extensible basée sur Rust pour le web. Il a commencé comme un compilateur TypeScript/JavaScript haute vitesse écrit en Rust, conçu pour remplacer Babel. Il est utilisé par Next.js (en option), Parcel et Deno pour la transpilation interne. Il produit un output compatible avec les transforms Babel tout en étant significativement plus rapide."
-  - q: "Comment SWC se compare-t-il à esbuild ou OXC ?"
-    a: "SWC, esbuild et OXC sont tous des projets d'outillage JavaScript basés sur Rust qui竞争 dans l'espace de la compilation et du bundling. esbuild est le plus ancien et se concentre sur la vitesse brute. OXC est plus récent, soutenu par l'équipe Vercel/Nx, ciblant la parité de fonctionnalités avec le vérificateur de types TypeScript et le bundler Rollup. SWC se situe entre les deux — il a été renforcé en production plus longtemps qu'OXC et possède un écosystème de plugins plus large."
-  - q: "SWC est-il utilisé dans Next.js ?"
-    a: "Oui. Next.js a ajouté SWC comme compilateur optionnel à partir de la version 12, et il est devenu le compilateur par défaut dans Next.js 13. Les utilisateurs peuvent opter pour Babel à la place pour des besoins spécifiques de compatibilité de transforms."
+  - question: "Qu'est-ce que SWC ?"
+    answer: "SWC est une plateforme extensible basée sur Rust pour le web. Il a commencé comme un compilateur TypeScript/JavaScript haute vitesse écrit en Rust, conçu pour remplacer Babel. Il est utilisé par Next.js (en option), Parcel et Deno pour la transpilation interne. Il produit un output compatible avec les transforms Babel tout en étant significativement plus rapide."
+  - question: "Comment SWC se compare-t-il à esbuild ou OXC ?"
+    answer: "SWC, esbuild et OXC sont tous des projets d'outillage JavaScript basés sur Rust qui竞争 dans l'espace de la compilation et du bundling. esbuild est le plus ancien et se concentre sur la vitesse brute. OXC est plus récent, soutenu par l'équipe Vercel/Nx, ciblant la parité de fonctionnalités avec le vérificateur de types TypeScript et le bundler Rollup. SWC se situe entre les deux — il a été renforcé en production plus longtemps qu'OXC et possède un écosystème de plugins plus large."
+  - question: "SWC est-il utilisé dans Next.js ?"
+    answer: "Oui. Next.js a ajouté SWC comme compilateur optionnel à partir de la version 12, et il est devenu le compilateur par défaut dans Next.js 13. Les utilisateurs peuvent opter pour Babel à la place pour des besoins spécifiques de compatibilité de transforms."
 ---
 
 swc-project/swc v1.15.26 est sorti le 14 avril 2026, marquant une nouvelle release de maintenance dans le cycle régulier du compilateur JavaScript et TypeScript basé sur Rust. Le projet, renforcé en production à travers son intégration dans Next.js, Parcel et Deno, continue de livrer des corrections de compatibilité et des optimisations sans nouvelles fonctionnalités majeures dans ce cycle.

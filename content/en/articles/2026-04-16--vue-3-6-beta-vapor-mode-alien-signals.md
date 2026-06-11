@@ -1,25 +1,25 @@
 ---
 title: "Vue 3.6 Enters Beta: Vapor Mode Complete, Reactivity Revamped"
 description: "Vue 3.6 has entered beta with the completion of Vapor Mode — a virtual-DOM-free compilation path — and a major reactivity system overhaul based on alien-signals, promising significant performance gains."
-image: "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-16--vue-3-6-beta-vapor-mode-alien-signals.png"
 date: "2026-04-16"
 category: Frameworks
 author: lschvn
 readingTime: 5
-tags: ["Vue", "Vue 3", "Vapor Mode", "JavaScript", "performance", "reactivity", "alien-signals"]
+tags: ["frameworks", "performance", "javascript"]
 tldr:
   - "Vue 3.6 beta has shipped with Vapor Mode achieving full feature parity with the traditional virtual DOM mode — a compilation target that bypasses the vdom entirely for direct DOM operations."
   - "The @vue/reactivity package has been refactored using alien-signals, a signals implementation that provides better performance and lower memory overhead than the previous reactive() implementation."
   - "Vapor Mode enables Vue templates to compile to highly optimized JavaScript that manipulates the DOM directly, similar to what Solid or Svelte do, but maintaining full compatibility with Vue's component model."
 faq:
-  - q: "What is Vapor Mode in Vue?"
-    a: "Vapor Mode is a new compilation target for Vue 3 that compiles templates to direct DOM manipulation code instead of virtual DOM operations. It was first announced at VueConf 2025 and has been in development since. Unlike the virtual DOM approach (which creates vnode objects and diffs them), Vapor Mode compiles template code to JavaScript that directly creates, updates, and removes DOM nodes. This makes Vue apps significantly faster and smaller because the virtual DOM layer is eliminated entirely at runtime."
-  - q: "How does Vapor Mode differ from Nuxt/Vue server-side rendering?"
-    a: "SSR and Vapor Mode are independent concepts. SSR renders Vue components to HTML on the server for fast first-paint. Vapor Mode is about the compilation strategy on the client — it can be used with or without SSR. When SSR and Vapor Mode are combined, the server renders HTML once (as always) and the client hydrates it using Vapor's efficient DOM update mechanisms instead of the heavier vdom hydration process."
-  - q: "What is alien-signals?"
-    a: "alien-signals is a high-performance signals implementation that Vue's core team adopted for @vue/reactivity in 3.6. Signals are a reactive primitive where accessing a signal automatically tracks dependencies and triggers updates in dependent computations. The alien-signals implementation prioritizes execution speed and minimal memory allocation over some of the debugging ergonomics of Vue's previous implementation."
-  - q: "Do I need to change my Vue code for Vapor Mode?"
-    a: "Vapor Mode is designed to be as compatible as possible with existing Vue 3 component code. The goal is that most components using standard Composition API patterns will work without modification. Components that rely heavily on internal Vue vdom APIs or bypass Vue's reactivity system may require adjustments. The Vue team has been testing against real-world Vue applications to identify compatibility gaps before stable release."
+  - question: "What is Vapor Mode in Vue?"
+    answer: "Vapor Mode is a new compilation target for Vue 3 that compiles templates to direct DOM manipulation code instead of virtual DOM operations. It was first announced at VueConf 2025 and has been in development since. Unlike the virtual DOM approach (which creates vnode objects and diffs them), Vapor Mode compiles template code to JavaScript that directly creates, updates, and removes DOM nodes. This makes Vue apps significantly faster and smaller because the virtual DOM layer is eliminated entirely at runtime."
+  - question: "How does Vapor Mode differ from Nuxt/Vue server-side rendering?"
+    answer: "SSR and Vapor Mode are independent concepts. SSR renders Vue components to HTML on the server for fast first-paint. Vapor Mode is about the compilation strategy on the client — it can be used with or without SSR. When SSR and Vapor Mode are combined, the server renders HTML once (as always) and the client hydrates it using Vapor's efficient DOM update mechanisms instead of the heavier vdom hydration process."
+  - question: "What is alien-signals?"
+    answer: "alien-signals is a high-performance signals implementation that Vue's core team adopted for @vue/reactivity in 3.6. Signals are a reactive primitive where accessing a signal automatically tracks dependencies and triggers updates in dependent computations. The alien-signals implementation prioritizes execution speed and minimal memory allocation over some of the debugging ergonomics of Vue's previous implementation."
+  - question: "Do I need to change my Vue code for Vapor Mode?"
+    answer: "Vapor Mode is designed to be as compatible as possible with existing Vue 3 component code. The goal is that most components using standard Composition API patterns will work without modification. Components that rely heavily on internal Vue vdom APIs or bypass Vue's reactivity system may require adjustments. The Vue team has been testing against real-world Vue applications to identify compatibility gaps before stable release."
 ---
 
 Vue 3.6 beta has landed, and it marks a pivotal moment for the framework's evolution. The headline achievements: **Vapor Mode has reached feature parity with the virtual DOM system**, and the reactivity package has undergone a foundational refactor using the alien-signals library. Together, these changes position Vue 3.6 as one of the most significant releases in the framework's history.

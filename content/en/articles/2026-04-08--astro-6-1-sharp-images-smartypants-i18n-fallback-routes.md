@@ -1,24 +1,24 @@
 ---
 title: "Astro 6.1 Brings Fine-Grained Image Control and Smarter i18n Routing"
 description: "Astro 6.1 lets you tune Sharp's encoder settings at the pipeline level, adds advanced SmartyPants configuration, and exposes i18n fallback routes to the integration hook system. Cloudflare acquisition continues to shape the roadmap."
-image: "https://opengraph.githubassets.com/1/withastro/astro"
+image: "/images/heroes/2026-04-08--astro-6-1-sharp-images-smartypants-i18n-fallback-routes.png"
 date: "2026-04-08"
 category: Frameworks
 author: lschvn
 readingTime: 4
-tags: ["astro", "javascript", "frameworks", "images", "i18n", "markdown", "release"]
+tags: ["frameworks", "tooling", "javascript"]
 tldr:
   - "Astro 6.1 exposes Sharp encoder options at the pipeline level — MozJPEG, WebP effort, AVIF chroma subsampling, and PNG compression can now be set as defaults before per-image quality overrides."
   - "The SmartyPants Markdown plugin now accepts a full options object for fine-tuning dashes, quotes, backticks, and ellipses — useful for localization and typographic standards."
   - "Integrations can now access i18n fallback routes via `fallbackRoutes` on the `IntegrationResolvedRoute` type, fixing sitemap and routing integrations for sites using rewrite-based fallbacks."
   - "Astro joined Cloudflare in January 2026; the acquisition is visible in how the team prioritizes content-heavy, edge-deployed workloads."
 faq:
-  - q: "What's new in Astro 6.1 compared to 6.0?"
-    a: "The headline features are pipeline-level Sharp encoder configuration, SmartyPants options object support, and `fallbackRoutes` exposure on the integration route hook. These are smaller additions compared to 6.0's experimental Rust compiler and refactored dev server."
-  - q: "Do I need to change anything when upgrading from Astro 6.0?"
-    a: "Astro 6.1 is a minor release — no breaking changes are expected. The Sharp image defaults are additive, and SmartyPants behavior is preserved unless you explicitly reconfigure it."
-  - q: "What does 'i18n fallback routes for integrations' mean?"
-    a: "Sites using `fallbackType: 'rewrite'` generate extra routes that weren't visible to integrations before. Astro 6.1 exposes these via the `astro:routes:resolved` hook so tools like the sitemap integration can include them."
+  - question: "What's new in Astro 6.1 compared to 6.0?"
+    answer: "The headline features are pipeline-level Sharp encoder configuration, SmartyPants options object support, and `fallbackRoutes` exposure on the integration route hook. These are smaller additions compared to 6.0's experimental Rust compiler and refactored dev server."
+  - question: "Do I need to change anything when upgrading from Astro 6.0?"
+    answer: "Astro 6.1 is a minor release — no breaking changes are expected. The Sharp image defaults are additive, and SmartyPants behavior is preserved unless you explicitly reconfigure it."
+  - question: "What does 'i18n fallback routes for integrations' mean?"
+    answer: "Sites using `fallbackType: 'rewrite'` generate extra routes that weren't visible to integrations before. Astro 6.1 exposes these via the `astro:routes:resolved` hook so tools like the sitemap integration can include them."
 ---
 
 Astro 6.1 dropped on March 31, and while it's not as dramatic a release as Astro 6.0's experimental Rust compiler, it ships three targeted improvements that address real friction points for content-heavy sites deployed at the edge.

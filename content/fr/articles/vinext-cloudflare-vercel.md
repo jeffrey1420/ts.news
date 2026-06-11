@@ -4,9 +4,9 @@ description: "Comment Cloudflare a utilisé l'IA pour recréer le framework phar
 date: "2026-03-21"
 category: "deep-dive"
 author: lschvn
-tags: ["cloudflare", "vercel", "controversy", "vinext"]
+tags: ["frameworks", "ecosystem"]
 readingTime: 12
-image: "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/64oL10LCSz30EiEHWVdJPG/aeaed48a681ec3d5bc9d8cb6e5e30a96/BLOG-3194_1.png"
+image: "/images/heroes/vinext-cloudflare-vercel.png"
 tldr:
   - "vinext réimplémente l'API Surface de Next.js comme plugin Vite, construit principalement par IA (Claude Code) pour ~1 100$ de tokens API en une semaine."
   - "Sur une app de 33 routes, vinext build 4,4x plus vite (1,67s vs 7,38s) avec des bundles clients 57% plus petits (72,9KB vs 168,9KB)."
@@ -26,6 +26,8 @@ Le 24 février 2026, Cloudflare a publié un billet de blog qui a envoyé des on
 ## Qu'est-ce que vinext ?
 
  vinext est un plugin Vite qui réimplémente l'API publique de Next.js — routage, rendu serveur, React Server Components, actions serveur, cache, middleware et plus — sur l'infrastructure de build de Vite au lieu du compilateur propriétaire de Next.js.
+
+![vinext construit la même app de 33 routes 4,4x plus vite que Next.js 16](/images/charts/vinext-build.png)
 
 La différenciation clé est la flexibilité de déploiement. La où Next.js requiert traditionnellement Vercel, vinext expédie vers Cloudflare Workers nativement avec une seule commande :
 

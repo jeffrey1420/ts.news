@@ -2,14 +2,9 @@
 title: "Deno 2.8: Audit Fix, CI-Subcommand und Native Pack-Tool"
 description: "Deno 2.8 bringt vier neue CLI-Subcommands, verbesserte Node.js-Kompatibilität und einen Rust-basierten Packager für npm-Registries."
 date: 2026-06-01
-image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200"
+image: "/images/heroes/2026-06-01--deno-2-8-audit-fix-ci-pack-subcommands.png"
 author: lschvn
-tags:
-  - deno
-  - runtime
-  - javascript
-  - typescript
-  - nodejs
+tags: ["runtimes", "typescript", "javascript"]
 ---
 
 Deno 2.8 ist da — und diesmal geht es nicht um ein einzelnes Killer-Feature, sondern um eine Sammlung von Quality-of-Life-Verbesserungen, die die Lücke zu Node.js schließen und gleichzeitig wirklich neue Tools hinzufügen. Die Version wurde am 22. Mai veröffentlicht, mit einem Patch (v2.8.1) fünf Tage später.

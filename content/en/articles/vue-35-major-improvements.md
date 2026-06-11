@@ -4,9 +4,9 @@ description: "Vue 3.5 arrived with no breaking changes and a set of internals im
 date: "2026-03-22"
 category: "deep-dive"
 author: lschvn
-tags: ["vue", "javascript", "frontend", "performance", "ssr", "typescript"]
+tags: ["frameworks", "typescript", "performance"]
 readingTime: 10
-image: "https://opengraph.githubassets.com/f7b424ad79df220a2cc8c8a5cc2d08e45d1657724c9600dc28af967788f7a38a/vuejs/core"
+image: "/images/heroes/vue-35-major-improvements.png"
 tldr:
   - "Vue 3.5 delivers 56% lower memory usage and up to 10x faster operations on large deeply reactive arrays via a reactivity system refactor."
   - "Reactive props destructuring is stabilized — destructuring in `<script setup>` now preserves reactivity without withDefaults()."
@@ -16,7 +16,7 @@ tldr:
 
 Vue 3.5 dropped in September 2024 with what Evan You called a minor release — and a refactored reactivity system that delivers **56% lower memory usage** and **up to 10× faster operations on large, deeply reactive arrays**. The developer community's response was roughly: *"This does not feel like a minor release."*
 
-The numbers back that instinct up. Vue 3.5's refactored reactivity system delivers **56% lower memory usage** and **up to 10× faster operations on large, deeply reactive arrays**. Those aren't incremental gains — they're the kind of improvements that change what "large-scale Vue" means in practice.
+Those aren't incremental gains — they're the kind of improvements that change what "large-scale Vue" means in practice.
 
 This article is a look at what actually changed, what it means for your applications, and where Vue is headed next.
 

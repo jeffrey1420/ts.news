@@ -1,26 +1,26 @@
 ---
 title: "State of TypeScript 2026: GitHub's #1 Language, Project Corsa, and the Supply Chain Reckoning"
 description: "A look back at the major events that reshaped TypeScript's position in the JavaScript ecosystem — from surpassing JavaScript on GitHub to npm supply chain compromises and the Go-based compiler rewrite targeting 10x faster builds."
-image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop"
+image: "/images/heroes/2026-04-09--state-of-typescript-2026-ecosystem-retrospective.png"
 date: "2026-04-09"
 category: Ecosystem
 author: lschvn
 readingTime: 6
-tags: ["TypeScript", "GitHub", "Project Corsa", "npm", "security", "ecosystem", "Go", "Node.js"]
+tags: ["security", "runtimes", "typescript"]
 tldr:
   - "TypeScript became GitHub's #1 language by contributor count in August 2025, reaching 2.6 million monthly contributors — a 66% year-over-year increase — in what GitHub called the most significant language shift in over a decade."
   - "Microsoft's Project Corsa, a native Go port of the TypeScript compiler, showed 10x build speedups in early benchmarks and is targeting TypeScript 7.0 as the first Go-based release."
   - "The npm ecosystem faced coordinated supply chain attacks (s1ngularity, debug/chalk, Shai-Hulud) and the React2Shell CVSS 10.0 vulnerability, forcing a security reckoning across the JS world."
   - "Node.js 22.18 stabilized native TypeScript execution via type stripping, enabling direct .ts file running without transpilation — a milestone that fundamentally bifurcates TypeScript into erasable syntax and runtime syntax."
 faq:
-  - q: "What is Project Corsa?"
-    a: "Project Corsa is Microsoft's native port of the TypeScript compiler and language service from JavaScript to Go. Initial benchmarks showed the VS Code codebase compiling in 7.5 seconds versus 77.8 seconds with the current TypeScript compiler. TypeScript 6.0 is the last release on the old codebase; TypeScript 7.0 (expected mid-2026) is planned as the first Go-based release."
-  - q: "What were the npm supply chain incidents in 2025?"
-    a: "Three major incidents: s1ngularity, the compromise of the debug and chalk packages, and the Shai-Hulud attack. CISA issued an alert on the Shai-Hulud campaign in September 2025. The common thread was automated exploitation of maintainer authentication gaps and CI workflow vulnerabilities, leading to malicious code published under trusted package names."
-  - q: "What does 'type stripping' mean for Node.js?"
-    a: "Type stripping is a Node.js feature that enables running TypeScript files directly without transpilation. Node.js skips type syntax at runtime (types are erasable) but executes the runtime syntax like enums and namespaces. Node.js 22.18 stabilized this in late 2025, and it became fully stable in v25.2.0. It removes the need for ts-node or tsx in many workflows."
-  - q: "What is React2Shell (CVE-2025-55182)?"
-    a: "A critical remote code execution vulnerability in React Server Components (RSC) with a CVSS score of 10.0 — the maximum severity. It was discovered in Next.js applications using RSC and forced a broad security re-evaluation of full-stack JavaScript serialization models. React patched it in December 2025."
+  - question: "What is Project Corsa?"
+    answer: "Project Corsa is Microsoft's native port of the TypeScript compiler and language service from JavaScript to Go. Initial benchmarks showed the VS Code codebase compiling in 7.5 seconds versus 77.8 seconds with the current TypeScript compiler. TypeScript 6.0 is the last release on the old codebase; TypeScript 7.0 (expected mid-2026) is planned as the first Go-based release."
+  - question: "What were the npm supply chain incidents in 2025?"
+    answer: "Three major incidents: s1ngularity, the compromise of the debug and chalk packages, and the Shai-Hulud attack. CISA issued an alert on the Shai-Hulud campaign in September 2025. The common thread was automated exploitation of maintainer authentication gaps and CI workflow vulnerabilities, leading to malicious code published under trusted package names."
+  - question: "What does 'type stripping' mean for Node.js?"
+    answer: "Type stripping is a Node.js feature that enables running TypeScript files directly without transpilation. Node.js skips type syntax at runtime (types are erasable) but executes the runtime syntax like enums and namespaces. Node.js 22.18 stabilized this in late 2025, and it became fully stable in v25.2.0. It removes the need for ts-node or tsx in many workflows."
+  - question: "What is React2Shell (CVE-2025-55182)?"
+    answer: "A critical remote code execution vulnerability in React Server Components (RSC) with a CVSS score of 10.0 — the maximum severity. It was discovered in Next.js applications using RSC and forced a broad security re-evaluation of full-stack JavaScript serialization models. React patched it in December 2025."
 ---
 
 2025 was the year TypeScript stopped being a popular alternative and became the default language of the JavaScript ecosystem. That dominance brought new pressures: compiler performance bottlenecks, supply chain scrutiny, and security vulnerabilities that live at the intersection of types and runtime.

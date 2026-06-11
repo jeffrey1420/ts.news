@@ -4,9 +4,9 @@ description: "How Cloudflare used AI to recreate Vercel's flagship framework and
 date: "2026-03-21"
 category: "deep-dive"
 author: lschvn
-tags: ["cloudflare", "vercel", "controversy", "vinext"]
+tags: ["frameworks", "ecosystem"]
 readingTime: 12
-image: "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/64oL10LCSz30EiEHWVdJPG/aeaed48a681ec3d5bc9d8cb6e5e30a96/BLOG-3194_1.png"
+image: "/images/heroes/vinext-cloudflare-vercel.png"
 tldr:
   - "Cloudflare's vinext reimplements the Next.js API surface as a Vite plugin, built mostly by AI (Claude Code) for ~$1,100 in API tokens in one week."
   - "On a 33-route app, vinext builds 4.4x faster (1.67s vs 7.38s) with 57% smaller client bundles (72.9KB vs 168.9KB)."
@@ -23,6 +23,8 @@ The announcement wasn't just a technical demo. It was a direct challenge to one 
 ## What is vinext?
 
 At its core, vinext is a Vite plugin that reimplements the public Next.js API—routing, server rendering, React Server Components, server actions, caching, middleware, and more—on top of Vite's build infrastructure instead of Next.js's proprietary compiler.
+
+![vinext builds the same 33-route app 4.4x faster than Next.js 16](/images/charts/vinext-build.png)
 
 The key differentiator is deployment flexibility. Where Next.js traditionally requires Vercel (or complex workarounds to deploy elsewhere), vinext ships to Cloudflare Workers natively with a single command:
 
@@ -200,7 +202,7 @@ Vercel faces an uncomfortable truth: their moat may be thinner than they hoped. 
 
 ### For Cloudflare
 
-Cloudflare has signaled its seriousness about the developer platform space. vinext isn't just a technical demo—it's proof that Cloudflare can attract developers who previously saw Vercel as the only option. This investment in developer tooling mirrors Cloudflare's broader platform strategy, which also includes partnerships with frameworks like [Astro](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).
+Cloudflare has signaled its seriousness about the developer platform space. vinext is proof that Cloudflare can attract developers who previously saw Vercel as the only option. This investment in developer tooling mirrors Cloudflare's broader platform strategy, which also includes partnerships with frameworks like [Astro](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).
 
 **The challenge:** Maintaining compatibility with a rapidly evolving framework (Next.js) while building a sustainable business model.
 

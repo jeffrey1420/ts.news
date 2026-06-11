@@ -2,9 +2,9 @@
 title: "Hermes Agent vs OpenClaw: The Open-Source AI Agent Showdown"
 description: "Hermes Agent just added native OpenClaw migration. We deeply researched both platforms — here's everything that matters."
 date: 2026-03-31
-image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80"
+image: "/images/heroes/2026-03-31--hermes-agent-vs-openclaw-ai-agent-comparison.png"
 author: lschvn
-tags: ["AI agents", "open source", "hermes-agent", "openclaw", "nousresearch", "self-hosted"]
+tags: ["ai", "ecosystem"]
 readingTime: 8
 tldr:
   - Hermes Agent is a self-improving autonomous agent from Nous Research with RL training capabilities and deep OpenClaw migration support
