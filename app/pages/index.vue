@@ -134,11 +134,11 @@ onMounted(() => {
       for (const section of gsap.utils.toArray<HTMLElement>('.reveal-section')) {
         gsap.from(section.querySelectorAll('.reveal-item'), {
           y: 36,
-          opacity: 0,
           duration: 0.7,
           ease: 'power2.out',
           stagger: 0.08,
-          scrollTrigger: { trigger: section, start: 'top 78%' },
+          clearProps: 'transform',
+          scrollTrigger: { trigger: section, start: 'top 78%', once: true },
         })
       }
 
