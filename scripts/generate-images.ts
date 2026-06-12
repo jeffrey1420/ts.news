@@ -119,6 +119,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-06--state-of-web-dev-ai-2026-survey': ['Web Dev AI 2026', 'Survey', 'ai'],
   '2026-06-07--fresh-2-3-zero-js-view-transitions-websocket': ['Fresh 2.3', 'Zero JS, for real', 'frameworks'],
   '2026-06-07--nitro-v3-260603-beta-custom-framework-commands': ['Nitro v3 Beta', 'Framework commands', 'frameworks'],
+  '2026-06-12--fable-5-distillation-guardrails': ['Claude Fable 5', 'Invisible guardrails', 'ai'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
