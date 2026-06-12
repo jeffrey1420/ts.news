@@ -36,7 +36,9 @@ Disallow: /api/
 ${aiSections}
 # LLM-friendly content overview
 # ${absoluteSiteUrl('/llms.txt')}
+# ${absoluteSiteUrl('/llms-full.txt')}
 
 Sitemap: ${absoluteSiteUrl('/sitemap.xml')}
+Sitemap: ${absoluteSiteUrl('/news-sitemap.xml')}
 `
 })

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 import { getCollectionName, getLocaleLanguage } from '~~/shared/utils/locale'
+import type { ContentSurroundLink } from '@nuxt/ui'
 
 const route = useRoute()
 const { loggedIn } = useUserSession()
@@ -11,37 +12,43 @@ const articlesCollection = computed(() => getCollectionName('articles', locale.v
 const slug = computed(() => String(route.params.slug))
 const articlePath = computed(() => `/articles/${slug.value}`)
 
-const { data: article } = await useAsyncData(
+// Single list query matched in JS: @nuxt/content's query sanitizer rejects any
+// SQL containing `--`, which breaks .path()/.first() for slugs with double dashes.
+const { data: articles } = await useAsyncData(
   () => `article:${locale.value}:${slug.value}`,
-  () => queryCollection(articlesCollection.value).path(articlePath.value).first(),
+  () => queryCollection(articlesCollection.value).order('date', 'DESC').all(),
   { watch: [locale, slug] }
 )
+
+const articleIndex = computed(() => (articles.value ?? []).findIndex(item => item.path === articlePath.value))
+const article = computed(() => articleIndex.value >= 0 ? articles.value![articleIndex.value] : null)
 
 if (!article.value) {
   throw createError({ statusCode: 404, statusMessage: 'Article not found', fatal: true })
 }
 
-const { data: surround } = await useAsyncData(() => `article:${locale.value}:${slug.value}:surround`, () =>
-  queryCollectionItemSurroundings(articlesCollection.value, article.value!.path)
-)
+// Non-reactive snapshot for setup-time meta (matches the original behavior)
+const currentArticle = article.value
+
+// Articles are sorted date DESC: the next item is the older article, the previous one is newer
+const surround = computed(() => {
+  const list = articles.value ?? []
+  return [list[articleIndex.value + 1] ?? null, (articleIndex.value > 0 ? list[articleIndex.value - 1] : null) ?? null]
+})
 
 const localizedSurround = computed(() =>
-  (surround.value ?? []).map(item => item && { ...item, path: localePath(item.path) })
+  (surround.value ?? []).map(item => (item ? { ...item, path: localePath(item.path) } : null)) as ContentSurroundLink[]
 )
 
-const { data: relatedArticles } = await useAsyncData(() => `article:${locale.value}:${slug.value}:related`, async () => {
+const relatedArticles = computed(() => {
   const currentTags = new Set(article.value?.tags ?? [])
 
   if (!currentTags.size) {
     return []
   }
 
-  const articles = await queryCollection(articlesCollection.value)
-    .order('date', 'DESC')
-    .all()
-
-  return articles
-    .filter(candidate => candidate.path !== article.value!.path)
+  return (articles.value ?? [])
+    .filter(candidate => candidate.path !== article.value?.path)
     .map((candidate) => {
       const sharedTags = (candidate.tags ?? []).filter(tag => currentTags.has(tag))
 
@@ -68,17 +75,17 @@ const { data: comments, refresh: refreshComments } = await useFetch('/api/commen
 
 const canonicalUrl = computed(() => absoluteSiteUrl(route.path))
 const localeLanguage = computed(() => getLocaleLanguage(locale.value))
-const articleImage = article.value.image
-  ? (article.value.image.startsWith('http') ? article.value.image : absoluteSiteUrl(article.value.image))
+const articleImage = currentArticle.image
+  ? (currentArticle.image.startsWith('http') ? currentArticle.image : absoluteSiteUrl(currentArticle.image))
   : absoluteSiteUrl(siteConfig.defaultOgImage)
-const articleTitle = article.value.title
-const articleDescription = article.value.description
-const articleTags = article.value.tags ?? []
+const articleTitle = currentArticle.title
+const articleDescription = currentArticle.description
+const articleTags = currentArticle.tags ?? []
 
 useSeoMeta({
   title: articleTitle,
   description: articleDescription,
-  author: article.value.author,
+  author: currentArticle.author,
   keywords: articleTags.join(', '),
   ogTitle: `${articleTitle} | ${siteConfig.name}`,
   ogDescription: articleDescription,
@@ -88,17 +95,21 @@ useSeoMeta({
   ogImageAlt: articleTitle,
   ogImageWidth: 1200,
   ogImageHeight: 630,
-  articlePublishedTime: article.value.date,
-  articleModifiedTime: article.value.date,
+  articlePublishedTime: currentArticle.date,
+  articleModifiedTime: currentArticle.date,
   articleTag: articleTags,
-  articleAuthor: article.value.author,
+  articleAuthor: currentArticle.author ? [currentArticle.author] : undefined,
   twitterTitle: `${articleTitle} | ${siteConfig.name}`,
   twitterDescription: articleDescription,
   twitterImage: articleImage,
 })
 
 useHead(() => ({
-  link: [{ rel: 'canonical', href: canonicalUrl.value }],
+  link: [
+    { rel: 'canonical', href: canonicalUrl.value },
+    // Raw markdown version for LLM agents and readers
+    { rel: 'alternate', type: 'text/markdown', title: `${articleTitle} (Markdown)`, href: absoluteSiteUrl(`/md/${locale.value}/articles/${slug.value}.md`) },
+  ],
   script: [
     {
       key: 'article-schema',
@@ -109,18 +120,18 @@ useHead(() => ({
         headline: articleTitle,
         description: articleDescription,
         url: canonicalUrl.value,
-        datePublished: new Date(article.value.date).toISOString(),
-        dateModified: new Date(article.value.date).toISOString(),
+        datePublished: new Date(currentArticle.date).toISOString(),
+        dateModified: new Date(currentArticle.date).toISOString(),
         inLanguage: localeLanguage.value,
         image: [articleImage],
         articleSection: articleTags[0],
-        keywords: articleTags,
-        wordCount: article.value.readingTime ? article.value.readingTime * 250 : articleDescription.split(/\s+/).length,
+        keywords: articleTags.join(', '),
+        wordCount: currentArticle.readingTime ? currentArticle.readingTime * 250 : articleDescription.split(/\s+/).length,
         isAccessibleForFree: true,
         author: {
           '@type': 'Person',
-          name: article.value.author || siteConfig.name,
-          url: absoluteSiteUrl(localePath(`/authors/${article.value.author || 'lschvn'}`)),
+          name: currentArticle.author || siteConfig.name,
+          url: absoluteSiteUrl(localePath(`/authors/${currentArticle.author || 'lschvn'}`)),
           sameAs: ['https://github.com/lschvn'],
         },
         publisher: {
@@ -166,14 +177,14 @@ useHead(() => ({
         ],
       }),
     },
-    ...(article.value.faq?.length
+    ...(currentArticle.faq?.length
       ? [{
           key: 'faq-schema',
           type: 'application/ld+json',
           children: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
-            mainEntity: (article.value.faq ?? []).map((item: { question: string, answer: string }) => ({
+            mainEntity: (currentArticle.faq ?? []).map((item: { question: string, answer: string }) => ({
               '@type': 'Question',
               name: item.question,
               acceptedAnswer: {
@@ -225,8 +236,11 @@ async function postComment() {
         :alt="article.title"
         width="1200"
         height="630"
+        format="webp"
+        sizes="100vw sm:672px"
         loading="eager"
         fetchpriority="high"
+        preload
         class="w-full h-64 object-cover rounded-lg mb-8"
       />
       <div v-if="article.tags?.length" class="flex flex-wrap gap-2 mb-6">

@@ -13,6 +13,8 @@ const articleSchema = z.object({
     question: z.string(),
     answer: z.string(),
   })).optional(),
+  // Populated by @nuxt/content with the raw markdown source; served at /md/... for LLM agents
+  rawbody: z.string().optional(),
 })
 
 const authorSchema = z.object({

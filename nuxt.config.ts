@@ -14,6 +14,10 @@ export default defineNuxtConfig({
   ],
   devtools: { enabled: true },
   compatibilityDate: '2024-04-03',
+  routeRules: {
+    '/images/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    '/_ipx/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+  },
   css: ['~/assets/css/main.css'],
   i18n: {
     baseUrl: 'https://typescript.news',
@@ -35,6 +39,10 @@ export default defineNuxtConfig({
     domain: 'https://typescript.news',
     title: 'typescript.news',
     description: 'Daily TypeScript, JavaScript, and web platform news for developers who ship code.',
+    full: {
+      title: 'Full article content',
+      description: 'Complete markdown content of every typescript.news article',
+    },
     sections: [
       { title: 'Articles', description: 'All TypeScript and web development articles', contentCollection: 'articles_en' },
       { title: 'Articles (French)', description: 'Articles in French', contentCollection: 'articles_fr' },
@@ -49,6 +57,10 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/svg+xml', href: '/icon.svg' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'alternate', type: 'application/rss+xml', title: 'typescript.news RSS Feed', href: '/rss.xml' },
+        { rel: 'alternate', type: 'application/rss+xml', title: 'typescript.news Flux RSS (Français)', href: '/fr/rss.xml' },
+        { rel: 'alternate', type: 'application/rss+xml', title: 'typescript.news RSS-Feed (Deutsch)', href: '/de/rss.xml' },
+        { rel: 'preconnect', href: 'https://goatcounter.lschvn.foo' },
+        { rel: 'preconnect', href: 'https://opapi.lschvn.foo' },
       ],
       script: [
         { 'data-goatcounter': 'https://goatcounter.lschvn.foo/count', async: true, src: '//goatcounter.lschvn.foo/count.js' },

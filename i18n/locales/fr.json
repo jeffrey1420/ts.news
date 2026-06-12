@@ -61,14 +61,16 @@
   },
   "author": {
     "articles_by": "Articles de {name}",
-    "no_articles": "Aucun article publié pour le moment."
+    "no_articles": "Aucun article publié pour le moment.",
+    "page_title": "{name} — Auteur"
   },
   "tag": {
     "no_articles": "Aucun article trouvé",
     "no_tagged": "Aucun article n'est actuellement associé au tag \"{tag}\".",
     "browse_all": "Parcourir tous les articles",
     "view_all_tags": "Voir tous les tags",
-    "description": "Les dernières actualités, versions et analyses {tag} pour les développeurs TypeScript et web."
+    "description": "Les dernières actualités, versions et analyses {tag} pour les développeurs TypeScript et web.",
+    "page_title": "Articles avec le tag \"{tag}\""
   },
   "footer": {
     "copyright": "© {year} typescript.news"

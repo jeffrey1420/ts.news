@@ -41,7 +41,7 @@ const authorImage = author.value.avatar
   : absoluteSiteUrl(siteConfig.defaultOgImage)
 
 useSeoMeta({
-  title: `${authorName} — Author`,
+  title: computed(() => t('author.page_title', { name: authorName })),
   description: authorBio,
   ogTitle: `${authorName} | ${siteConfig.name}`,
   ogDescription: authorBio,

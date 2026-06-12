@@ -18,20 +18,20 @@ const { data: taggedArticles } = await useAsyncData(() => `tag:${locale.value}:$
 })
 
 const canonicalUrl = computed(() => absoluteSiteUrl(route.path))
-const pageTitle = `Articles tagged "${tag}"`
+const pageTitle = computed(() => t('tag.page_title', { tag }))
 const pageDescription = computed(() => t('tag.description', { tag }))
 const topicMeta = computed(() => getTopicMeta(tag, t))
 
 useSeoMeta({
   title: pageTitle,
   description: pageDescription,
-  ogTitle: `${pageTitle} | ${siteConfig.name}`,
+  ogTitle: computed(() => `${pageTitle.value} | ${siteConfig.name}`),
   ogDescription: pageDescription,
   ogType: 'website',
   ogUrl: canonicalUrl,
   ogImage: absoluteSiteUrl(siteConfig.defaultOgImage),
   ogImageAlt: siteConfig.name,
-  twitterTitle: `${pageTitle} | ${siteConfig.name}`,
+  twitterTitle: computed(() => `${pageTitle.value} | ${siteConfig.name}`),
   twitterDescription: pageDescription,
   twitterImage: absoluteSiteUrl(siteConfig.defaultOgImage),
 })
@@ -45,7 +45,7 @@ useHead(() => ({
       children: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
-        name: pageTitle,
+        name: pageTitle.value,
         description: pageDescription.value,
         url: canonicalUrl.value,
         mainEntity: {

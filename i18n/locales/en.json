@@ -61,14 +61,16 @@
   },
   "author": {
     "articles_by": "Articles by {name}",
-    "no_articles": "No articles published yet."
+    "no_articles": "No articles published yet.",
+    "page_title": "{name} — Author"
   },
   "tag": {
     "no_articles": "No articles found",
     "no_tagged": "No articles are currently tagged with '{tag}'.",
     "browse_all": "Browse all articles",
     "view_all_tags": "View all tags",
-    "description": "The latest {tag} news, releases, and analysis for TypeScript and web developers."
+    "description": "The latest {tag} news, releases, and analysis for TypeScript and web developers.",
+    "page_title": "Articles tagged \"{tag}\""
   },
   "footer": {
     "copyright": "© {year} typescript.news"
