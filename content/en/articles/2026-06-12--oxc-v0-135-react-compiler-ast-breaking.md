@@ -26,7 +26,7 @@ faq:
 
 The most consequential change in 0.135 is [PR #22942, "react_compiler: Integrate the Rust port of the React Compiler"](https://github.com/oxc-project/oxc/pull/22942). Meta has been writing a from-scratch Rust port of the React Compiler, and 0.135 is the version where it ships as a first-class crate inside the oxc workspace. The compiler analyzes React function components and hooks, then emits memoized output that skips re-renders when props and state are referentially stable.
 
-For Rust-based JS/JSX/TS toolchains, this is the missing piece. The previous implementation lived in the React repo as TypeScript, which meant any Rust tool that wanted React Compiler output had to shell out to Node or bundle a JS runtime. With the Rust port inside oxc, Rolldown, Vinext, and future bundlers can integrate the compiler directly, which is the path the VoidZero tooling stack has been building toward since [Vite+ alpha launched](/articles/2026-04-15-vite-plus-alpha-unified-toolchain-open-source).
+For Rust-based JS/JSX/TS toolchains, this is the missing piece. The previous implementation lived in the React repo as TypeScript, which meant any Rust tool that wanted React Compiler output had to shell out to Node or bundle a JS runtime. With the Rust port inside oxc, Rolldown, Vinext, and future bundlers can integrate the compiler directly, which is the path the VoidZero tooling stack has been building toward since [Vite+ alpha launched](/articles/2026-04-15--vite-plus-alpha-unified-toolchain-open-source).
 
 For application developers, the visible change is incremental: smaller minified output and faster builds as downstream bundlers adopt the new crate. The architectural move is what matters for the ecosystem.
 
