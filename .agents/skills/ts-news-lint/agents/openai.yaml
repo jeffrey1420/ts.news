@@ -1,0 +1,6 @@
+interface:
+  display_name: "ts.news Lint"
+  short_description: "Polish article quality and internal links"
+  default_prompt: "Use $ts-news-lint to audit typescript.news articles for links, typos, metadata, and translations."
+policy:
+  allow_implicit_invocation: true
