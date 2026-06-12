@@ -19,7 +19,7 @@ const { data: taggedArticles } = await useAsyncData(() => `tag:${locale.value}:$
 
 const canonicalUrl = computed(() => absoluteSiteUrl(route.path))
 const pageTitle = `Articles tagged "${tag}"`
-const pageDescription = computed(() => t('tag.no_tagged', { tag }))
+const pageDescription = computed(() => t('tag.description', { tag }))
 const topicMeta = computed(() => getTopicMeta(tag, t))
 
 useSeoMeta({

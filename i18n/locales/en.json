@@ -67,7 +67,8 @@
     "no_articles": "No articles found",
     "no_tagged": "No articles are currently tagged with '{tag}'.",
     "browse_all": "Browse all articles",
-    "view_all_tags": "View all tags"
+    "view_all_tags": "View all tags",
+    "description": "The latest {tag} news, releases, and analysis for TypeScript and web developers."
   },
   "footer": {
     "copyright": "© {year} typescript.news"

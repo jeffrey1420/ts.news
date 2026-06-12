@@ -1,13 +1,32 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
-import { getLocaleLanguage, getLocaleOgTag } from '~~/shared/utils/locale'
-import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
+import { getLocaleLanguage, getLocaleOgTag, DEFAULT_LOCALE } from '~~/shared/utils/locale'
+import { absoluteSiteUrl, locales as siteLocales, siteConfig } from '~~/shared/utils/site'
 import { resolveTopicLabel, topicDefinitions } from '~~/shared/utils/topics'
 
 const { loggedIn, user, clear } = useUserSession()
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
+const switchLocalePath = useSwitchLocalePath()
 const colorMode = useColorMode()
+
+const hreflangLinks = computed(() => {
+  const links = siteLocales
+    .map((entry) => {
+      const path = switchLocalePath(entry.code)
+      return path
+        ? { key: `hreflang-${entry.code}`, rel: 'alternate', hreflang: entry.language, href: absoluteSiteUrl(path) }
+        : null
+    })
+    .filter(link => link !== null)
+
+  const defaultPath = switchLocalePath(DEFAULT_LOCALE)
+  if (defaultPath) {
+    links.push({ key: 'hreflang-x-default', rel: 'alternate', hreflang: 'x-default', href: absoluteSiteUrl(defaultPath) })
+  }
+
+  return links
+})
 
 const localeLanguage = computed(() => getLocaleLanguage(locale.value))
 const localeOgTag = computed(() => getLocaleOgTag(locale.value))
@@ -35,6 +54,7 @@ useHead(() => ({
     { name: 'application-name', content: siteConfig.name },
     { name: 'apple-mobile-web-app-title', content: siteConfig.name },
   ],
+  link: hreflangLinks.value,
   script: [
     {
       key: 'website-schema',
@@ -43,6 +63,7 @@ useHead(() => ({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         name: siteConfig.name,
+        alternateName: 'ts.news',
         url: localizedHomeUrl.value,
         description: siteConfig.description,
         inLanguage: localeLanguage.value,
@@ -50,6 +71,7 @@ useHead(() => ({
           '@type': 'Organization',
           name: siteConfig.name,
           url: siteConfig.url,
+          sameAs: ['https://github.com/jeffrey1420/ts.news'],
           logo: {
             '@type': 'ImageObject',
             url: absoluteSiteUrl(siteConfig.defaultOgImage),

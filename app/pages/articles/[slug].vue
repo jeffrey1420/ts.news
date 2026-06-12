@@ -86,6 +86,8 @@ useSeoMeta({
   ogUrl: canonicalUrl,
   ogImage: articleImage,
   ogImageAlt: articleTitle,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
   articlePublishedTime: article.value.date,
   articleModifiedTime: article.value.date,
   articleTag: articleTags,
@@ -223,7 +225,8 @@ async function postComment() {
         :alt="article.title"
         width="1200"
         height="630"
-        loading="lazy"
+        loading="eager"
+        fetchpriority="high"
         class="w-full h-64 object-cover rounded-lg mb-8"
       />
       <div v-if="article.tags?.length" class="flex flex-wrap gap-2 mb-6">

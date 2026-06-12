@@ -16,10 +16,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   css: ['~/assets/css/main.css'],
   i18n: {
+    baseUrl: 'https://typescript.news',
     locales: [
-      { code: 'en', name: 'English', file: 'en.json' },
-      { code: 'fr', name: 'Fran\u00e7ais', file: 'fr.json' },
-      { code: 'de', name: 'Deutsch', file: 'de.json' },
+      { code: 'en', name: 'English', language: 'en-US', file: 'en.json' },
+      { code: 'fr', name: 'Fran\u00e7ais', language: 'fr-FR', file: 'fr.json' },
+      { code: 'de', name: 'Deutsch', language: 'de-DE', file: 'de.json' },
     ],
     defaultLocale: 'en',
     strategy: 'prefix_except_default',
