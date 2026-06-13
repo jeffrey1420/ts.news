@@ -1,6 +1,5 @@
 import { defineEventHandler } from 'h3'
 import { buildNewsSitemap } from '../utils/newsSitemap'
 
-// Google News sitemap: only articles published within the last 48 hours qualify.
-// Also served at /sitemap-news.xml (same output).
+// Alias of /news-sitemap.xml using the commonly requested /sitemap-news.xml path.
 export default defineEventHandler(event => buildNewsSitemap(event))

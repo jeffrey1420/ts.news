@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
+import { buildNewsArticleJsonLd } from '~~/shared/utils/jsonld'
 import { getCollectionName, getLocaleLanguage } from '~~/shared/utils/locale'
 import type { ContentSurroundLink } from '@nuxt/ui'
 
@@ -114,40 +115,21 @@ useHead(() => ({
     {
       key: 'article-schema',
       type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'NewsArticle',
+      children: JSON.stringify(buildNewsArticleJsonLd({
         headline: articleTitle,
         description: articleDescription,
         url: canonicalUrl.value,
-        datePublished: new Date(currentArticle.date).toISOString(),
-        dateModified: new Date(currentArticle.date).toISOString(),
+        datePublished: currentArticle.date,
+        dateModified: currentArticle.date,
         inLanguage: localeLanguage.value,
-        image: [articleImage],
+        image: articleImage,
         articleSection: articleTags[0],
-        keywords: articleTags.join(', '),
+        keywords: articleTags,
         wordCount: currentArticle.readingTime ? currentArticle.readingTime * 250 : articleDescription.split(/\s+/).length,
-        isAccessibleForFree: true,
-        author: {
-          '@type': 'Person',
-          name: currentArticle.author || siteConfig.name,
-          url: absoluteSiteUrl(localePath(`/authors/${currentArticle.author || 'lschvn'}`)),
-          sameAs: ['https://github.com/lschvn'],
-        },
-        publisher: {
-          '@type': 'Organization',
-          name: siteConfig.name,
-          url: siteConfig.url,
-          logo: {
-            '@type': 'ImageObject',
-            url: absoluteSiteUrl(siteConfig.defaultOgImage),
-          },
-        },
-        mainEntityOfPage: {
-          '@type': 'WebPage',
-          '@id': canonicalUrl.value,
-        },
-      }),
+        authorName: currentArticle.author || siteConfig.name,
+        authorUrl: absoluteSiteUrl(localePath(`/authors/${currentArticle.author || 'lschvn'}`)),
+        authorSameAs: ['https://github.com/lschvn'],
+      })),
     },
     {
       key: 'article-breadcrumb-schema',

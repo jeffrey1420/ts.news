@@ -14,6 +14,16 @@ export default defineNuxtConfig({
   ],
   devtools: { enabled: true },
   compatibilityDate: '2024-04-03',
+  runtimeConfig: {
+    // Server-only secrets for the real-time indexing push. Set via env:
+    //   NUXT_GOOGLE_INDEXING_CLIENT_EMAIL, NUXT_GOOGLE_INDEXING_PRIVATE_KEY,
+    //   NUXT_WEBSUB_HUB_URL, NUXT_INDEXING_PUSH_TOKEN
+    googleIndexingClientEmail: '',
+    googleIndexingPrivateKey: '',
+    websubHubUrl: 'https://pubsubhubbub.appspot.com/',
+    // Bearer token required to call POST /api/indexing/notify.
+    indexingPushToken: '',
+  },
   routeRules: {
     '/images/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/_ipx/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },

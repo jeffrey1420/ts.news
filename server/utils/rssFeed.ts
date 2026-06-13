@@ -1,5 +1,6 @@
 import type { H3Event } from 'h3'
 import { setHeader } from 'h3'
+import { useRuntimeConfig } from '#imports'
 import { queryCollection } from '@nuxt/content/server'
 import { absoluteSiteUrl, siteConfig } from '~~/shared/utils/site'
 import { LOCALE_LANGUAGE_TAGS, type SupportedLocale } from '~~/shared/utils/locale'
@@ -28,6 +29,8 @@ export async function buildRssFeed(event: H3Event, locale: SupportedLocale) {
 
   const feedUrl = absoluteSiteUrl(localePath('/rss.xml', locale))
   const homeUrl = absoluteSiteUrl(localePath('/', locale))
+  // WebSub hub advertised so subscribers can request real-time push updates.
+  const hubUrl = useRuntimeConfig(event).websubHubUrl || 'https://pubsubhubbub.appspot.com/'
 
   const articles = await queryCollection(event, `articles_${locale}`)
     .order('date', 'DESC')
@@ -64,6 +67,7 @@ export async function buildRssFeed(event: H3Event, locale: SupportedLocale) {
     <language>${LOCALE_LANGUAGE_TAGS[locale].toLowerCase()}</language>
     <lastBuildDate>${escapeXml(lastBuildDate)}</lastBuildDate>
     <atom:link href="${escapeXml(feedUrl)}" rel="self" type="application/rss+xml" />
+    <atom:link href="${escapeXml(hubUrl)}" rel="hub" />
     <image>
       <url>${escapeXml(absoluteSiteUrl(siteConfig.defaultOgImage))}</url>
       <title>${siteConfig.name}</title>

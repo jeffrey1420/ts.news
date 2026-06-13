@@ -40,5 +40,6 @@ ${aiSections}
 
 Sitemap: ${absoluteSiteUrl('/sitemap.xml')}
 Sitemap: ${absoluteSiteUrl('/news-sitemap.xml')}
+Sitemap: ${absoluteSiteUrl('/sitemap-news.xml')}
 `
 })
