@@ -120,6 +120,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-07--fresh-2-3-zero-js-view-transitions-websocket': ['Fresh 2.3', 'Zero JS, for real', 'frameworks'],
   '2026-06-07--nitro-v3-260603-beta-custom-framework-commands': ['Nitro v3 Beta', 'Framework commands', 'frameworks'],
   '2026-06-12--kimi-k2-7-code-mimo-code': ['Kimi + MiMo', 'Open-source coding models', 'ai'],
+  '2026-06-13--anthropic-fable-mythos-suspended-us-government': ['Fable 5 Suspended', 'US export control', 'security'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
