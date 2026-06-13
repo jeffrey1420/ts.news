@@ -30,7 +30,7 @@ export async function buildRssFeed(event: H3Event, locale: SupportedLocale) {
   const feedUrl = absoluteSiteUrl(localePath('/rss.xml', locale))
   const homeUrl = absoluteSiteUrl(localePath('/', locale))
   // WebSub hub advertised so subscribers can request real-time push updates.
-  const hubUrl = useRuntimeConfig(event).websubHubUrl || 'https://pubsubhubbub.appspot.com/'
+  const hubUrl = useRuntimeConfig(event).websubHubUrl || siteConfig.websubHub
 
   const articles = await queryCollection(event, `articles_${locale}`)
     .order('date', 'DESC')

@@ -7,6 +7,8 @@ export const siteConfig = {
   locale: 'en_US',
   rssPath: '/rss.xml',
   defaultOgImage: '/og-default.png',
+  // WebSub/PubSubHubbub hub advertised in the HTML <head> and RSS feed.
+  websubHub: 'https://pubsubhubbub.appspot.com/',
 } as const
 
 export const locales = [

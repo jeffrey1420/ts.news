@@ -171,10 +171,14 @@ When the skill runs as an unattended cron job (`ts-news-publish-daily`), it oper
 5. **Switch to `main` and merge** the worktree branch with `--no-ff`.
 6. **Push `main` to origin.** This is the moment of success — `main` is now ahead of `origin/main` and contains today's article.
 7. **Clean up**: `git worktree remove` the story worktree, `git branch -d` the feature branch, `git push origin --delete` it.
-8. **Summary report** at the end: which story, which slugs, validation result, push/merge outcome, commit hash on `main`.
+8. **Push the indexing notification** for real-time discovery: `bun run notify-indexing`. This finds articles published in the last 48h across all locales, pushes each URL to the Google Indexing API (`URL_UPDATED`), and pings the WebSub hub for the affected RSS feeds.
+   - **Timing is critical: run this AFTER the new article is live, not just merged to `main`.** If deploy is automatic on push to `main`, wait for the deploy to finish (or run this from the deploy pipeline's post-deploy hook instead of here). Pinging before the URL is reachable makes Google fetch a 404 or stale page. If you cannot confirm the deploy completed within this run, skip the ping here and rely on the sitemap + WebSub feed advertisement; do not block the commit on it.
+   - Requires `GOOGLE_INDEXING_CLIENT_EMAIL` / `GOOGLE_INDEXING_PRIVATE_KEY` in the environment. If unset, the script logs and skips the Google push but still pings WebSub. This step is best-effort and never gates the deliverable.
+9. **Summary report** at the end: which story, which slugs, validation result, push/merge outcome, commit hash on `main`, and the indexing-push result (URLs pushed / skipped).
 
 **If budget gets tight mid-run, the order of cuts is:**
 
+- Drop the indexing-push step (`bun run notify-indexing`) first — it is best-effort; the sitemap and WebSub feed hub still advertise the new article.
 - Drop the optional `bun run generate` (pre-existing failures on `main` are documented and out of scope).
 - Drop `bun run typecheck` (same).
 - Run `bun run lint` only on the changed Markdown files, not the whole repo.

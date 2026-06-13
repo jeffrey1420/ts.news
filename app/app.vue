@@ -28,9 +28,12 @@ const hreflangLinks = computed(() => {
   return links
 })
 
+const route = useRoute()
 const localeLanguage = computed(() => getLocaleLanguage(locale.value))
 const localeOgTag = computed(() => getLocaleOgTag(locale.value))
 const localizedHomeUrl = computed(() => absoluteSiteUrl(localePath('/')))
+// WebSub discovery: `self` is the current page (the topic), `hub` is where to subscribe.
+const currentUrl = computed(() => absoluteSiteUrl(route.path))
 
 const navItems = computed<NavigationMenuItem[]>(() => [
   { label: t('nav.home'), icon: 'i-lucide-home', to: localePath('/') },
@@ -54,7 +57,11 @@ useHead(() => ({
     { name: 'application-name', content: siteConfig.name },
     { name: 'apple-mobile-web-app-title', content: siteConfig.name },
   ],
-  link: hreflangLinks.value,
+  link: [
+    ...hreflangLinks.value,
+    { key: 'websub-hub', rel: 'hub', href: siteConfig.websubHub },
+    { key: 'websub-self', rel: 'self', href: currentUrl.value },
+  ],
   script: [
     {
       key: 'website-schema',
