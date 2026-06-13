@@ -14,9 +14,9 @@ faq:
   - question: "Why does Buffer.poolSize matter for application performance?"
     answer: "Buffer uses a slab allocator internally. A larger pool means fewer small allocations are served directly from the heap, reducing fragmentation and syscall overhead. Doubling the default from 32 KiB to 64 KiB helps most HTTP servers and streaming pipelines without requiring manual tuning."
   - question: "How does permission.drop() differ from the existing permission model?"
-    answer: "Previously, Node.js permissions were all-or-nothing at startup. permission.drop() allows a running process to surrender specific permissions — such as file-system or environment access — while keeping others. This makes it possible to implement progressive privilege reduction, such as dropping fs access after an initialization phase."
+    answer: "Previously, Node.js permissions were all-or-nothing at startup. permission.drop() allows a running process to surrender specific permissions, such as file-system or environment access, while keeping others. This makes it possible to implement progressive privilege reduction, such as dropping fs access after an initialization phase."
   - question: "Will my Intel Mac still run Node.js 26?"
-    answer: "Yes — Node.js 26 will ship universal binaries for now. The warning signals that if Apple continues deprecating x86 toolchain support, the Node.js project may drop Intel builds before Node.js 26 goes EOL. Apple Silicon (arm64) is now Tier 1; Intel is Tier 2."
+    answer: "Yes. Node.js 26 will ship universal binaries for now. The warning signals that if Apple continues deprecating x86 toolchain support, the Node.js project may drop Intel builds before Node.js 26 goes EOL. Apple Silicon (arm64) is now Tier 1; Intel is Tier 2."
 ---
 
 Node.js 26.3.0 landed June 1, 2026 on the Current release line. It is a substantial mid-cycle update: the Buffer allocator gets a meaningful tuning change, the experimental permission system gains its most-requested feature, Apple signals another step toward dropping Intel Macs, and the crypto team lands a multi-PR hardening of WebCrypto.

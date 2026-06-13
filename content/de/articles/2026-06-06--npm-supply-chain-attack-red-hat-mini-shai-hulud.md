@@ -7,7 +7,7 @@ author: lschvn
 tags: ["security", "typescript", "javascript"]
 tldr:
   - "Am 1. Juni 2026 wurden 32+ @redhat-cloud-services npm-Pakete mit Mini-Shai-Hulud-Malware kompromittiert, mit insgesamt ca. 80.000 Weekly Downloads."
-  - "Angreifer kompromittierten ein Red-Hat-Mitarbeiter-GitHub-Konto, um bösartige Orphan-Commits zu推送, die die Code-Review umgingen und gültige SLSA-Provenienz-Attestierungen erzeugten."
+  - "Angreifer kompromittierten ein Red-Hat-Mitarbeiter-GitHub-Konto, um bösartige Orphan-Commits zu pushen, die die Code-Review umgingen und gültige SLSA-Provenienz-Attestierungen erzeugten."
   - "Die Malware zielt jetzt auf GCP- und Azure-Cloud-Identitäten mit Per-Infection-Verschlüsselung ab, was die Hash-basierte Erkennung deutlich erschwert."
 faq:
   - question: "Welche npm-Pakete waren betroffen?"
@@ -32,7 +32,7 @@ Die zweite bemerkenswerte Evolution ist **Per-Infection-Verschlüsselung**. Frü
 
 ## Wie der Angriff Funktionierte
 
-Beweise deuten darauf hin, dass ein **Red-Hat-Mitarbeiter-GitHub-Konto kompromittiert** und用来 push bösartiger Orphan-Commits auf drei RedHatInsights-Repositories :
+Beweise deuten darauf hin, dass ein **Red-Hat-Mitarbeiter-GitHub-Konto kompromittiert** und verwendet wurde, um bösartige Orphan-Commits auf drei RedHatInsights-Repositories zu pushen :
 
 - `RedHatInsights/frontend-components`
 - `RedHatInsights/javascript-clients`

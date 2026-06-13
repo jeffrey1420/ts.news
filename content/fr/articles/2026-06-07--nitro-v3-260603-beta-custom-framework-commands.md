@@ -13,9 +13,9 @@ faq:
   - question: "Que signifie 'commandes preview/deploy de framework personnalisées' dans Nitro 3 ?"
     answer: "Les plugins de framework peuvent maintenant fournir leurs propres commandes preview et deploy que Nitro invoquera dans le pipeline de build. Cela permet aux frameworks bâtis sur Nitro de brancher leurs outils spécifiques sans avoir besoin de points d'entrée CLI séparés."
   - question: "Qu'est-ce que l'option de config defaultPreset ?"
-    answer: "L'option defaultPreset permet de définir quel preset Nitro doit utiliser en fallback quand aucun preset explicite n'est configuré. Auparavant le fallback était codé en dur ; vous pouvez maintenant le personnaliser — utile quand votre setup a besoin d'un défaut différent du comportement out-of-box."
+    answer: "L'option defaultPreset permet de définir quel preset Nitro doit utiliser en fallback quand aucun preset explicite n'est configuré. Auparavant le fallback était codé en dur. Vous pouvez maintenant le personnaliser, utile quand votre setup a besoin d'un défaut différent du comportement out-of-box."
   - question: "Quel était le fix sur le stripping des types dans cette version ?"
-    answer: "Le fix garantit que quand TypeScript ré-essaie de résoudre un chemin de module avec des extensions ajoutées (.ts, .tsx), Nitro ne retire que les extensions qu'il a réellement essayées — pas toutes les extensions possibles. Cela évite que des cas légitimes de résolution de modules soient incorrectement sautés."
+    answer: "Le fix garantit que quand TypeScript ré-essaie de résoudre un chemin de module avec des extensions ajoutées (.ts, .tsx), Nitro ne retire que les extensions qu'il a réellement essayées, pas toutes les extensions possibles. Cela évite que des cas légitimes de résolution de modules soient incorrectement sautés."
 ---
 
 Le train des betas Nitro v3 continue d'avancer. Le build `3.0.260603-beta` — le versioning daté signifie 3 juin 2026 — est une petite release, mais deux de ses changements comptent pour quiconque construit un framework au-dessus de Nitro, ce qui depuis [l'annonce de la beta v3](https://nitro.build/blog/v3-beta) inclut TanStack Start et la prochaine majeure de Nuxt.

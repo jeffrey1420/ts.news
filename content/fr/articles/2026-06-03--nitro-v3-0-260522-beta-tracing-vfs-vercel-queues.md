@@ -1,6 +1,6 @@
 ---
 title: "Nitro v3.0.260522-beta : Tracing à la Compilation, Cache VFS, Queues Vercel en Local"
-description: "Le beta Nitro v3 du 22 mai apporte des wrappers de tracing pour les handlers de routes à la compilation, un cache VFS pour le code dynamique nitro, et le support des queues Vercel accessible en développement local — avec les correctifs de sécurité de la beta précédente."
+description: "Le beta Nitro v3 du 22 mai apporte des wrappers de tracing pour les handlers de routes à la compilation, un cache VFS pour le code dynamique nitro, et le support des queues Vercel accessible en développement local, avec les correctifs de sécurité de la beta précédente."
 date: 2026-06-03
 image: "/images/heroes/2026-06-03--nitro-v3-0-260522-beta-tracing-vfs-vercel-queues.png"
 author: lschvn
@@ -12,11 +12,11 @@ tldr:
   - Deux correctifs de sécurité corrigent une vulnérabilité de proxy request-smuggling et une open-redirect (GHSA-5w89-w975-hf9q, GHSA-9phm-9p8f-hw5m)
 faq:
   - question: "En quoi le tracing à la compilation diffère-t-il de l'intégration OpenTelemetry existante ?"
-    answer: "Les canaux de tracing de Nitro sont émis au niveau du framework — les spans pour la gestion des routes, les opérations de cache et les requêtes base de données sont générés directement dans le routeur interne de Nitro lors de la phase de build. Cela signifie que les spans portent un contexte spécifique à Nitro (nom de la route, durée du handler, cache hit/miss) qu'un middleware HTTP générique ne peut pas produire sans instrumentation personnalisée."
+    answer: "Les canaux de tracing de Nitro sont émis au niveau du framework. Les spans pour la gestion des routes, les opérations de cache et les requêtes base de données sont générés directement dans le routeur interne de Nitro lors de la phase de build. Cela signifie que les spans portent un contexte spécifique à Nitro (nom de la route, durée du handler, cache hit/miss) qu'un middleware HTTP générique ne peut pas produire sans instrumentation personnalisée."
   - question: "Qu'est-ce que le cache VFS pour le code dynamique et qui en profite ?"
     answer: "Le cache VFS stocke l'état résolu du registre interne et du routeur de Nitro après le premier request. Les démarrages suivants chargent depuis ce snapshot, évitant la ré-évaluation de chaque handler de route et chaque import de module. Pour les grandes applications avec de nombreuses routes ou des imports dynamiques coûteux, cela réduit considérablement les temps de redémarrage."
   - question: "Comment les queues Vercel fonctionnent-elles en local ?"
-    answer: "La commande vercel dev dans le preset Vercel de Nitro détecte désormais les définitions de handlers de queue (nitro.tasks) et exécute un stub local du Vercel Runtime qui traite les jobs. Vous pouvez enfiler du travail depuis un route handler et déboguer le flux async complet — dont les retries et la dead-letter queue — avant de déployer."
+    answer: "La commande vercel dev dans le preset Vercel de Nitro détecte désormais les définitions de handlers de queue (nitro.tasks) et exécute un stub local du Vercel Runtime qui traite les jobs. Vous pouvez enfiler du travail depuis un route handler et déboguer le flux async complet : retries, dead-letter queue, avant de déployer."
 ---
 
 Nitro v3.0.260522-beta est sorti le 22 mai 2026, prolongeant la phase bêta v3 démarrée en avril. Cette release ajoute trois fonctionnalités qui améliorent ensemble significativement l'expérience de développement pour les applications TypeScript server-side orientées production : instrumentation de tracing automatique à la compilation, un cache VFS pour le code dynamique, et l'émulation locale des queues Vercel.

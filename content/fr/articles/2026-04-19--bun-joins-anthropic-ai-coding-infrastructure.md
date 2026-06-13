@@ -38,7 +38,7 @@ Le propre Claude Code d'Anthropic s'expédie comme un exécutable Bun à des mil
 
 Bun reste sous licence MIT et open source. La même équipe d'environ 14 personnes continue de travailler dessus, toujours basée à San Francisco. Le dépôt GitHub reste public. La roadmap continue de prioriser la compatibilité Node.js et les performances du runtime JavaScript général, aux côtés du travail spécifique à l'IA.
 
-Le billet est remarquablement坦诚 (NdT: direct) sur la situation économique de Bun : au moment de l'acquisition, Bun générait 0 € de revenu avec plus de quatre ans de runway，来自 un total de 26 M$ levés (7 M$ seed, 19 M$ Series A). Ils n'avaient pas besoin de vendre. La décision portait sur le positionnement pour un monde où les outils de coding IA sont le moyen principal de construire logiciel.
+Le billet est remarquablement franc (NdT: direct) sur la situation économique de Bun : au moment de l'acquisition, Bun générait 0 € de revenu avec plus de quatre ans de runway, sur un total de 26 M$ levés (7 M$ seed, 19 M$ Series A). Ils n'avaient pas besoin de vendre. La décision portait sur le positionnement pour un monde où les outils de coding IA sont le moyen principal de construire logiciel.
 
 ## La Route à Venir
 

@@ -6,14 +6,13 @@ image: "/images/heroes/2026-04-19--opencode-desktop-electron-tauri-typescript.pn
 author: lschvn
 tags: ["ai", "tooling", "typescript"]
 tldr:
-  - "OpenCode Desktop steigt von Tauri auf Electron um —主要原因是因为 WebKit auf macOS und Linux konsistente Rendering-Probleme und schlechtere Performance als Chromium bot"
+  - "OpenCode Desktop steigt von Tauri auf Electron um, weil WebKit auf macOS und Linux konsistente Rendering-Probleme und schlechtere Performance als Chromium bot"
   - "Der Umstieg beseitigte auch einen gebündelten CLI, der Startverzögerungen und gelegentliche Abstürze verursachte; der Server läuft nun direkt in Electron Node"
   - "Plugins mit Bun-spezifischen API-Aufrufen funktionieren in den neuen Electron-Builds nicht mehr — mehr Details verspricht OpenCode 2.0"
 faq:
   - "Q: Warum hat OpenCode Tauri aufgegeben?
 A: Tauri nutzt WebKit statt Chromium, was Render-Inkonsistenzen und langsamere Leistung verursachte. OpenCode's reinrassige TypeScript-Architektur machte auch Rusts Performancevorteile in Tauri zunichte."
-  - "Q: Bedeutet das, dass Tauri schlechter ist als Electron?
-A: Nein. OpenCode betont ausdrücklich, dass Tauri für Apps mit simpler UI und原生-Systemzugriff immer noch hervorragend geeignet ist."
+  - "Q: Bedeutet das, dass Tauri schlechter ist als Electron?\nA: Nein. OpenCode betont ausdrücklich, dass Tauri für Apps mit simpler UI und nativem Systemzugriff immer noch hervorragend geeignet ist."
   - "Q: Was ändert sich für Bun-Nutzer?
 A: Die Electron-Version unterstützt keine Bun-spezifischen APIs mehr. Plugins, die davon abhängen, werden nicht funktionieren."
 ---

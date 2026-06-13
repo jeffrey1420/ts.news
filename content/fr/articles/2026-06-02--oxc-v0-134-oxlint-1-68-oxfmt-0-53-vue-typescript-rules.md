@@ -7,7 +7,7 @@ author: lschvn
 tags: ["frameworks", "tooling", "typescript"]
 tldr:
   - oxlint v1.68.0 ajoute les règles Vue no-reserved-component-names et component-definition-name, pour éviter les conflits de nommage
-  - La nouvelle règle method-signature-style TypeScript enforce l的一致性 entre la syntaxe des méthodes d'interface et des méthodes de classe
+  - La nouvelle règle method-signature-style TypeScript enforce la cohérence entre la syntaxe des méthodes d'interface et des méthodes de classe
   - Le parser émet désormais des codes d'erreur TypeScript précis pour les accessors (TS1094, TS1095, TS1051) et rejecte les générateurs, signatures d'overload et index signatures en contexte ambient
 ---
 

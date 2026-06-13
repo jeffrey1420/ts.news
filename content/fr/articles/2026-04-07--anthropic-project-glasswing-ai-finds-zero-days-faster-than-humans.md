@@ -1,26 +1,26 @@
 ---
-title: "Anthropic's Project Glasswing: When AI Finds Zero-Days Faster Than Humans Can Count Them"
-description: "In one month, Claude Mythos Preview found thousands of zero-day vulnerabilities that survived decades of human review — in OpenBSD, the Linux kernel, FFmpeg, and every major browser. We dug into the technical details, the industry coalition, and what it means for every security team on the planet."
+title: "Project Glasswing d'Anthropic : quand l'IA trouve les zero-days plus vite que les humains ne peuvent les compter"
+description: "En un mois, Claude Mythos Preview a trouvé des milliers de vulnérabilités zero-day qui ont survécu à des décennies de revue humaine, dans OpenBSD, le noyau Linux, FFmpeg et chaque navigateur majeur. Nous avons creusé les détails techniques, la coalition industrielle et ce que cela signifie pour chaque équipe de sécurité de la planète."
 date: 2026-04-07
 image: "/images/heroes/2026-04-07--anthropic-project-glasswing-ai-finds-zero-days-faster-than-humans.png"
 author: lschvn
 tags: ["security", "ai"]
 readingTime: 8
 tldr:
-  - "Claude Mythos Preview found thousands of zero-day vulnerabilities in one month — including a 27-year-old OpenBSD bug and a 16-year-old FFmpeg flaw that survived 5 million automated tests."
-  - "Project Glasswing brings together Apple, Microsoft, Google, AWS, Cisco, CrowdStrike, JPMorganChase and 11 others to coordinate AI-powered vulnerability fixes across critical infrastructure before attacks can weaponize these capabilities."
-  - "The attack timeline has collapsed from months to minutes. Non-experts at Anthropic woke up to working exploits written overnight by Mythos — with no security training."
+  - "Claude Mythos Preview a trouvé des milliers de vulnérabilités zero-day en un mois, dont un bogue OpenBSD vieux de 27 ans et une faille FFmpeg de 16 ans qui a survécu à 5 millions de tests automatisés."
+  - "Project Glasswing réunit Apple, Microsoft, Google, AWS, Cisco, CrowdStrike, JPMorganChase et 11 autres acteurs pour coordonner les correctifs de vulnérabilités assistés par IA sur les infrastructures critiques avant que des attaques n'armement ces capacités."
+  - "Le calendrier d'attaque s'est effondré, passant de mois à quelques minutes. Des non-spécialistes chez Anthropic se sont réveillés face à des exploits fonctionnels écrits en une nuit par Mythos, sans formation en sécurité."
 faq:
-  - question: "What is Project Glasswing?"
-    answer: "A 13-company coalition (AWS, Anthropic, Apple, Cisco, CrowdStrike, Google, JPMorganChase, Microsoft, NVIDIA, Palo Alto Networks, and others) launched on April 7, 2026 to coordinate AI-powered vulnerability finding across the world's most critical software infrastructure. Anthropic is committing $100M in API credits and $4M to open-source security organizations."
-  - question: "What makes Claude Mythos different from Claude Opus?"
-    answer: "Mythos is a specialized frontier model trained for cybersecurity tasks. On CyberGym (vulnerability reproduction), it scores 83.1% vs Opus 4.6's 66.6%. On SWE-bench (software engineering), it hits 94.6% vs 91.3%. It finds and exploits zero-days autonomously — something Opus cannot do reliably."
-  - question: "What were the most alarming vulnerabilities found?"
-    answer: "A 27-year-old OpenBSD remote crash (no authentication required), a 16-year-old FFmpeg bug missed by 5 million automated tests, a Linux kernel privilege escalation (user to root), and a FreeBSD NFS exploit that granted root to unauthenticated users. Every major OS and browser was affected."
-  - question: "Why isn't Mythos being released publicly?"
-    answer: "Because the same capabilities that find vulnerabilities also write working exploits. Anthropic explicitly states it would be irresponsible to release a model that non-experts can use to generate working zero-day exploits overnight. The model is only available to Glasswing partners and select open-source maintainers."
-  - question: "What does this mean for OpenClaw users and AI agent operators?"
-    answer: "Two things: First, AI agents with system access are now part of the attack surface — Mythos-style capabilities will eventually proliferate, meaning autonomous agents need governance controls. Second, the vulnerability landscape is shifting faster than human-led security teams can track. Managed AI oversight (what Alizé provides) becomes critical infrastructure."
+  - question: "Qu'est-ce que Project Glasswing ?"
+    answer: "Une coalition de 13 entreprises (AWS, Anthropic, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, la Linux Foundation, Microsoft, NVIDIA et Palo Alto Networks) lancée le 7 avril 2026 pour coordonner la découverte de vulnérabilités assistée par IA sur les infrastructures logicielles les plus critiques au monde. Anthropic s'engage à hauteur de 100 M$ en crédits API et 4 M$ pour les organisations de sécurité open source."
+  - question: "Qu'est-ce qui distingue Claude Mythos de Claude Opus ?"
+    answer: "Mythos est un modèle de pointe spécialisé, entraîné pour les tâches de cybersécurité. Sur CyberGym (reproduction de vulnérabilités), il obtient 83,1 % contre 66,6 % pour Opus 4.6. Sur SWE-bench (ingénierie logicielle), il atteint 94,6 % contre 91,3 %. Il trouve et exploite les zero-days de manière autonome, ce qu'Opus ne fait pas de façon fiable."
+  - question: "Quelles ont été les vulnérabilités les plus alarmantes découvertes ?"
+    answer: "Un crash distant OpenBSD vieux de 27 ans (sans authentification requise), un bogue FFmpeg de 16 ans manqué par 5 millions de tests automatisés, une élévation de privilèges dans le noyau Linux (utilisateur vers root) et un exploit FreeBSD NFS accordant root à des utilisateurs non authentifiés. Tous les grands OS et navigateurs ont été touchés."
+  - question: "Pourquoi Mythos n'est-il pas rendu public ?"
+    answer: "Parce que les mêmes capacités qui trouvent des vulnérabilités écrivent aussi des exploits fonctionnels. Anthropic affirme explicitement qu'il serait irresponsable de publier un modèle que des non-spécialistes peuvent utiliser pour générer des exploits zero-day fonctionnels en une nuit. Le modèle n'est disponible que pour les partenaires Glasswing et une sélection de mainteneurs open source."
+  - question: "Qu'est-ce que cela signifie pour les utilisateurs d'OpenClaw et les opérateurs d'agents IA ?"
+    answer: "Deux choses : d'abord, les agents IA disposant d'un accès système font désormais partie de la surface d'attaque. Des capacités de type Mythos finiront par se propager, ce qui signifie que les agents autonomes ont besoin de contrôles de gouvernance. Ensuite, le paysage des vulnérabilités évolue plus vite que les équipes de sécurité humaines ne peuvent suivre. Une supervision IA managée (ce que propose Alizé) devient une infrastructure critique."
 ---
 
 Ce bogue a résisté vingt-sept ans de recherche en sécurité par des humains. Des milliers de CVE ont été déposées et corrigées. D'innombrables auditeurs, testeurs de pénétration et chercheurs indépendants ont examiné le code. Puis, en l'espace de quelques minutes, un modèle d'intelligence artificielle a identifié une vulnérabilité de crash distant dans OpenBSD — sans nécessiter la moindre authentification. En quelques jours, l'exploit était rédigé et le correctif déployé. Voilà le récit de Claude Mythos Preview et de Project Glasswing.

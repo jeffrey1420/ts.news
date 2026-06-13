@@ -14,9 +14,9 @@ faq:
   - question: "Pourquoi le Buffer.poolSize impacte-t-il les performances ?"
     answer: "Node utilise un allocateur slab en interne. Un pool plus grand signifie que fewer petites allocations sont servies directement depuis le tas, réduisant la fragmentation et le overhead syscall. Doubler la valeur par défaut de 32 à 64 KiB aide la plupart des serveurs HTTP sans configuration manuelle."
   - question: "Comment permission.drop() se distingue-t-il du modèle de permission existant ?"
-    answer: "Auparavant, les permissions Node.js étaient tout-ou-rien au démarrage. permission.drop() permet à du code en cours d'exécution de renoncer à des permissions spécifiques — accès fichier, environnement, processus enfant — tout en conservant les autres. Cela permet de mettre en place une réduction progressive des privilèges, par exemple abandonner l'accès fs après une phase d'initialisation."
+    answer: "Auparavant, les permissions Node.js étaient tout-ou-rien au démarrage. permission.drop() permet à du code en cours d'exécution de renoncer à des permissions spécifiques : accès fichier, environnement, processus enfant, tout en conservant les autres. Cela permet de mettre en place une réduction progressive des privilèges, par exemple abandonner l'accès fs après une phase d'initialisation."
   - question: "Mon Mac Intel pourra-t-il toujours exécuter Node.js 26 ?"
-    answer: "Oui — Node.js 26仍将ship通用二进制文件。警告表明，如果Apple继续弃用x86工具链支持，Node.js项目可能会在Node.js 26 EOL之前放弃Intel构建。Apple Silicon (arm64)现在是Tier 1；Intel是Tier 2。"
+    answer: "Oui, Node.js 26 livrera pour l'instant des binaires universels. L'avertissement signale que si Apple continue de déprécier le support de la toolchain x86, le projet Node.js pourrait abandonner les builds Intel avant que Node.js 26 n'atteigne sa fin de vie. Apple Silicon (arm64) est désormais Tier 1 ; Intel est Tier 2."
 ---
 
 Node.js 26.3.0 est sorti le 1er juin 2026 sur la ligne Current. C'est une mise à jour mi-cycle substantielle : l'allocateur Buffer reçoit un ajustement significatif, le système de permissions expérimental gagne sa fonctionnalité la plus demandée, Apple signale une nouvelle étape vers l'abandon des Macs Intel, et l'équipe crypto applique un renforcement multi-PR sur WebCrypto.

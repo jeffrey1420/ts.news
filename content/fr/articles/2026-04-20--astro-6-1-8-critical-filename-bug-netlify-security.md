@@ -14,7 +14,7 @@ faq:
     answer: "Le naming des fichiers de build Astro pouvait inclure des caractères comme !, ~, {, ou } dans les noms de chunks. La protection anti-skew de Netlify supprime ou rejette ces caractères, causant des références HTML pointant vers des fichiers introuvables sur le CDN."
   - question: "Quelle gravité pour la faille de sécurité de /_image ?"
     answer: "Modérée. Un attaquant pouvait construire une requête vers /_image?url=<endpoint-interne>&f=svg retournant du JSON ou HTML interne avec un header Content-Type image/svg+xml. L'impact est limité par le fait que l'endpoint nécessite allowedDomains explicite."
-  - question: "Faut-il升级 immédiatement ?"
+  - question: "Faut-il mettre à niveau immédiatement ?"
     answer: "Oui, particulièrement si vous déployez sur Netlify ou Vercel. Le bug de nom de fichier peut produire des déploiements cassés sans message d'erreur de build."
 ---
 

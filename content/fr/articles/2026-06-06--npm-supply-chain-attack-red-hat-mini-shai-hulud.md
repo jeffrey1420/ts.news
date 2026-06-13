@@ -7,7 +7,7 @@ author: lschvn
 tags: ["security", "typescript", "javascript"]
 tldr:
   - "Le 1er juin 2026, 32+ paquets npm @redhat-cloud-services ont été backdoorés avec le malware Mini Shai-Hulud, cumulant environ 80 000 téléchargements hebdomadaires."
-  - "Les attaquants ont compromis un compte GitHub d'employé Red Hat pour推送 des commits isolés malveillants qui contournaient la code review et produisaient des attestations SLSA valides."
+  - "Les attaquants ont compromis un compte GitHub d'employé Red Hat pour pousser des commits isolés malveillants qui contournaient la code review et produisaient des attestations SLSA valides."
   - "Le malware cible désormais les identités cloud GCP et Azure avec un chiffrement par infection, rendant la détection par hash significativement plus difficile."
 faq:
   - question: "Quels paquets npm ont été touchés ?"

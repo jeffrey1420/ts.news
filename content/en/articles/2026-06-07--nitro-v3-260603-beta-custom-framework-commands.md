@@ -13,9 +13,9 @@ faq:
   - question: "What does 'custom framework preview/deploy commands' mean in Nitro 3?"
     answer: "Framework plugins can now provide their own preview and deploy commands that Nitro will invoke as part of the build pipeline. This allows frameworks built on top of Nitro to wire in platform-specific tooling without needing separate CLI entrypoints."
   - question: "What is the defaultPreset config option?"
-    answer: "The defaultPreset option lets you set which preset Nitro should fall back to when no explicit preset is configured. Previously the fallback was hardcoded; now you can customize it — useful when your setup needs a specific default that differs from the out-of-box behavior."
+    answer: "The defaultPreset option lets you set which preset Nitro should fall back to when no explicit preset is configured. Previously the fallback was hardcoded. Now you can customize it, useful when your setup needs a specific default that differs from the out-of-box behavior."
   - question: "What was the type-stripping fix in this release?"
-    answer: "The fix ensures that when TypeScript retries resolving a module path with added extensions (.ts, .tsx), Nitro only strips extensions it actually retried — not all possible extensions. This prevents edge cases where legitimate module resolution could be incorrectly skipped."
+    answer: "The fix ensures that when TypeScript retries resolving a module path with added extensions (.ts, .tsx), Nitro only strips extensions it actually retried, not all possible extensions. This prevents edge cases where legitimate module resolution could be incorrectly skipped."
 ---
 
 Nitro's v3 beta train keeps rolling. Build `3.0.260603-beta` — the date-stamped versioning means June 3, 2026 — is a small release, but two of its changes matter to anyone building a framework on top of Nitro, which since the [v3 beta announcement](https://nitro.build/blog/v3-beta) includes TanStack Start and the upcoming Nuxt major.

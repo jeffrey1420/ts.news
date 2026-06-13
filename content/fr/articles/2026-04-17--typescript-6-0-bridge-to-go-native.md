@@ -11,7 +11,7 @@ tldr:
   - Plusieurs valeurs par défaut changent : strict=true, module=esnext, types=[], rootDir=. — beaucoup de projets verront leurs builds accélérés de 20-50% mais devront peut-être configurer explicitement les types
 faq:
   - question: "Comment se préparer pour TypeScript 7.0 ?"
-    answer: "Utilisez TypeScript 6.0 maintenant. Essayez le preview natif de TypeScript 7.0 dans VS Code (extension TypeScriptTeam.native-preview) ou via npmx.dev. Le flag --stableTypeOrdering permet de détecter les différences早早."
+    answer: "Utilisez TypeScript 6.0 maintenant. Essayez le preview natif de TypeScript 7.0 dans VS Code (extension TypeScriptTeam.native-preview) ou via npmx.dev. Le flag --stableTypeOrdering permet de détecter les différences en amont."
   - question: "Pourquoi TypeScript a-t-il réécrit en Go ?"
     answer: "Le compilateur en Go vise la vitesse d'exécution native et le multithreading à mémoire partagée, ce que l'implémentation TypeScript actuelle ne peut pas atteindre efficacement. L'équipe a annoncé ce changement en 2025 et la 7.0 est décrite comme 'extrêmement proche de la completion'."
   - question: "Que faire si mon projet casse après la mise à jour ?"

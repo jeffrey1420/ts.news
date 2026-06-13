@@ -20,7 +20,7 @@ faq:
   - question: "What happened to Code With Me?"
     answer: "JetBrains is sunsetting Code With Me, its pair programming and collaborative coding service, starting with 2026.1. It will be unbundled from all JetBrains IDEs and moved to JetBrains Marketplace as a separate plugin. 2026.1 is the last IDE version to officially support it."
   - question: "Does this release support TypeScript 6?"
-    answer: "Yes. WebStorm 2026.1 aligns with TypeScript 6's changed defaults for the `types` value and `rootDir`, and已经开始 preparing for TypeScript 7's changes to `baseUrl` handling."
+    answer: "Yes. WebStorm 2026.1 aligns with TypeScript 6's changed defaults for the `types` value and `rootDir`, and has already started preparing for TypeScript 7's changes to `baseUrl` handling."
 ---
 
 WebStorm 2026.1 landed in March with a release that tightens the bond between the IDE and the tools developers actually use every day. The headline is a more efficient TypeScript engine by default, but the more visible change for many will be what's in the AI chat sidebar.

@@ -7,15 +7,15 @@ author: lschvn
 tags: ["css", "runtimes", "frameworks"]
 tldr:
   - "Fresh 2.3 actually ships zero JavaScript for pages without islands or partials, eliminating the ~14–22 KB client-entry bundle that existed even on fully static pages."
-  - "View Transitions API is now wired into Fresh's partials system — add f-view-transition to your body tag and navigations animate natively with CSS."
+  - "View Transitions API is now wired into Fresh's partials system. Add f-view-transition to your body tag and navigations animate natively with CSS."
   - "Built-in WebSocket support ships via app.ws() and ctx.upgrade(), with a bare mode that returns the raw WebSocket object for shared structures like chat rooms."
 faq:
   - question: "How does Fresh 2.3 achieve zero JavaScript by default?"
-    answer: "Fresh 2.3 checks whether a page actually uses islands or partials before injecting any client-side code. If a page has neither, it ships with no script tags, no module preload headers, and no client bundle at all — compared to ~14–22 KB gzipped in 2.2."
+    answer: "Fresh 2.3 checks whether a page actually uses islands or partials before injecting any client-side code. If a page has neither, it ships with no script tags, no module preload headers, and no client bundle at all, compared to ~14–22 KB gzipped in 2.2."
   - question: "How do View Transitions work in Fresh 2.3?"
     answer: "Add the f-view-transition attribute to the body tag alongside f-client-nav: <body f-client-nav f-view-transition>. Fresh then wraps partial navigations in document.startViewTransition(), and you customize animations with standard CSS ::view-transition-old and ::view-transition-new rules. Browsers without View Transitions support fall back to normal partial updates."
   - question: "What is the new WebSocket API in Fresh 2.3?"
-    answer: "The quickest approach is app.ws('/ws', { open, message, close }) on the main App instance. For file-based routes, use ctx.upgrade() inside a GET handler. Bare mode — ctx.upgrade() with no arguments — returns the raw WebSocket object so you can manage it in a shared structure like a Set for chat rooms."
+    answer: "The quickest approach is app.ws('/ws', { open, message, close }) on the main App instance. For file-based routes, use ctx.upgrade() inside a GET handler. Bare mode, ctx.upgrade() with no arguments, returns the raw WebSocket object so you can manage it in a shared structure like a Set for chat rooms."
 ---
 
 "Zero JavaScript by default" has been Fresh's pitch since day one. The honest fine print: even a page with no islands and no partials still shipped a small client entry — somewhere between 14 and 22 KB gzipped depending on the project. Not a scandal, but not zero either. Fresh 2.3, [announced on the Deno blog](https://deno.com/blog/fresh-2.3), closes that gap for real.

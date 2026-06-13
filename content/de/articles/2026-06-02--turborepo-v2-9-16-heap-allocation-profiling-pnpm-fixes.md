@@ -7,7 +7,7 @@ author: lschvn
 tags: ["tooling", "typescript", "javascript"]
 tldr:
   - Turborepo v2.9.16 integriert Heap-Allocation-Profiling in OpenTelemetry-Traces, mit Sichtbarkeit in den Speicherverbrauch pro Task und Package
-  - pnpm-Workspaces mit injizierten Peer-Dependencies funktionieren jetzt korrekt — Turborepo verwirft diese Einträge nicht mehr
+  - pnpm-Workspaces mit injizierten Peer-Dependencies funktionieren jetzt korrekt; Turborepo verwirft diese Einträge nicht mehr
   - Die OTEL-Endpoint-Validierung ist gehärtet, und npm tlog-Publishing-Fehler werden jetzt automatisch wiederholt
 ---
 

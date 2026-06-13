@@ -20,7 +20,7 @@ faq:
     answer: "Ja, MIT-Lizenz. VoidZero hatte ursprünglich eine kommerzielle Lizenz geplant, hat aber nach Community-Feedback umgeschwenkt. Ihr Geschäftsmodell basiert auf Void Cloud, ihrer gehosteten Plattform."
 ---
 
-VoidZero hat heute Vite+ Alpha veröffentlicht — eine vereinheitlichte Entwicklungstoolchain, die die wachsende Komplexität moderner JavaScript-Tools in eine einzige Binary namens `vp`压缩. Das Announcement deckt alles ab, von der Runtime-Verwaltung bis zum Production-Build, und alles ist Open Source unter der MIT-Lizenz.
+VoidZero hat heute Vite+ Alpha veröffentlicht, eine vereinheitlichte Entwicklungstoolchain, die die wachsende Komplexität moderner JavaScript-Tools in eine einzige Binary namens `vp` packt. Das Announcement deckt alles ab, von der Runtime-Verwaltung bis zum Production-Build, und alles ist Open Source unter der MIT-Lizenz.
 
 ## Was in Vite+ steckt
 

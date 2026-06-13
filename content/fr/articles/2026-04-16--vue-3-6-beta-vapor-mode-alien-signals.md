@@ -34,7 +34,7 @@ Le Vapor Mode remplace entièrement ceci. Au lieu de compiler les templates en f
 
 L'équipe Vue a d'abord décrit le Vapor Mode fin 2024 et itère dessus depuis 2025. Avec la beta 3.6, l'équipe a atteint une étape : **le Vapor Mode supporte maintenant toutes les fonctionnalités stables disponibles en mode virtual DOM**. Cela signifie que les composants utilisant `v-if`, `v-for`, `v-show`, `v-model`, les slots, `Suspense` et l'API Composition devraient fonctionner en Vapor Mode sans modification.
 
-L'exception est `Suspense` en mode Vapor-only — pas encore supporté, bien que les composants Vapor puissent être rendus à l'intérieur d'un边界 `Suspense` basé sur vdom.
+L'exception est `Suspense` en mode Vapor-only, pas encore supporté, bien que les composants Vapor puissent être rendus à l'intérieur d'une frontière `Suspense` basée sur vdom.
 
 ### Ce qui Change en Pratique
 

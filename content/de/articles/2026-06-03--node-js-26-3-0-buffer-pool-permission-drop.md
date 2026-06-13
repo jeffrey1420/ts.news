@@ -14,9 +14,9 @@ faq:
   - question: "Warum beeinflusst Buffer.poolSize die Anwendungsleistung?"
     answer: "Node verwendet intern einen Slab-Allocator. Ein größerer Pool bedeutet, dass weniger kleine Allokationen direkt aus dem Heap bedient werden, was Fragmentierung und Syscall-Overhead reduziert. Die Verdopplung des Standardwerts von 32 auf 64 KiB hilft den meisten HTTP-Servern und Streaming-Pipelines ohne manuelle Konfiguration."
   - question: "Wie unterscheidet sich permission.drop() vom bestehenden Berechtigungsmodell?"
-    answer: "Bisher waren Node.js-Berechtigungen beim Start all-oder-nichts. permission.drop() erlaubt laufendem Code, einzelne Berechtigungshandles — Dateisystem, Umgebung, Kindprozess — abzugeben, während andere erhalten bleiben. Dies ermöglicht progressive Privilegienreduzierung, z.B. fs-Zugriff nach einer Initialisierungsphase abzugeben."
+    answer: "Bisher waren Node.js-Berechtigungen beim Start all-oder-nichts. permission.drop() erlaubt laufendem Code, einzelne Berechtigungshandles abzugeben: Dateisystem, Umgebung, Kindprozess, während andere erhalten bleiben. Dies ermöglicht progressive Privilegienreduzierung, z.B. fs-Zugriff nach einer Initialisierungsphase abzugeben."
   - question: "Kann mein Intel-Mac weiterhin Node.js 26 ausführen?"
-    answer: "Ja — Node.js 26 wird vorerst weiter Universal-Binaries ausliefern. Die Warnung signalisiert, dass das Node.js-Projekt die Intel-Builds möglicherweise entfernt, bevor Node.js 26 EOL erreicht, falls Apple die x86-Toolchain-Unterstützung weiter einstellt. Apple Silicon (arm64) ist jetzt Tier 1; Intel ist Tier 2."
+    answer: "Ja. Node.js 26 wird vorerst weiter Universal-Binaries ausliefern. Die Warnung signalisiert, dass das Node.js-Projekt die Intel-Builds möglicherweise entfernt, bevor Node.js 26 EOL erreicht, falls Apple die x86-Toolchain-Unterstützung weiter einstellt. Apple Silicon (arm64) ist jetzt Tier 1; Intel ist Tier 2."
 ---
 
 Node.js 26.3.0 wurde am 1. Juni 2026 auf der Current-Release-Linie veröffentlicht. Es ist ein umfangreiches Mid-Cycle-Update: der Buffer-Allocator erhält eine bedeutende Abstimmung, das experimentelle Berechtigungssystem bekommt das am häufigsten angefragte Feature, Apple signalisiert einen weiteren Schritt zum Aus für Intel-Macs, und das Crypto-Team landet mehre PRs zur WebCrypto-Härtung.

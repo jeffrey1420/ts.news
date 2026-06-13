@@ -7,15 +7,15 @@ author: lschvn
 tags: ["css", "runtimes", "frameworks"]
 tldr:
   - "Fresh 2.3 élimine réellement le JavaScript pour les pages sans islands ni partials, supprimant le bundle client-entry de ~14–22 KB qui existait même sur les pages entièrement statiques."
-  - "L'API View Transitions est désormais connectée au système de partials de Fresh — ajoutez f-view-transition à votre body et les navigations s'animent nativement en CSS."
+  - "L'API View Transitions est désormais connectée au système de partials de Fresh. Ajoutez f-view-transition à votre body et les navigations s'animent nativement en CSS."
   - "Le support WebSocket intégré arrive via app.ws() et ctx.upgrade(), avec un mode bare qui retourne l'objet WebSocket brut pour les structures partagées comme les salons de chat."
 faq:
   - question: "Comment Fresh 2.3 atteint-il zéro JavaScript par défaut ?"
-    answer: "Fresh 2.3 vérifie si une page utilise réellement des islands ou des partials avant d'injecter du code côté client. Si une page n'a ni l'un ni l'autre, elle est livrée sans balises script, sans headers de préchargement de module, et sans bundle client — contre ~14–22 KB compressés en 2.2."
+    answer: "Fresh 2.3 vérifie si une page utilise réellement des islands ou des partials avant d'injecter du code côté client. Si une page n'a ni l'un ni l'autre, elle est livrée sans balises script, sans headers de préchargement de module, et sans bundle client, contre ~14–22 KB compressés en 2.2."
   - question: "Comment fonctionnent les View Transitions dans Fresh 2.3 ?"
     answer: "Ajoutez l'attribut f-view-transition à la balise body en même temps que f-client-nav : <body f-client-nav f-view-transition>. Fresh enveloppe alors les navigations partielles dans document.startViewTransition(), et vous personnalisez les animations avec les règles CSS ::view-transition-old et ::view-transition-new. Les navigateurs sans support des View Transitions retrouvent le comportement normal."
   - question: "Qu'est-ce que la nouvelle API WebSocket dans Fresh 2.3 ?"
-    answer: "L'approche la plus simple est app.ws('/ws', { open, message, close }) sur l'instance App principale. Pour les routes basées sur des fichiers, utilisez ctx.upgrade() dans un handler GET. Le mode bare — ctx.upgrade() sans arguments — retourne l'objet WebSocket brut pour le gérer dans une structure partagée comme un Set pour les salons de chat."
+    answer: "L'approche la plus simple est app.ws('/ws', { open, message, close }) sur l'instance App principale. Pour les routes basées sur des fichiers, utilisez ctx.upgrade() dans un handler GET. Le mode bare, ctx.upgrade() sans arguments, retourne l'objet WebSocket brut pour le gérer dans une structure partagée comme un Set pour les salons de chat."
 ---
 
 « Zéro JavaScript par défaut », c'est l'argument de Fresh depuis le premier jour. La vraie petite ligne en bas du contrat : même une page sans island ni partial embarquait un petit entry client — entre 14 et 22 KB gzippés selon le projet. Pas un scandale, mais pas zéro non plus. Fresh 2.3, [annoncé sur le blog Deno](https://deno.com/blog/fresh-2.3), comble cet écart pour de bon.

@@ -20,7 +20,7 @@ faq:
     answer: "The Rust implementation was optimized across three areas: parallelizing sequential operations (git indexing, glob walks, lockfile parsing), eliminating redundant allocations and clones, and batching syscall-heavy git operations using faster libraries like gix-index."
 ---
 
-Vercel engineers spent a week in March 2026 using AI coding agents to optimize Turborepo's Rust task scheduler. The result: task graph computation is now **81 to 96% faster**, depending on repository size. On a 1,000-package monorepo, `turbo run` went from 10 seconds of overhead to feeling near-instant. The write-up is值得 reading for anyone working on high-performance JavaScript tooling.
+Vercel engineers spent a week in March 2026 using AI coding agents to optimize Turborepo's Rust task scheduler. The result: task graph computation is now **81 to 96% faster**, depending on repository size. On a 1,000-package monorepo, `turbo run` went from 10 seconds of overhead to feeling near-instant. The write-up is worth reading for anyone working on high-performance JavaScript tooling.
 
 ## Starting With Unsupervised Agents
 

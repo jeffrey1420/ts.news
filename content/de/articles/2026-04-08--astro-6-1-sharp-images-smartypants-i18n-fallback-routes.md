@@ -70,7 +70,7 @@ Dies ist wichtig für Sites mit Lokalisierungsanforderungen oder strengen typogr
 
 ## i18n-Fallback-Routen für Integrationen
 
-Integrationen können jetzt Fallback-Routen sehen, die für i18n-Konfigurationen mit `fallbackType: 'rewrite'` generiert wurden. Zuvor waren diese Routen im Runtime vorhanden, wurden aber nicht über den `astro:routes:resolved`-Hook暴露. Integrationen wie die Sitemap-Integration konnten für mehrsprachige Sites unvollständige Sitemaps erzeugen.
+Integrationen können jetzt Fallback-Routen sehen, die für i18n-Konfigurationen mit `fallbackType: 'rewrite'` generiert wurden. Zuvor waren diese Routen im Runtime vorhanden, wurden aber nicht über den `astro:routes:resolved`-Hook freigegeben. Integrationen wie die Sitemap-Integration konnten für mehrsprachige Sites unvollständige Sitemaps erzeugen.
 
 ## Der Cloudflare-Effekt
 

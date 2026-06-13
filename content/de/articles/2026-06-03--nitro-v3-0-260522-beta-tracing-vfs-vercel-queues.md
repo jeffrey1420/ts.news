@@ -1,6 +1,6 @@
 ---
 title: "Nitro v3.0.260522-beta: Build-Time Tracing-Wrapper, VFS-Performance-Boost, Vercel Queues Lokal"
-description: "Das Nitro v3 Beta vom 22. Mai bringt automatische Tracing-Span-Wrapper für Route-Handler zur Build-Zeit, einen VFS-Cache für dynamischen Nitro-App-Code und Vercel-Queue-Support im lokalen Development — zusammen mit den Sicherheitspatches der vorherigen Beta."
+description: "Das Nitro v3 Beta vom 22. Mai bringt automatische Tracing-Span-Wrapper für Route-Handler zur Build-Zeit, einen VFS-Cache für dynamischen Nitro-App-Code und Vercel-Queue-Support im lokalen Development, zusammen mit den Sicherheitspatches der vorherigen Beta."
 date: 2026-06-03
 image: "/images/heroes/2026-06-03--nitro-v3-0-260522-beta-tracing-vfs-vercel-queues.png"
 author: lschvn
@@ -12,11 +12,11 @@ tldr:
   - Zwei Sicherheitspatches schließen eine Proxy-Request-Smuggling- und eine Open-Redirect-Schwachstelle (GHSA-5w89-w975-hf9q, GHSA-9phm-9p8f-hw5m)
 faq:
   - question: "Wie unterscheidet sich Build-Time-Tracing von der bestehenden OpenTelemetry-Integration?"
-    answer: "Nitros Tracing-Kanäle werden auf der Framework-Ebene emitiert — Spans für Route-Handling, Cache-Operationen und Datenbankabfragen werden direkt in Nitros internem Router generiert. Das bedeutet, dass Spans Framework-spezifischen Kontext (Routenname, Handler-Dauer, Cache Treffer/Fehlschläge) enthalten, den generisches OpenTelemetry-Middleware nicht liefern kann, ohne benutzerdefinierte Instrumentierung."
+    answer: "Nitros Tracing-Kanäle werden auf der Framework-Ebene emittiert. Spans für Route-Handling, Cache-Operationen und Datenbankabfragen werden direkt in Nitros internem Router generiert. Das bedeutet, dass Spans Framework-spezifischen Kontext (Routenname, Handler-Dauer, Cache Treffer/Fehlschläge) enthalten, den generisches OpenTelemetry-Middleware nicht liefern kann, ohne benutzerdefinierte Instrumentierung."
   - question: "Was ist der VFS-Dynamic-Code-Cache und wem hilft er?"
     answer: "Der VFS-Cache speichert den aufgelösten Zustand von Nitros internem Registry und Router. Bei nachfolgenden Dev-Server-Restarts lädt Nitro diesen Snapshot, anstatt jeden Route-Handler und jeden Modul-Import neu auszuwerten. Bei großen Anwendungen mit vielen Routes oder teuren Dynamic Imports spart dies Sekunden bei jedem Restart."
   - question: "Wie funktionieren Vercel Queues lokal?"
-    answer: "Der vercel dev-Befehl in Nitros Vercel-Preset erkennt jetzt Queue-Handler-Definitionen (nitro.tasks) und führt sie über einen lokalen Vercel Runtime Stub aus. Sie können Arbeit aus einem Route-Handler in die Queue einreihen und den vollständigen async Flow — inklusive Retries und Dead-Letter-Queue — vollständig lokal debuggen."
+    answer: "Der vercel dev-Befehl in Nitros Vercel-Preset erkennt jetzt Queue-Handler-Definitionen (nitro.tasks) und führt sie über einen lokalen Vercel Runtime Stub aus. Sie können Arbeit aus einem Route-Handler in die Queue einreihen und den vollständigen async Flow debuggen: Retries und Dead-Letter-Queue, vollständig lokal."
 ---
 
 Nitro v3.0.260522-beta wurde am 22. Mai 2026 veröffentlicht und erweitert die im April begonnene v3-Beta. Die Version fügt drei Funktionen hinzu, die zusammen die Developer Experience für produktionsorientierte serverseitige TypeScript-Anwendungen erheblich verbessern: automatische Tracing-Instrumentierung zur Build-Zeit, einen VFS-gestützten dynamischen Code-Cache und lokale Vercel-Queue-Emulation.
@@ -27,7 +27,7 @@ PR [#4240](https://github.com/nitrojs/nitro/pull/4240) führt automatische Traci
 
 ## VFS-Caching für dynamischen Code
 
-PR [#4251](https://github.com/nitrojs/nitro/pull/4251) führt eine VFS-Schicht für Nitros dynamischen App-Code ein. Bisher musste Nitro bei einem Dev-Server-Neustart den gesamten Modulgraphen neu auswerten — jeden Route-Handler, jeden `useStorage()`-Aufruf, jeden Event-Hook. Bei Anwendungen mit Hunderten von Routes oder teuren Initialisierungslogik добавлялись секунды zu jedem Restart.
+PR [#4251](https://github.com/nitrojs/nitro/pull/4251) führt eine VFS-Schicht für Nitros dynamischen App-Code ein. Bisher musste Nitro bei einem Dev-Server-Neustart den gesamten Modulgraphen neu auswerten — jeden Route-Handler, jeden `useStorage()`-Aufruf, jeden Event-Hook. Bei Anwendungen mit Hunderten von Routes oder teurer Initialisierungslogik kamen pro Restart mehrere Sekunden dazu.
 
 Der neue VFS-Cache serialisiert den aufgelösten Zustand von Nitros interner Registry nach dem ersten Request. Nachfolgende Starts laden aus diesem Snapshot und überspringen den Auswertungsschritt. Der Cache wird automatisch invalidiert, wenn sich Quelldateien ändern.
 

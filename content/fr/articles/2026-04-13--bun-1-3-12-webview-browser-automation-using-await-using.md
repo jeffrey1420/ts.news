@@ -52,7 +52,7 @@ Aucune étape de transpilation requise. Cela aligne Bun avec le graphe de module
 
 ## URLPattern — Jusqu'à 2,3× Plus Rapide
 
-`URLPattern.test()` et `URLPattern.exec()` ont reçu une refonte、性能 significative. La correspondance regex interne appelle désormais directement le moteur regex compilé au lieu d'allouer des objets JavaScript temporaires à chaque appel, éliminant jusqu'à 24 allocations GC par appel.
+`URLPattern.test()` et `URLPattern.exec()` ont reçu une refonte aux performances significatives. La correspondance regex interne appelle désormais directement le moteur regex compilé au lieu d'allouer des objets JavaScript temporaires à chaque appel, éliminant jusqu'à 24 allocations GC par appel.
 
 | Benchmark | Avant | Après | Accélération |
 |---|---|---|---|

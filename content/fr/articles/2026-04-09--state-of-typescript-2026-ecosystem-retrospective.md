@@ -14,7 +14,7 @@ tldr:
   - "Node.js 22.18 a stabilisé l'exécution native TypeScript via le type stripping, permettant l'exécution directe de fichiers .ts sans transpilation — un jalon qui divise fondamentalement TypeScript en syntaxe effaçable et syntaxe runtime."
 faq:
   - question: "Qu'est-ce que Project Corsa ?"
-    answer: "Project Corsa est le port natif par Microsoft du compilateur TypeScript et du service linguistique du JavaScript vers Go. Les benchmarks initiaux ont montré la compilation du codebase VS Code en 7,5 secondes contre 77,8 secondes. TypeScript 6.0 est la dernière version sur l'ancien codebase ; TypeScript 7.0 (mi-2026 prévu) devrait être la première版本 basée sur Go."
+    answer: "Project Corsa est le port natif par Microsoft du compilateur TypeScript et du service linguistique du JavaScript vers Go. Les benchmarks initiaux ont montré la compilation du codebase VS Code en 7,5 secondes contre 77,8 secondes. TypeScript 6.0 est la dernière version sur l'ancien codebase ; TypeScript 7.0 (mi-2026 prévu) devrait être la première version basée sur Go."
   - question: "Quels ont été les incidents de supply chain npm en 2025 ?"
     answer: "Trois incidents majeurs : s1ngularity, la compromission de debug et chalk, et l'attaque Shai-Hulud. La CISA a publié une alerte sur Shai-Hulud en septembre 2025. Le fil conducteur était l'exploitation automatisée des failles d'authentification des mainteneurs et des vulnérabilités des workflows CI."
   - question: "Que signifie 'type stripping' pour Node.js ?"
@@ -33,7 +33,7 @@ En août 2025, GitHub a rapporté que TypeScript était devenu le langage le plu
 
 Microsoft a annoncé Project Corsa début 2025 : un port natif du compilateur TypeScript et du service linguistique vers Go. L'objectif est approximativement 10x plus rapide en compilation et une compilation incrémentielle quasi instantanée. Les benchmarks initiaux étaient frappants — le codebase VS Code est passé de 77,8 secondes à 7,5 secondes ; Playwright de 11,1 secondes à 1,1 seconde.
 
-TypeScript 6.0, sorti au Q1 2026, est prévu comme dernière version majeure sur l'actuel codebase compilé en JavaScript. TypeScript 7.0 (cible mi-2026) devrait être la première版本 construite sur le compilateur Go. Les auteurs de plugins utilisant l'API Compilateur devront vérifier la compatibilité avec la nouvelle implémentation.
+TypeScript 6.0, sorti au Q1 2026, est prévu comme dernière version majeure sur l'actuel codebase compilé en JavaScript. TypeScript 7.0 (cible mi-2026) devrait être la première version construite sur le compilateur Go. Les auteurs de plugins utilisant l'API Compilateur devront vérifier la compatibilité avec la nouvelle implémentation.
 
 ## Exécution TypeScript native dans Node.js
 

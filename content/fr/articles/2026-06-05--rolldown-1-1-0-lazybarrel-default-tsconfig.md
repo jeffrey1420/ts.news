@@ -11,7 +11,7 @@ tldr:
   - L'option pour désactiver lazyBarrel sera supprimée dans une future version
 ---
 
-Rolldown 1.1.0 est sorti le 3 juin 2026. Malgré le标签 de version mineure, cette release apporte deux changements de comportement à connaître avant de mettre à jour.
+Rolldown 1.1.0 est sorti le 3 juin 2026. Malgré l'étiquette de version mineure, cette release apporte deux changements de comportement à connaître avant de mettre à jour.
 
 ## lazyBarrel activé par défaut
 

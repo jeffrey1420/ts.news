@@ -7,7 +7,7 @@ author: lschvn
 tags: ["tooling", "javascript"]
 tldr:
   - Oxc v0.126.0 fügt Parser-Unterstützung für Turbopack Magic Comments hinzu, was die Kompatibilität mit webpack-annotiertem Code verbessert
-  - Eine Breaking Change benennt Box- und Vec-Methoden im Allocator um – Projekte mit direkter Abhängigkeit müssen an更新时间
+  - Eine Breaking Change benennt Box- und Vec-Methoden im Allocator um. Projekte mit direkter Abhängigkeit müssen den Update-Zeitpunkt beachten
   - NAPI-Transform-Nutzer können optimizeConstEnums und optimizeEnums jetzt direkt konfigurieren
 ---
 
