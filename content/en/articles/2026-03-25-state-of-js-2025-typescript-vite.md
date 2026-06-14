@@ -16,12 +16,12 @@ faq:
   - question: "Is TypeScript replacing JavaScript as the default choice?"
     answer: "Almost. 40% of developers now write exclusively in TypeScript (up from 34% in 2024), while only 6% stick with plain JavaScript exclusively. Daniel Roe, Nuxt core team leader, put it bluntly: 'TypeScript has won. Not as a bundler, but as a language.' With Node.js type stripping now stable, the last technical barriers are gone."
   - question: "Why is Webpack satisfaction collapsing and what replaces it?"
-    answer: "Webpack's satisfaction rating fell to 26% in 2025, down from 36% in 2024, as developers grew frustrated with its complexity and steep learning curve. Vite dominates with 98% satisfaction at 84% usage. Turbopack sits at just 28% usage, and Rolldown — the Rust-based Rollup-compatible toolchain — jumped from 1% to 10% usage in a single year."
+    answer: "Webpack's satisfaction rating fell to 26% in 2025, down from 36% in 2024, as developers grew frustrated with its complexity and steep learning curve. Vite dominates with 98% satisfaction at 84% usage. Turbopack sits at just 28% usage, and Rolldown, the Rust-based Rollup-compatible toolchain, jumped from 1% to 10% usage in a single year."
   - question: "What's driving the criticism of Next.js despite its high usage?"
-    answer: "Next.js posts a 21% positive sentiment against a concerning 17% negative — generating more comment activity than any other project. Developers cite mounting complexity ('the Next.js complexity has gotten absurd') and concerns about Vercel's business incentives shaping the framework's direction. Solid.js maintains the highest satisfaction rating among major frameworks."
+    answer: "Next.js posts a 21% positive sentiment against a concerning 17% negative, generating more comment activity than any other project. Developers cite mounting complexity ('the Next.js complexity has gotten absurd') and concerns about Vercel's business incentives shaping the framework's direction. Solid.js maintains the highest satisfaction rating among major frameworks."
 ---
 
-The [State of JavaScript 2025](https://2025.stateofjs.com/en-US) survey, published in February 2026 after collecting responses through November 2025, paints a picture of a maturing ecosystem. TypeScript has firmly won the language war, Vite has won the build tool war — at least in sentiment — and developers are increasingly vocal about framework complexity.
+The [State of JavaScript 2025](https://2025.stateofjs.com/en-US) survey, published in February 2026 after collecting responses through November 2025, paints a picture of a maturing ecosystem. TypeScript has firmly won the language war, Vite has won the build tool war, at least in sentiment, and developers are increasingly vocal about framework complexity.
 
 ## TypeScript: The Unambiguous Winner
 
@@ -31,7 +31,7 @@ The numbers are damning in the best way. Daniel Roe, Nuxt core team leader, put 
 
 > TypeScript has won. Not as a bundler, but as a language.
 
-With type stripping now available in stable [Node.js](/articles/2026-03-24-bun-vs-node-vs-deno-2026-runtime-benchmark), the last technical barriers are crumbling. The question is no longer whether to use TypeScript — it's how fast you can migrate.
+With type stripping now available in stable [Node.js](/articles/2026-03-24-bun-vs-node-vs-deno-2026-runtime-benchmark), the last technical barriers are crumbling. The question is no longer whether to use TypeScript, it's how fast you can migrate.
 
 ## Build Tools: Vite Devastates Webpack
 
@@ -39,11 +39,11 @@ The build tool narrative is equally decisive. Vite sits at **84% usage with a 98
 
 One respondent described the current state: "trying to understand legacy code that uses Webpack can be painful." That sentiment resonates.
 
-Turbopack, Vercel's Rust-based successor to Webpack, sits at just 28% usage. Despite significant marketing push, it hasn't gained the traction many expected. The Rust-based future of the build pipeline might instead be [Rolldown](/articles/2026-03-26-vite-8-rolldown-era) — the Rollup-compatible toolchain that jumped from 1% to 10% usage in a single year.
+Turbopack, Vercel's Rust-based successor to Webpack, sits at just 28% usage. Despite significant marketing push, it hasn't gained the traction many expected. The Rust-based future of the build pipeline might instead be [Rolldown](/articles/2026-03-26-vite-8-rolldown-era), the Rollup-compatible toolchain that jumped from 1% to 10% usage in a single year.
 
 ## Frontend Frameworks: React Dominates, but Next.js Draws Fire
 
-React remains the most-used framework at **83.6%**, but the survey exposed growing dissatisfaction. Next.js, used by 59% of respondents, posted a 21% positive sentiment against a concerning 17% negative sentiment — generating more comment activity than any other project.
+React remains the most-used framework at **83.6%**, but the survey exposed growing dissatisfaction. Next.js, used by 59% of respondents, posted a 21% positive sentiment against a concerning 17% negative sentiment, generating more comment activity than any other project.
 
 The complaints cluster around complexity:
 
@@ -57,6 +57,6 @@ Solid.js maintained the highest satisfaction rating among major frameworks, thou
 
 The survey confirms what many TypeScript developers already experience: the ecosystem has coalesced around a set of stable preferences. TypeScript, Vite, and either Next.js or a meta-framework alternative are the default choices for new projects.
 
-The friction is shifting. It's no longer about whether to use TypeScript — it's about managing framework complexity as the ecosystem matures past its rapid-innovation phase.
+The friction is shifting. It's no longer about whether to use TypeScript, it's about managing framework complexity as the ecosystem matures past its rapid-innovation phase.
 
 The full survey results are available at [2025.stateofjs.com](https://2025.stateofjs.com/en-US).

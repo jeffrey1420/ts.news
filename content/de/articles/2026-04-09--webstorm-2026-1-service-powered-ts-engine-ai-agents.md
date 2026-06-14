@@ -9,9 +9,9 @@ readingTime: 5
 tags: ["ai", "tooling", "typescript"]
 tldr:
   - "WebStorm 2026.1 aktiviert standardmäßig die servicebasierte TypeScript-Engine, reduziert die CPU-Auslastung und verbessert die Reaktionsfähigkeit in großen Projekten."
-  - "Der KI-Chat bietet jetzt Junie, Claude Agent, Codex, Cursor und GitHub Copilot über die neue ACP-Registry — jeder Agent lässt sich mit einem Klick installieren."
+  - "Der KI-Chat bietet jetzt Junie, Claude Agent, Codex, Cursor und GitHub Copilot über die neue ACP-Registry, jeder Agent lässt sich mit einem Klick installieren."
   - "Next-Edit-Vorschläge sind ohne KI-Kontingent verfügbar und verbreiten zusammenhängende Änderungen intelligent über die gesamte Datei."
-  - "Code With Me wird mit 2026.1 eingestellt — JetBrains verweist auf zurückgehende Nachfrage und lenkt Nutzer auf modernere kollaborative Workflows."
+  - "Code With Me wird mit 2026.1 eingestellt, JetBrains verweist auf zurückgehende Nachfrage und lenkt Nutzer auf modernere kollaborative Workflows."
 faq:
   - question: "Was bedeutet 'servicebasierte TypeScript-Engine'?"
     answer: "WebStorm delegiert TypeScript-Parsing, Typprüfung und Sprachdienste jetzt an einen externen Prozess statt sie im Haupt-IDE-Thread auszuführen. Das Ergebnis: geringere CPU-Auslastung und bessere Reaktionsfähigkeit in großen Monorepos."
@@ -20,14 +20,14 @@ faq:
   - question: "Was ist mit Code With Me passiert?"
     answer: "JetBrains stellt Code With Me, seinen In-IDE-Paarprogrammierdienst, mit Wirkung ab 2026.1 ein. Er wird aus allen JetBrains-IDEs herausgelöst und als eigenständiges Plugin auf dem Marketplace angeboten. 2026.1 ist die letzte IDE-Version mit offizieller Unterstützung."
   - question: "Unterstützt dieses Release TypeScript 6?"
-    answer: "Ja. WebStorm 2026.1 ist auf TypeScript 6 ausgerichtet — einschließlich der geänderten Standardwerte für `types` und `rootDir` — und bereitet sich bereits auf die `baseUrl`-Änderungen in TypeScript 7 vor."
+    answer: "Ja. WebStorm 2026.1 ist auf TypeScript 6 ausgerichtet, einschließlich der geänderten Standardwerte für `types` und `rootDir`, und bereitet sich bereits auf die `baseUrl`-Änderungen in TypeScript 7 vor."
 ---
 
 WebStorm 2026.1 erschien im März mit einem Release, das die Bindung zwischen der IDE und den täglich genutzten Werkzeugen der Entwickler stärkt. DasHauptthema ist eine effizientere TypeScript-Engine standardmäßig, aber die für viele sichtbarere Änderung ist der KI-Chat in der Seitenleiste.
 
 ## Servicebasierte TypeScript-Engine, standardmäßig aktiviert
 
-Die technisch bedeutendste Änderung in 2026.1 ist der Wechsel der TypeScript-Engine von optional zu standardmäßig. Große TypeScript-Codebasen belasten Editoren ständig — Typprüfung, Navigation und Refactoring konkurrieren alle um CPU im Haupt-IDE-Thread. Die servicebasierte Engine lagert diese Arbeit auf einen separaten Prozess aus und hält die UI reaktionsschneller, ohne die Arbeitsweise beim Schreiben von Code zu verändern.
+Die technisch bedeutendste Änderung in 2026.1 ist der Wechsel der TypeScript-Engine von optional zu standardmäßig. Große TypeScript-Codebasen belasten Editoren ständig, Typprüfung, Navigation und Refactoring konkurrieren alle um CPU im Haupt-IDE-Thread. Die servicebasierte Engine lagert diese Arbeit auf einen separaten Prozess aus und hält die UI reaktionsschneller, ohne die Arbeitsweise beim Schreiben von Code zu verändern.
 
 WebStorm zeigt jetzt auch Inline-Hints vom TypeScript-Go-basierten Sprachserver direkt im Editor an, wenn dieser läuft. Und da TypeScript 6 ungefähr zur gleichen Zeit erschien, hat das Team die Standardwerte des Editors an TS6s geändertes Verhalten bei `types` und `rootDir` angepasst und bereits mit der Vorbereitung auf TypeScript 7s `baseUrl`-Änderungen begonnen.
 
@@ -42,9 +42,9 @@ Syntaxhervorhebung, Ge-zu-Definition und Umbenennungs-Refactoring funktionieren 
 
 ## KI-Chat erhält vollständigen Agenten-Roster
 
-JetBrains hat vor mehreren Releases ein KI-Chat-Panel eingeführt. In 2026.1 ist es jetzt ein Agent-Hub. Die ACP-Registry — ein Marktplatz innerhalb der IDE — ermöglicht die Installation von Agenten mit einem Klick. Die Liste umfasst bereits Junie (JetBrains eigener Agent), Claude Agent, Codex (OpenAIs Programmiermodell), Cursor und GitHub Copilot, mit mehr in Zukunft.
+JetBrains hat vor mehreren Releases ein KI-Chat-Panel eingeführt. In 2026.1 ist es jetzt ein Agent-Hub. Die ACP-Registry, ein Marktplatz innerhalb der IDE, ermöglicht die Installation von Agenten mit einem Klick. Die Liste umfasst bereits Junie (JetBrains eigener Agent), Claude Agent, Codex (OpenAIs Programmiermodell), Cursor und GitHub Copilot, mit mehr in Zukunft.
 
-Der praktische Vorteil: Entwickler können je nach Aufgabe zwischen verschiedenen Agenten wechseln — Codex für bestimmte Codegenerierungsaufgaben, Claude für rechenintensive Arbeit — ohne den Editor zu verlassen.
+Der praktische Vorteil: Entwickler können je nach Aufgabe zwischen verschiedenen Agenten wechseln, Codex für bestimmte Codegenerierungsaufgaben, Claude für rechenintensive Arbeit, ohne den Editor zu verlassen.
 
 ## Next-Edit-Vorschläge, ohne KI-Kontingent
 

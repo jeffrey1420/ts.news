@@ -7,7 +7,7 @@ author: lschvn
 tags: ["runtimes", "typescript", "javascript"]
 ---
 
-Deno 2.8 is out — and this time the headline isn't a single killer feature but a cluster of quality-of-life improvements that tighten the gap with Node.js while adding genuinely new tooling. The release dropped May 22, with a patch (v2.8.1) following five days later.
+Deno 2.8 is out, and this time the headline isn't a single killer feature but a cluster of quality-of-life improvements that tighten the gap with Node.js while adding genuinely new tooling. The release dropped May 22, with a patch (v2.8.1) following five days later.
 
 <!-- more -->
 
@@ -20,7 +20,7 @@ Deno 2.8 is out — and this time the headline isn't a single killer feature but
 
 ---
 
-## `deno audit fix` — One-Command Vulnerability Remediation
+## `deno audit fix`: One-Command Vulnerability Remediation
 
 `deno audit` landed in Deno 2.6 as a security auditing tool for npm packages. Deno 2.8 goes further with `deno audit fix`, which automatically upgrades vulnerable packages to the nearest patched version that still satisfies your version constraints.
 
@@ -37,7 +37,7 @@ If a package requires a major-version bump, Deno lists it separately so you can 
 
 ---
 
-## `deno ci` — Reproducible CI Installs
+## `deno ci`: Reproducible CI Installs
 
 Deno 2.8 introduces `deno ci`, a dedicated subcommand for CI environments and Dockerfiles. Previously, getting a reproducible install meant remembering the right combination of flags on `deno install`. Now:
 
@@ -49,7 +49,7 @@ It errors if `deno.lock` is missing, removes any existing `node_modules`, and ru
 
 ---
 
-## `deno pack` — Build npm Tarballs Without Leaving Deno
+## `deno pack`: Build npm Tarballs Without Leaving Deno
 
 `deno pack` combines the behavior of `tsc` and `npm pack` into a single command. Given a `deno.json`:
 
@@ -72,7 +72,7 @@ Specifiers are rewritten so packages work inside the npm ecosystem: `jsr:@std/pa
 
 ---
 
-## `deno bump-version` — Semver Management for Workspaces
+## `deno bump-version`: Semver Management for Workspaces
 
 `deno bump-version` updates the version field in your `deno.json` or `package.json` with standard semver increments:
 
@@ -91,7 +91,7 @@ In a workspace, running from the root applies the same increment to every member
 
 Deno's stated goal is reaching 75% Node.js compatibility by 2026. The 2.8 release advances this with broader `node:` module coverage, improved TLS/SSL context handling, and better compatibility with npm packages that rely on Node.js internals. The changelog lists dozens of `ext/node` fixes covering `fs.promises`, `crypto`, `http`, `tls`, and `sqlite`.
 
-The team has also been working on `module.registerHooks()` for CommonJS hot-reloading, synthetic ESM for `node:worker_threads`, and async module resolution — all of which land in 2.8.
+The team has also been working on `module.registerHooks()` for CommonJS hot-reloading, synthetic ESM for `node:worker_threads`, and async module resolution, all of which land in 2.8.
 
 ---
 

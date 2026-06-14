@@ -23,26 +23,26 @@ Node.js veröffentlichte am 24. März 2026 einen koordinierten Satz von Sicherhe
 
 ## Die Zwei High-Severity-Fixes
 
-**CVE-2026-21637 — TLS SNICallback Crash (High)**
+**CVE-2026-21637, TLS SNICallback Crash (High)**
 
-TLS SNICallback ermöglicht es einem Server, das richtige Zertifikat basierend auf dem Hostname des Clients auszuwählen. Die Schwachstelle: Wenn die SNICallback-Implementierung eine Exception warf, fing Node.js diese nicht ab — der gesamte Prozess stürzte während des TLS-Handshakes ab. Matteo Collina patchte dies, indem er den SNICallback in einen try/catch-Block wrappte.
+TLS SNICallback ermöglicht es einem Server, das richtige Zertifikat basierend auf dem Hostname des Clients auszuwählen. Die Schwachstelle: Wenn die SNICallback-Implementierung eine Exception warf, fing Node.js diese nicht ab, der gesamte Prozess stürzte während des TLS-Handshakes ab. Matteo Collina patchte dies, indem er den SNICallback in einen try/catch-Block wrappte.
 
-**CVE-2026-21710 — HTTP Header Prototype Pollution (High)**
+**CVE-2026-21710, HTTP Header Prototype Pollution (High)**
 
 Die `headersDistinct`- und `trailersDistinct`-Objekte in Node.js HTTP-Antworten nutzten standardmäßige JavaScript-Prototypen. Das eröffnet einen Prototype-Pollution-Angriffsvektor: Wenn ein Angreifer die Keys dieser Objekte beeinflussen könnte, könnte er Eigenschaften wie `__proto__` oder `constructor` injizieren. Der Fix verwendet einen Null-Prototypen (`Object.create(null)`), der die Prototypenkette vollständig entfernt.
 
 ## Vier Weitere Patches
 
-**CVE-2026-21713 — Timing-Safe HMAC-Vergleich (Medium)**
+**CVE-2026-21713, Timing-Safe HMAC-Vergleich (Medium)**
 Filip Skokan patchte die Web Cryptography HMAC-Implementierung, um einen timing-safe Vergleich zu verwenden und Seitenkanalangriffe zu verhindern.
 
-**CVE-2026-21714 — NGHTTP2 Flow Control (Medium)**
+**CVE-2026-21714, NGHTTP2 Flow Control (Medium)**
 RafaelGSS korrigierte ein Problem, bei dem nicht behandelte `NGHTTP2_ERR_FLOW_CONTROL`-Fehler zu Hängern in HTTP/2-Verbindungen führen konnten.
 
-**CVE-2026-21717 — Array-Index-Hash-Kollision (Medium)**
+**CVE-2026-21717, Array-Index-Hash-Kollision (Medium)**
 Joyee Cheung aktualisierte die V8-Testsuite, um Hash-Kollisionsangriffe auf Array-Indizes zu erkennen.
 
-**CVE-2026-21715 und CVE-2026-21716 — Permission-System-Lücken (Low)**
+**CVE-2026-21715 und CVE-2026-21716, Permission-System-Lücken (Low)**
 Zwei fehlende Berechtigungsprüfungen in `realpath.native` und `fs/promises` wurden geschlossen.
 
 ## Was Zu Tun Ist

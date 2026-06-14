@@ -1,5 +1,5 @@
 ---
-title: "Vite+ : Une CLI pour tout unifier — Ou juste une couche de plus de battage ?"
+title: "Vite+ : Une CLI pour tout unifier, Ou juste une couche de plus de battage ?"
 description: "Vite+ de VoidZero promet d'unifier runtime, gestionnaire de paquets, bundler, linter, formateur et runner de tests sous une seule commande. Nous avons lu les annonces, benchmarké les affirmations et parlé à des personnes l'utilisant en production."
 date: "2026-03-22"
 category: "deep-dive"
@@ -11,21 +11,21 @@ tldr:
   - "Vite+ est une CLI alpha par VoidZero (Evan You) enveloppant Vite, Vitest, Oxlint, Oxfmt, Rolldown et tsdown sous une seule commande `vp`."
   - "Rolldown delivers 1,6x–7,7x faster production builds than Vite 7 ; Oxlint is 50–100x faster than ESLint ; Oxfmt ~30x faster than Prettier."
   - "Tous les outils partagent le même parser/résolveur Oxc, éliminant la reconstruction AST redondante à travers le pipeline."
-  - "Vite+ est sous licence MIT ; les revenus de VoidZero viennent de la couche entreprise VoidCloud prévue — l'engagement open-source est réel mais mérite surveillance."
+  - "Vite+ est sous licence MIT ; les revenus de VoidZero viennent de la couche entreprise VoidCloud prévue, l'engagement open-source est réel mais mérite surveillance."
 faq:
   - question: "Vite+ est-il prêt pour la production ?"
-    answer: "Vite+ est explicitement alpha. Certaines API changeront avant la version stable, la compatibilité des plugins peut ne pas être entièrement testée pour les cas limites, et la documentation est incomplète. Cependant, les outils sous-jacents — Vite 8, Rolldown, Oxc — sont plus matures que la mention 'alpha' ne le suggère."
+    answer: "Vite+ est explicitement alpha. Certaines API changeront avant la version stable, la compatibilité des plugins peut ne pas être entièrement testée pour les cas limites, et la documentation est incomplète. Cependant, les outils sous-jacents, Vite 8, Rolldown, Oxc, sont plus matures que la mention 'alpha' ne le suggère."
   - question: "Quelle est la différence entre Vite+ et utiliser les outils individuellement ?"
     answer: "Vite+ ajoute de la commodité : un seul binaire, un seul fichier de configuration, un seul modèle mental pour le cycle de développement complet. Pour les nouveaux projets et équipes frustrées par la complexité des outils, cette commodité a de la valeur. Mais les outils eux-mêmes valent la peine d'être connus, que vous utilisiez l'enveloppe ou non."
   - question: "VoidZero va-t-il changer la licence comme Terraform ou Redis ?"
-    answer: "La licence MIT est un engagement réel — VoidZero a explicitement abandonné un modèle de licence payant après les retours de la communauté. Mais le modèle commercial dépend de VoidCloud, pas encore public. L'histoire de HashiCorp avec Terraform est notable, mais VoidZero a été explicite sur ses intentions."
+    answer: "La licence MIT est un engagement réel, VoidZero a explicitement abandonné un modèle de licence payant après les retours de la communauté. Mais le modèle commercial dépend de VoidCloud, pas encore public. L'histoire de HashiCorp avec Terraform est notable, mais VoidZero a été explicite sur ses intentions."
 ---
 
-Tous les quelques années, quelqu'un dans l'écosystème JavaScript annonce un outilchain unifié — moins de fichiers de config, une seule commande à apprendre. Le résultat est généralement plus compliqué qu'annoncé. Mais Vite+, de VoidZero (fondé par Evan You, créateur de Vue.js et Vite, avec 4,6M$ de Accel), arrive avec des outils dont les affirmations de performance sont indépendamment vérifiées : Rolldown livre des builds production 1,6× à 7,7× plus rapides que Vite 7, et Oxlint fonctionne 50-100× plus vite que ESLint.
+Tous les quelques années, quelqu'un dans l'écosystème JavaScript annonce un outilchain unifié, moins de fichiers de config, une seule commande à apprendre. Le résultat est généralement plus compliqué qu'annoncé. Mais Vite+, de VoidZero (fondé par Evan You, créateur de Vue.js et Vite, avec 4,6M$ de Accel), arrive avec des outils dont les affirmations de performance sont indépendamment vérifiées : Rolldown livre des builds production 1,6× à 7,7× plus rapides que Vite 7, et Oxlint fonctionne 50-100× plus vite que ESLint.
 
 ## Qu'est-ce que Vite+ ?
 
-Vite+ est une CLI au stade alpha qui enveloppe les projets VoidZero existants — Vite, Vitest, Oxlint, Oxfmt, Rolldown et tsdown — sous un seul point d'entrée appelé `vp`.
+Vite+ est une CLI au stade alpha qui enveloppe les projets VoidZero existants, Vite, Vitest, Oxlint, Oxfmt, Rolldown et tsdown, sous un seul point d'entrée appelé `vp`.
 
 Les commandes :
 - `vp env` : gère l'installation de Node.js globalement et par projet
@@ -45,11 +45,11 @@ L'écosystème JavaScript a accumulé trop de coutures entre les outils. ESLint 
 
 La vision VoidZero est de posséder la pile complète : parser (oxc-parser), transformateur (oxc-transform), linter (Oxlint), formateur (Oxfmt), bundler (Rolldown), test runner (Vitest) et dev server (Vite). Si chaque outil partage la même représentation AST et le même résolveur, vous éliminez le parsing redondant.
 
-Le modèle commercial : Vite+ lui-même est sous licence MIT et open source. Les revenus de VoidZero viennent de "VoidCloud", une couche entreprise — le même modèle que HashiCorp avec Terraform.
+Le modèle commercial : Vite+ lui-même est sous licence MIT et open source. Les revenus de VoidZero viennent de "VoidCloud", une couche entreprise, le même modèle que HashiCorp avec Terraform.
 
 ## Qu'est-ce qui est réellement nouveau vs réemballé ?
 
-**Rolldown** est la contribution originale la plus significative. C'est un bundler Rust basé sur Oxc, conçu pour remplacer à la fois esbuild et Rollup. Sur une application React de taille moyenne (180K lignes TypeScript, 60 routes), un développeur a mesuré des builds production passant de 94 secondes (Rollup) à 11 secondes (Rolldown) — environ 8,5× plus rapide.
+**Rolldown** est la contribution originale la plus significative. C'est un bundler Rust basé sur Oxc, conçu pour remplacer à la fois esbuild et Rollup. Sur une application React de taille moyenne (180K lignes TypeScript, 60 routes), un développeur a mesuré des builds production passant de 94 secondes (Rollup) à 11 secondes (Rolldown), environ 8,5× plus rapide.
 
 **Oxc** est le moteur sous-jacent. Oxlint est 50-100× plus rapide que ESLint. Oxfmt est environ 30× plus rapide que Prettier. Ces chiffres sont réels et indépendamment vérifiés.
 
@@ -68,7 +68,7 @@ Ces chiffres sont réels mais la variance est grande. Les petits projets voient 
 
 La migration pour les équipes utilisant déjà Vite est réellement fluide :
 1. Installer `vp` globalement
-2. Exécuter `vp migrate` — un outil de migration automatisé
+2. Exécuter `vp migrate`, un outil de migration automatisé
 3. Remplacer les commandes individuelles par `vp dev`, `vp test`, `vp check`, `vp build`
 
 ## Qui devrait s'en soucier maintenant, et qui devrait attendre
@@ -84,7 +84,7 @@ La migration pour les équipes utilisant déjà Vite est réellement fluide :
 
 ## Le cas sceptique
 
-Le cas le plus fort contre Vite+ est que c'est un réemballage d'outils existants. Si vous utilisez déjà Vite 8 avec Rolldown, Oxlint et Vitest, Vite+ vous donne une CLI plus belle et un fichier de config. C'est de la valeur réelle — mais incrémentale.
+Le cas le plus fort contre Vite+ est que c'est un réemballage d'outils existants. Si vous utilisez déjà Vite 8 avec Rolldown, Oxlint et Vitest, Vite+ vous donne une CLI plus belle et un fichier de config. C'est de la valeur réelle, mais incrémentale.
 
 La dépendance VoidZero est également une préoccupation. Vite était à l'origine un projet communautaire sans entreprise derrière. C'est maintenant une entreprise avec du financement, une feuille de route produit entreprise et un modèle commercial pas entièrement disclose.
 

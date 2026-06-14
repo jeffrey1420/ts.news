@@ -18,7 +18,7 @@ faq:
     answer: "Utilisez le composant svelte:boundary avec transformError pour intercepter et transformer les erreurs server-side, similaire aux error boundaries côté client."
 ---
 
-La version Svelte de mars 2026 apporte un ensemble d'amélioration qui comblent des lacunes de longue date — notamment autour de l'instanciation programmatique de composants et de la gestion d'erreurs côté serveur — tout en continuant à affiner les API de navigation de SvelteKit.
+La version Svelte de mars 2026 apporte un ensemble d'amélioration qui comblent des lacunes de longue date, notamment autour de l'instanciation programmatique de composants et de la gestion d'erreurs côté serveur, tout en continuant à affiner les API de navigation de SvelteKit.
 
 ## `createContext` en mode programmatique
 
@@ -49,31 +49,31 @@ Deux changements au niveau du compilateur atterrissent dans la même release. Le
 </button>
 ```
 
-Parallèlement, les expressions `{@html}` acceptent désormais `TrustedHTML` — issu de la Web Secure Types API. Cela vous permet d'indiquer au système de types qu'une chaîne a déjà été sanitized et ne doit pas déclencher le crochet `any` habituel lors de l'assignation à `{@html}`.
+Parallèlement, les expressions `{@html}` acceptent désormais `TrustedHTML`, issu de la Web Secure Types API. Cela vous permet d'indiquer au système de types qu'une chaîne a déjà été sanitized et ne doit pas déclencher le crochet `any` habituel lors de l'assignation à `{@html}`.
 
 ## Les Error Boundaries atteignent le serveur
 
-Les error boundaries (`svelte:boundary`) ne fonctionnaient auparavant que côté client. Svelte 5.53.0 les étend au rendu côté serveur, vous pouvez désormais intercepter et transformer les erreurs survenant pendant le SSR sans faire tomber toute la page. Cela compte pour les apps SvelteKit qui récupèrent des données au moment de la requête — un composant qui échoue ne fait plus planter l'ensemble de la réponse.
+Les error boundaries (`svelte:boundary`) ne fonctionnaient auparavant que côté client. Svelte 5.53.0 les étend au rendu côté serveur, vous pouvez désormais intercepter et transformer les erreurs survenant pendant le SSR sans faire tomber toute la page. Cela compte pour les apps SvelteKit qui récupèrent des données au moment de la requête, un composant qui échoue ne fait plus planter l'ensemble de la réponse.
 
 ## SvelteKit : les callbacks de navigation obtiennent des données de scroll
 
-Les callbacks de navigation (`beforeNavigate`, `onNavigate`, `afterNavigate`) incluent désormais des informations de position de scroll sur les cibles `from` et `to`. Cela permet des animations de transition conscientes du scroll — vous pouvez vérifier si l'utilisateur navigue en arrière ou en avant et animer en conséquence, sans gestion supplémentaire.
+Les callbacks de navigation (`beforeNavigate`, `onNavigate`, `afterNavigate`) incluent désormais des informations de position de scroll sur les cibles `from` et `to`. Cela permet des animations de transition conscientes du scroll, vous pouvez vérifier si l'utilisateur navigue en arrière ou en avant et animer en conséquence, sans gestion supplémentaire.
 
 La mise à jour stabilise également le support de Vite 8 (kit@2.53.0) et ajoute un addon officiel `better-auth` au CLI Svelte (`sv@0.12.0`).
 
 ## State of JS 2025 : Svelte garde la première place
 
-Une rapide satisfaction : les résultats du [State of JS 2025](https://2025.stateofjs.com/en-US) sont publiés, et Svelte conserve sa position de framework réactif le mieux classé en termes de sentiment positif pour la deuxième année consécutive. La catégorie inclut Solid, Vue, React, Angular et d'autres — le score de satisfaction développeur de Svelte continue de se démarquer.
+Une rapide satisfaction : les résultats du [State of JS 2025](https://2025.stateofjs.com/en-US) sont publiés, et Svelte conserve sa position de framework réactif le mieux classé en termes de sentiment positif pour la deuxième année consécutive. La catégorie inclut Solid, Vue, React, Angular et d'autres, le score de satisfaction développeur de Svelte continue de se démarquer.
 
 ## Temps forts communautaires
 
 Le habituel florilège de projets notables construits avec Svelte ce mois-ci :
 
-- **[Cherit](https://keshav.is-a.dev/Cherit/)** — base de connaissances open-source Markdown construite avec Tauri
-- **[Le site du hackathon mondial Mistral AI](https://worldwide-hackathon.mistral.ai/)** — construit avec Svelte, comme noté sur Reddit
-- **[Fretwise](https://fretwise.ai/)** — plateforme de pratique de guitare alimentée par l'IA, générant des tablatures et des stems isolés
-- **[SoundTime](https://github.com/CICCADA-CORP/SoundTime)** — streaming de musique auto-hébergé avec partage P2P, construit avec Rust + Svelte
-- **[warpkit](https://github.com/upstat-io/warpkit)** — framework SPA Svelte 5 autonome avec routage state-based et récupération de données
-- **[svelte-grab](https://github.com/HeiCg/svelte-grab)** — outil dev qui capture le contexte des composants pour les agents de coding IA, Alt+Click sur n'importe quel élément pour inspecter l'état et tracer les erreurs
+- **[Cherit](https://keshav.is-a.dev/Cherit/)**: base de connaissances open-source Markdown construite avec Tauri
+- **[Le site du hackathon mondial Mistral AI](https://worldwide-hackathon.mistral.ai/)**: construit avec Svelte, comme noté sur Reddit
+- **[Fretwise](https://fretwise.ai/)**: plateforme de pratique de guitare alimentée par l'IA, générant des tablatures et des stems isolés
+- **[SoundTime](https://github.com/CICCADA-CORP/SoundTime)**: streaming de musique auto-hébergé avec partage P2P, construit avec Rust + Svelte
+- **[warpkit](https://github.com/upstat-io/warpkit)**: framework SPA Svelte 5 autonome avec routage state-based et récupération de données
+- **[svelte-grab](https://github.com/HeiCg/svelte-grab)**: outil dev qui capture le contexte des composants pour les agents de coding IA, Alt+Click sur n'importe quel élément pour inspecter l'état et tracer les erreurs
 
-L'écosystème Svelte continue de croître dans des directions qui dépassent largement l'application web traditionnelle — des outils musicaux aux simulateurs de hardware en passant par les intégrations IA.
+L'écosystème Svelte continue de croître dans des directions qui dépassent largement l'application web traditionnelle, des outils musicaux aux simulateurs de hardware en passant par les intégrations IA.

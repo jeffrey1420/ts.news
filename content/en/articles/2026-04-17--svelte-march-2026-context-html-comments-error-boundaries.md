@@ -18,7 +18,7 @@ faq:
     answer: "Use the svelte:boundary component with transformError to catch and transform server-side errors, similar to how client-side error boundaries already worked."
 ---
 
-Svelte's March 2026 release lands a set of improvements that close longstanding gaps — most notably around programmatic component instantiation and server-side error handling — while continuing to refine SvelteKit's navigation APIs.
+Svelte's March 2026 release lands a set of improvements that close longstanding gaps, most notably around programmatic component instantiation and server-side error handling, while continuing to refine SvelteKit's navigation APIs.
 
 ## `createContext` Goes Programmatic
 
@@ -49,31 +49,31 @@ Two compiler-level changes land in the same release train. HTML comments are now
 </button>
 ```
 
-Simultaneously, `{@html}` expressions now accept `TrustedHTML` — part of the Web Secure Types API. This lets you tell the type system that a string has already been sanitized and should not trigger the usual `any` escape hatch when assigning to `{@html}`.
+Simultaneously, `{@html}` expressions now accept `TrustedHTML`, part of the Web Secure Types API. This lets you tell the type system that a string has already been sanitized and should not trigger the usual `any` escape hatch when assigning to `{@html}`.
 
 ## Error Boundaries Reach the Server
 
-Error boundaries (`svelte:boundary`) previously only worked on the client. Svelte 5.53.0 extends them to server-side rendering, so you can catch and transform errors that occur during SSR without crashing the entire page. This matters for SvelteKit apps that fetch data at request time — a failing component no longer takes down the whole response.
+Error boundaries (`svelte:boundary`) previously only worked on the client. Svelte 5.53.0 extends them to server-side rendering, so you can catch and transform errors that occur during SSR without crashing the entire page. This matters for SvelteKit apps that fetch data at request time, a failing component no longer takes down the whole response.
 
 ## SvelteKit: Navigation Callbacks Get Scroll Data
 
-Navigation callbacks (`beforeNavigate`, `onNavigate`, `afterNavigate`) now include scroll position information on the `from` and `to` navigation targets. This enables scroll-aware transition animations — you can check whether the user is navigating back or forward and animate accordingly, all without extra bookkeeping.
+Navigation callbacks (`beforeNavigate`, `onNavigate`, `afterNavigate`) now include scroll position information on the `from` and `to` navigation targets. This enables scroll-aware transition animations, you can check whether the user is navigating back or forward and animate accordingly, all without extra bookkeeping.
 
 The update also stabilizes Vite 8 support (kit@2.53.0) and adds an official `better-auth` addon to the Svelte CLI (`sv@0.12.0`).
 
 ## State of JS 2025: Svelte Holds First Place
 
-A quick vindication: the [State of JS 2025 survey](https://2025.stateofjs.com/en-US) results are out, and Svelte retains its position as the top-ranked reactive framework in positive sentiment for the second consecutive year. The category includes Solid, Vue, React, Angular, and others — Svelte's developer satisfaction score continues to stand out.
+A quick vindication: the [State of JS 2025 survey](https://2025.stateofjs.com/en-US) results are out, and Svelte retains its position as the top-ranked reactive framework in positive sentiment for the second consecutive year. The category includes Solid, Vue, React, Angular, and others, Svelte's developer satisfaction score continues to stand out.
 
 ## Community Highlights
 
 The usual round of notable projects built with Svelte this month:
 
-- **[Cherit](https://keshav.is-a.dev/Cherit/)** — open-source markdown knowledge base built with Tauri
-- **[Mistral AI's worldwide hackathon site](https://worldwide-hackathon.mistral.ai/)** — built with Svelte, as noted on Reddit
-- **[Fretwise](https://fretwise.ai/)** — AI-powered guitar practice platform generating tabs and isolated stems
-- **[SoundTime](https://github.com/CICCADA-CORP/SoundTime)** — self-hosted music streaming with P2P sharing, built with Rust + Svelte
-- **[warpkit](https://github.com/upstat-io/warpkit)** — standalone Svelte 5 SPA framework with state-based routing and data fetching
-- **[svelte-grab](https://github.com/HeiCg/svelte-grab)** — dev tool that captures component context for LLM coding agents, Alt+Click any element to inspect state and trace errors
+- **[Cherit](https://keshav.is-a.dev/Cherit/)**: open-source markdown knowledge base built with Tauri
+- **[Mistral AI's worldwide hackathon site](https://worldwide-hackathon.mistral.ai/)**: built with Svelte, as noted on Reddit
+- **[Fretwise](https://fretwise.ai/)**: AI-powered guitar practice platform generating tabs and isolated stems
+- **[SoundTime](https://github.com/CICCADA-CORP/SoundTime)**: self-hosted music streaming with P2P sharing, built with Rust + Svelte
+- **[warpkit](https://github.com/upstat-io/warpkit)**: standalone Svelte 5 SPA framework with state-based routing and data fetching
+- **[svelte-grab](https://github.com/HeiCg/svelte-grab)**: dev tool that captures component context for LLM coding agents, Alt+Click any element to inspect state and trace errors
 
-Svelte's ecosystem continues to grow in directions that go well beyond the traditional web app — from music tools to hardware simulators to AI integrations.
+Svelte's ecosystem continues to grow in directions that go well beyond the traditional web app, from music tools to hardware simulators to AI integrations.

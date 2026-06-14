@@ -11,11 +11,11 @@ tldr:
   - The parser now emits specific TypeScript error codes (TS1094, TS1095, TS1051) for accessor type parameter issues and rejects generators, overload signatures, and invalid index signatures in ambient contexts
 ---
 
-## oxlint v1.68.0 — Vue and TypeScript Rules
+## oxlint v1.68.0: Vue and TypeScript Rules
 
 The headline additions in oxlint v1.68.0 are two Vue-specific linter rules.
 
-**`vue/no-reserved-component-names`** prevents using reserved names for Vue component definitions. Vue reserves names like `Switch`, `KeepAlive`, and `Teleport` — using them as local component names can cause rendering issues, especially when used with `resolveComponent` or in `.vue` file `<script>` blocks.
+**`vue/no-reserved-component-names`** prevents using reserved names for Vue component definitions. Vue reserves names like `Switch`, `KeepAlive`, and `Teleport`, using them as local component names can cause rendering issues, especially when used with `resolveComponent` or in `.vue` file `<script>` blocks.
 
 **`vue/component-definition-name`** is the counterpart rule that catches when component definition names conflict with HTML elements or Vue built-in components.
 
@@ -23,7 +23,7 @@ On the TypeScript side, **the new `method-signature-style` rule** enforces a con
 
 Also new in v1.68.0: **`override::exclude_files`** lets you exclude specific files from rule overrides, giving finer control over per-directory lint configuration without complex glob patterns.
 
-## oxfmt v0.53.0 — Formatter Updates
+## oxfmt v0.53.0: Formatter Updates
 
 oxfmt ships alongside oxlint with formatting improvements. The full changelog for v0.53.0 is available on the [oxc-project/oxc releases page](https://github.com/oxc-project/oxc/releases).
 
@@ -31,14 +31,14 @@ oxfmt ships alongside oxlint with formatting improvements. The full changelog fo
 
 This release brings a significant batch of parser improvements focused on TypeScript ambient context enforcement. The parser now emits precise error codes for a range of invalid declarations:
 
-- **TS1094** — accessor type parameters (setters/getters with type parameters)
-- **TS1095** — setters with a return type annotation
-- **TS1051** — optional parameters in setters
-- **TS1221 / TS1222** — generators and overload signatures in ambient contexts
-- **TS1268 / TS1337** — invalid index signature parameter types
-- **TS1038 / TS1036** — `declare` in already-declared ambient contexts and statements in ambient blocks
-- **TS1316** — export-as-namespace inside a namespace body
-- **TS1183** — function implementations in ambient contexts (e.g., inside `declare` blocks)
+- **TS1094**: accessor type parameters (setters/getters with type parameters)
+- **TS1095**: setters with a return type annotation
+- **TS1051**: optional parameters in setters
+- **TS1221 / TS1222**: generators and overload signatures in ambient contexts
+- **TS1268 / TS1337**: invalid index signature parameter types
+- **TS1038 / TS1036**: `declare` in already-declared ambient contexts and statements in ambient blocks
+- **TS1316**: export-as-namespace inside a namespace body
+- **TS1183**: function implementations in ambient contexts (e.g., inside `declare` blocks)
 
 The parser also now rejects class member modifiers in invalid combinations, `module`-referencing imports/exports inside namespaces, and `implements` clauses where the class name itself is `implements`.
 
@@ -46,9 +46,9 @@ The parser also now rejects class member modifiers in invalid combinations, `mod
 
 Three changes target parser throughput:
 
-1. **Cached token kind reuse in delimited-list loops** — avoids redundant token kind lookups in array/object literals, function parameters, and similar delimited constructs.
-2. **peek_token instead of lookahead on the modifier path** — a lighter token peek replaces the heavier lookahead when scanning modifiers, reducing redundant token inspection.
-3. **Deferred declare lookup for empty accessors** — skips unnecessary symbol resolution for accessors without bodies, shaving time during semantic analysis.
+1. **Cached token kind reuse in delimited-list loops**: avoids redundant token kind lookups in array/object literals, function parameters, and similar delimited constructs.
+2. **peek_token instead of lookahead on the modifier path**: a lighter token peek replaces the heavier lookahead when scanning modifiers, reducing redundant token inspection.
+3. **Deferred declare lookup for empty accessors**: skips unnecessary symbol resolution for accessors without bodies, shaving time during semantic analysis.
 
 ## Full Changelog
 

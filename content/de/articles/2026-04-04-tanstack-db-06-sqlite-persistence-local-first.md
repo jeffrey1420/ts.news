@@ -1,21 +1,21 @@
 ---
 title: "TanStack DB 0.6 macht den Client zur lokalen Datenbank"
-description: "SQLite-Persistenz auf allen Runtimes, hierarchische Datenprojektionen und reaktive Agent-Workflows — v0.6 ist das Release, das TanStack DB zu einer vollständigen Anwendung datenebene macht."
+description: "SQLite-Persistenz auf allen Runtimes, hierarchische Datenprojektionen und reaktive Agent-Workflows, v0.6 ist das Release, das TanStack DB zu einer vollständigen Anwendung datenebene macht."
 date: "2026-04-04"
 image: "/images/heroes/2026-04-04-tanstack-db-06-sqlite-persistence-local-first.png"
 author: lschvn
 tags: ["frameworks", "typescript"]
 ---
 
-TanStack DB, die transaktionale Client-seitige Datenbank vom Team hinter React Query und Router, hat letzte Woche Version 0.6 veröffentlicht. Die Hauptfunktionen — SQLite-Persistenz, hierarchische Datenprojektionen und reaktive Agent-Workflows — sind keine inkrementellen Ergänzungen. Es sind die fehlenden Teile, die das gesamte System für echte Anwendungen praktisch machen.
+TanStack DB, die transaktionale Client-seitige Datenbank vom Team hinter React Query und Router, hat letzte Woche Version 0.6 veröffentlicht. Die Hauptfunktionen, SQLite-Persistenz, hierarchische Datenprojektionen und reaktive Agent-Workflows, sind keine inkrementellen Ergänzungen. Es sind die fehlenden Teile, die das gesamte System für echte Anwendungen praktisch machen.
 
 ## Das fehlende Teil: Persistenz
 
-TanStack DB hatte bereits eine ausgefeilte Query-Engine, granulare Reaktivität, optimistische Updates und eine Offline-Transaktions-API. Was ihr fehlte, war Dauerhaftigkeit — die Fähigkeit, Daten auch nach dem Schließen der App zu behalten.
+TanStack DB hatte bereits eine ausgefeilte Query-Engine, granulare Reaktivität, optimistische Updates und eine Offline-Transaktions-API. Was ihr fehlte, war Dauerhaftigkeit, die Fähigkeit, Daten auch nach dem Schließen der App zu behalten.
 
 Das ändert sich mit 0.6. Die Persistenzschicht basiert auf SQLite und funktioniert über eine breite Palette von Runtimes: Browser (via SQLite WASM), React Native, Expo, Node, Electron, Tauri, Capacitor und Cloudflare Durable Objects.
 
-Die wichtige Designentscheidung ist pragmatisch: Anstatt eine neue Speicherabstraktion zu erfinden, dient SQLite als Persistenz-Backend. Das bedeutet, TanStack DB bekommt große Datensatzbehandlung, Multi-Tab-Support, Schema-Evolution und Cross-Runtime-Kompatibilität geschenkt. Sobald lokaler Zustand dauerhaft ist, kann der gesamte Stack — Query-Engine, optimistische Updates, Offline-Transaktionen — als vollständig local-first-System funktionieren, statt nur während die App offen ist lokal zu wirken.
+Die wichtige Designentscheidung ist pragmatisch: Anstatt eine neue Speicherabstraktion zu erfinden, dient SQLite als Persistenz-Backend. Das bedeutet, TanStack DB bekommt große Datensatzbehandlung, Multi-Tab-Support, Schema-Evolution und Cross-Runtime-Kompatibilität geschenkt. Sobald lokaler Zustand dauerhaft ist, kann der gesamte Stack, Query-Engine, optimistische Updates, Offline-Transaktionen, als vollständig local-first-System funktionieren, statt nur während die App offen ist lokal zu wirken.
 
 PowerSync und Trailbase unterstützen bereits inkrementelle Sync mit dieser neuen Persistenzschicht, aufbauend auf dem Query-Collections-Sync-Modell, das in v0.5 eingeführt wurde.
 
@@ -23,13 +23,13 @@ PowerSync und Trailbase unterstützen bereits inkrementelle Sync mit dieser neue
 
 Die `includes`-Funktion löst ein Problem, das in der UI-Entwicklung ständig auftritt: Eure Daten sind in der Datenbank normalisiert, aber eure UI-Komponenten erwarten eine verschachtelte Form.
 
-Die klassische Lösung ist GraphQL, mit Resolvern und einer separaten Infrastrukturschicht. TanStack DBs `includes` projiziert normalisierte Daten in die hierarchische Struktur, die eure UI braucht — dasselbe Ergebnis, ohne zusätzliches Backend.
+Die klassische Lösung ist GraphQL, mit Resolvern und einer separaten Infrastrukturschicht. TanStack DBs `includes` projiziert normalisierte Daten in die hierarchische Struktur, die eure UI braucht, dasselbe Ergebnis, ohne zusätzliches Backend.
 
 ## createEffect: Reaktive Nebenwirkungen für Agents
 
 Eine neue `createEffect`-Funktion ermöglicht es, reaktive Nebenwirkungen direkt von Live-Queries auszulösen. Dies richtet sich an Agent-ähnliche Automatisierungs-Workflows, bei denen ihr programmatisch auf Datenänderungen reagieren müsst, sie nicht nur rendern.
 
-Virtual Props (`$synced`, `$origin`) ergänzen dies, indem sie Metadaten auf Zeilenebene verfolgen — Outbox-Ansichten, Sync-Status und Datenherkunft werden zu Fragen der ersten Klasse in Queries.
+Virtual Props (`$synced`, `$origin`) ergänzen dies, indem sie Metadaten auf Zeilenebene verfolgen, Outbox-Ansichten, Sync-Status und Datenherkunft werden zu Fragen der ersten Klasse in Queries.
 
 ## queryOnce und andere Ergonomie
 
@@ -42,7 +42,7 @@ Indizes sind jetzt optional, und Mutations-Handler verlassen sich nicht mehr auf
 Das Team sucht SSR-Designpartner (Server-Side Rendering), während sie auf v1 hinarbeiten. Wenn ihr TanStack DB beobachtet und darauf gewartet habt, dass es produktionsreif wird, ist dieses Release das stärkste Signal, dass die Teile zusammenkommen.
 
 tldr[]
-- TanStack DB 0.6 fügt SQLite-Persistenz über Browser, React Native, Node, Electron, Tauri und mehr hinzu — macht Local-First-Apps tatsächlich dauerhaft
+- TanStack DB 0.6 fügt SQLite-Persistenz über Browser, React Native, Node, Electron, Tauri und mehr hinzu, macht Local-First-Apps tatsächlich dauerhaft
 - Die neue `includes`-API projiziert normalisierte Daten in hierarchische UI-Formen, ohne eine GraphQL-Schicht zu erfordern
 - `createEffect` und Virtual Props (`$synced`, `$origin`) ermöglichen reaktive Agent-Workflows und Outbox-ähnliche Sync-UI-Patterns
 

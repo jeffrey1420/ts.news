@@ -25,11 +25,11 @@ Node.js 26.3.0 landed June 1, 2026 on the Current release line. It is a substant
 
 The most impactful runtime change is the default `Buffer.poolSize` increase from 32 KiB to 64 KiB, contributed by Matteo Collina ([#63597](https://github.com/nodejs/node/pull/63597)). Node's internal slab allocator uses this pool for `Buffer.allocUnsafe()` and `Buffer.from()` calls that fall below the threshold. A larger slab reduces the rate at which the allocator must request new memory pages from the OS, cutting fragmentation and improving throughput for HTTP servers, streaming pipelines, and any code that allocates many small to medium buffers.
 
-The change is not breaking — it only affects the default, and applications can still set `Buffer.poolSize` manually. But if you have been running benchmarks that benchmark the allocator itself, now is a good time to re-run them.
+The change is not breaking, it only affects the default, and applications can still set `Buffer.poolSize` manually. But if you have been running benchmarks that benchmark the allocator itself, now is a good time to re-run them.
 
 ## permission.drop() for fine-grained privilege surrender
 
-Rafael Gonzaga contributed `permission.drop()` ([#62672](https://github.com/nodejs/node/pull/62672)), the most-requested addition to Node.js's experimental permission system. The existing model granted capabilities at startup and held them for the process lifetime. `permission.drop()` lets running code surrender individual permission handles — file system, environment, child process — without exiting. This enables patterns such as:
+Rafael Gonzaga contributed `permission.drop()` ([#62672](https://github.com/nodejs/node/pull/62672)), the most-requested addition to Node.js's experimental permission system. The existing model granted capabilities at startup and held them for the process lifetime. `permission.drop()` lets running code surrender individual permission handles, file system, environment, child process, without exiting. This enables patterns such as:
 
 ```javascript
 // After initialization, drop file-system access
@@ -41,7 +41,7 @@ The change brings Node.js closer to capability-based security models and reduces
 
 ## macOS universal binary warning
 
-Antoine du Hamel's PR [#63055](https://github.com/nodejs/node/pull/63055) formally documents what the project has been signaling informally: the macOS universal binary — which packages both Intel (x64) and Apple Silicon (arm64) slices in a single binary — may not be maintainable for the full lifespan of Node.js 26. Apple has been progressively deprecating Intel toolchain support, and the Node.js build infrastructure is hitting friction keeping the x64 slice working. Intel-based Macs remain Tier 2; arm64 is Tier 1. This is a heads-up, not an immediate removal.
+Antoine du Hamel's PR [#63055](https://github.com/nodejs/node/pull/63055) formally documents what the project has been signaling informally: the macOS universal binary, which packages both Intel (x64) and Apple Silicon (arm64) slices in a single binary, may not be maintainable for the full lifespan of Node.js 26. Apple has been progressively deprecating Intel toolchain support, and the Node.js build infrastructure is hitting friction keeping the x64 slice working. Intel-based Macs remain Tier 2; arm64 is Tier 1. This is a heads-up, not an immediate removal.
 
 ## WebCrypto hardening and npm 11.16.0
 

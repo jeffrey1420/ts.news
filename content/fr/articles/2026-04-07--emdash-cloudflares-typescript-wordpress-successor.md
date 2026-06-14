@@ -11,7 +11,7 @@ Cloudflare a lancé EmDash cette semaine, un système de gestion de contenu open
 
 [tldr]
 - EmDash est un nouveau CMS open source construit sur Astro 6.0, écrit entièrement en TypeScript, sous licence MIT
-- Les plugins s'exécutent dans des Dynamic Workers isolés plutôt que d'avoir un accès direct au système de fichiers et à la base de données — corrigeant le problème de sécurité central de WordPress
+- Les plugins s'exécutent dans des Dynamic Workers isolés plutôt que d'avoir un accès direct au système de fichiers et à la base de données, corrigeant le problème de sécurité central de WordPress
 - 96 % des vulnérabilités de sécurité WordPress proviennent des plugins ; le modèle basé sur les capacités d'EmDash élimine cette surface d'attaque
 - Déployable sur Cloudflare Workers ou tout serveur Node.js ; bêta développeur précoce disponible
 [/tldr]
@@ -22,13 +22,13 @@ WordPress alimente plus de 40 % d'Internet. Il a été lancé en 2003, avant qu'
 
 Les chiffres sont éloquents : 96 % des vulnérabilités de sécurité WordPress proviennent des plugins, et 2025 a vu plus de vulnérabilités de plugins WordPress de haute sévérité que les deux années précédentes combinées. Le modèle est le problème, pas les développeurs de plugins individuels.
 
-Le pari d'EmDash est qu'il est possible de construire un CMS pour l'ère serverless — où les plugins déclarent leurs besoins via un manifest et ne reçoivent que ces capacités — sans sacrifier l'accessibilité qui a rendu WordPress dominant.
+Le pari d'EmDash est qu'il est possible de construire un CMS pour l'ère serverless, où les plugins déclarent leurs besoins via un manifest et ne reçoivent que ces capacités, sans sacrifier l'accessibilité qui a rendu WordPress dominant.
 
 ## Comment Fonctionne le Sandboxing
 
 Dans EmDash, chaque plugin s'exécute dans son propre [Dynamic Worker](https://developers.cloudflare.com/workers/runtime-apis/bindings/worker-loader/), la technologie d'isolate légère de Cloudflare. Au lieu de donner aux plugins un accès direct aux données, EmDash fournit des capacités via des bindings.
 
-Avant d'installer un plugin, vous pouvez lire son manifest et savoir exactement les permissions qu'il demande — similaire à un écran de portées OAuth. La garantie de sécurité est structurelle : un plugin ne peut effectuer que les actions explicitement déclarées dans son manifest.
+Avant d'installer un plugin, vous pouvez lire son manifest et savoir exactement les permissions qu'il demande, similaire à un écran de portées OAuth. La garantie de sécurité est structurelle : un plugin ne peut effectuer que les actions explicitement déclarées dans son manifest.
 
 ```typescript
 // Exemple de manifest de plugin EmDash
@@ -43,7 +43,7 @@ C'est un départ significatif du modèle d'inclusion PHP que WordPress a hérit�
 
 ## Construis sur Astro 6.0, Écrit en TypeScript
 
-EmDash n'est pas un fork de WordPress. Aucun code WordPress n'a été utilisé. Il est construit sur Astro 6.0 — le fork Astro de Cloudflare lui-même, qui a été reconstruit en une semaine grâce aux agents de codage IA l'année dernière.
+EmDash n'est pas un fork de WordPress. Aucun code WordPress n'a été utilisé. Il est construit sur Astro 6.0, le fork Astro de Cloudflare lui-même, qui a été reconstruit en une semaine grâce aux agents de codage IA l'année dernière.
 
 Le projet est sous licence MIT, entièrement open source, et disponible sur [GitHub](https://github.com/emdash-cms/emdash). Vous pouvez déployer un modèle de blog directement sur Cloudflare Workers :
 
@@ -55,13 +55,13 @@ Il y a aussi un [EmDash Playground](https://emdashcms.com/) où vous pouvez essa
 
 ## Le Contexte Plus Large
 
-Cloudflare est en pleine phase de construction avec les agents de codage IA. L'entreprise a reconstruit Next.js en une semaine (produisant Vinext), puis a appliqué le même outillage à WordPress. Que le résultat de cette expérience soit prêt pour la production est une question séparée — EmDash démarre en bêta, pas en produit mature.
+Cloudflare est en pleine phase de construction avec les agents de codage IA. L'entreprise a reconstruit Next.js en une semaine (produisant Vinext), puis a appliqué le même outillage à WordPress. Que le résultat de cette expérience soit prêt pour la production est une question séparée, EmDash démarre en bêta, pas en produit mature.
 
 Mais la thèse est cohérente : le coût marginal de la construction de logiciels a considérablement diminué lorsque les agents IA gèrent le code répétitif, et le résultat peut être une architecture véritablement novelle plutôt qu'un thème WordPress. Le modèle de sécurité des plugins seul rend EmDash intéressant pour quiconque a dû auditer un site WordPress avec 30 plugins installés.
 
 [faq]
-- **EmDash est-il compatible avec les thèmes et plugins WordPress ?** Pas directement — EmDash est une implémentation de zéro. L'équipe vise la compatibilité des fonctionnalités, pas du code. Aucun PHP WordPress n'a été utilisé.
+- **EmDash est-il compatible avec les thèmes et plugins WordPress ?** Pas directement, EmDash est une implémentation de zéro. L'équipe vise la compatibilité des fonctionnalités, pas du code. Aucun PHP WordPress n'a été utilisé.
 - **Où puis-je déployer EmDash ?** Initialement Cloudflare Workers et tout serveur Node.js. D'autres plateformes peuvent suivre.
-- **Est-ce prêt pour la production ?** Non — EmDash v0.1.0 est une bêta développeur précoce. Des changements cassants sont à prévoir.
+- **Est-ce prêt pour la production ?** Non, EmDash v0.1.0 est une bêta développeur précoce. Des changements cassants sont à prévoir.
 - **Quelle licence ?** MIT, choisie spécifiquement pour permettre une adoption et une contribution larges.
 [/faq]

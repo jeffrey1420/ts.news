@@ -1,13 +1,13 @@
 ---
 title: "GitHub Copilot's Quiet Policy Shift: Your Code Will Train Their Models Unless You Opt Out"
-description: "Starting April 24, 2026, GitHub will use interaction data from Free, Pro, and Pro+ Copilot users to train AI models — unless they manually opt out. Business and Enterprise tiers are unaffected. Here's what changes and how to protect your code."
+description: "Starting April 24, 2026, GitHub will use interaction data from Free, Pro, and Pro+ Copilot users to train AI models, unless they manually opt out. Business and Enterprise tiers are unaffected. Here's what changes and how to protect your code."
 date: 2026-04-02
 image: "/images/heroes/2026-04-02--github-copilot-ai-training-data-policy.png"
 author: lschvn
 tags: ["security", "ai", "ecosystem"]
 readingTime: 5
 tldr:
-  - "From April 24, GitHub will use Free/Pro/Pro+ Copilot interaction data (inputs, outputs, code snippets, context) to train AI models by default — opt-out required."
+  - "From April 24, GitHub will use Free/Pro/Pro+ Copilot interaction data (inputs, outputs, code snippets, context) to train AI models by default, opt-out required."
   - "Copilot Business and Enterprise users, plus anyone who previously opted out, are not affected. The change targets individual subscribers on all paid tiers."
   - "The opt-out toggle sits in GitHub Settings under Copilot privacy options. If you don't touch it, your coding data helps improve Copilot for everyone."
 ---
@@ -28,7 +28,7 @@ GitHub explicitly excludes data from Business, Enterprise, and enterprise-owned 
 
 ## Why Now
 
-GitHub says it already saw "meaningful improvements" after incorporating Microsoft employee interaction data — higher acceptance rates across multiple languages. The company argues this is standard industry practice and frames it as a quality trade-off: contribute your patterns, get better suggestions.
+GitHub says it already saw "meaningful improvements" after incorporating Microsoft employee interaction data, higher acceptance rates across multiple languages. The company argues this is standard industry practice and frames it as a quality trade-off: contribute your patterns, get better suggestions.
 
 The timing matters. Copilot faces real competition from Claude Code, Cursor, and JetBrains' AI tooling. Training on user data is one way to close the gap without charging more.
 
@@ -44,11 +44,11 @@ If you already had this setting disabled, your preference carries over automatic
 
 ## The Bigger Picture
 
-This is a familiar pattern in the AI era: free or cheap access in exchange for data. The difference here is that developers — who tend to be privacy-conscious — are the product. Code snippets can reveal proprietary logic, internal API designs, and business-specific implementations.
+This is a familiar pattern in the AI era: free or cheap access in exchange for data. The difference here is that developers, who tend to be privacy-conscious, are the product. Code snippets can reveal proprietary logic, internal API designs, and business-specific implementations.
 
 Several open source maintainers have already raised concerns. Code uploaded to public GitHub repos is already scraped for training data; this policy extends that dynamic to private repos used via Copilot.
 
-The opt-out is available today. Whether you consider this a fair trade for smarter autocomplete is a judgment call — but it's worth knowing the clock started.
+The opt-out is available today. Whether you consider this a fair trade for smarter autocomplete is a judgment call, but it's worth knowing the clock started.
 
 ---
 

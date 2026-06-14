@@ -24,13 +24,13 @@ Astro 6.1.8 est sorti le 18 avril avec deux correctifs que les développeurs dé
 
 La correction la plus impactante adresse une régression des versions 6.x : les noms de fichiers de build pouvaient contenir des caractères spéciaux (`!`, `~`, `{`, `}`) invalidés ou supprimés sur certaines plateformes de déploiement.
 
-Le problème se manifeste sur Netlify. La protection anti-skew — qui garantit que les assets déployés correspondent à la sortie du build — supprime les caractères jugés unsafe des noms de fichiers. Si votre HTML buildé référence `chunk.abc123!~{x}.js` et que Netlify le sert comme `chunk.abc123.js`, la référence casse et la page ne charge pas.
+Le problème se manifeste sur Netlify. La protection anti-skew, qui garantit que les assets déployés correspondent à la sortie du build, supprime les caractères jugés unsafe des noms de fichiers. Si votre HTML buildé référence `chunk.abc123!~{x}.js` et que Netlify le sert comme `chunk.abc123.js`, la référence casse et la page ne charge pas.
 
 La équipe Astro confirme que cela affectait les builds où des imports dynamiques ou certains patterns de code-splitting produisaient des chunks avec des segments hash contenant ces caractères. La version 6.1.8 normalise les noms de fichiers en sortie pour éviter ces caractères.
 
 ## Faille Content-Type de /_image
 
-Le second correctif notable ferme une faille de sécurité dans l'endpoint d'optimisation d'image intégré d'Astro (`/_image`). L'endpoint acceptait un paramètre de requête `f=svg` arbitraire et servait le contenu retourné par l'URL upstream en `image/svg+xml` — sans vérifier que le contenu était réellement du SVG.
+Le second correctif notable ferme une faille de sécurité dans l'endpoint d'optimisation d'image intégré d'Astro (`/_image`). L'endpoint acceptait un paramètre de requête `f=svg` arbitraire et servait le contenu retourné par l'URL upstream en `image/svg+xml`, sans vérifier que le contenu était réellement du SVG.
 
 Un attaquant pouvait potentiellement utiliser cela pour des attaques de confusion content-type ou de cache poisoning si il arrivait à convaincre une victime de charger une URL image craftée pointant vers un endpoint interne. L'équipe Astro note que l'endpoint nécessite `allowedDomains` explicite, ce qui limite la surface d'attaque.
 

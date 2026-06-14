@@ -24,7 +24,7 @@ On June 1, 2026, Wiz Research identified a new wave of npm supply chain compromi
 
 ## A Familiar Toolkit with New Tricks
 
-The payload is derived from the **Mini Shai-Hulud** malware, open-sourced by threat actor TeamPCP in late 2025. Previous campaigns using this toolkit targeted Tanstack and other major npm packages. The Miasma variant makes cosmetic changes — Dune universe references replaced with Greek mythology ("spartan") — but the underlying tradecraft is substantially the same.
+The payload is derived from the **Mini Shai-Hulud** malware, open-sourced by threat actor TeamPCP in late 2025. Previous campaigns using this toolkit targeted Tanstack and other major npm packages. The Miasma variant makes cosmetic changes, Dune universe references replaced with Greek mythology ("spartan"), but the underlying tradecraft is substantially the same.
 
 What changed in this iteration is the targeting scope. The malware now explicitly harvests **GCP and Azure identities**, collecting every cloud identity the infected machine can access. Rather than purely extracting secrets, the attackers are now interested in gaining direct access to cloud environments themselves.
 
@@ -38,7 +38,7 @@ Evidence indicates a **Red Hat employee GitHub account was compromised** and use
 - `RedHatInsights/javascript-clients`
 - `RedHatInsights/platform-frontend-ai-toolkit`
 
-These commits introduced a minimal GitHub Actions workflow that triggered on any push to any branch. The workflow requested a GitHub OIDC identity token (`id-token: write`) and executed an obfuscated `_index.js` payload that published packages directly to npm — **with valid SLSA provenance attestations**.
+These commits introduced a minimal GitHub Actions workflow that triggered on any push to any branch. The workflow requested a GitHub OIDC identity token (`id-token: write`) and executed an obfuscated `_index.js` payload that published packages directly to npm, **with valid SLSA provenance attestations**.
 
 SLSA provenance is meant to verify that a package was built from a specific source commit by a trusted builder. By generating valid attestations, the attacker made the malicious packages appear as legitimate Red Hat releases, undermining a key supply chain security mechanism.
 
@@ -62,7 +62,7 @@ The Miasma attack demonstrates a troubling progression in npm supply chain warfa
 
 **Trusted publishers are the weak link.** SLSA provenance, OIDC tokens, and "verified publisher" badges were all subverted here. The security model assumes that a publisher's GitHub account and npm account are secure. Both were compromised.
 
-**Open-source malware lowers the bar.** TeamPCP published Mini Shai-Hulud's code publicly. Miasma is not attributed to TeamPCP with certainty — the similarities could indicate copycat actors using the same publicly available toolkit.
+**Open-source malware lowers the bar.** TeamPCP published Mini Shai-Hulud's code publicly. Miasma is not attributed to TeamPCP with certainty, the similarities could indicate copycat actors using the same publicly available toolkit.
 
 **Detection is getting harder, not easier.** Per-infection encryption, SLSA attestation abuse, and living-off-the-land techniques mean traditional defenses (package scanning, hash-based IOCs) are increasingly insufficient.
 
@@ -71,9 +71,9 @@ The Miasma attack demonstrates a troubling progression in npm supply chain warfa
 Organizations using Red Hat's JavaScript clients should:
 
 1. **Audit for affected package versions** and upgrade to patched releases
-2. **Rotate all secrets** accessible from developer workstations — GitHub tokens, cloud credentials, CI/CD secrets
+2. **Rotate all secrets** accessible from developer workstations, GitHub tokens, cloud credentials, CI/CD secrets
 3. **Review GitHub activity** for unauthorized repositories, new access tokens, or suspicious workflow executions
 4. **Implement dependency allowlisting** and enforce it via `.npmrc` or corporate policy
 5. **Generate SBOMs** for all production dependencies to enable faster incident response
 
-The npm ecosystem remains a high-value target. Miasma is not an isolated incident — it is the latest iteration in an escalating campaign.
+The npm ecosystem remains a high-value target. Miasma is not an isolated incident, it is the latest iteration in an escalating campaign.

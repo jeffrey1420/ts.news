@@ -27,12 +27,12 @@ Additionally, `Astro.currentLocale` now correctly returns the domain's locale on
 
 ## Dev Experience: No More Full Reloads on Client Component Edits
 
-Previously, editing a client-side component (using `client:idle`, `client:load`, etc.) during development would trigger an unnecessary full program reload of the backend. This has been corrected — component edits now properly trigger just the expected hot module replacement without restarting the server.
+Previously, editing a client-side component (using `client:idle`, `client:load`, etc.) during development would trigger an unnecessary full program reload of the backend. This has been corrected, component edits now properly trigger just the expected hot module replacement without restarting the server.
 
 ## Other Fixes
 
 - `App.match()` no longer throws on request paths containing an invalid percent-encoding sequence
-- Static file endpoints using `getStaticPaths` with `.html` in dynamic param values (e.g. `{ path: 'file.html' }`) no longer fail with `NoMatchingStaticPathFound` during build — the `.html` suffix is no longer incorrectly stripped
+- Static file endpoints using `getStaticPaths` with `.html` in dynamic param values (e.g. `{ path: 'file.html' }`) no longer fail with `NoMatchingStaticPathFound` during build, the `.html` suffix is no longer incorrectly stripped
 - Style stripping issues on case-sensitive file systems (e.g. running `astro dev` from `d:\dev\app` when the folder on disk is `D:\dev\app`) have been resolved
 - Dynamic routes no longer return the string `[object Object]` instead of expected content in certain runtimes
 

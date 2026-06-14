@@ -1,13 +1,13 @@
 ---
-title: "GitHub Copilots stillschweigender Richtungswechsel: Euer Code trainiert ihre Modelle — außer ihr widersprecht"
-description: "Ab dem 24. April 2026 verwendet GitHub Interaktionsdaten von Free-, Pro- und Pro+-Copilot-Nutzern, um KI-Modelle zu trainieren — sofern nicht manuell widersprochen wird. Business- und Enterprise-Tarife sind nicht betroffen."
+title: "GitHub Copilots stillschweigender Richtungswechsel: Euer Code trainiert ihre Modelle, außer ihr widersprecht"
+description: "Ab dem 24. April 2026 verwendet GitHub Interaktionsdaten von Free-, Pro- und Pro+-Copilot-Nutzern, um KI-Modelle zu trainieren, sofern nicht manuell widersprochen wird. Business- und Enterprise-Tarife sind nicht betroffen."
 date: 2026-04-02
 image: "/images/heroes/2026-04-02--github-copilot-ai-training-data-policy.png"
 author: lschvn
 tags: ["security", "ai", "ecosystem"]
 readingTime: 5
 tldr:
-  - "Ab dem 24. April verwendet GitHub standardmäßig Copilot-Free/Pro/Pro+-Interaktionsdaten (Eingaben, Ausgaben, Code-Snippets, Kontext) zum Trainieren von KI-Modellen — Widerspruch erforderlich."
+  - "Ab dem 24. April verwendet GitHub standardmäßig Copilot-Free/Pro/Pro+-Interaktionsdaten (Eingaben, Ausgaben, Code-Snippets, Kontext) zum Trainieren von KI-Modellen, Widerspruch erforderlich."
   - "Copilot-Business- und Enterprise-Nutzer sowie Personen, die bereits widersprochen haben, sind nicht betroffen. Die Änderung betrifft Individualabonnenten aller kostenpflichtigen Tarife."
   - "Der Widerspruchsbutton befindet sich in den GitHub-Einstellungen unter Copilot → Datenschutz. Wer ihn nicht ändert, dessen Code-Daten verbessern Copilot für alle."
 ---
@@ -28,7 +28,7 @@ GitHub schließt explizit Daten von Business-, Enterprise- und unternehmenseigen
 
 ## Warum jetzt
 
-GitHub gibt an, bereits „signifikante Verbesserungen" nach der Integration von Interaktionsdaten der Microsoft-Mitarbeiter beobachtet zu haben — höhere Akzeptanzraten in mehreren Sprachen. Das Unternehmen argumentiert, dies sei ein etablierter Branchenstandard, und präsentiert es als Qualitätskompromiss: Gebt eure Codemuster preis, erhaltet bessere Vorschläge.
+GitHub gibt an, bereits „signifikante Verbesserungen" nach der Integration von Interaktionsdaten der Microsoft-Mitarbeiter beobachtet zu haben, höhere Akzeptanzraten in mehreren Sprachen. Das Unternehmen argumentiert, dies sei ein etablierter Branchenstandard, und präsentiert es als Qualitätskompromiss: Gebt eure Codemuster preis, erhaltet bessere Vorschläge.
 
 Das Timing ist bedeutsam. Copilot steht in echtem Wettbewerb mit Claude Code, Cursor und JetBrains KI-Tools. Das Training auf Nutzerdaten ist ein Weg, die Lücke zu schließen, ohne mehr zu verlangen.
 
@@ -44,11 +44,11 @@ Falls ihr diese Einstellung bereits deaktiviert hattet, wird eure Präferenz aut
 
 ## Das größere Bild
 
-Dies ist ein vertrautes Muster im KI-Zeitalter: kostenloser oder günstiger Zugang im Austausch für Daten. Der Unterschied hier ist, dass Entwickler — die tendenziell datenschutzbewusst sind — das Produkt sind. Code-Snippets können proprietäre Logik, interne API-Designs und unternehmensspezifische Implementierungen offenlegen.
+Dies ist ein vertrautes Muster im KI-Zeitalter: kostenloser oder günstiger Zugang im Austausch für Daten. Der Unterschied hier ist, dass Entwickler, die tendenziell datenschutzbewusst sind, das Produkt sind. Code-Snippets können proprietäre Logik, interne API-Designs und unternehmensspezifische Implementierungen offenlegen.
 
 Mehrere Open-Source-Maintainer haben bereits Bedenken geäußert. Code auf öffentlichen GitHub-Repos wird bereits für Trainingsdaten gescraped; diese Richtlinie erweitert diese Dynamik auf private Repos, die über Copilot genutzt werden.
 
-Der Widerspruch ist bereits heute möglich. Ob ihr dies als fairen Tausch für besseres Autocomplete betrachtet, ist Geschmackssache — aber lasst euch gesagt sein: Die Uhr tickt.
+Der Widerspruch ist bereits heute möglich. Ob ihr dies als fairen Tausch für besseres Autocomplete betrachtet, ist Geschmackssache, aber lasst euch gesagt sein: Die Uhr tickt.
 
 ---
 

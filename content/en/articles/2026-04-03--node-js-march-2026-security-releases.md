@@ -23,13 +23,13 @@ Node.js released a coordinated set of security patches on March 24, 2026, coveri
 
 ## The Two High-Severity Fixes
 
-**CVE-2026-21637 — TLS SNICallback Crash (High)**
+**CVE-2026-21637, TLS SNICallback Crash (High)**
 
 TLS SNICallback lets a server select the right certificate based on the hostname a client is connecting to. The vulnerability: if your SNICallback implementation threw an exception, Node.js didn't catch it, crashing the entire process during the TLS handshake. Matteo Collina patched this by wrapping the SNICallback invocation in a try/catch, preventing an unhandled rejection from terminating the server.
 
-This is a real concern for anyone using custom SNICallback logic — which is common in environments where you terminate TLS at the application layer rather than at a load balancer.
+This is a real concern for anyone using custom SNICallback logic, which is common in environments where you terminate TLS at the application layer rather than at a load balancer.
 
-**CVE-2026-21710 — HTTP Header Prototype Pollution (High)**
+**CVE-2026-21710, HTTP Header Prototype Pollution (High)**
 
 The `headersDistinct` and `trailersDistinct` objects in Node.js HTTP responses were using standard JavaScript object prototypes. That sounds innocuous, but it opens a prototype pollution attack vector: if an attacker could influence the keys set on these objects, they could inject properties like `__proto__` or `constructor`, potentially affecting the behavior of other HTTP processing code that touches the same objects.
 
@@ -37,21 +37,21 @@ The fix: use a null prototype (`Object.create(null)`) for these internal structu
 
 ## Four Medium and Low Severity Fixes
 
-**CVE-2026-21713 — Timing-Safe HMAC Comparison (Medium)**
+**CVE-2026-21713, Timing-Safe HMAC Comparison (Medium)**
 Filip Skokan patched the Web Cryptography HMAC implementation to use a timing-safe comparison when verifying signatures. Without this, an attacker with sufficient network access could potentially use timing side-channels to forge HMAC tags. This is particularly relevant for any code using Node's `crypto.subtle` API for HMAC-based authentication.
 
-**CVE-2026-21714 — NGHTTP2 Flow Control (Medium)**
+**CVE-2026-21714, NGHTTP2 Flow Control (Medium)**
 RafaelGSS fixed an issue where unhandled `NGHTTP2_ERR_FLOW_CONTROL` errors could cause problems in HTTP/2 connections. When the flow control window is exhausted and the error isn't properly handled, it could lead to hangs or unexpected termination of streams.
 
-**CVE-2026-21717 — Array Index Hash Collision Test (Medium)**
-Joyee Cheung updated the V8 test suite to properly detect hash collision attacks on array indices. Hash collision DoS attacks exploit the fact that JavaScript objects use hash tables — if an attacker can craft inputs that all hash to the same value, they can force O(n) behavior instead of O(1), tying up the event loop. This backports V8 hardening from upstream.
+**CVE-2026-21717, Array Index Hash Collision Test (Medium)**
+Joyee Cheung updated the V8 test suite to properly detect hash collision attacks on array indices. Hash collision DoS attacks exploit the fact that JavaScript objects use hash tables, if an attacker can craft inputs that all hash to the same value, they can force O(n) behavior instead of O(1), tying up the event loop. This backports V8 hardening from upstream.
 
-**CVE-2026-21715 and CVE-2026-21716 — Permission System Gaps (Low)**
-Two separate permission checks were missing in `realpath.native` and `fs/promises` APIs, allowing filesystem access outside permitted paths in Node's experimental permission model. These are lower severity because they only affect code running with Node's `--allow-fs` and `--deny-fs` permission flags enabled — not the default configuration.
+**CVE-2026-21715 and CVE-2026-21716, Permission System Gaps (Low)**
+Two separate permission checks were missing in `realpath.native` and `fs/promises` APIs, allowing filesystem access outside permitted paths in Node's experimental permission model. These are lower severity because they only affect code running with Node's `--allow-fs` and `--deny-fs` permission flags enabled, not the default configuration.
 
 ## Other Changes in the Release
 
-- **undici updated to v6.24.1** — includes upstream HTTP client fixes
+- **undici updated to v6.24.1**: includes upstream HTTP client fixes
 - **npm upgraded to 10.9.7** on the v22 and v25 branches
 - V8 upgraded across all branches with upstream security patches
 

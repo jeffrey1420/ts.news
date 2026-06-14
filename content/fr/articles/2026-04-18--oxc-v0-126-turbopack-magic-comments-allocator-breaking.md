@@ -7,13 +7,13 @@ author: lschvn
 tags: ["tooling", "javascript"]
 tldr:
   - Oxc v0.126.0 ajoute le support des Turbopack Magic Comments dans le parser, améliorant la compatibilité avec le code annoté webpack
-  - Breaking change : les méthodes Box et Vec de l'allocator sont renommées — les projets avec dépendance directe doivent se mettre à jour
+  - Breaking change : les méthodes Box et Vec de l'allocator sont renommées, les projets avec dépendance directe doivent se mettre à jour
   - Les utilisateurs de NAPI transform peuvent désormais configurer optimizeConstEnums et optimizeEnums
 ---
 
 ## Ce qui a changé
 
-Le release Oxc du 16 avril — crates v0.126.0 — est relativement calme en features visibles mais apporte des améliorations d'outillage importantes.
+Le release Oxc du 16 avril, crates v0.126.0, est relativement calme en features visibles mais apporte des améliorations d'outillage importantes.
 
 ### Magic Comments Turbopack dans le Parser
 

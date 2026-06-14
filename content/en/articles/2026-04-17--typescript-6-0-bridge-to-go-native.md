@@ -6,9 +6,9 @@ image: "/images/heroes/2026-04-17--typescript-6-0-bridge-to-go-native.png"
 author: lschvn
 tags: ["tooling", "typescript", "javascript"]
 tldr:
-  - TypeScript 6.0 is the final release on the current JavaScript codebase — TypeScript 7.0 will be built in Go for native speed and shared-memory parallelism
+  - TypeScript 6.0 is the final release on the current JavaScript codebase, TypeScript 7.0 will be built in Go for native speed and shared-memory parallelism
   - New features include #/ subpath imports, Map.getOrInsert/getOrInsertComputed, Temporal API types, and relaxed type inference for methods not using `this`
-  - Several defaults change: strict=true, module=esnext, types=[], rootDir=. — many projects will see 20-50% faster builds and may need explicit types config
+  - Several defaults change: strict=true, module=esnext, types=[], rootDir=., many projects will see 20-50% faster builds and may need explicit types config
 faq:
   - question: "How do I prepare for TypeScript 7.0?"
     answer: "Use TypeScript 6.0 now. Try the TypeScript 7.0 native preview in VS Code (extension ID: TypeScriptTeam.native-preview) or via npmx.dev. Use the new --stableTypeOrdering flag to catch potential differences early."
@@ -22,13 +22,13 @@ TypeScript 6.0 shipped this month, and it carries a weight most point releases d
 
 ## A Bridge to TypeScript 7.0
 
-The headline story is what you don't get in 6.0. Microsoft describes it as a "bridge release" — aligning APIs and behavior so the jump to TypeScript 7.0's new codebase goes smoothly. The team is candid: "TypeScript 7.0 is actually extremely close to completion." You can already try the native preview in VS Code or via `npmx.dev/package/@typescript/native-preview`.
+The headline story is what you don't get in 6.0. Microsoft describes it as a "bridge release", aligning APIs and behavior so the jump to TypeScript 7.0's new codebase goes smoothly. The team is candid: "TypeScript 7.0 is actually extremely close to completion." You can already try the native preview in VS Code or via `npmx.dev/package/@typescript/native-preview`.
 
 Most changes in 6.0 exist to smooth that transition. But there are still features worth knowing about.
 
 ## Less `this`-Sensitivity in Method Inference
 
-A long-standing rough edge gets fixed. When TypeScript infers type parameters from a callback, it skips over "contextually sensitive" functions — functions with untyped parameters. Methods written with shorthand syntax were always treated as sensitive because they carry an implicit `this`, even when `this` is never used. Arrow functions didn't have this problem.
+A long-standing rough edge gets fixed. When TypeScript infers type parameters from a callback, it skips over "contextually sensitive" functions, functions with untyped parameters. Methods written with shorthand syntax were always treated as sensitive because they carry an implicit `this`, even when `this` is never used. Arrow functions didn't have this problem.
 
 TypeScript 6.0 checks whether `this` is actually referenced before flagging a method as sensitive. If you never use `this`, the method participates in type inference normally. The fix was contributed by Mateusz Burzyński ([PR #62243](https://github.com/microsoft/TypeScript/pull/62243)).
 
@@ -52,11 +52,11 @@ Previously `--moduleResolution bundler` required `--module esnext` or `--module 
 
 ## Stable Type Ordering for 6.0-to-7.0 Migrations
 
-TypeScript 7.0's parallel type checker sorts internal objects deterministically. TypeScript 6.0 introduces `--stableTypeOrdering` to make its output match that order. This is primarily a migration tool — the flag can slow type-checking by up to 25% — but it ensures declaration files and error messages don't shift unexpectedly when you eventually upgrade. The flag is not recommended for permanent use.
+TypeScript 7.0's parallel type checker sorts internal objects deterministically. TypeScript 6.0 introduces `--stableTypeOrdering` to make its output match that order. This is primarily a migration tool, the flag can slow type-checking by up to 25%, but it ensures declaration files and error messages don't shift unexpectedly when you eventually upgrade. The flag is not recommended for permanent use.
 
 ## ES2025 Target and New Built-in API Types
 
-TypeScript 6.0 adds `es2025` as a valid value for `--target` and `--lib`. This brings `RegExp.escape` (stage 4) and moves `Promise.try`, iterator methods, and set methods into the stable lib. The Temporal API — the long-awaited date/time replacement for `Date` — also gets full built-in types in 6.0. The `Map` and `WeakMap` types gain `getOrInsert` and `getOrInsertComputed` (stage 4) for the common "get or create" pattern.
+TypeScript 6.0 adds `es2025` as a valid value for `--target` and `--lib`. This brings `RegExp.escape` (stage 4) and moves `Promise.try`, iterator methods, and set methods into the stable lib. The Temporal API, the long-awaited date/time replacement for `Date`, also gets full built-in types in 6.0. The `Map` and `WeakMap` types gain `getOrInsert` and `getOrInsertComputed` (stage 4) for the common "get or create" pattern.
 
 ## DOM Lib Consolidation
 
@@ -66,15 +66,15 @@ The contents of `lib.dom.iterable.d.ts` and `lib.dom.asynciterable.d.ts` are now
 
 TypeScript 6.0 flips several defaults that older projects may have relied on:
 
-- **`strict` now defaults to `true`** — if you relied on implicit strictness being off, set `"strict": false` explicitly
-- **`module` defaults to `esnext`** — ESM is now the assumed format for new projects
-- **`target` defaults to the current year** (effectively `es2025` right now) — the `es5` target is deprecated
-- **`types` now defaults to `[]`** instead of enumerating everything in `node_modules/@types` — this alone has cut build times 20-50% in the projects the team studied. Add explicit types: `["node", "jest"]` etc.
-- **`rootDir` defaults to the tsconfig directory** rather than inferring from file locations — nested source directories may need explicit `rootDir` configuration
+- **`strict` now defaults to `true`**: if you relied on implicit strictness being off, set `"strict": false` explicitly
+- **`module` defaults to `esnext`**: ESM is now the assumed format for new projects
+- **`target` defaults to the current year** (effectively `es2025` right now), the `es5` target is deprecated
+- **`types` now defaults to `[]`** instead of enumerating everything in `node_modules/@types`, this alone has cut build times 20-50% in the projects the team studied. Add explicit types: `["node", "jest"]` etc.
+- **`rootDir` defaults to the tsconfig directory** rather than inferring from file locations, nested source directories may need explicit `rootDir` configuration
 - **`noUncheckedSideEffectImports` now defaults to `true`**
 
 ## The Bottom Line
 
-If you're starting a new project, 6.0 is a solid choice with sensible modern defaults. If you're on an existing codebase, budget time to add explicit `types` entries and check your `rootDir` before upgrading blindly. The Go-based 7.0 is close — the team wants you on 6.0 now so the transition is clean.
+If you're starting a new project, 6.0 is a solid choice with sensible modern defaults. If you're on an existing codebase, budget time to add explicit `types` entries and check your `rootDir` before upgrading blindly. The Go-based 7.0 is close, the team wants you on 6.0 now so the transition is clean.
 
 Install it: `npm install -D typescript@latest`

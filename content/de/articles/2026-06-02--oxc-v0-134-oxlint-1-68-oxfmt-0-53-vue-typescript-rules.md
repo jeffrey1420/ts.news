@@ -13,11 +13,11 @@ tldr:
 
 <!-- more -->
 
-## oxlint v1.68.0 — Vue- und TypeScript-Regeln
+## oxlint v1.68.0: Vue- und TypeScript-Regeln
 
 Die Haupt-Neuerungen in oxlint v1.68.0 sind zwei Vue-spezifische Linter-Regeln.
 
-**`vue/no-reserved-component-names`** verhindert die Verwendung reservierter Namen für Vue-Komponentendefinitionen. Vue reserviert Namen wie `Switch`, `KeepAlive` und `Teleport` — ihre Verwendung als lokale Komponentennamen kann Rendering-Probleme verursachen.
+**`vue/no-reserved-component-names`** verhindert die Verwendung reservierter Namen für Vue-Komponentendefinitionen. Vue reserviert Namen wie `Switch`, `KeepAlive` und `Teleport`, ihre Verwendung als lokale Komponentennamen kann Rendering-Probleme verursachen.
 
 **`vue/component-definition-name`** ist die Gegenregel, die erkennt, wann Komponentendefinitionsnamen mit HTML-Elementen oder Vue-Built-in-Komponenten kollidieren.
 
@@ -25,7 +25,7 @@ Auf der TypeScript-Seite **erzwingt die neue `method-signature-style`-Regel** ei
 
 Ebenfalls neu in v1.68.0: **`override::exclude_files`** ermöglicht das Ausschließen bestimmter Dateien von Regel-Overrides.
 
-## oxfmt v0.53.0 — Formatierer-Updates
+## oxfmt v0.53.0: Formatierer-Updates
 
 oxfmt erscheint alongside oxlint mit Formatierungsverbesserungen. Das vollständige Changelog für v0.53.0 ist auf der [oxc-project/oxc GitHub-Releases-Seite](https://github.com/oxc-project/oxc/releases) verfügbar.
 
@@ -33,14 +33,14 @@ oxfmt erscheint alongside oxlint mit Formatierungsverbesserungen. Das vollständ
 
 Dieses Release bringt erhebliche Parser-Verbesserungen mit Fokus auf die Durchsetzung des TypeScript Ambient Context. Der Parser emittiert jetzt präzise Fehlercodes für eine Reihe ungültiger Deklarationen:
 
-- **TS1094** — Accessor-Typparameter
-- **TS1095** — Setter mit Return-Type-Annotation
-- **TS1051** — Optionale Parameter in Settern
-- **TS1221 / TS1222** — Generatoren und Overload-Signaturen im Ambient-Kontext
-- **TS1268 / TS1337** — Ungültige Index-Signature-Parametertypen
-- **TS1038 / TS1036** — `declare` in bereits deklarierten Ambient-Kontexten
-- **TS1316** — Export-as-namespace innerhalb eines Namespace-Bodys
-- **TS1183** — Funktionsimplementierungen im Ambient-Kontext
+- **TS1094**: Accessor-Typparameter
+- **TS1095**: Setter mit Return-Type-Annotation
+- **TS1051**: Optionale Parameter in Settern
+- **TS1221 / TS1222**: Generatoren und Overload-Signaturen im Ambient-Kontext
+- **TS1268 / TS1337**: Ungültige Index-Signature-Parametertypen
+- **TS1038 / TS1036**: `declare` in bereits deklarierten Ambient-Kontexten
+- **TS1316**: Export-as-namespace innerhalb eines Namespace-Bodys
+- **TS1183**: Funktionsimplementierungen im Ambient-Kontext
 
 ## Performance-Verbesserungen
 

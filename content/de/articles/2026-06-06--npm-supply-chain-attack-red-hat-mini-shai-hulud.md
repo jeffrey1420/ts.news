@@ -24,7 +24,7 @@ Am 1. Juni 2026 identifizierte Wiz Research eine neue Welle von npm-Supply-Chain
 
 ## Ein Vertrautes Werkzeugset mit Neuen Tricks
 
-Die Payload stammt von der **Mini-Shai-Hulud**-Malware, die von der Bedrohungsgruppe TeamPCP Ende 2025 Open-Source gestellt wurde. Frühere Kampagnen mit diesem Toolkit zielten auf Tanstack und andere große npm-Pakete ab. Der Miasma-Variant nimmt kosmetische Änderungen vor — Dune-Referenzen werden durch griechische Mythologie ersetzt ("spartan") — aber das zugrunde liegende Vorgehen bleibt im Wesentlichen gleich.
+Die Payload stammt von der **Mini-Shai-Hulud**-Malware, die von der Bedrohungsgruppe TeamPCP Ende 2025 Open-Source gestellt wurde. Frühere Kampagnen mit diesem Toolkit zielten auf Tanstack und andere große npm-Pakete ab. Der Miasma-Variant nimmt kosmetische Änderungen vor, Dune-Referenzen werden durch griechische Mythologie ersetzt ("spartan"), aber das zugrunde liegende Vorgehen bleibt im Wesentlichen gleich.
 
 Was sich in dieser Iteration geändert hat, ist der Zielumfang. Die Malware sammelt jetzt explizit **GCP- und Azure-Identitäten** und erfasst jede Cloud-Identität, auf die die infizierte Maschine Zugriff hat. Anstatt nur Secrets zu extrahieren, sind die Angreifer nun daran interessiert, direkten Zugang zu Cloud-Umgebungen selbst zu erhalten.
 
@@ -38,7 +38,7 @@ Beweise deuten darauf hin, dass ein **Red-Hat-Mitarbeiter-GitHub-Konto kompromit
 - `RedHatInsights/javascript-clients`
 - `RedHatInsights/platform-frontend-ai-toolkit`
 
-Diese Commits führten einen minimalen GitHub-Actions-Workflow ein, der bei jedem Push auf jeden Branch ausgelöst wurde. Der Workflow forderte ein GitHub-OIDC-Identitätstoken (`id-token: write`) an und führte eine obfuscated Payload `_index.js` aus, die Pakete direkt auf npm veröffentlichte — **mit gültigen SLSA-Provenienz-Attestierungen**.
+Diese Commits führten einen minimalen GitHub-Actions-Workflow ein, der bei jedem Push auf jeden Branch ausgelöst wurde. Der Workflow forderte ein GitHub-OIDC-Identitätstoken (`id-token: write`) an und führte eine obfuscated Payload `_index.js` aus, die Pakete direkt auf npm veröffentlichte, **mit gültigen SLSA-Provenienz-Attestierungen**.
 
 SLSA-Provenienz soll verifizieren, dass ein Paket aus einem spezifischen Source-Commit von einem vertrauenswürdigen Builder gebaut wurde. Indem sie gültige Attestierungen generierten, machten die Angreifer die bösartigen Pakete als legitime Red-Hat-Releases erscheinen und unterminierten damit einen Schlüsselmechanismus der Supply-Chain-Sicherheit.
 
@@ -62,7 +62,7 @@ Der Miasma-Angriff demonstriert eine beunruhigende Progression im npm-Supply-Cha
 
 **Vertrauenswürdige Publisher sind das schwache Glied.** SLSA-Provenienz, OIDC-Tokens und "verifizierter Herausgeber"-Badges wurden hier alle untergraben. Das Sicherheitsmodell nimmt an, dass die GitHub- und npm-Konten eines Herausgebers sicher sind. Beide wurden kompromittiert.
 
-**Open-Source-Malware senkt die Einstiegshürde.** TeamPCP hat den Mini-Shai-Hulud-Code öffentlich veröffentlicht. Miasma wird nicht mit Sicherheit TeamPCP zugeschrieben — die Ähnlichkeiten könnten auf Copycat-Akteure hinweisen, die dasselbe öffentlich verfügbare Toolkit nutzen.
+**Open-Source-Malware senkt die Einstiegshürde.** TeamPCP hat den Mini-Shai-Hulud-Code öffentlich veröffentlicht. Miasma wird nicht mit Sicherheit TeamPCP zugeschrieben, die Ähnlichkeiten könnten auf Copycat-Akteure hinweisen, die dasselbe öffentlich verfügbare Toolkit nutzen.
 
 **Erkennung wird schwieriger, nicht einfacher.** Per-Infection-Verschlüsselung, SLSA-Attestierungsmissbrauch und Living-off-the-Land-Techniken bedeuten, dass traditionelle Verteidigungen (Paket-Scanning, Hash-basierte IOCs) zunehmend unzureichend sind.
 
@@ -71,9 +71,9 @@ Der Miasma-Angriff demonstriert eine beunruhigende Progression im npm-Supply-Cha
 Organisationen, die Red-Hat-JavaScript-Clients verwenden, sollten :
 
 1. **Systeme auf betroffene Paketversionen prüfen** und auf gepatchte Releases aktualisieren
-2. **Alle Secrets erneuern**, die von Entwickler-Workstations aus zugänglich sind — GitHub-Tokens, Cloud-Credentials, CI/CD-Secrets
+2. **Alle Secrets erneuern**, die von Entwickler-Workstations aus zugänglich sind, GitHub-Tokens, Cloud-Credentials, CI/CD-Secrets
 3. **GitHub-Aktivität überprüfen** auf nicht autorisierte Repositories, neue Zugriffstokens oder verdächtige Workflow-Ausführungen
 4. **Dependency-Allowlisting implementieren** und über `.npmrc` oder Unternehmensrichtlinie durchsetzen
 5. **SBOMs für alle Produktionsabhängigkeiten generieren**, um schnellere Incident-Response zu ermöglichen
 
-Das npm-Ökosystem bleibt ein Hochwert-Ziel. Miasma ist kein isolierter Vorfall — es ist die letzte Iteration einer eskalierenden Kampagne.
+Das npm-Ökosystem bleibt ein Hochwert-Ziel. Miasma ist kein isolierter Vorfall, es ist die letzte Iteration einer eskalierenden Kampagne.

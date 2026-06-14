@@ -18,7 +18,7 @@ faq:
     answer: "L'approche la plus simple est app.ws('/ws', { open, message, close }) sur l'instance App principale. Pour les routes basées sur des fichiers, utilisez ctx.upgrade() dans un handler GET. Le mode bare, ctx.upgrade() sans arguments, retourne l'objet WebSocket brut pour le gérer dans une structure partagée comme un Set pour les salons de chat."
 ---
 
-« Zéro JavaScript par défaut », c'est l'argument de Fresh depuis le premier jour. La vraie petite ligne en bas du contrat : même une page sans island ni partial embarquait un petit entry client — entre 14 et 22 KB gzippés selon le projet. Pas un scandale, mais pas zéro non plus. Fresh 2.3, [annoncé sur le blog Deno](https://deno.com/blog/fresh-2.3), comble cet écart pour de bon.
+« Zéro JavaScript par défaut », c'est l'argument de Fresh depuis le premier jour. La vraie petite ligne en bas du contrat : même une page sans island ni partial embarquait un petit entry client, entre 14 et 22 KB gzippés selon le projet. Pas un scandale, mais pas zéro non plus. Fresh 2.3, [annoncé sur le blog Deno](https://deno.com/blog/fresh-2.3), comble cet écart pour de bon.
 
 ## Vraiment zéro, cette fois
 
@@ -45,7 +45,7 @@ Les navigations partielles sont désormais enveloppées dans `document.startView
 }
 ```
 
-Chrome 111+, Edge 111+ et Safari 18+ animent nativement. Firefox pas encore — il retombe simplement sur une mise à jour partielle classique, donc activer l'option ne coûte rien.
+Chrome 111+, Edge 111+ et Safari 18+ animent nativement. Firefox pas encore, il retombe simplement sur une mise à jour partielle classique, donc activer l'option ne coûte rien.
 
 ## WebSockets sans serveur d'appoint
 
@@ -65,14 +65,14 @@ app.ws("/ws", {
 });
 ```
 
-Les routes basées sur des fichiers obtiennent la même capacité via `ctx.upgrade()` dans un handler GET. Et si vous devez gérer les connexions vous-même — un salon de chat qui garde un `Set` de sockets, par exemple — appeler `ctx.upgrade()` sans objet de handlers retourne le `WebSocket` brut et vous laisse piloter le cycle de vie.
+Les routes basées sur des fichiers obtiennent la même capacité via `ctx.upgrade()` dans un handler GET. Et si vous devez gérer les connexions vous-même, un salon de chat qui garde un `Set` de sockets, par exemple, appeler `ctx.upgrade()` sans objet de handlers retourne le `WebSocket` brut et vous laisse piloter le cycle de vie.
 
 ## Le reste de la release
 
 Trois ajouts plus discrets méritent l'attention :
 
 - **Nonces CSP.** Fresh peut injecter un nonce par requête dans les scripts et styles qu'il émet, ce qui rend une `Content-Security-Policy` stricte praticable sans maintenir des hashes à la main.
-- **Temporal dans les islands.** Les huit types Temporal passent comme props d'island et se sérialisent correctement entre serveur et client — utile maintenant que [Temporal se stabilise dans les runtimes](/articles/2026-04-07--deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides).
+- **Temporal dans les islands.** Les huit types Temporal passent comme props d'island et se sérialisent correctement entre serveur et client, utile maintenant que [Temporal se stabilise dans les runtimes](/articles/2026-04-07--deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides).
 - **Prerendering.** Marquez une route avec `prerender: true` et Fresh la rend en HTML statique au build ; les routes dynamiques peuvent énumérer leurs chemins. Combiné aux pages zéro-JS, Fresh devient discrètement un très bon générateur de sites statiques.
 
 Fresh 2.3 s'installe avec un simple `deno update`, et avec Deno 2.7+ les nouveaux projets se créent via `deno create`. Pour un framework dont l'identité entière est la retenue, c'est la release où la retenue cesse d'être approximative.

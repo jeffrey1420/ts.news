@@ -22,7 +22,7 @@ Astro 6.4 landed May 28 with one headline feature that matters for any content-h
 
 ## The Problem: Unified Is Slow at Scale
 
-Astro's markdown pipeline has always used the unified ecosystem — remark and rehype plugins — which is powerful but notoriously slow at scale. Sites with many Markdown or MDX files end up with multi-minute build times because the unified processor parses and transforms content sequentially.
+Astro's markdown pipeline has always used the unified ecosystem, remark and rehype plugins, which is powerful but notoriously slow at scale. Sites with many Markdown or MDX files end up with multi-minute build times because the unified processor parses and transforms content sequentially.
 
 Astro 6.4 introduces `markdown.processor` as a top-level configuration option that replaces the existing `remarkPlugins` and `rehypePlugins` fields:
 
@@ -41,7 +41,7 @@ export default defineConfig({
 });
 ```
 
-Existing configurations using `remarkPlugins`, `rehypePlugins`, `gfm`, and `smartypants` still work — they're now marked deprecated and will be removed in a future major release.
+Existing configurations using `remarkPlugins`, `rehypePlugins`, `gfm`, and `smartypants` still work, they're now marked deprecated and will be removed in a future major release.
 
 ---
 
@@ -63,7 +63,7 @@ export default defineConfig({
 });
 ```
 
-Sätteri is written in Rust and deliberately excludes the remark/rehype plugin ecosystem. Instead, it supports MDAST and HAST plugins natively — meaning existing plugins need to be rewritten to work with the new processor, but the payoff is significantly faster parsing at scale.
+Sätteri is written in Rust and deliberately excludes the remark/rehype plugin ecosystem. Instead, it supports MDAST and HAST plugins natively, meaning existing plugins need to be rewritten to work with the new processor, but the payoff is significantly faster parsing at scale.
 
 Sites with thousands of markdown files should see the most dramatic improvements. The Astro team cites the Sätteri project directly at [satteri.bruits.org](https://satteri.bruits.org/).
 
@@ -90,7 +90,7 @@ Previously, preserving the client directory automatically affected the server di
 
 ## SSR Route Fallthrough Fix
 
-A long-standing edge case in Astro's on-demand rendering is now fixed. When a prerendered dynamic route and an SSR dynamic route shared the same URL pattern, requests to non-prerendered paths would 404 instead of falling through to the SSR handler — alphabetically sorted prerendered routes took precedence and blocked matching SSR routes.
+A long-standing edge case in Astro's on-demand rendering is now fixed. When a prerendered dynamic route and an SSR dynamic route shared the same URL pattern, requests to non-prerendered paths would 404 instead of falling through to the SSR handler, alphabetically sorted prerendered routes took precedence and blocked matching SSR routes.
 
 The fix adds proper fallthrough logic: when a prerendered dynamic route matches but can't serve the request, Astro now tries subsequent matching routes.
 
@@ -108,7 +108,7 @@ The fix adds proper fallthrough logic: when a prerendered dynamic route matches 
 ## FAQ
 
 **Should I switch to Sätteri immediately?**
-If your site is fast enough with the unified ecosystem, stay on it. If you have hundreds of markdown files and build times are painful, Sätteri is worth a test. Be aware that remark/rehype plugins don't work with Sätteri — you'd need MDAST/HAST equivalents.
+If your site is fast enough with the unified ecosystem, stay on it. If you have hundreds of markdown files and build times are painful, Sätteri is worth a test. Be aware that remark/rehype plugins don't work with Sätteri, you'd need MDAST/HAST equivalents.
 
 **Does Sätteri support all Astro markdown features?**
 It supports directives. Full GFM (tables, tasklists, strikethrough) and smartypants are configurable via Sätteri's own options. The trade-off is documented on the Sätteri site.

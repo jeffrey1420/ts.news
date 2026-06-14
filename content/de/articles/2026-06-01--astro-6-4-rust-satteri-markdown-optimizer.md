@@ -22,7 +22,7 @@ Astro 6.4 erschien am 28. Mai mit einem Hauptfeature, das für jeden content-las
 
 ## Das Problem: Unified Ist Langsam bei Skala
 
-Astro's Markdown-Pipeline hat immer das Unified-Ökosystem verwendet — remark und rehype Plugins — was leistungsstark, aber berüchtigt langsam bei Skala ist. Sites mit vielen Markdown- oder MDX-Dateien haben mehrminütige Build-Zeiten, weil der Unified-Prozessor Inhalte sequenziell parst und transformiert.
+Astro's Markdown-Pipeline hat immer das Unified-Ökosystem verwendet, remark und rehype Plugins, was leistungsstark, aber berüchtigt langsam bei Skala ist. Sites mit vielen Markdown- oder MDX-Dateien haben mehrminütige Build-Zeiten, weil der Unified-Prozessor Inhalte sequenziell parst und transformiert.
 
 Astro 6.4 führt `markdown.processor` als neue Konfigurationsoption auf oberster Ebene ein, die die vorhandenen `remarkPlugins`- und `rehypePlugins`-Felder ersetzt:
 
@@ -41,7 +41,7 @@ export default defineConfig({
 });
 ```
 
-Bestehende Konfigurationen mit `remarkPlugins`, `rehypePlugins`, `gfm` und `smartypants` funktionieren noch — sie sind nun veraltet und werden in einer zukünftigen Major-Version entfernt.
+Bestehende Konfigurationen mit `remarkPlugins`, `rehypePlugins`, `gfm` und `smartypants` funktionieren noch, sie sind nun veraltet und werden in einer zukünftigen Major-Version entfernt.
 
 ---
 
@@ -63,7 +63,7 @@ export default defineConfig({
 });
 ```
 
-Sätteri ist in Rust geschrieben und schließt bewusst das remark/rehype-Plugin-Ökosystem aus. Stattdessen unterstützt es MDAST- und HAST-Plugins nativ — bestehende Plugins müssen für den neuen Prozessor neu geschrieben werden, aber der Geschwindigkeitsgewinn bei der Skalierung ist erheblich.
+Sätteri ist in Rust geschrieben und schließt bewusst das remark/rehype-Plugin-Ökosystem aus. Stattdessen unterstützt es MDAST- und HAST-Plugins nativ, bestehende Plugins müssen für den neuen Prozessor neu geschrieben werden, aber der Geschwindigkeitsgewinn bei der Skalierung ist erheblich.
 
 Sites mit Tausenden von Markdown-Dateien sollten die dramatischsten Verbesserungen sehen. Das Astro-Team verweist direkt auf das Sätteri-Projekt unter [satteri.bruits.org](https://satteri.bruits.org/).
 

@@ -21,7 +21,7 @@ tldr:
   - "La réécriture de TypeScript v7 en Go rendait le maintien de l'API LanguageService impossible, rendant la migration vers oxc nécessaire."
 ---
 
-L'équipe derrière [Knip](https://github.com/webpro-nl/knip), l'outil open source très utilisé pour détecter les fichiers, dépendances et exports inutilisés dans les projets JavaScript et TypeScript, a publié la version 6 — et le chiffre principal ne laisse pas indifférent : **2 à 4 fois plus rapide** sur toute la ligne.
+L'équipe derrière [Knip](https://github.com/webpro-nl/knip), l'outil open source très utilisé pour détecter les fichiers, dépendances et exports inutilisés dans les projets JavaScript et TypeScript, a publié la version 6, et le chiffre principal ne laisse pas indifférent : **2 à 4 fois plus rapide** sur toute la ligne.
 
 Le changement clé est le remplacement complet du backend TypeScript par [oxc-parser](https://oxc.rs/docs/guide/usage/parser), le parser écrit en Rust du projet Oxc.
 
@@ -29,7 +29,7 @@ Le changement clé est le remplacement complet du backend TypeScript par [oxc-pa
 
 Knip parse chaque fichier une seule fois, mais l'ancien moteur basé sur TypeScript trainait la complexité d'un programme complet et d'un vérificateur de types pour une analyse statique qui n'en avait pas besoin. Cette configuration était pensée pour les IDEs et serveurs de langage, pas pour un analyseur qui ne fait qu'une passe.
 
-> « Le backend TypeScript rendait l'ensemble de la configuration plus difficile et plus lent qu'il n'aurait dû l'être, surtout pour les gros monorepos. » — Lars Kappert, [annonce de la v6](https://knip.dev/blog/knip-v6)
+> « Le backend TypeScript rendait l'ensemble de la configuration plus difficile et plus lent qu'il n'aurait dû l'être, surtout pour les gros monorepos. », Lars Kappert, [annonce de la v6](https://knip.dev/blog/knip-v6)
 
 L'équipe TypeScript est aussi en train de réécrire le compilateur en Go pour la v7 (preview disclosed en mars 2026). Cette réécriture aurait cassé les API LanguageService sur lesquelles Knip comptait pour ses fonctionnalités les plus niches.
 
@@ -47,8 +47,8 @@ Le parser Rust parcourt le dépôt TypeScript de Microsoft en moins d'une second
 
 ## Changements importants
 
-- **Node.js v20.19.0+ requis** — v18 n'est plus supporté
-- **Type d'issue classMembers supprimé** — plus viable sans l'API LanguageService de TypeScript
+- **Node.js v20.19.0+ requis**: v18 n'est plus supporté
+- **Type d'issue classMembers supprimé**: plus viable sans l'API LanguageService de TypeScript
 - Les flags `--include-libs` et `--isolate-workspaces` sont supprimés (comportement par défaut)
 - `--experimental-tags` renommé en `--tags`
 

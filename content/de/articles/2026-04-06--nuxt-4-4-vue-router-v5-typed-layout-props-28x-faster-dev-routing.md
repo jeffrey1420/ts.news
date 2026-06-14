@@ -7,13 +7,13 @@ author: lschvn
 tags: ["css", "frameworks", "typescript"]
 ---
 
-Nuxt 4.4 erschien am 12. März 2026, und es ist eines der substantiellsten Point-Releases im 4.x-Zyklus. Die Headline-Additionen — Vue Router v5, Custom-`useFetch`-Factories und ein Accessibility-Announcer-Composable — stehen neben einer Routing-Engine-Migration, die die Entwicklererfahrung drastisch beschleunigt.
+Nuxt 4.4 erschien am 12. März 2026, und es ist eines der substantiellsten Point-Releases im 4.x-Zyklus. Die Headline-Additionen, Vue Router v5, Custom-`useFetch`-Factories und ein Accessibility-Announcer-Composable, stehen neben einer Routing-Engine-Migration, die die Entwicklererfahrung drastisch beschleunigt.
 
 ## Vue Router v5
 
 Die wichtigste Abhängigkeitsaktualisierung ist Vue Router v5, das Nuxts historische Abhängigkeit von `unplugin-vue-router` entfernt. Dies ist das erste größere vue-router-Upgrade seit dem Start von Nuxt 3. Für die meisten Anwendungen sollte das Upgrade transparent sein. Wenn Sie `unplugin-vue-router` direkt in anderen Projekten verwenden, können Sie es aus Ihren Abhängigkeiten entfernen.
 
-Typisierte Routen sollen in einem zukünftigen Release den experimentellen Status verlassen — die Grundlagen werden gerade gelegt.
+Typisierte Routen sollen in einem zukünftigen Release den experimentellen Status verlassen, die Grundlagen werden gerade gelegt.
 
 ## Custom `useFetch` / `useAsyncData` Factories
 
@@ -38,7 +38,7 @@ const { data: users } = await useApiFetch('/users')
 </script>
 ```
 
-Die Factory-Funktion gibt Ihnen volle Kontrolle darüber, wie Optionen zusammengeführt werden — einschließlich Interceptors und zusammengesetzter Headers. Es gibt einen passenden `createUseAsyncData` für dasselbe Muster.
+Die Factory-Funktion gibt Ihnen volle Kontrolle darüber, wie Optionen zusammengeführt werden, einschließlich Interceptors und zusammengesetzter Headers. Es gibt einen passenden `createUseAsyncData` für dasselbe Muster.
 
 ## Typisierte Layout-Props
 
@@ -71,7 +71,7 @@ Wenn Ihr Layout Props definiert, erhalten Sie vollständigen Autocomplete und Ty
 
 ## Barrierefreiheit: `useAnnouncer`-Composable
 
-Nuxt 4.4 führt ein neues `useAnnouncer`-Composable und die `<NuxtAnnouncer>`-Komponente für dynamische In-Page-Ankündigungen ein — Formularübermittlungen, Ladezustände, Suchergebnisse ohne Navigation. Kombinieren Sie es mit `<NuxtRouteAnnouncer>` für seitenübergreifende Navigation:
+Nuxt 4.4 führt ein neues `useAnnouncer`-Composable und die `<NuxtAnnouncer>`-Komponente für dynamische In-Page-Ankündigungen ein, Formularübermittlungen, Ladezustände, Suchergebnisse ohne Navigation. Kombinieren Sie es mit `<NuxtRouteAnnouncer>` für seitenübergreifende Navigation:
 
 ```vue
 <template>
@@ -87,7 +87,7 @@ Dies ist Teil von Nuxts breiterer Barrierefreiheits-Roadmap.
 
 ## 28x schnelleres Dev-Routing mit unrouting
 
-Nuxt hat seine Dateisystem-Routengenerierung zu [unrouting](https://github.com/unjs/unrouting) migriert, das eine Trie-Datenstruktur für den Routenbau verwendet. Cold Start ist ungefähr gleich (~8ms vs ~6ms für große Apps), aber Hot-Module-Replacement ist dramatisch schneller: bis zu 28x schneller beim Bearbeiten bestehender Seiten, und ~15% schneller selbst beim Hinzufügen oder Entfernen von Seiten. Das System ist jetzt auch deterministisch — die Routengenerierung ist nicht mehr empfindlich gegenüber der Reihenfolge der Seitendateien.
+Nuxt hat seine Dateisystem-Routengenerierung zu [unrouting](https://github.com/unjs/unrouting) migriert, das eine Trie-Datenstruktur für den Routenbau verwendet. Cold Start ist ungefähr gleich (~8ms vs ~6ms für große Apps), aber Hot-Module-Replacement ist dramatisch schneller: bis zu 28x schneller beim Bearbeiten bestehender Seiten, und ~15% schneller selbst beim Hinzufügen oder Entfernen von Seiten. Das System ist jetzt auch deterministisch, die Routengenerierung ist nicht mehr empfindlich gegenüber der Reihenfolge der Seitendateien.
 
 ## Intelligentere ISR/SWR-Payload-Verarbeitung
 
@@ -95,9 +95,9 @@ Gecachte Routen (ISR/SWR) mit Payload-Extraktion hatten ein Problem: Browser-Anf
 
 ## Weitere Verbesserungen
 
-- **`useCookie` refresh-Option** — verlängern Sie die Ablaufzeit eines Cookies, ohne seinen Wert zu ändern, nützlich für Session-Management
-- **`clearNuxtState`-Reset** — setzt jetzt auf den Initialwert statt auf `undefined` zurück, in Übereinstimmung mit dem Verhalten von `useAsyncData`
-- **Import-Schutz** — verbesserte Fehlermeldungen mit Lösungsvorschlägen beim Importieren geschützter Module
+- **`useCookie` refresh-Option**: verlängern Sie die Ablaufzeit eines Cookies, ohne seinen Wert zu ändern, nützlich für Session-Management
+- **`clearNuxtState`-Reset**: setzt jetzt auf den Initialwert statt auf `undefined` zurück, in Übereinstimmung mit dem Verhalten von `useAsyncData`
+- **Import-Schutz**: verbesserte Fehlermeldungen mit Lösungsvorschlägen beim Importieren geschützter Module
 
 ## FAQ
 
@@ -108,4 +108,4 @@ Für die meisten Nuxt-Apps: nein. Das Upgrade sollte transparent sein. Die direk
 Mit `compatibilityVersion: 5` in einem zukünftigen Release. Der Runtime-LRU-Cache ist für alle Benutzer sofort aktiv.
 
 **Wie teste ich die neuen Routing-Performance-Verbesserungen?**
-Sie sind automatisch in 4.4. Bearbeiten Sie eine Seitendatei und beobachten Sie die HMR-Antwort im Terminal — die Verbesserungen sind am deutlichsten in großen Anwendungen mit vielen Routendateien.
+Sie sind automatisch in 4.4. Bearbeiten Sie eine Seitendatei und beobachten Sie die HMR-Antwort im Terminal, die Verbesserungen sind am deutlichsten in großen Anwendungen mit vielen Routendateien.

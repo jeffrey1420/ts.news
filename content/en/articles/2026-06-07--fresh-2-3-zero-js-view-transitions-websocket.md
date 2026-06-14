@@ -18,11 +18,11 @@ faq:
     answer: "The quickest approach is app.ws('/ws', { open, message, close }) on the main App instance. For file-based routes, use ctx.upgrade() inside a GET handler. Bare mode, ctx.upgrade() with no arguments, returns the raw WebSocket object so you can manage it in a shared structure like a Set for chat rooms."
 ---
 
-"Zero JavaScript by default" has been Fresh's pitch since day one. The honest fine print: even a page with no islands and no partials still shipped a small client entry — somewhere between 14 and 22 KB gzipped depending on the project. Not a scandal, but not zero either. Fresh 2.3, [announced on the Deno blog](https://deno.com/blog/fresh-2.3), closes that gap for real.
+"Zero JavaScript by default" has been Fresh's pitch since day one. The honest fine print: even a page with no islands and no partials still shipped a small client entry, somewhere between 14 and 22 KB gzipped depending on the project. Not a scandal, but not zero either. Fresh 2.3, [announced on the Deno blog](https://deno.com/blog/fresh-2.3), closes that gap for real.
 
 ## Actually zero this time
 
-There is nothing to configure. After upgrading, Fresh checks at render time whether a page actually uses islands or partials. If it uses neither, the response contains no script tags, no module preload headers, and no client bundle. A marketing page, a blog post, a docs page — plain HTML over the wire, the way it renders it.
+There is nothing to configure. After upgrading, Fresh checks at render time whether a page actually uses islands or partials. If it uses neither, the response contains no script tags, no module preload headers, and no client bundle. A marketing page, a blog post, a docs page, plain HTML over the wire, the way it renders it.
 
 If you want to see it yourself, upgrade and open the network tab on a static route. The difference is easy to measure: where 2.2 loaded the client entry on every page, 2.3 loads nothing until the first island shows up.
 
@@ -45,7 +45,7 @@ Partial navigations are now wrapped in `document.startViewTransition()`, and you
 }
 ```
 
-Chrome 111+, Edge 111+, and Safari 18+ run the animations natively. Firefox doesn't yet — it simply falls back to a normal partial update, so there is no penalty for opting in early.
+Chrome 111+, Edge 111+, and Safari 18+ run the animations natively. Firefox doesn't yet, it simply falls back to a normal partial update, so there is no penalty for opting in early.
 
 ## WebSockets without a sidecar
 
@@ -65,14 +65,14 @@ app.ws("/ws", {
 });
 ```
 
-File-based routes get the same capability through `ctx.upgrade()` inside a GET handler. And if you need to manage connections yourself — a chat room keeping a `Set` of sockets, say — calling `ctx.upgrade()` with no handler object returns the raw `WebSocket` so you own the lifecycle.
+File-based routes get the same capability through `ctx.upgrade()` inside a GET handler. And if you need to manage connections yourself, a chat room keeping a `Set` of sockets, say, calling `ctx.upgrade()` with no handler object returns the raw `WebSocket` so you own the lifecycle.
 
 ## The rest of the release
 
 Three smaller additions are worth knowing about:
 
 - **CSP nonces.** Fresh can now inject a per-request nonce into the scripts and styles it emits, which makes a strict `Content-Security-Policy` practical without hand-maintaining hashes.
-- **Temporal in islands.** All eight Temporal types can be passed as island props and serialize correctly across the server/client boundary — useful now that [Temporal is stabilizing across runtimes](/articles/2026-04-07--deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides).
+- **Temporal in islands.** All eight Temporal types can be passed as island props and serialize correctly across the server/client boundary, useful now that [Temporal is stabilizing across runtimes](/articles/2026-04-07--deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides).
 - **Prerendering.** Mark a route with `prerender: true` and Fresh renders it to static HTML at build time; dynamic routes can enumerate their paths. Combined with zero-JS pages, Fresh quietly becomes a capable static site generator.
 
 Fresh 2.3 is a `deno update` away, and with Deno 2.7+ new projects scaffold via `deno create`. For a framework whose whole identity is restraint, this is the release where the restraint stops being approximate.

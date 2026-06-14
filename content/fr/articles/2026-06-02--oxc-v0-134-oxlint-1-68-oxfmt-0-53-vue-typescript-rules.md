@@ -13,11 +13,11 @@ tldr:
 
 <!-- more -->
 
-## oxlint v1.68.0 — Règles Vue et TypeScript
+## oxlint v1.68.0: Règles Vue et TypeScript
 
 Les ajouts principaux dans oxlint v1.68.0 sont deux règles spécifiques à Vue.
 
-**`vue/no-reserved-component-names`** empêche d'utiliser des noms réservés pour les définitions de composants Vue. Vue réserve des noms comme `Switch`, `KeepAlive` et `Teleport` — les utiliser comme noms de composants locaux peut causer des problèmes de rendu, notamment avec `resolveComponent` ou dans les blocs `<script>` des fichiers `.vue`.
+**`vue/no-reserved-component-names`** empêche d'utiliser des noms réservés pour les définitions de composants Vue. Vue réserve des noms comme `Switch`, `KeepAlive` et `Teleport`, les utiliser comme noms de composants locaux peut causer des problèmes de rendu, notamment avec `resolveComponent` ou dans les blocs `<script>` des fichiers `.vue`.
 
 **`vue/component-definition-name`** est la règle counterpart qui détecte quand les noms de définitions de composants entrent en conflit avec les éléments HTML ou les composants intégrés de Vue.
 
@@ -25,7 +25,7 @@ Coté TypeScript, **la nouvelle règle `method-signature-style`** enforce un sty
 
 Également nouveau en v1.68.0 : **`override::exclude_files`** permet d'exclure des fichiers spécifiques des overrides de règles, offrant un contrôle plus fin sur la configuration lint sans patterns glob complexes.
 
-## oxfmt v0.53.0 — Mises à Jour du Formateur
+## oxfmt v0.53.0: Mises à Jour du Formateur
 
 oxfmt publie aux côtés d'oxlint avec des améliorations de formatting. Le changelog complet de v0.53.0 est disponible sur la [page des releases oxc-project/oxc](https://github.com/oxc-project/oxc/releases).
 
@@ -33,14 +33,14 @@ oxfmt publie aux côtés d'oxlint avec des améliorations de formatting. Le chan
 
 Cette release apporte un lot important d'améliorations du parser axées sur l enforce du contexte ambient TypeScript. Le parser émet désormais des codes d'erreur précis pour une gamme de déclarations invalides :
 
-- **TS1094** — type parameters sur accessors (setters/getters avec paramètres de type)
-- **TS1095** — setters avec une annotation de type de retour
-- **TS1051** — paramètres optionnels dans les setters
-- **TS1221 / TS1222** — générateurs et overload signatures en contexte ambient
-- **TS1268 / TS1337** — types de paramètres d'index signature invalides
-- **TS1038 / TS1036** — `declare` dans des contextes déjà ambient et instructions dans des blocs ambient
-- **TS1316** — export-as-namespace à l'intérieur d'un body de namespace
-- **TS1183** — implémentations de fonctions en contexte ambient
+- **TS1094**: type parameters sur accessors (setters/getters avec paramètres de type)
+- **TS1095**: setters avec une annotation de type de retour
+- **TS1051**: paramètres optionnels dans les setters
+- **TS1221 / TS1222**: générateurs et overload signatures en contexte ambient
+- **TS1268 / TS1337**: types de paramètres d'index signature invalides
+- **TS1038 / TS1036**: `declare` dans des contextes déjà ambient et instructions dans des blocs ambient
+- **TS1316**: export-as-namespace à l'intérieur d'un body de namespace
+- **TS1183**: implémentations de fonctions en contexte ambient
 
 Le parser rejecte également les combinaisons invalides de modifiers de class members, les imports/exports module-referencing à l'intérieur de namespaces, et les clauses `implements` où le nom de la classe est lui-même `implements`.
 
@@ -48,9 +48,9 @@ Le parser rejecte également les combinaisons invalides de modifiers de class me
 
 Trois changements ciblent le débit du parser :
 
-1. **Réutilisation du cached token kind dans les boucles de listes délimitées** — évite des lookups redondants dans les littéraux array/object, paramètres de fonction, etc.
-2. **peek_token au lieu de lookahead sur le chemin des modifiers** — un peek plus léger remplace le lookahead plus coûteux lors du scanning des modifiers.
-3. **Lookup defer de declare pour les accessors vides** — saute la résolution de symbole inutile pour les accessors sans corps.
+1. **Réutilisation du cached token kind dans les boucles de listes délimitées**: évite des lookups redondants dans les littéraux array/object, paramètres de fonction, etc.
+2. **peek_token au lieu de lookahead sur le chemin des modifiers**: un peek plus léger remplace le lookahead plus coûteux lors du scanning des modifiers.
+3. **Lookup defer de declare pour les accessors vides**: saute la résolution de symbole inutile pour les accessors sans corps.
 
 ## Changelog Complet
 

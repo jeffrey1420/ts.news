@@ -23,7 +23,7 @@ Le changement inclut aussi un meilleur traitement des partial fallbacks : quand 
 
 ### Meilleur Dédoublonnage du 'use cache'
 
-La directive expérimentale `'use cache'` — le mécanisme de caching serveur de Next.js — dédoublonne désormais les appels concurrents de manière plus agressive. Si plusieurs composants réclament la même computation mise en cache simultanément, un seul l'exécute réellement.
+La directive expérimentale `'use cache'`, le mécanisme de caching serveur de Next.js, dédoublonne désormais les appels concurrents de manière plus agressive. Si plusieurs composants réclament la même computation mise en cache simultanément, un seul l'exécute réellement.
 
 ### Redesign de l'Overlay de Dév
 

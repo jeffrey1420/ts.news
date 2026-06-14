@@ -18,7 +18,7 @@ faq:
   - question: "Should I switch from Node.js to Bun?"
     answer: "It depends on your priorities. Bun offers faster performance, quicker installs, and built-in TypeScript support, with about 95% npm package compatibility. However, if you need maximum ecosystem compatibility or are working with established enterprise tooling, Node.js remains the safer choice. For new projects where performance matters, Bun is the most compelling option."
   - question: "What makes Deno different from Bun and Node.js?"
-    answer: "Deno's core differentiator is security — it runs code in a sandbox with no file system, network, or environment access unless explicitly granted via flags like --allow-net or --allow-read. This makes Deno the safest choice for multi-tenant deployments or running untrusted code. The tradeoff is a smaller ecosystem and slower performance compared to Bun."
+    answer: "Deno's core differentiator is security, it runs code in a sandbox with no file system, network, or environment access unless explicitly granted via flags like --allow-net or --allow-read. This makes Deno the safest choice for multi-tenant deployments or running untrusted code. The tradeoff is a smaller ecosystem and slower performance compared to Bun."
 ---
 
 In 2026, three JavaScript runtimes compete for server-side dominance: Node.js (dominant at 90% usage), Bun (fastest by every benchmark, often 2-3× faster on HTTP throughput), and Deno (the security-first outsider at 11% usage). Independent benchmarks across HTTP throughput, cold starts, and async performance now tell a consistent story.
@@ -38,13 +38,13 @@ Independent testing across a consistent hardware profile tells a fairly clear st
 
 ### HTTP Throughput
 
-Bun consistently leads in HTTP server throughput benchmarks — often 2-3x faster than Node.js on the same hardware. The gap narrows under heavy concurrent load but never closes entirely. Deno sits somewhere in the middle, usually outperforming Node.js but well behind Bun.
+Bun consistently leads in HTTP server throughput benchmarks, often 2-3x faster than Node.js on the same hardware. The gap narrows under heavy concurrent load but never closes entirely. Deno sits somewhere in the middle, usually outperforming Node.js but well behind Bun.
 
 The reason is architecture: Bun uses JavaScriptCore (Safari's engine) with a Zig-based standard library. Zig gives Bun much tighter control over memory allocation and syscall overhead than V8-based runtimes. For the latest performance benchmarks and new Bun features shipping in recent releases, see our [Bun v1.3.11 breakdown](/articles/2026-03-30--bun-v1-3-11-cron-anthropic).
 
 ### Cold Start Time
 
-This is where Bun dominates most decisively. Cold starts — critical for serverless and containerized workloads — are measured in milliseconds for Bun versus hundreds of milliseconds for Node.js on equivalent workloads. A Lambda function with a Bun runtime starts roughly 3-4x faster than the same function with Node.
+This is where Bun dominates most decisively. Cold starts, critical for serverless and containerized workloads, are measured in milliseconds for Bun versus hundreds of milliseconds for Node.js on equivalent workloads. A Lambda function with a Bun runtime starts roughly 3-4x faster than the same function with Node.
 
 ```javascript
 // Bun: cold start ~30ms
@@ -60,7 +60,7 @@ Bun.serve({
 
 ### Async Performance
 
-For I/O-bound workloads — database queries, HTTP calls, file operations — the differences shrink considerably. All three runtimes use non-blocking I/O under the hood. The overhead of the event loop is comparable across Node.js and Deno. Bun's advantage here is more modest than in CPU-bound scenarios.
+For I/O-bound workloads, database queries, HTTP calls, file operations, the differences shrink considerably. All three runtimes use non-blocking I/O under the hood. The overhead of the event loop is comparable across Node.js and Deno. Bun's advantage here is more modest than in CPU-bound scenarios.
 
 ## The Ecosystem Question
 
@@ -68,7 +68,7 @@ Performance is one thing. The npm ecosystem is another.
 
 Node.js runs npm, yarn, and pnpm natively. Every package you're likely to need works. The compatibility story is 15 years of accumulated trust.
 
-Bun positions itself as a "drop-in replacement" for Node.js. In practice, this means it runs most npm packages without modification. The compatibility rate sits around 95% for popular packages — impressive, but that remaining 5% can be a painful surprise. (The npm ecosystem's security surface area is a related concern: a [recent axios supply chain attack](/articles/2026-03-31--axios-npm-supply-chain-attack) underscored that even the most widely-used packages carry risk.)
+Bun positions itself as a "drop-in replacement" for Node.js. In practice, this means it runs most npm packages without modification. The compatibility rate sits around 95% for popular packages, impressive, but that remaining 5% can be a painful surprise. (The npm ecosystem's security surface area is a related concern: a [recent axios supply chain attack](/articles/2026-03-31--axios-npm-supply-chain-attack) underscored that even the most widely-used packages carry risk.)
 
 ```bash
 # Bun installs packages 3-10x faster than npm
@@ -91,7 +91,7 @@ deno run --allow-net=api.stripe.com --allow-read ./server.ts
 // Node.js and Bun run with full system access
 ```
 
-For security-conscious deployments — multi-tenant SaaS, plugins from untrusted sources, any scenario where code runs in the same process as sensitive data — Deno's model is meaningfully safer. The others require you to trust the code you're running.
+For security-conscious deployments, multi-tenant SaaS, plugins from untrusted sources, any scenario where code runs in the same process as sensitive data, Deno's model is meaningfully safer. The others require you to trust the code you're running.
 
 ## What to Choose
 
@@ -103,6 +103,6 @@ For security-conscious deployments — multi-tenant SaaS, plugins from untrusted
 
 ## The Honest Assessment
 
-The runtime landscape in 2026 is healthier than it was in 2020. Node.js isn't going anywhere — it's too embedded in production infrastructure. But Bun's numbers are real, and the development experience improvements (faster installs, faster tests, built-in TypeScript without config) add up in daily workflow.
+The runtime landscape in 2026 is healthier than it was in 2020. Node.js isn't going anywhere, it's too embedded in production infrastructure. But Bun's numbers are real, and the development experience improvements (faster installs, faster tests, built-in TypeScript without config) add up in daily workflow.
 
-The real winner might be JavaScript itself. Competition between these runtimes is pushing faster execution, better tooling, and native TypeScript support across all three — which benefits developers regardless of which runtime they choose.
+The real winner might be JavaScript itself. Competition between these runtimes is pushing faster execution, better tooling, and native TypeScript support across all three, which benefits developers regardless of which runtime they choose.

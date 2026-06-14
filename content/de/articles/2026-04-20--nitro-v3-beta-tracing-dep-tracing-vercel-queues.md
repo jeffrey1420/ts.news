@@ -1,6 +1,6 @@
 ---
 title: "Nitro v3 Beta Update: Integriertes Tracing, Intelligente Abhängigkeits-Erkennung und Vercel Queues"
-description: "Das Nitro v3 Beta-Update vom April 2026 bringt experimentelle Tracing-Kanäle, Full-Trace-Abhängigkeitserkennung mit Native-Package-Erkennung, Vercel-Queue-Support und Tencent EdgeOne Pages-Deployment — zusammen mit H3 v2 Sicherheits- und Cookie-Verbesserungen."
+description: "Das Nitro v3 Beta-Update vom April 2026 bringt experimentelle Tracing-Kanäle, Full-Trace-Abhängigkeitserkennung mit Native-Package-Erkennung, Vercel-Queue-Support und Tencent EdgeOne Pages-Deployment, zusammen mit H3 v2 Sicherheits- und Cookie-Verbesserungen."
 date: 2026-04-20
 image: "/images/heroes/2026-04-20--nitro-v3-beta-tracing-dep-tracing-vercel-queues.png"
 author: lschvn
@@ -11,7 +11,7 @@ tldr:
   - Tencent EdgeOne Pages ergänzt die Deployment-Preset-Liste, und H3 v2 bringt striktere Streaming-Body-Checks, RFC 6265bis-Cookie-Compliance und Path-Traversal-Schutz
 faq:
   - question: "Wie unterscheidet sich das integrierte Nitro-v3-Tracing von bestehenden OpenTelemetry-Integrationen?"
-    answer: "Die Tracing-Kanäle von Nitro bieten eine framework-native, niedrigere Observability-Schicht. Ohne ein separates OpenTelemetry SDK einrichten zu müssen, erhalten Sie Request-Span-Tracing direkt aus Nitros Internen — Spans für Route-Handling, Datenbankabfragen und Cache-Operationen werden automatisch emittiert."
+    answer: "Die Tracing-Kanäle von Nitro bieten eine framework-native, niedrigere Observability-Schicht. Ohne ein separates OpenTelemetry SDK einrichten zu müssen, erhalten Sie Request-Span-Tracing direkt aus Nitros Internen, Spans für Route-Handling, Datenbankabfragen und Cache-Operationen werden automatisch emittiert."
   - question: "Welche Native Packages erkennt traceDeps jetzt automatisch?"
     answer: "Der Full-Trace-Modus nutzt eine wachsende Native-Packages-Datenbank, um Optional Dependencies mit vorkompilierten Binaries zu identifizieren (z.B. node-sqlite3, canvas oder sharp). Nitro erkennt diese automatisch und vermeidet falsches Bundling."
   - question: "Wie funktionieren Vercel Queues in Nitro?"
@@ -22,13 +22,13 @@ Das öffentliche Nitro v3 Beta entwickelt sich weiter. Das Update vom 15. April 
 
 ## Integrierte Tracing-Kanäle
 
-Das Haupt-Feature ist die experimentelle Tracing-Kanal-Unterstützung ([PR #4001](https://github.com/nitrojs/nitro/pull/4001)). Nitro emittiert nun strukturierte Trace-Spans für Request-Lifecycle-Events — Routing, Handler-Ausführung, Cache Treffer/Fehlschläge, Datenbank-Timing — direkt aus dem Framework-Kern. Kein OpenTelemetry SDK nötig; Tracing ist eine First-Class-Nitro-Funktion.
+Das Haupt-Feature ist die experimentelle Tracing-Kanal-Unterstützung ([PR #4001](https://github.com/nitrojs/nitro/pull/4001)). Nitro emittiert nun strukturierte Trace-Spans für Request-Lifecycle-Events, Routing, Handler-Ausführung, Cache Treffer/Fehlschläge, Datenbank-Timing, direkt aus dem Framework-Kern. Kein OpenTelemetry SDK nötig; Tracing ist eine First-Class-Nitro-Funktion.
 
 ## Intelligentere Abhängigkeits-Verfolgung mit Full-Trace
 
 Nitros `traceDeps` Tool erhält ein bedeutendes Upgrade ([PR #4175](https://github.com/nitrojs/nitro/pull/4175)). Der neue Full-Trace-Modus gibt Entwicklern Kontrolle über die Analyse des Abhängigkeitsgraphen während des Builds.
 
-Die wichtigste Verbesserung: der upstream nf3 Tracer nutzt nun eine wachsende Native-Packages-Datenbank und erkennt Optional Dependencies automatisch. Wenn Ihr Projekt Packages mit nativen Binaries nutzt, erkennt Nitro diese nun automatisch und vermeidet falsches Bundling — eine häufige Ursache für "lokal funktioniert, prod ist kaputt"-Fehler.
+Die wichtigste Verbesserung: der upstream nf3 Tracer nutzt nun eine wachsende Native-Packages-Datenbank und erkennt Optional Dependencies automatisch. Wenn Ihr Projekt Packages mit nativen Binaries nutzt, erkennt Nitro diese nun automatisch und vermeidet falsches Bundling, eine häufige Ursache für "lokal funktioniert, prod ist kaputt"-Fehler.
 
 ## Vercel Queues und Per-Route Function Config
 
@@ -36,7 +36,7 @@ Das Vercel Deployment-Preset erhält zwei Production-Features.
 
 **Vercel Queues**: Nitro Route-Handler können nun asynchrone Arbeit über die Vercel-Queue-Infrastruktur einreihen. Definieren Sie Background-Task-Handler mit `nitro.tasks`, deployen Sie auf Vercel, und nutzen Sie das Vercel SDK. Das Preset übernimmt die Konfiguration automatisch.
 
-**Per-Route Function Config Override**: Individuelle Routes können nun die Standard-Vercel-Funktionskonfiguration überschreiben — Memory-Limit, Timeout, `maxDuration`. Praktisch wenn eine bestimmte Route mehr Ressourcen braucht als der Rest der Anwendung.
+**Per-Route Function Config Override**: Individuelle Routes können nun die Standard-Vercel-Funktionskonfiguration überschreiben, Memory-Limit, Timeout, `maxDuration`. Praktisch wenn eine bestimmte Route mehr Ressourcen braucht als der Rest der Anwendung.
 
 ## Tencent EdgeOne Pages Deployment
 

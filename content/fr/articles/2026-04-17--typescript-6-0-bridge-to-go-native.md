@@ -6,9 +6,9 @@ image: "/images/heroes/2026-04-17--typescript-6-0-bridge-to-go-native.png"
 author: lschvn
 tags: ["tooling", "typescript", "javascript"]
 tldr:
-  - TypeScript 6.0 est la dernière version sur la base de code JavaScript actuelle — TypeScript 7.0 sera construit en Go pour la vitesse native et le parallélisme à mémoire partagée
+  - TypeScript 6.0 est la dernière version sur la base de code JavaScript actuelle, TypeScript 7.0 sera construit en Go pour la vitesse native et le parallélisme à mémoire partagée
   - Nouvelles fonctionnalités : imports de sous-chemin #/, Map.getOrInsert/getOrInsertComputed, types pour l'API Temporal, et inférence relâchée pour les méthodes n'utilisant pas `this`
-  - Plusieurs valeurs par défaut changent : strict=true, module=esnext, types=[], rootDir=. — beaucoup de projets verront leurs builds accélérés de 20-50% mais devront peut-être configurer explicitement les types
+  - Plusieurs valeurs par défaut changent : strict=true, module=esnext, types=[], rootDir=., beaucoup de projets verront leurs builds accélérés de 20-50% mais devront peut-être configurer explicitement les types
 faq:
   - question: "Comment se préparer pour TypeScript 7.0 ?"
     answer: "Utilisez TypeScript 6.0 maintenant. Essayez le preview natif de TypeScript 7.0 dans VS Code (extension TypeScriptTeam.native-preview) ou via npmx.dev. Le flag --stableTypeOrdering permet de détecter les différences en amont."
@@ -18,7 +18,7 @@ faq:
     answer: "Déclarez explicitement 'types' (ex: ['node', 'jest']), configurez 'rootDir' si vos sources sont imbriquées, mettez 'strict': false si vous comptiez sur l'ancienne valeur par défaut, et révisez l'option ignoreDeprecations."
 ---
 
-TypeScript 6.0 est sorti ce mois-ci, et il porte un poids que peu de releases mineures assument : c'est la dernière version construite sur la base de code JavaScript actuelle. Tout ce qui suivra, à partir de la 7.0, sera compilé en Go natif — un compilateur que l'équipe développe depuis plus d'un an.
+TypeScript 6.0 est sorti ce mois-ci, et il porte un poids que peu de releases mineures assument : c'est la dernière version construite sur la base de code JavaScript actuelle. Tout ce qui suivra, à partir de la 7.0, sera compilé en Go natif, un compilateur que l'équipe développe depuis plus d'un an.
 
 ## Un pont vers TypeScript 7.0
 
@@ -28,7 +28,7 @@ La plupart des changements de la 6.0 existent pour faciliter cette transition. M
 
 ## Moins de sensibilité au `this` dans l'inférence de types
 
-Un grain de sable longtemps irritant disparaît. Quand TypeScript infère des paramètres de type depuis un callback, il saute par-dessus les fonctions "sensibles au contexte" — celles dont les paramètres n'ont pas de type explicite. Les méthodes écrites avec la syntaxe shorthand étaient toujours traitées comme sensibles car elles portent un `this` implicite, même si `this` n'est jamais utilisé. Les fonctions fléchées n'avaient pas ce problème.
+Un grain de sable longtemps irritant disparaît. Quand TypeScript infère des paramètres de type depuis un callback, il saute par-dessus les fonctions "sensibles au contexte", celles dont les paramètres n'ont pas de type explicite. Les méthodes écrites avec la syntaxe shorthand étaient toujours traitées comme sensibles car elles portent un `this` implicite, même si `this` n'est jamais utilisé. Les fonctions fléchées n'avaient pas ce problème.
 
 TypeScript 6.0 vérifie désormais si `this` est réellement référencé avant de marquer une méthode comme sensible. Si vous n'utilisez jamais `this`, la méthode participe normalement à l'inférence de type. Le correctif a été contribué par Mateusz Burzyński ([PR #62243](https://github.com/microsoft/TypeScript/pull/62243)).
 
@@ -52,11 +52,11 @@ Auparavant `--moduleResolution bundler` nécessitait `--module esnext` ou `--mod
 
 ## Stable Type Ordering pour les migrations 6.0 vers 7.0
 
-Le vérificateur de types parallèle de TypeScript 7.0 trie les objets internes de façon déterministe. TypeScript 6.0 introduit `--stableTypeOrdering` pour rendre sa sortie conforme à cet ordre. C'est principalement un outil de migration — le flag peut ralentir le type-checking jusqu'à 25% — mais il garantit que les fichiers de déclaration et les messages d'erreur ne changent pas de façon inattendue lors de la montée de version. Le flag n'est pas recommandé pour un usage permanent.
+Le vérificateur de types parallèle de TypeScript 7.0 trie les objets internes de façon déterministe. TypeScript 6.0 introduit `--stableTypeOrdering` pour rendre sa sortie conforme à cet ordre. C'est principalement un outil de migration, le flag peut ralentir le type-checking jusqu'à 25%, mais il garantit que les fichiers de déclaration et les messages d'erreur ne changent pas de façon inattendue lors de la montée de version. Le flag n'est pas recommandé pour un usage permanent.
 
 ## Cible ES2025 et nouveaux types pour les API natives
 
-TypeScript 6.0 ajoute `es2025` comme valeur valide pour `--target` et `--lib`. Cela apporte `RegExp.escape` (stage 4) et déplace `Promise.try`, les méthodes d'itérateur et les méthodes de Set dans la lib stable. L'API Temporal — le remplaçant attendu de `Date` — reçoit aussi des types intégrés complets dans la 6.0. Les types `Map` et `WeakMap` gagnent `getOrInsert` et `getOrInsertComputed` (stage 4) pour le pattern courant "get or create".
+TypeScript 6.0 ajoute `es2025` comme valeur valide pour `--target` et `--lib`. Cela apporte `RegExp.escape` (stage 4) et déplace `Promise.try`, les méthodes d'itérateur et les méthodes de Set dans la lib stable. L'API Temporal, le remplaçant attendu de `Date`, reçoit aussi des types intégrés complets dans la 6.0. Les types `Map` et `WeakMap` gagnent `getOrInsert` et `getOrInsertComputed` (stage 4) pour le pattern courant "get or create".
 
 ## Consolidation de la lib DOM
 
@@ -66,15 +66,15 @@ Le contenu de `lib.dom.iterable.d.ts` et `lib.dom.asynciterable.d.ts` est désor
 
 TypeScript 6.0 inverse plusieurs valeurs par défaut sur lesquelles des projets plus anciens ont pu s'appuyer :
 
-- **`strict` est maintenant `true` par défaut** — si vous comptiez sur l'absence de strictitude implicite, passez `"strict": false` explicitement
-- **`module` est `esnext` par défaut** — l'ESM est désormais le format supposé pour les nouveaux projets
-- **`target` est la valeur de l'année courante** (actuellement `es2025`) — la cible `es5` est dépréciée
-- **`types` est maintenant `[]` par défaut** au lieu d'énumérer tout dans `node_modules/@types` — cela seul a réduit les temps de build de 20 à 50% dans les projets étudiés par l'équipe. Ajoutez des types explicites : `["node", "jest"]` etc.
-- **`rootDir` est le répertoire du tsconfig par défaut** plutôt que d'être inféré des chemins de fichiers — les répertoires de sources imbriqués peuvent nécessiter une configuration `rootDir` explicite
+- **`strict` est maintenant `true` par défaut**: si vous comptiez sur l'absence de strictitude implicite, passez `"strict": false` explicitement
+- **`module` est `esnext` par défaut**: l'ESM est désormais le format supposé pour les nouveaux projets
+- **`target` est la valeur de l'année courante** (actuellement `es2025`), la cible `es5` est dépréciée
+- **`types` est maintenant `[]` par défaut** au lieu d'énumérer tout dans `node_modules/@types`, cela seul a réduit les temps de build de 20 à 50% dans les projets étudiés par l'équipe. Ajoutez des types explicites : `["node", "jest"]` etc.
+- **`rootDir` est le répertoire du tsconfig par défaut** plutôt que d'être inféré des chemins de fichiers, les répertoires de sources imbriqués peuvent nécessiter une configuration `rootDir` explicite
 - **`noUncheckedSideEffectImports` est maintenant `true` par défaut**
 
 ## En résumé
 
-Si vous démarrez un nouveau projet, 6.0 est un choix solide avec des valeurs par défaut modernes et sensées. Si vous êtes sur un projet existant, prévoyez du temps pour ajouter des entrées `types` explicites et vérifier votre `rootDir` avant de mettre à jour aveuglément. La 7.0 en Go approche — l'équipe veut que vous soyez sur 6.0 maintenant pour que la transition soit propre.
+Si vous démarrez un nouveau projet, 6.0 est un choix solide avec des valeurs par défaut modernes et sensées. Si vous êtes sur un projet existant, prévoyez du temps pour ajouter des entrées `types` explicites et vérifier votre `rootDir` avant de mettre à jour aveuglément. La 7.0 en Go approche, l'équipe veut que vous soyez sur 6.0 maintenant pour que la transition soit propre.
 
 Installez-la : `npm install -D typescript@latest`

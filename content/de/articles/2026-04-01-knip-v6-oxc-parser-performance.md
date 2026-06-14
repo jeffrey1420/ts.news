@@ -1,6 +1,6 @@
 ---
 title: "Knip v6 Bringt oxc-Parser und 2- bis 4-fache Performance-Steigerung"
-description: "Das beliebte Tool zum Aufspüren von ungenutztem Code in JavaScript und TypeScript hat seinen TypeScript-Backend durch den Rust-basierten oxc-Parser ersetzt — mit beeindruckenden Ergebnissen."
+description: "Das beliebte Tool zum Aufspüren von ungenutztem Code in JavaScript und TypeScript hat seinen TypeScript-Backend durch den Rust-basierten oxc-Parser ersetzt, mit beeindruckenden Ergebnissen."
 date: 2026-04-01
 image: "/images/heroes/2026-04-01-knip-v6-oxc-parser-performance.png"
 author: lschvn
@@ -21,15 +21,15 @@ tldr:
   - "Der TypeScript-v7-Go-Rewrite machte die LanguageService-API unbrauchbar, weshalb der Wechsel zu oxc notwendig war."
 ---
 
-Das Team hinter [Knip](https://github.com/webpro-nl/knip) — dem beliebten Open-Source-Tool zum Finden ungenutzter Dateien, Abhängigkeiten und Exports in JavaScript- und TypeScript-Projekten — hat Version 6 veröffentlicht. Die Kernzahl: **2 bis 4 mal schneller** auf ganzer Linie.
+Das Team hinter [Knip](https://github.com/webpro-nl/knip), dem beliebten Open-Source-Tool zum Finden ungenutzter Dateien, Abhängigkeiten und Exports in JavaScript- und TypeScript-Projekten, hat Version 6 veröffentlicht. Die Kernzahl: **2 bis 4 mal schneller** auf ganzer Linie.
 
 Der entscheidende Wechsel: Der komplette Austausch des TypeScript-Backends gegen [oxc-parser](https://oxc.rs/docs/guide/usage/parser), den Rust-basierten Parser des Oxc Project.
 
 ## Warum das TypeScript-Backend an eine Wand stieß
 
-Knip parst jede Datei nur einmal, aber die alte TypeScript-Engine schleppte den Overhead eines kompletten Programms und Typecheckers mit. Diese Einrichtung war für IDEs und Sprachserver gedacht — nicht für einen Analysator, der nur einen einzigen Durchgang braucht.
+Knip parst jede Datei nur einmal, aber die alte TypeScript-Engine schleppte den Overhead eines kompletten Programms und Typecheckers mit. Diese Einrichtung war für IDEs und Sprachserver gedacht, nicht für einen Analysator, der nur einen einzigen Durchgang braucht.
 
-> „Das TypeScript-Backend machte das gesamte Setup schwieriger und langsamer als nötig, besonders für große Monorepos." — Lars Kappert, [v6-Ankündigung](https://knip.dev/blog/knip-v6)
+> „Das TypeScript-Backend machte das gesamte Setup schwieriger und langsamer als nötig, besonders für große Monorepos.", Lars Kappert, [v6-Ankündigung](https://knip.dev/blog/knip-v6)
 
 Das TypeScript-Team schreibt den Compiler für v7 gerade in Go um. Die LanguageService-basierten APIs, auf die Knip für Features wie `classMembers` setzte, wären damit gone gewesen.
 
@@ -47,9 +47,9 @@ Das Microsoft-TypeScript-Repo wird in unter einer Sekunde analysiert.
 
 ## Wichtige Breaking Changes
 
-- **Node.js v20.19.0+ erforderlich** — v18 wird nicht mehr unterstützt
-- **classMembers-Issue-Typ entfernt** — nicht mehr machbar ohne TypeScripts LanguageService-API
-- `--include-libs` und `--isolate-workspaces` Flags entfernt — das ist jetzt das Standardverhalten
+- **Node.js v20.19.0+ erforderlich**: v18 wird nicht mehr unterstützt
+- **classMembers-Issue-Typ entfernt**: nicht mehr machbar ohne TypeScripts LanguageService-API
+- `--include-libs` und `--isolate-workspaces` Flags entfernt, das ist jetzt das Standardverhalten
 - `--experimental-tags` umbenannt in `--tags`
 
 ## Upgrade

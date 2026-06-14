@@ -8,12 +8,12 @@ tags: ["ai", "runtimes", "typescript"]
 tldr:
   - "Bun has been acquired by Anthropic and will serve as the infrastructure layer for Claude Code, Claude Agent SDK, and future AI coding products"
   - "Bun remains MIT-licensed and open source, with the same team continuing active development; no revenue model pressure in sight"
-  - "Single-file executable distribution proved to be the killer feature for AI coding tools — fast startup, no runtime dependency, easy to distribute"
+  - "Single-file executable distribution proved to be the killer feature for AI coding tools, fast startup, no runtime dependency, easy to distribute"
 faq:
   - "Q: Does this mean Bun is no longer open source?
-A: No. Bun stays MIT-licensed and open source. Anthropic is not acquiring the IP to close it — it's investing in Bun as a strategic infrastructure component."
+A: No. Bun stays MIT-licensed and open source. Anthropic is not acquiring the IP to close it, it's investing in Bun as a strategic infrastructure component."
   - "Q: What does Anthropic get out of this?
-A: Direct control over the runtime powering Claude Code and future AI coding tools. If Bun breaks, Claude Code breaks — giving Anthropic a strong incentive to keep it excellent."
+A: Direct control over the runtime powering Claude Code and future AI coding tools. If Bun breaks, Claude Code breaks, giving Anthropic a strong incentive to keep it excellent."
   - "Q: How does this affect existing Bun users?
 A: For now, nothing changes day-to-day. Bun's roadmap still prioritizes Node.js compatibility and performance, and the team expects shipping velocity to increase."
 ---
@@ -30,7 +30,7 @@ On October 2025, Anthropic acquired Bun. The deal was announced on the Bun blog 
 
 Single-file executables turned out to be the unexpected killer feature for the AI coding era. Tools like Claude Code, FactoryAI, and OpenCode all ship as standalone Bun binaries. Users download and run them without installing a runtime first. Startup is near-instant. It works identically across macOS, Linux, and Windows.
 
-For AI agents that write, test, and deploy code autonomously, this predictability matters. The execution environment needs to be fast and consistent — Bun's JavaScriptCore-based startup is roughly 4x faster than V8 in cold-start scenarios, according to the Bun team's measurements.
+For AI agents that write, test, and deploy code autonomously, this predictability matters. The execution environment needs to be fast and consistent, Bun's JavaScriptCore-based startup is roughly 4x faster than V8 in cold-start scenarios, according to the Bun team's measurements.
 
 Anthropic's own Claude Code ships as a Bun executable to millions of users. Every time Bun regresses, Claude Code breaks. The acquisition aligns incentives: Anthropic now has direct engineering investment in keeping Bun fast, compatible, and reliable.
 
@@ -42,10 +42,10 @@ The post is notably candid about Bun's revenue situation: at the time of acquisi
 
 ## The Road Ahead
 
-The Bun team's stated goal is to make it the best place to build, run, and test AI-driven software — while remaining a first-class general-purpose JavaScript runtime, bundler, package manager, and test runner.
+The Bun team's stated goal is to make it the best place to build, run, and test AI-driven software, while remaining a first-class general-purpose JavaScript runtime, bundler, package manager, and test runner.
 
 This means future work will likely include tighter integration points with AI coding workflows: faster agent startup times, better debugging and testing tooling for code written by LLMs, and improvements to the single-file executable format that make it even more useful as a distribution mechanism.
 
-Bun v1.3.12 shipped Bun.WebView, a native headless browser automation API built directly into the runtime, powered by WebKit on macOS and Chrome via the DevTools Protocol on other platforms. Features like this — bridging traditional browser tooling with a high-performance JS runtime — are the kind of bets that make more sense with a large AI partner backing long-term development.
+Bun v1.3.12 shipped Bun.WebView, a native headless browser automation API built directly into the runtime, powered by WebKit on macOS and Chrome via the DevTools Protocol on other platforms. Features like this, bridging traditional browser tooling with a high-performance JS runtime, are the kind of bets that make more sense with a large AI partner backing long-term development.
 
 The Bun blog post ends with a simple statement: "We think this is a once-in-a-career alignment of a team and a moment." Whether that proves true will depend on how well the Bun team's independence survives inside Anthropic's broader product strategy.

@@ -22,7 +22,7 @@ Astro 6.4 est arrivé le 28 mai avec une fonctionnalité majeure qui compte pour
 
 ## Le Problème : Unified Est Lent à Grande Échelle
 
-Le pipeline markdown d'Astro a toujours utilisé l'écosystème unified — plugins remark et rehype — qui est puissant mais notoirement lent à grande échelle. Les sites avec de nombreux fichiers Markdown ou MDX finissent avec des temps de build de plusieurs minutes car le processeur unified analyse et transforme le contenu séquentiellement.
+Le pipeline markdown d'Astro a toujours utilisé l'écosystème unified, plugins remark et rehype, qui est puissant mais notoirement lent à grande échelle. Les sites avec de nombreux fichiers Markdown ou MDX finissent avec des temps de build de plusieurs minutes car le processeur unified analyse et transforme le contenu séquentiellement.
 
 Astro 6.4 introduit `markdown.processor` comme nouvelle option de configuration de haut niveau qui remplace les champs existants `remarkPlugins` et `rehypePlugins` :
 
@@ -41,7 +41,7 @@ export default defineConfig({
 });
 ```
 
-Les configurations existantes utilisant `remarkPlugins`, `rehypePlugins`, `gfm` et `smartypants` fonctionnent toujours — elles sont désormais dépréciées et seront supprimées dans une future version majeure.
+Les configurations existantes utilisant `remarkPlugins`, `rehypePlugins`, `gfm` et `smartypants` fonctionnent toujours, elles sont désormais dépréciées et seront supprimées dans une future version majeure.
 
 ---
 
@@ -63,7 +63,7 @@ export default defineConfig({
 });
 ```
 
-Sätteri est écrit en Rust et exclut délibérément l'écosystème de plugins remark/rehype. À la place, il supporte nativement les plugins MDAST et HAST — les plugins existants doivent être réécrits pour fonctionner avec le nouveau processeur, mais le gain en rapidité d'analyse est significatif à grande échelle.
+Sätteri est écrit en Rust et exclut délibérément l'écosystème de plugins remark/rehype. À la place, il supporte nativement les plugins MDAST et HAST, les plugins existants doivent être réécrits pour fonctionner avec le nouveau processeur, mais le gain en rapidité d'analyse est significatif à grande échelle.
 
 Les sites avec des milliers de fichiers markdown devraient voir les améliorations les plus spectaculaires. L'équipe Astro cite le projet Sätteri directement sur [satteri.bruits.org](https://satteri.bruits.org/).
 

@@ -7,13 +7,13 @@ author: lschvn
 tags: ["css", "frameworks", "typescript"]
 ---
 
-Nuxt 4.4 landed on March 12, 2026, and it's one of the most substantial point releases in the 4.x cycle. The headline additions — Vue Router v5, custom `useFetch` factories, and an accessibility announcer composable — sit alongside a routing engine migration that dramatically speeds up the development experience.
+Nuxt 4.4 landed on March 12, 2026, and it's one of the most substantial point releases in the 4.x cycle. The headline additions, Vue Router v5, custom `useFetch` factories, and an accessibility announcer composable, sit alongside a routing engine migration that dramatically speeds up the development experience.
 
 ## Vue Router v5
 
 The most significant dependency upgrade is Vue Router v5, which removes Nuxt's historical dependency on `unplugin-vue-router`. This is the first major vue-router bump since Nuxt 3 launched. For most applications, the upgrade should be transparent. If you were using `unplugin-vue-router` directly in other projects, you can remove it from your dependencies.
 
-Typed routes are expected to exit experimental status in a future release — the groundwork is being laid now.
+Typed routes are expected to exit experimental status in a future release, the groundwork is being laid now.
 
 ## Custom `useFetch` / `useAsyncData` factories
 
@@ -38,7 +38,7 @@ const { data: users } = await useApiFetch('/users')
 </script>
 ```
 
-The factory function gives you full control over how options merge — including interceptors and composed headers. There's a matching `createUseAsyncData` for the same pattern.
+The factory function gives you full control over how options merge, including interceptors and composed headers. There's a matching `createUseAsyncData` for the same pattern.
 
 ## Typed layout props
 
@@ -71,7 +71,7 @@ If your layout defines props, you'll get full autocomplete and type-checking in 
 
 ## Accessibility: `useAnnouncer` composable
 
-Nuxt 4.4 ships a new `useAnnouncer` composable and `<NuxtAnnouncer>` component for dynamic in-page announcements — form submissions, loading states, search results that don't trigger navigation. Pair it with `<NuxtRouteAnnouncer>` for page-level navigation:
+Nuxt 4.4 ships a new `useAnnouncer` composable and `<NuxtAnnouncer>` component for dynamic in-page announcements, form submissions, loading states, search results that don't trigger navigation. Pair it with `<NuxtRouteAnnouncer>` for page-level navigation:
 
 ```vue
 <template>
@@ -87,7 +87,7 @@ This is part of Nuxt's broader accessibility roadmap.
 
 ## 28x faster dev routing with unrouting
 
-Nuxt migrated its file-system route generation to [unrouting](https://github.com/unjs/unrouting), which uses a trie data structure for route construction. Cold start is roughly the same (~8ms vs ~6ms for large apps), but hot-module replacement is dramatically faster: up to 28x faster when editing existing pages, and ~15% faster even when adding or removing pages. The system is also now deterministic — route generation is no longer sensitive to page file ordering.
+Nuxt migrated its file-system route generation to [unrouting](https://github.com/unjs/unrouting), which uses a trie data structure for route construction. Cold start is roughly the same (~8ms vs ~6ms for large apps), but hot-module replacement is dramatically faster: up to 28x faster when editing existing pages, and ~15% faster even when adding or removing pages. The system is also now deterministic, route generation is no longer sensitive to page file ordering.
 
 ## Smarter ISR/SWR payload handling
 
@@ -95,9 +95,9 @@ Cached routes (ISR/SWR) with payload extraction had a problem: browser requests 
 
 ## Other improvements
 
-- **`useCookie` refresh option** — extend a cookie's expiration without touching its value, useful for session management
-- **`clearNuxtState` reset** — now resets to the initial value instead of `undefined`, aligning with `useAsyncData` behavior
-- **Import protection** — improved error messages with suggested fixes when importing protected modules
+- **`useCookie` refresh option**: extend a cookie's expiration without touching its value, useful for session management
+- **`clearNuxtState` reset**: now resets to the initial value instead of `undefined`, aligning with `useAsyncData` behavior
+- **Import protection**: improved error messages with suggested fixes when importing protected modules
 
 ## FAQ
 
@@ -108,4 +108,4 @@ For most Nuxt apps, no. The upgrade should be transparent. Direct usage of `unpl
 With `compatibilityVersion: 5` in a future release. The runtime LRU cache is active for all users immediately.
 
 **How do I try the new routing performance?**
-It's automatic in 4.4. Edit any page file and observe HMR response in the terminal — the improvements are most visible in large applications with many route files.
+It's automatic in 4.4. Edit any page file and observe HMR response in the terminal, the improvements are most visible in large applications with many route files.

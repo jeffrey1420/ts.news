@@ -23,17 +23,17 @@ Nitro v3.0.260522-beta est sorti le 22 mai 2026, prolongeant la phase bêta v3 d
 
 ## Tracing automatique des handlers à la compilation
 
-Le PR [#4240](https://github.com/nitrojs/nitro/pull/4240) introduit l'enrobage automatique des spans de tracing autour de chaque handler de route Nitro à la compilation. Quand une requête arrive sur un serveur Nitro, des spans sont émis pour chaque invocation de handler avec les métadonnées incluant le chemin de la route, la méthode HTTP, la durée et le statut du cache. Ces spans s'intègrent avec les récepteurs compatibles OpenTelemetry — vous pointez votre `OTEL_EXPORTER_OTLP_ENDPOINT` vers un collecteur et obtenez des traces de requêtes complètes sans écrire une seule ligne de code d'instrumentation.
+Le PR [#4240](https://github.com/nitrojs/nitro/pull/4240) introduit l'enrobage automatique des spans de tracing autour de chaque handler de route Nitro à la compilation. Quand une requête arrive sur un serveur Nitro, des spans sont émis pour chaque invocation de handler avec les métadonnées incluant le chemin de la route, la méthode HTTP, la durée et le statut du cache. Ces spans s'intègrent avec les récepteurs compatibles OpenTelemetry, vous pointez votre `OTEL_EXPORTER_OTLP_ENDPOINT` vers un collecteur et obtenez des traces de requêtes complètes sans écrire une seule ligne de code d'instrumentation.
 
 ## Cache VFS pour le code dynamique
 
-Le PR [#4251](https://github.com/nitrojs/nitro/pull/4251) introduit une couche VFS pour le code dynamique de Nitro. Auparavant, un redémarrage du dev-server forçait Nitro à ré-évaluer tout le graphe de modules — chaque handler de route, chaque appel `useStorage()`, chaque hook d'événement. Pour les applications avec des centaines de routes ou une initialisation coûteuse, cela ajoutait des secondes à chaque redémarrage.
+Le PR [#4251](https://github.com/nitrojs/nitro/pull/4251) introduit une couche VFS pour le code dynamique de Nitro. Auparavant, un redémarrage du dev-server forçait Nitro à ré-évaluer tout le graphe de modules, chaque handler de route, chaque appel `useStorage()`, chaque hook d'événement. Pour les applications avec des centaines de routes ou une initialisation coûteuse, cela ajoutait des secondes à chaque redémarrage.
 
 Le nouveau cache VFS sérialise l'état résolu du registre interne de Nitro après le premier request. Les démarrages suivants chargent depuis ce snapshot, évitant l'étape d'évaluation. Le cache est invalidé automatiquement quand les fichiers sources changent.
 
 ## Les queues Vercel accessibles en développement local
 
-Le preset Vercel intègre le support des queues en développement local via `vercel dev` ([#4264](https://github.com/nitrojs/nitro/pull/4264)). Les handlers de queue définis avec `nitro.tasks` sont désormais reconnus et exécutés par un stub local du Vercel Runtime. Vous pouvez écrire un consumer de queue, l'appeler depuis un route handler, et déboguer le flux async complet — retries et dead-letter queue — entièrement en local.
+Le preset Vercel intègre le support des queues en développement local via `vercel dev` ([#4264](https://github.com/nitrojs/nitro/pull/4264)). Les handlers de queue définis avec `nitro.tasks` sont désormais reconnus et exécutés par un stub local du Vercel Runtime. Vous pouvez écrire un consumer de queue, l'appeler depuis un route handler, et déboguer le flux async complet, retries et dead-letter queue, entièrement en local.
 
 ## Correctifs de sécurité
 

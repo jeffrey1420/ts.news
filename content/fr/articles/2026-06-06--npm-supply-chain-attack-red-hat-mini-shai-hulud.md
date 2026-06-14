@@ -24,7 +24,7 @@ Le 1er juin 2026, Wiz Research a identifié une nouvelle vague de compromissions
 
 ## Un Kit Outil Familier avec de Nouvelles Ruses
 
-Le payload dérive du malware **Mini Shai-Hulud**, open-sourcé par l'acteur malveillant TeamPCP fin 2025. Les campagnes précédentes utilisant ce kit visaient Tanstack et d'autres paquets npm majeurs. Le variant Miasma apporte des modifications cosmétiques — références à l'univers de Dune remplacées par de la mythologie grecque ("spartan") — mais le craft sous-jacent reste substantiellement le même.
+Le payload dérive du malware **Mini Shai-Hulud**, open-sourcé par l'acteur malveillant TeamPCP fin 2025. Les campagnes précédentes utilisant ce kit visaient Tanstack et d'autres paquets npm majeurs. Le variant Miasma apporte des modifications cosmétiques, références à l'univers de Dune remplacées par de la mythologie grecque ("spartan"), mais le craft sous-jacent reste substantiellement le même.
 
 Ce qui change cette fois, c'est la portée du ciblage. Le malware collecte désormais explicitement les **identités GCP et Azure**, récupérant chaque identité cloud accessible depuis la machine infectée. Plutôt que d'extraire uniquement des secrets, les attaquants cherchent désormais à obtenir un accès direct aux environnements cloud eux-mêmes.
 
@@ -38,7 +38,7 @@ Les preuves indiquent qu'un **compte GitHub d'un employé Red Hat a été compro
 - `RedHatInsights/javascript-clients`
 - `RedHatInsights/platform-frontend-ai-toolkit`
 
-Ces commits introduisaient un workflow GitHub Actions minimal déclenché sur toute poussée vers n'importe quelle branche. Le workflow réclamait un token d'identité OIDC (`id-token: write`) et exécutait un payload obfuscated `_index.js` qui publiait les paquets directement sur npm — **avec des attestations SLSA valides**.
+Ces commits introduisaient un workflow GitHub Actions minimal déclenché sur toute poussée vers n'importe quelle branche. Le workflow réclamait un token d'identité OIDC (`id-token: write`) et exécutait un payload obfuscated `_index.js` qui publiait les paquets directement sur npm, **avec des attestations SLSA valides**.
 
 La provenance SLSA est censée vérifier qu'un paquet a été construit depuis un commit source spécifique par un builder de confiance. En générant des attestations valides, l'attaquant rendait les paquets malveillants indiscernables des vraies releases Red Hat, sapant un mécanisme clé de sécurité supply chain.
 
@@ -62,7 +62,7 @@ L'attaque Miasma démontre une progression inquiétante dans la guerre supply ch
 
 **Les trusted publishers sont le maillon faible.** La provenance SLSA, les tokens OIDC et les badges "vérifié" ont tous été contournés ici. Le modèle de sécurité suppose que les comptes GitHub et npm d'un éditeur sont sécurisés. Les deux ont été compromis.
 
-**Le malware open-source abaisse le seuil.** TeamPCP a publié le code de Mini Shai-Hulud publiquement. Miasma n'est pas attribué avec certitude à TeamPCP — les similarités pourraient indiquer des acteurs copycat utilisant le même toolkit publicly available.
+**Le malware open-source abaisse le seuil.** TeamPCP a publié le code de Mini Shai-Hulud publiquement. Miasma n'est pas attribué avec certitude à TeamPCP, les similarités pourraient indiquer des acteurs copycat utilisant le même toolkit publicly available.
 
 **La détection devient plus difficile, pas plus facile.** Chiffrement par infection, abus d'attestations SLSA et techniques living-off-the-land font que les défenses traditionnelles (scanning de paquets, IOCs par hash) sont de plus en plus insuffisantes.
 
@@ -71,9 +71,9 @@ L'attaque Miasma démontre une progression inquiétante dans la guerre supply ch
 Les organisations utilisant les clients JavaScript Red Hat doivent :
 
 1. **Auditer les versions de paquets affectées** et passer aux releases corrigées
-2. **Renouveler tous les secrets** accessibles depuis les postes de développement — tokens GitHub, credentials cloud, secrets CI/CD
+2. **Renouveler tous les secrets** accessibles depuis les postes de développement, tokens GitHub, credentials cloud, secrets CI/CD
 3. **Revoir l'activité GitHub** pour des dépôts non autorisés, de nouveaux access tokens ou des exécutions de workflow suspectes
 4. **Mettre en place de l'allowlisting de dépendances** et l'imposer via `.npmrc` ou politique corporative
 5. **Générer des SBOM** pour toutes les dépendances de production afin d'accélérer la réponse à incident
 
-L'écosystème npm reste une cible de haute valeur. Miasma n'est pas un incident isolé — c'est la dernière itération d'une campagne escalada.
+L'écosystème npm reste une cible de haute valeur. Miasma n'est pas un incident isolé, c'est la dernière itération d'une campagne escalada.

@@ -27,12 +27,12 @@ Zusätzlich gibt `Astro.currentLocale` jetzt korrekt die Domain-Locale auf dynam
 
 ## Dev-Erfahrung: Keine Vollständigen Neustarts Mehr
 
-Zuvor löste das Bearbeiten einer Client-Komponente (mit `client:idle`, `client:load` usw.) während der Entwicklung einen unnötigen vollständigen Backend-Neustart aus. Das ist jetzt behoben — Komponenten-Bearbeitungen triggern nun nur noch das erwartete Hot Module Replacement ohne Server-Neustart.
+Zuvor löste das Bearbeiten einer Client-Komponente (mit `client:idle`, `client:load` usw.) während der Entwicklung einen unnötigen vollständigen Backend-Neustart aus. Das ist jetzt behoben, Komponenten-Bearbeitungen triggern nun nur noch das erwartete Hot Module Replacement ohne Server-Neustart.
 
 ## Weitere Fixes
 
 - `App.match()` wirft keine Ausnahme mehr bei Request-Pfaden mit ungültiger Percent-Encoding-Sequenz
-- Statische Dateiendpoints mit `getStaticPaths` und `.html` in dynamischen Parameterwerten scheitern nicht mehr mit `NoMatchingStaticPathFound` — das `.html`-Suffix wird nicht mehr fälschlicherweise entfernt
+- Statische Dateiendpoints mit `getStaticPaths` und `.html` in dynamischen Parameterwerten scheitern nicht mehr mit `NoMatchingStaticPathFound`, das `.html`-Suffix wird nicht mehr fälschlicherweise entfernt
 - Probleme mit Style-Stripping bei case-sensitiven Dateisystemen (z.B. `d:\dev\app` vs. `D:\dev\app`) wurden behoben
 - Dynamische Routen geben nicht mehr den String `[object Object]` statt des erwarteten Contents in bestimmten Runtimes zurück
 

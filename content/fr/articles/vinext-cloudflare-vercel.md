@@ -21,11 +21,11 @@ faq:
     answer: "Cloudflare affirme que построить поверх вывода Next.js как фундамента оказалось сложным и хрупким подходом. Reconstruire from scratch plutôt que d'adapter la sortie promet une compatibilité plus stable. OpenNext doit reverse-engineer la sortie de build de Next.js, ce qui donne des changements imprévisibles entre versions."
 ---
 
-Le 24 février 2026, Cloudflare a publié un billet de blog qui a envoyé des ondes de choc à travers la communauté du développement web. Le titre : *"Comment nous avons reconstruit Next.js avec l'IA en une semaine."* Le projet, appelé **vinext** (prononcé "vee-next"), a été présenté comme un plugin Vite expérimental qui réimplémente la surface API publique de Next.js — permettant aux développeurs d'exécuter leurs applications Next.js sur Cloudflare Workers au lieu de Vercel.
+Le 24 février 2026, Cloudflare a publié un billet de blog qui a envoyé des ondes de choc à travers la communauté du développement web. Le titre : *"Comment nous avons reconstruit Next.js avec l'IA en une semaine."* Le projet, appelé **vinext** (prononcé "vee-next"), a été présenté comme un plugin Vite expérimental qui réimplémente la surface API publique de Next.js, permettant aux développeurs d'exécuter leurs applications Next.js sur Cloudflare Workers au lieu de Vercel.
 
 ## Qu'est-ce que vinext ?
 
- vinext est un plugin Vite qui réimplémente l'API publique de Next.js — routage, rendu serveur, React Server Components, actions serveur, cache, middleware et plus — sur l'infrastructure de build de Vite au lieu du compilateur propriétaire de Next.js.
+ vinext est un plugin Vite qui réimplémente l'API publique de Next.js, routage, rendu serveur, React Server Components, actions serveur, cache, middleware et plus, sur l'infrastructure de build de Vite au lieu du compilateur propriétaire de Next.js.
 
 ![vinext construit la même app de 33 routes 4,4x plus vite que Next.js 16](/images/charts/vinext-build.png)
 
@@ -45,7 +45,7 @@ Les benchmarks de Cloudflare, conduits sur une application App Router de 33 rout
 | Temps de build | 7,38s | 1,67s (**4,4× plus rapide**) |
 | Bundle client | 168,9 KB | 72,9 KB (**57% plus petit**) |
 
-Ces ne sont pas des améliorations marginales — elles représentent un changement fondamental dans la performance de build, atteint en tirant parti du moderne bundler [Rolldown](/articles/2026-03-26-vite-8-rolldown-era) de Vite.
+Ces ne sont pas des améliorations marginales, elles représentent un changement fondamental dans la performance de build, atteint en tirant parti du moderne bundler [Rolldown](/articles/2026-03-26-vite-8-rolldown-era) de Vite.
 
 ### Code généré par IA à l'échelle
 
@@ -72,7 +72,7 @@ Quand Cloudflare a publié vinext, le message aux développeurs était clair : *
 
 Le README de vinext inclut ceci en évidence :
 
-> 🚧 **Expérimental — sous développement intensif.** Ce projet est une expérience en développement logiciel piloté par IA. La grande majorité du code, des tests et de la documentation ont été écrits par IA.
+> 🚧 **Expérimental, sous développement intensif.** Ce projet est une expérience en développement logiciel piloté par IA. La grande majorité du code, des tests et de la documentation ont été écrits par IA.
 
 Le projet liste explicitement ce qui n'est PAS supporté :
 - Rendu statique au moment du build (sur la feuille de route)
@@ -92,7 +92,7 @@ Vercel fait face à une vérité inconfortable : leur fossé concurrentiel peut 
 
 ### Pour Cloudflare
 
-Cloudflare a signalé sa sérieuxité concernant l'espace de la plateforme développeur. vinext n'est pas qu'une démo technique — c'est une preuve que Cloudflare peut attirer des développeurs qui voyaient précédemment Vercel comme la seule option.
+Cloudflare a signalé sa sérieuxité concernant l'espace de la plateforme développeur. vinext n'est pas qu'une démo technique, c'est une preuve que Cloudflare peut attirer des développeurs qui voyaient précédemment Vercel comme la seule option.
 
 ### Pour la communauté de développeurs
 

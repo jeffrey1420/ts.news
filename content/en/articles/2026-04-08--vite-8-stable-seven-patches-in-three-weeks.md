@@ -1,6 +1,6 @@
 ---
 title: "Vite 8 Stable Lands, Seven Patches Follow in Three Weeks"
-description: "Vite 8.0.0 shipped stable on March 12, and the patch releases haven't stopped — v8.0.7 landed April 7 with fixes across CSS, SSR, WASM, and dev server behavior. A contrast to the long beta cycle."
+description: "Vite 8.0.0 shipped stable on March 12, and the patch releases haven't stopped, v8.0.7 landed April 7 with fixes across CSS, SSR, WASM, and dev server behavior. A contrast to the long beta cycle."
 image: "/images/heroes/2026-04-08--vite-8-stable-seven-patches-in-three-weeks.png"
 date: "2026-04-08"
 category: Tooling
@@ -11,7 +11,7 @@ tldr:
   - "Vite 8.0.0 stable shipped March 12, 2026, with Rolldown as the unified bundler replacing both ESBuild and Rollup."
   - "Seven patch releases (v8.0.1 through v8.0.7) followed in three weeks, addressing CSS, WASM SSR, dev server restarts, and sourcemap handling."
   - "Forwarding browser console output to the dev server terminal was a highly requested DX improvement added in the beta cycle."
-  - "The rapid patch cadence reflects the challenges of a major bundler swap — plugin authors and large projects should monitor the changelog closely."
+  - "The rapid patch cadence reflects the challenges of a major bundler swap, plugin authors and large projects should monitor the changelog closely."
 faq:
   - question: "Is Vite 8 stable safe to use in production?"
     answer: "With seven patches in three weeks, the Vite team is actively addressing regressions. For new projects, v8 is reasonable. For large existing projects with custom plugin configurations, review the changelog and test before upgrading."
@@ -27,7 +27,7 @@ Vite 8.0.0 went stable on March 12, 2026. Three weeks and seven patch releases l
 
 The headline change from the beta cycle is Rolldown. Vite 8 is built around `rolldown 1.0.0-rc.9`, which replaced both ESBuild (used for dependency pre-bundling) and Rollup (used for production builds) with a single Rust-based bundler. The performance and memory benefits are real, particularly for larger projects, but so are the edge cases when you have hundreds of community plugins built against Rollup's exact hook interface.
 
-Also new in the stable: browser console output is now forwarded to the dev server terminal. This was a frequently requested DX improvement — when you're debugging in the browser, the errors and logs now surface where you're already watching, instead of requiring a separate DevTools tab.
+Also new in the stable: browser console output is now forwarded to the dev server terminal. This was a frequently requested DX improvement, when you're debugging in the browser, the errors and logs now surface where you're already watching, instead of requiring a separate DevTools tab.
 
 ## The Patch Tally
 
@@ -64,4 +64,4 @@ The upgrade path:
 npm install vite@latest
 ```
 
-Monitor the [CHANGELOG](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md) for your specific plugins — the community ecosystem is still catching up to the Rolldown interface.
+Monitor the [CHANGELOG](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md) for your specific plugins, the community ecosystem is still catching up to the Rolldown interface.

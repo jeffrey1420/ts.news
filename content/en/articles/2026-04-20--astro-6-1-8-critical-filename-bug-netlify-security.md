@@ -15,7 +15,7 @@ faq:
   - question: "How serious is the /_image endpoint security flaw?"
     answer: "Moderate. An attacker could craft a request to /_image?url=<some-internal-endpoint>&f=svg that returned internal JSON or HTML content with an image/svg+xml Content-Type header. This could be used in social engineering or cache poisoning attacks in certain configurations. The CVSS-style severity is limited by the fact that the endpoint requires an allowed domain to be set explicitly."
   - question: "Should I upgrade immediately?"
-    answer: "Yes, especially if you deploy to Netlify or Vercel. The filename bug can silently produce broken deploys — the build succeeds but some pages fail to load in production. The image endpoint fix is a defense-in-depth improvement that closes a real security gap."
+    answer: "Yes, especially if you deploy to Netlify or Vercel. The filename bug can silently produce broken deploys, the build succeeds but some pages fail to load in production. The image endpoint fix is a defense-in-depth improvement that closes a real security gap."
 ---
 
 Astro 6.1.8 dropped on April 18 with two fixes that developers deploying to Netlify or Vercel should apply immediately, plus a handful of smaller improvements.
@@ -24,7 +24,7 @@ Astro 6.1.8 dropped on April 18 with two fixes that developers deploying to Netl
 
 The most impactful fix in this release addresses a regression introduced in earlier 6.x versions: build output filenames could contain special characters (`!`, `~`, `{`, `}`, and others) that are invalid or stripped on certain deployment platforms.
 
-The issue surfaces on Netlify specifically. Netlify's skew protection mechanism — which ensures deployed assets match the build output — strips characters it considers unsafe from filenames before deploying. If your built HTML references `chunk.abc123!~{x}.js` and Netlify serves it as `chunk.abc123.js`, the file reference breaks and the page fails to load.
+The issue surfaces on Netlify specifically. Netlify's skew protection mechanism, which ensures deployed assets match the build output, strips characters it considers unsafe from filenames before deploying. If your built HTML references `chunk.abc123!~{x}.js` and Netlify serves it as `chunk.abc123.js`, the file reference breaks and the page fails to load.
 
 The Astro team confirmed this affected builds where dynamic imports or certain code-splitting patterns produced chunks with hash-like segments containing these characters. Version 6.1.8 normalizes the output filenames to avoid the problematic characters before the build artifacts are written.
 
@@ -32,11 +32,11 @@ If you've been debugging mysterious blank pages on Netlify deploys with no build
 
 ## /_image Endpoint Content-Type Confusion
 
-The second notable fix closes a security gap in Astro's built-in image optimization endpoint (`/_image`). The endpoint accepted an arbitrary `f=svg` query parameter and would serve whatever content was returned from the upstream URL as `image/svg+xml` — without checking that the content was actually SVG.
+The second notable fix closes a security gap in Astro's built-in image optimization endpoint (`/_image`). The endpoint accepted an arbitrary `f=svg` query parameter and would serve whatever content was returned from the upstream URL as `image/svg+xml`, without checking that the content was actually SVG.
 
 An attacker could potentially use this for content-type confusion attacks, cache poisoning, or social engineering if they could convince a victim to load a crafted image URL pointing at an internal endpoint. The Astro team notes that the endpoint requires `allowedDomains` to be configured, which limits the blast radius, but the fix is still the right call: the endpoint now validates that the source is actually SVG before setting the `image/svg+xml` content type.
 
-This is a defense-in-depth fix in the same category as the H3 `redirectBack()` protection in this week's Nitro update — not a critical remote code execution, but a real security gap that should be closed.
+This is a defense-in-depth fix in the same category as the H3 `redirectBack()` protection in this week's Nitro update, not a critical remote code execution, but a real security gap that should be closed.
 
 ## Performance: Dev Server Dependency Caching
 
@@ -52,4 +52,4 @@ On the non-security side, the dev server gains a small but measurable performanc
 
 ## Upgrade
 
-Run `px @astrojs/upgrade` or `npm install astro@latest` to update. If you're on Netlify or Vercel, check that your most recent deploy is actually loading all assets correctly — the filename bug could have silently produced broken production deploys.
+Run `px @astrojs/upgrade` or `npm install astro@latest` to update. If you're on Netlify or Vercel, check that your most recent deploy is actually loading all assets correctly, the filename bug could have silently produced broken production deploys.

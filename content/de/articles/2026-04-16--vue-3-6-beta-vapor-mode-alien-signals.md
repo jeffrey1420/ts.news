@@ -1,6 +1,6 @@
 ---
 title: "Vue 3.6 tritt in die Beta-Phase ein: Vapor Mode fertig, Reaktivität überarbeitet"
-description: "Vue 3.6 Beta ist verfügbar mit der Fertigstellung des Vapor Mode — einem virtual-DOM-freien Kompilierungspfad — und einer großen Überarbeitung des Reaktivitätssystems basierend auf alien-signals, mit vielversprechenden Leistungsgewinnen."
+description: "Vue 3.6 Beta ist verfügbar mit der Fertigstellung des Vapor Mode, einem virtual-DOM-freien Kompilierungspfad, und einer großen Überarbeitung des Reaktivitätssystems basierend auf alien-signals, mit vielversprechenden Leistungsgewinnen."
 image: "/images/heroes/2026-04-16--vue-3-6-beta-vapor-mode-alien-signals.png"
 date: "2026-04-16"
 category: Frameworks
@@ -8,14 +8,14 @@ author: lschvn
 readingTime: 5
 tags: ["frameworks", "performance", "javascript"]
 tldr:
-  - "Vue 3.6 Beta wurde mit dem Vapor Mode veröffentlicht, der die vollständige Feature-Parität mit dem traditionellen Virtual-DOM-Modus erreicht hat — ein Kompilierungsziel, das das vdom für direkte DOM-Operationen vollständig umgeht."
+  - "Vue 3.6 Beta wurde mit dem Vapor Mode veröffentlicht, der die vollständige Feature-Parität mit dem traditionellen Virtual-DOM-Modus erreicht hat, ein Kompilierungsziel, das das vdom für direkte DOM-Operationen vollständig umgeht."
   - "Das @vue/reactivity-Paket wurde unter Verwendung von alien-signals überarbeitet, einer Signal-Implementierung, die bessere Leistung und geringeren Speicheroverhead als die vorherige reaktive() Implementierung bietet."
   - "Der Vapor Mode ermöglicht es Vue-Templates, sich zu hochoptimiertem JavaScript zu kompilieren, das das DOM direkt manipuliert, ähnlich wie Solid oder Svelte, jedoch mit vollständiger Kompatibilität mit Vues Komponentenmodell."
 faq:
   - question: "Was ist der Vapor Mode in Vue?"
     answer: "Vapor Mode ist ein neues Kompilierungsziel für Vue 3, das Templates zu direktem DOM-Manipulationscode kompiliert anstatt zu Virtual-DOM-Operationen. Es wurde erstmals auf der VueConf 2025 angekündigt und wird seitdem entwickelt. Im Gegensatz zum Virtual-DOM-Ansatz (der Vnode-Objekte erstellt und sie abgleicht) kompiliert Vapor Mode Template-Code zu JavaScript, das DOM-APIs direkt aufruft. Das Ergebnis ist ein Bundle ohne Virtual-DOM-Laufzeit und weniger Allokationen zur Laufzeit."
   - question: "Wie unterscheidet sich der Vapor Mode vom Nuxt/Vue Serverseitigen Rendern (SSR)?"
-    answer: "SSR und Vapor Mode sind unabhängige Konzepte. SSR rendert Vue-Komponenten auf dem Server zu HTML für schnelles First-Paint. Vapor Mode betrifft die Kompilierungsstrategie auf dem Client — es kann mit oder ohne SSR verwendet werden. Wenn SSR und Vapor Mode kombiniert werden, rendert der Server HTML einmal (wie immer) und der Client hydriert es unter Verwendung der effizienten DOM-Update-Mechanismen von Vapor anstelle des schwereren vdom-Hydrationsprozesses."
+    answer: "SSR und Vapor Mode sind unabhängige Konzepte. SSR rendert Vue-Komponenten auf dem Server zu HTML für schnelles First-Paint. Vapor Mode betrifft die Kompilierungsstrategie auf dem Client, es kann mit oder ohne SSR verwendet werden. Wenn SSR und Vapor Mode kombiniert werden, rendert der Server HTML einmal (wie immer) und der Client hydriert es unter Verwendung der effizienten DOM-Update-Mechanismen von Vapor anstelle des schwereren vdom-Hydrationsprozesses."
   - question: "Was ist alien-signals?"
     answer: "alien-signals ist eine hochleistungsfähige Signal-Implementierung, die das Vue-Kernteam für @vue/reactivity in 3.6 übernommen hat. Signale sind ein primitives Reaktivitätskonzept, bei dem der Zugriff auf ein Signal automatisch Abhängigkeiten verfolgt und Updates in abhängigen Berechnungen auslöst. Die alien-signals-Implementierung priorisiert Ausführungsgeschwindigkeit und minimale Speicherallokation gegenüber einigen der Debug-Ergonomie der vorherigen Vue-Implementierung."
   - question: "Muss ich meinen Vue-Code für den Vapor Mode ändern?"
@@ -28,31 +28,31 @@ Vue 3.6 Beta ist erschienen, und es markiert einen Wendepunkt in der Entwicklung
 
 Vapor Mode ist Vues Antwort auf eine Frage, die sich die Frontend-Welt seit Jahren stellt: Was wäre, wenn wir die Ergonomie und das Komponentenmodell von Vue mit der Laufzeiteffizienz von kompilierten, Direct-DOM-Frameworks wie Solid oder Svelte haben könnten?
 
-Die Kernidee ist einfach. Im aktuellen Vue 3-Kompilierungsmodell werden Templates zu Render-Funktionen kompiliert, die Virtual-DOM-Knoten erzeugen. Wenn sich der Zustand ändert, erstellt Vue einen neuen Virtual-DOM-Baum und gleicht ihn gegen den vorherigen Baum ab, um die minimale Menge an tatsächlich benötigten DOM-Mutationen zu bestimmen. Dieses vdom-Diffing ist für die meisten Anwendungen schnell genug, aber es ist nicht kostenlos — die Erstellung von Vnode-Objekten und der Diffing-Algorithmus verbrauchen beide CPU und Speicher.
+Die Kernidee ist einfach. Im aktuellen Vue 3-Kompilierungsmodell werden Templates zu Render-Funktionen kompiliert, die Virtual-DOM-Knoten erzeugen. Wenn sich der Zustand ändert, erstellt Vue einen neuen Virtual-DOM-Baum und gleicht ihn gegen den vorherigen Baum ab, um die minimale Menge an tatsächlich benötigten DOM-Mutationen zu bestimmen. Dieses vdom-Diffing ist für die meisten Anwendungen schnell genug, aber es ist nicht kostenlos, die Erstellung von Vnode-Objekten und der Diffing-Algorithmus verbrauchen beide CPU und Speicher.
 
 Vapor Mode ersetzt dies vollständig. Anstatt Templates zu Render-Funktionen zu kompilieren, kompiliert es sie zu JavaScript, das DOM-APIs direkt aufruft. Eine `v-for`-Schleife über eine Liste wird zu einer Schleife, die `document.createElement` und `appendChild` direkt aufruft. Ein `v-if` wird zu einer Bedingung, die Knoten einfügt oder entfernt. Das Ergebnis ist ein Bundle ohne Virtual-DOM-Laufzeit und weniger Allokationen zur Laufzeit.
 
 Das Vue-Team hat Vapor Mode Ende 2024 erstmals skizziert und seit 2025 daran iteriert. Mit 3.6 Beta hat das Team einen Meilenstein erreicht: **Vapor Mode unterstützt jetzt alle stabilen Features, die im Virtual-DOM-Modus verfügbar sind**. Das bedeutet, dass Komponenten, die `v-if`, `v-for`, `v-show`, `v-model`, Slots, `Suspense` und die Composition-API verwenden, im Vapor Mode ohne Änderungen funktionieren sollten.
 
-Die Ausnahme ist `Suspense` im Vapor-only-Modus — noch nicht unterstützt, obwohl Vapor-Komponenten innerhalb einer vdom-basierten `Suspense`-Grenze gerendert werden können.
+Die Ausnahme ist `Suspense` im Vapor-only-Modus, noch nicht unterstützt, obwohl Vapor-Komponenten innerhalb einer vdom-basierten `Suspense`-Grenze gerendert werden können.
 
 ### Was Sich in der Praxis Ändert
 
 Für Entwickler soll der Übergang weitgehend unsichtbar sein. Man schreibt Vue-Komponenten auf dieselbe Weise. Unter der Haube wählt der Compiler den Vapor-Pfad. Das Bundle, das den Browser erreicht, ist kleiner, da die vdom-Laufzeit entfernt wurde, und das Laufzeitverhalten ist schneller, da DOM-Updates den Diffing-Schritt umgehen.
 
-Für Bibliotheksautoren und Entwickler, die Vues niedrigere APIs verwenden — `h()`, `createVNode`, direkte Komponenteninstanz-Manipulation — können Anpassungen erforderlich sein. Vapor Mode funktioniert auf Template-Kompilierungsebene, sodass Code, der den Render-Funktions-Pipeline durchläuft, weiterhin normal funktioniert.
+Für Bibliotheksautoren und Entwickler, die Vues niedrigere APIs verwenden, `h()`, `createVNode`, direkte Komponenteninstanz-Manipulation, können Anpassungen erforderlich sein. Vapor Mode funktioniert auf Template-Kompilierungsebene, sodass Code, der den Render-Funktions-Pipeline durchläuft, weiterhin normal funktioniert.
 
 ## @vue/reactivity Überarbeitung mit alien-signals
 
-Das Reaktivitätssystem, die Engine, die `ref()`, `reactive()`, `computed()` und `watch()` von Vue antreibt, wurde überarbeitet, um [alien-signals](https://github.com/stackblitz/alien-signals) zu verwenden. Dies ist eine grundlegende Änderung anstatt einer поверхностlichen API-Änderung — `ref()` und `reactive()` funktionieren weiterhin auf dieselbe Weise.
+Das Reaktivitätssystem, die Engine, die `ref()`, `reactive()`, `computed()` und `watch()` von Vue antreibt, wurde überarbeitet, um [alien-signals](https://github.com/stackblitz/alien-signals) zu verwenden. Dies ist eine grundlegende Änderung anstatt einer поверхностlichen API-Änderung, `ref()` und `reactive()` funktionieren weiterhin auf dieselbe Weise.
 
 Die Motivation ist Leistung. Die vorherige Reaktivitätsimplementierung hatte trotz guter Konstruktion Overhead durch die Art und Weise, wie sie Abhängigkeiten verfolgte und Updates plante. alien-signals ist mit einem engeren Fokus entworfen: reaktive Berechnungen so schnell wie möglich mit minimaler Speicherallokation ausführen. Das Vue-Team evaluierte mehrere Signal-Implementierungen und wählte alien-signals wegen seiner Benchmark-Leistung und seiner Ausrichtung auf Vues Update-Planungsmodell.
 
-Diese Überarbeitung betrifft das `@vue/reactivity`-Paket direkt, das auch separat auf npm veröffentlicht und in Projekten außerhalb von Vue verwendet wird — einschließlich einiger Solid.js-Integrationen und anderer Frameworks, die Vues Reaktivitätsprimitiven übernommen haben.
+Diese Überarbeitung betrifft das `@vue/reactivity`-Paket direkt, das auch separat auf npm veröffentlicht und in Projekten außerhalb von Vue verwendet wird, einschließlich einiger Solid.js-Integrationen und anderer Frameworks, die Vues Reaktivitätsprimitiven übernommen haben.
 
 ## Hydration-Verbesserungen
 
-3.6 Beta enthält auch eine große Menge Hydration-bezogener Fixes — über 30 Commits im Beta.10-Release allein. Vues serverseitiges Rendering Hydration, das servergerendertes HTML mit dem clientseitigen Komponentenbaum abgleicht, wurde in Grenzfällen gestrafft, die beinhalten:
+3.6 Beta enthält auch eine große Menge Hydration-bezogener Fixes, über 30 Commits im Beta.10-Release allein. Vues serverseitiges Rendering Hydration, das servergerendertes HTML mit dem clientseitigen Komponentenbaum abgleicht, wurde in Grenzfällen gestrafft, die beinhalten:
 
 - Multi-Root Hydration-Grenzen und async Komponenten
 - Teleport-Ziele mit fehlenden oder wechselnden Zielen
@@ -63,6 +63,6 @@ Dies sind die Art von Fixes, die nur in komplexen realen Anwendungen auftreten, 
 
 ## Auf dem Weg zur Stable-Version
 
-Vue 3.6 tritt in die Beta-Phase ein, was bedeutet, dass das Feature-Set gesperrt ist und sich das Team auf Stabilisierung und Kompatibilitätsfixes konzentriert. Ohne große während der Beta-Periode entdeckte Regressionen sollte die Stable-Version innerhalb weniger Wochen folgen. Das Vue-Team iteriert schnell — Beta.1 wurde am 30. März veröffentlicht und Beta.10 am 13. April, was auf aktive Entwicklung hindeutet.
+Vue 3.6 tritt in die Beta-Phase ein, was bedeutet, dass das Feature-Set gesperrt ist und sich das Team auf Stabilisierung und Kompatibilitätsfixes konzentriert. Ohne große während der Beta-Periode entdeckte Regressionen sollte die Stable-Version innerhalb weniger Wochen folgen. Das Vue-Team iteriert schnell, Beta.1 wurde am 30. März veröffentlicht und Beta.10 am 13. April, was auf aktive Entwicklung hindeutet.
 
 Für Projektteams, die Vue 3 verwenden, ist jetzt ein guter Zeitpunkt, um die 3.6 Beta gegen Ihre Anwendung zu testen, insbesondere wenn Sie Vapor-Mode-kompatible Codemuster verwenden. Die Richtlinie des Vue-Teams ist, Breaking Changes in Minor-Releases zu vermeiden, aber die internen Reaktivitätsänderungen in 3.6 bedeuten, dass Grenzfälle in der benutzerdefinierten Reaktivitätsverwendung es wert sind, getestet zu werden.

@@ -14,7 +14,7 @@ tldr:
   - "vinext deploys natively to Cloudflare Workers with D1/R2/KV bindings and also supports Vercel, Netlify, and AWS via Nitro."
 ---
 
-On February 24, 2026, Cloudflare published a blog post that sent shockwaves through the web development community. The title: *"How we rebuilt Next.js with AI in one week."* The project, called **vinext** (pronounced "vee-next"), was presented as an experimental Vite plugin that reimplements the Next.js API surface—allowing developers to run their Next.js applications on Cloudflare Workers instead of Vercel.
+On February 24, 2026, Cloudflare published a blog post that sent shockwaves through the web development community. The title: *"How we rebuilt Next.js with AI in one week."* The project, called **vinext** (pronounced "vee-next"), was presented as an experimental Vite plugin that reimplements the Next.js API surface, allowing developers to run their Next.js applications on Cloudflare Workers instead of Vercel.
 
 The announcement wasn't just a technical demo. It was a direct challenge to one of the most successful companies in the modern web ecosystem. And the developer community noticed.
 
@@ -22,7 +22,7 @@ The announcement wasn't just a technical demo. It was a direct challenge to one 
 
 ## What is vinext?
 
-At its core, vinext is a Vite plugin that reimplements the public Next.js API—routing, server rendering, React Server Components, server actions, caching, middleware, and more—on top of Vite's build infrastructure instead of Next.js's proprietary compiler.
+At its core, vinext is a Vite plugin that reimplements the public Next.js API, routing, server rendering, React Server Components, server actions, caching, middleware, and more, on top of Vite's build infrastructure instead of Next.js's proprietary compiler.
 
 ![vinext builds the same 33-route app 4.4x faster than Next.js 16](/images/charts/vinext-build.png)
 
@@ -43,7 +43,7 @@ Cloudflare's benchmarks, conducted on a 33-route App Router application, showed 
 | Build time | 7.38s | 1.67s (**4.4x faster**) |
 | Client bundle | 168.9 KB | 72.9 KB (**57% smaller**) |
 
-These aren't marginal improvements—they represent a fundamental shift in build performance, achieved by leveraging Vite's modern [Rolldown bundler](/articles/2026-03-26-vite-8-rolldown-era) instead of Next.js's Turbopack.
+These aren't marginal improvements, they represent a fundamental shift in build performance, achieved by leveraging Vite's modern [Rolldown bundler](/articles/2026-03-26-vite-8-rolldown-era) instead of Next.js's Turbopack.
 
 ### AI-Generated Code at Scale
 
@@ -68,11 +68,11 @@ The project includes over **1,700 Vitest tests** and **380 Playwright E2E tests*
 
 To understand why the community reacted so strongly, you need to understand the relationship between Next.js and Vercel.
 
-Next.js was acquired by Vercel in 2019. Since then, Vercel has built its entire business model around being the premier hosting platform for Next.js applications. The framework is tightly integrated with Vercel's infrastructure—deploy previews, edge functions, image optimization, and more all work seamlessly on Vercel but require workarounds elsewhere.
+Next.js was acquired by Vercel in 2019. Since then, Vercel has built its entire business model around being the premier hosting platform for Next.js applications. The framework is tightly integrated with Vercel's infrastructure, deploy previews, edge functions, image optimization, and more all work seamlessly on Vercel but require workarounds elsewhere.
 
-When Cloudflare published vinext, the message to developers was clear: **you can now use Next.js without Vercel**. Not as a hack, not as an afterthought—but as a first-class citizen on Cloudflare's platform.
+When Cloudflare published vinext, the message to developers was clear: **you can now use Next.js without Vercel**. Not as a hack, not as an afterthought, but as a first-class citizen on Cloudflare's platform.
 
-The timing was provocative. Cloudflare didn't just announce a competitor to Vercel—they announced one week after their own engineer rebuilt Next.js using AI. The subtext was almost aggressive:
+The timing was provocative. Cloudflare didn't just announce a competitor to Vercel, they announced one week after their own engineer rebuilt Next.js using AI. The subtext was almost aggressive:
 
 > *"If one engineer and an AI can build this in a week, imagine what happens when the ecosystem rallies around it."*
 
@@ -82,7 +82,7 @@ Cloudflare acknowledged in their announcement that they were aware of existing s
 
 > *"Building on top of Next.js output as a foundation has proven to be a difficult and fragile approach. Because OpenNext has to reverse-engineer Next.js's build output, this results in unpredictable changes between versions that take a lot of work to correct."*
 
-By reimplements from scratch rather than adapting output, vinext promises more stable compatibility and cleaner builds. But this framing implicitly criticized years of work by the OpenNext team—and by extension, positioned Cloudflare as the company willing to do what others couldn't.
+By reimplements from scratch rather than adapting output, vinext promises more stable compatibility and cleaner builds. But this framing implicitly criticized years of work by the OpenNext team, and by extension, positioned Cloudflare as the company willing to do what others couldn't.
 
 ---
 
@@ -106,7 +106,7 @@ What the community observed included:
 
 The vinext project makes no bones about its experimental nature. The GitHub README includes this prominently:
 
-> 🚧 **Experimental — under heavy development.** This project is an experiment in AI-driven software development. The vast majority of the code, tests, and documentation were written by AI (Claude Code). Humans have not reviewed most of the code line-by-line.
+> 🚧 **Experimental, under heavy development.** This project is an experiment in AI-driven software development. The vast majority of the code, tests, and documentation were written by AI (Claude Code). Humans have not reviewed most of the code line-by-line.
 
 ### Known Limitations
 
@@ -146,7 +146,7 @@ The Hacker News thread on the Cloudflare vinext announcement attracted significa
 
 Some developers argued that vinext, despite its impressive numbers, doesn't fundamentally change the power dynamic:
 
-> *"Vercel's value isn't just the runtime—it's the developer experience, the ecosystem, the integrations. Build time is a small part of what makes Next.js on Vercel valuable."*
+> *"Vercel's value isn't just the runtime, it's the developer experience, the ecosystem, the integrations. Build time is a small part of what makes Next.js on Vercel valuable."*
 
 ### The AI Development Implications
 
@@ -212,13 +212,13 @@ Perhaps the biggest winner is developers themselves. vinext adds choice to an ec
 
 ### The Bigger Picture: AI's Role in Software Development
 
-vinext represents a new category of project: **AI-reimplemented infrastructure**. The question isn't whether this will happen again—it's how often, and whether the results will be production-ready.
+vinext represents a new category of project: **AI-reimplemented infrastructure**. The question isn't whether this will happen again, it's how often, and whether the results will be production-ready.
 
 From the Cloudflare blog:
 
 > *"It doesn't need an intermediate framework to stay organized. It just needs a spec and a foundation to build on... The layers we've built up over the years aren't all going to make it."*
 
-This may be the most significant implication of vinext. It's not just a competitor to Next.js—it's proof that the rules of software development are changing.
+This may be the most significant implication of vinext. It's not just a competitor to Next.js, it's proof that the rules of software development are changing.
 
 ---
 
@@ -228,7 +228,7 @@ Cloudflare's vinext project is either a brilliant competitive move, a fascinatin
 
 Whether vinext becomes a viable production alternative or remains an experimental curiosity, it has already changed the conversation. Developers now know that if they want to run Next.js on Cloudflare, they can. And that knowledge changes everything.
 
-The week when one engineer and an AI rebuilt Next.js may well be remembered as a turning point—not just for Cloudflare and Vercel, but for how we think about framework development itself.
+The week when one engineer and an AI rebuilt Next.js may well be remembered as a turning point, not just for Cloudflare and Vercel, but for how we think about framework development itself.
 
 ---
 

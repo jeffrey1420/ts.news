@@ -9,13 +9,13 @@ readingTime: 5
 tags: ["tooling", "javascript"]
 tldr:
   - "Vite+ Alpha is out under MIT license, combining Vite, Vitest, Oxlint, Oxfmt, Rolldown, and tsdown into a single vp binary."
-  - "New Vite Task runner handles monorepo builds with automatic input tracking and caching — no manual configuration required."
+  - "New Vite Task runner handles monorepo builds with automatic input tracking and caching, no manual configuration required."
   - "VoidZero open-sourced Vite+ after initially considering a paid license, citing community feedback as the reason for the MIT switch."
 faq:
   - question: "Is Vite+ replacing Vite?"
     answer: "No. Vite+ is a meta-layer on top of Vite 8 (and Vitest, Oxlint, Oxfmt, Rolldown, and tsdown). The underlying projects remain independent. Vite+ simply manages them under one consistent CLI."
   - question: "How does Vite+ differ from just using Vite 8 directly?"
-    answer: "Vite 8 handles dev server and production builds. Vite+ adds vp install (smart package manager), vp check (linting + formatting + type-checking), vp test (Vitest), vp run (task runner with caching), vp pack (library bundling via tsdown), and vp env (Node.js version management) — all in one binary with a single config file."
+    answer: "Vite 8 handles dev server and production builds. Vite+ adds vp install (smart package manager), vp check (linting + formatting + type-checking), vp test (Vitest), vp run (task runner with caching), vp pack (library bundling via tsdown), and vp env (Node.js version management), all in one binary with a single config file."
   - question: "What about licensing? Is this really free?"
     answer: "Yes, MIT licensed. VoidZero initially considered a commercial license but changed course, citing that paid gating would create friction for the workflows developers already enjoy. Their business model centers on Void Cloud, their managed platform."
 ---
@@ -26,13 +26,13 @@ VoidZero today released Vite+ Alpha, a unified development toolchain that collap
 
 Vite+ orchestrates a stack of established Rust-powered tools:
 
-- **Vite 8** — dev server and build orchestrator
-- **Vitest 4.1** — test runner
-- **Oxlint 1.52** — ESLint-compatible linter (50–100× faster)
-- **Oxfmt beta** — Prettier-compatible formatter (up to 30× faster)
-- **Rolldown** — production bundler (1.6× to 7.7× faster than Vite 7)
-- **tsdown** — TypeScript library bundler
-- **Vite Task** — new task runner with automatic caching
+- **Vite 8**: dev server and build orchestrator
+- **Vitest 4.1**: test runner
+- **Oxlint 1.52**: ESLint-compatible linter (50–100× faster)
+- **Oxfmt beta**: Prettier-compatible formatter (up to 30× faster)
+- **Rolldown**: production bundler (1.6× to 7.7× faster than Vite 7)
+- **tsdown**: TypeScript library bundler
+- **Vite Task**: new task runner with automatic caching
 
 The pitch is a single dependency that replaces `node` version managers, `pnpm`/`npm`/`yarn`, `vite`, `vitest`, `eslint`, `prettier`, and various CI caching scripts. One `vite.config.ts` to rule them all.
 
@@ -50,7 +50,7 @@ vp pack         # Bundle library for npm or create standalone binaries
 vp create       # Scaffold new projects or monorepos
 ```
 
-`vp check --fix` handles linting and formatting fixes in one command. `vp run` mimics `pnpm run` interface-wise but adds automatic input fingerprinting — if nothing changed, it replays cached output instantly without re-running the task.
+`vp check --fix` handles linting and formatting fixes in one command. `vp run` mimics `pnpm run` interface-wise but adds automatic input fingerprinting, if nothing changed, it replays cached output instantly without re-running the task.
 
 ## Vite Task: Smarter Monorepo Builds
 
@@ -100,4 +100,4 @@ vp create my-app
 
 Migration is a single `vp migrate` command, or you paste the migration prompt into your favorite AI coding assistant.
 
-This is an alpha. The toolchain is functional but the team is clear that stabilization and frequent releases will follow. For developers tired of juggling half a dozen config files and CLI tools, Vite+ is worth watching — or trying today.
+This is an alpha. The toolchain is functional but the team is clear that stabilization and frequent releases will follow. For developers tired of juggling half a dozen config files and CLI tools, Vite+ is worth watching, or trying today.

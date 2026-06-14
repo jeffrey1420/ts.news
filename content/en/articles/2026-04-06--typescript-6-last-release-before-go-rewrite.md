@@ -1,19 +1,19 @@
 ---
 title: "TypeScript 6.0 Lands as the Last Release Before the Go Rewrite"
-description: "TypeScript 6.0 is out — and the Microsoft team is clear: it's a bridge release. The real story is what comes next: TypeScript 7, written in Go and already available as a preview, promises a 10x speedup."
+description: "TypeScript 6.0 is out, and the Microsoft team is clear: it's a bridge release. The real story is what comes next: TypeScript 7, written in Go and already available as a preview, promises a 10x speedup."
 date: "2026-04-06"
 image: "/images/heroes/2026-04-06--typescript-6-last-release-before-go-rewrite.png"
 author: lschvn
 tags: ["tooling", "typescript", "performance"]
 ---
 
-TypeScript 6.0 landed on March 23, 2026, and the Microsoft team is not hiding the ball: this is a bridge release. TypeScript 6.0 smooths the path toward TypeScript 7 — a ground-up rewrite of the compiler and language service in Go, with a 10x speedup claim already verified in preview builds.
+TypeScript 6.0 landed on March 23, 2026, and the Microsoft team is not hiding the ball: this is a bridge release. TypeScript 6.0 smooths the path toward TypeScript 7, a ground-up rewrite of the compiler and language service in Go, with a 10x speedup claim already verified in preview builds.
 
 ## What's actually new in 6.0
 
 Most of the headline changes are about aligning with TypeScript 7 behavior, but a few concrete improvements landed in this release.
 
-**Less context-sensitivity on `this`-less functions.** TypeScript 6.0 fixes a long-standing inference gap when methods and callbacks don't use `this`. Previously, a method like `consume(y) { return y.toFixed(); }` inside a generic call would fail type inference if another property came first — because TypeScript assumed `this` might need the generic type. Now, if `this` is never used, TypeScript skips the contextual sensitivity check and inference works correctly regardless of property order. This was contributed by Mateusz Burzyński.
+**Less context-sensitivity on `this`-less functions.** TypeScript 6.0 fixes a long-standing inference gap when methods and callbacks don't use `this`. Previously, a method like `consume(y) { return y.toFixed(); }` inside a generic call would fail type inference if another property came first, because TypeScript assumed `this` might need the generic type. Now, if `this` is never used, TypeScript skips the contextual sensitivity check and inference works correctly regardless of property order. This was contributed by Mateusz Burzyński.
 
 **Subpath imports now support `#/` prefixes.** Node.js added support for `#/` as a bare subpath import prefix (instead of requiring `#root/` or similar). TypeScript 6.0 supports this under `--moduleResolution nodenext` and `bundler`. No more awkward workarounds for clean internal imports.
 
@@ -27,9 +27,9 @@ Most of the headline changes are about aligning with TypeScript 7 behavior, but 
 
 ## The real headline: TypeScript 7 is close
 
-TypeScript 6.0 exists primarily to get the ecosystem ready for 7.0. The Go rewrite — codenamed "Project Corsa" — has been in progress since early 2025. The native preview (`@typescript/native-preview` on npm) is already stable enough for daily use, and a VS Code extension is updated nightly.
+TypeScript 6.0 exists primarily to get the ecosystem ready for 7.0. The Go rewrite, codenamed "Project Corsa", has been in progress since early 2025. The native preview (`@typescript/native-preview` on npm) is already stable enough for daily use, and a VS Code extension is updated nightly.
 
-The language service (completions, go-to-definition, rename, find-all-references) is already fully functional in the native port. The compiler's type-checking is described as "very nearly complete" — of 20,000 test cases, only 74 show differences between 6.0 and the 7.0 preview. Parallelism via shared memory is the key architectural win, enabling dramatic speedups on large monorepos.
+The language service (completions, go-to-definition, rename, find-all-references) is already fully functional in the native port. The compiler's type-checking is described as "very nearly complete", of 20,000 test cases, only 74 show differences between 6.0 and the 7.0 preview. Parallelism via shared memory is the key architectural win, enabling dramatic speedups on large monorepos.
 
 If you're on TypeScript 6.0 today, the team encourages you to also try the TypeScript 7 preview. The two can run side-by-side via `tsgo` (7.0) and `tsc` (6.0).
 

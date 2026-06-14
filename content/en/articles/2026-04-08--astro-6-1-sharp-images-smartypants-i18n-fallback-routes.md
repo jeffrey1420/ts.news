@@ -8,15 +8,15 @@ author: lschvn
 readingTime: 4
 tags: ["frameworks", "tooling", "javascript"]
 tldr:
-  - "Astro 6.1 exposes Sharp encoder options at the pipeline level — MozJPEG, WebP effort, AVIF chroma subsampling, and PNG compression can now be set as defaults before per-image quality overrides."
-  - "The SmartyPants Markdown plugin now accepts a full options object for fine-tuning dashes, quotes, backticks, and ellipses — useful for localization and typographic standards."
+  - "Astro 6.1 exposes Sharp encoder options at the pipeline level, MozJPEG, WebP effort, AVIF chroma subsampling, and PNG compression can now be set as defaults before per-image quality overrides."
+  - "The SmartyPants Markdown plugin now accepts a full options object for fine-tuning dashes, quotes, backticks, and ellipses, useful for localization and typographic standards."
   - "Integrations can now access i18n fallback routes via `fallbackRoutes` on the `IntegrationResolvedRoute` type, fixing sitemap and routing integrations for sites using rewrite-based fallbacks."
   - "Astro joined Cloudflare in January 2026; the acquisition is visible in how the team prioritizes content-heavy, edge-deployed workloads."
 faq:
   - question: "What's new in Astro 6.1 compared to 6.0?"
     answer: "The headline features are pipeline-level Sharp encoder configuration, SmartyPants options object support, and `fallbackRoutes` exposure on the integration route hook. These are smaller additions compared to 6.0's experimental Rust compiler and refactored dev server."
   - question: "Do I need to change anything when upgrading from Astro 6.0?"
-    answer: "Astro 6.1 is a minor release — no breaking changes are expected. The Sharp image defaults are additive, and SmartyPants behavior is preserved unless you explicitly reconfigure it."
+    answer: "Astro 6.1 is a minor release, no breaking changes are expected. The Sharp image defaults are additive, and SmartyPants behavior is preserved unless you explicitly reconfigure it."
   - question: "What does 'i18n fallback routes for integrations' mean?"
     answer: "Sites using `fallbackType: 'rewrite'` generate extra routes that weren't visible to integrations before. Astro 6.1 exposes these via the `astro:routes:resolved` hook so tools like the sitemap integration can include them."
 ---
@@ -25,7 +25,7 @@ Astro 6.1 dropped on March 31, and while it's not as dramatic a release as Astro
 
 ## Sharp Image Service Gets Encoder-Level Controls
 
-The most practically useful change: you can now set codec-specific defaults for Astro's built-in Sharp image pipeline directly in `astro.config.mjs`. Before 6.1, you could control per-image `quality`, but the underlying encoder options — MozJPEG level, WebP effort, AVIF chroma subsampling, PNG compression — were fixed.
+The most practically useful change: you can now set codec-specific defaults for Astro's built-in Sharp image pipeline directly in `astro.config.mjs`. Before 6.1, you could control per-image `quality`, but the underlying encoder options, MozJPEG level, WebP effort, AVIF chroma subsampling, PNG compression, were fixed.
 
 In 6.1, with `astro/assets/services/sharp`, you get:
 
@@ -45,7 +45,7 @@ export default defineConfig({
 });
 ```
 
-These become defaults for compile-time image generation. Per-image `quality` set on `<Image />`, `<Picture />`, or `getImage()` still takes precedence — the hierarchy is preserved.
+These become defaults for compile-time image generation. Per-image `quality` set on `<Image />`, `<Picture />`, or `getImage()` still takes precedence, the hierarchy is preserved.
 
 For sites generating hundreds of variant images at build time, the WebP effort and AVIF settings in particular can meaningfully shift the size/quality tradeoff without touching every image call.
 
@@ -68,11 +68,11 @@ export default defineConfig({
 });
 ```
 
-This matters for sites with localization requirements or strict typographic standards — French, German, and Nordic languages have specific quotation conventions that the boolean-only config couldn't express. The `oldschool` dash mode (`--` for en-dash) is another long-requested option.
+This matters for sites with localization requirements or strict typographic standards, French, German, and Nordic languages have specific quotation conventions that the boolean-only config couldn't express. The `oldschool` dash mode (`--` for en-dash) is another long-requested option.
 
 ## i18n Fallback Routes Now Visible to Integrations
 
-The third change is invisible to end users but matters for the ecosystem: integrations can now see fallback routes generated for i18n configurations using `fallbackType: 'rewrite'`. Previously, these routes existed in the runtime but weren't exposed via the `astro:routes:resolved` hook. Integrations that build route indexes — most notably the sitemap integration — would miss generated fallback routes, producing incomplete sitemaps for multilingual sites.
+The third change is invisible to end users but matters for the ecosystem: integrations can now see fallback routes generated for i18n configurations using `fallbackType: 'rewrite'`. Previously, these routes existed in the runtime but weren't exposed via the `astro:routes:resolved` hook. Integrations that build route indexes, most notably the sitemap integration, would miss generated fallback routes, producing incomplete sitemaps for multilingual sites.
 
 6.1 adds `fallbackRoutes` to the `IntegrationResolvedRoute` type:
 

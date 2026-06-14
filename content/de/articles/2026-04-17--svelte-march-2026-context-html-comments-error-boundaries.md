@@ -18,7 +18,7 @@ faq:
     answer: "Verwenden Sie die svelte:boundary-Komponente mit transformError, um Server-seitige Fehler abzufangen und zu transformieren, ähnlich wie bei clientseitigen Error Boundaries."
 ---
 
-Sveltes März-2026-Release bringt eine Reihe von Verbesserungen, die langjährige Lücken schließen — vor allem rund um programmatische Komponenteninstanziierung und Server-seitige Fehlerbehandlung — und setzt die Verfeinerung von SvelteKits Navigations-APIs fort.
+Sveltes März-2026-Release bringt eine Reihe von Verbesserungen, die langjährige Lücken schließen, vor allem rund um programmatische Komponenteninstanziierung und Server-seitige Fehlerbehandlung, und setzt die Verfeinerung von SvelteKits Navigations-APIs fort.
 
 ## `createContext` geht programmatisch
 
@@ -49,31 +49,31 @@ Zwei Änderungen auf Compiler-Ebene landen im selben Release-Zug. HTML-Kommentar
 </button>
 ```
 
-Gleichzeitig akzeptieren `{@html}`-Ausdrücke jetzt `TrustedHTML` — Teil der Web Secure Types API. Das erlaubt Ihnen, dem Type-System mitzuteilen, dass ein String bereits sanitized wurde und nicht den üblichen `any`-Escape-Hook auslösen soll, wenn er `{@html}` zugewiesen wird.
+Gleichzeitig akzeptieren `{@html}`-Ausdrücke jetzt `TrustedHTML`, Teil der Web Secure Types API. Das erlaubt Ihnen, dem Type-System mitzuteilen, dass ein String bereits sanitized wurde und nicht den üblichen `any`-Escape-Hook auslösen soll, wenn er `{@html}` zugewiesen wird.
 
 ## Error Boundaries erreichen den Server
 
-Error Boundaries (`svelte:boundary`) funktionierten zuvor nur auf dem Client. Svelte 5.53.0 erweitert sie auf serverseitiges Rendering, sodass Sie Fehler, die während des SSR auftreten, abfangen und transformieren können, ohne die gesamte Seite zum Absturz zu bringen. Das ist wichtig für SvelteKit-Apps, die Daten zur Request-Zeit holen — eine fehlschlagende Komponente bringt nicht mehr die gesamte Response zum Absturz.
+Error Boundaries (`svelte:boundary`) funktionierten zuvor nur auf dem Client. Svelte 5.53.0 erweitert sie auf serverseitiges Rendering, sodass Sie Fehler, die während des SSR auftreten, abfangen und transformieren können, ohne die gesamte Seite zum Absturz zu bringen. Das ist wichtig für SvelteKit-Apps, die Daten zur Request-Zeit holen, eine fehlschlagende Komponente bringt nicht mehr die gesamte Response zum Absturz.
 
 ## SvelteKit: Navigation Callbacks erhalten Scroll-Daten
 
-Navigation Callbacks (`beforeNavigate`, `onNavigate`, `afterNavigate`) enthalten jetzt Scroll-Positionsinformationen auf den `from`- und `to`-Navigation-Zielen. Das ermöglicht scroll-bewusste Übergangsanimationen — Sie können prüfen, ob der Benutzer zurück- oder vorwärts navigiert und entsprechend animieren, alles ohne zusätzlichen Verwaltungsaufwand.
+Navigation Callbacks (`beforeNavigate`, `onNavigate`, `afterNavigate`) enthalten jetzt Scroll-Positionsinformationen auf den `from`- und `to`-Navigation-Zielen. Das ermöglicht scroll-bewusste Übergangsanimationen, Sie können prüfen, ob der Benutzer zurück- oder vorwärts navigiert und entsprechend animieren, alles ohne zusätzlichen Verwaltungsaufwand.
 
 Das Update stabilisiert auch Vite-8-Support (kit@2.53.0) und fügt ein offizielles `better-auth`-Addon zum Svelte CLI hinzu (`sv@0.12.0`).
 
 ## State of JS 2025: Svelte hält den ersten Platz
 
-Eine schnelle Bestätigung: Die Ergebnisse des [State of JS 2025](https://2025.stateofjs.com/en-US) sind raus, und Svelte behält seine Position als top-bewertetes reaktives Framework beim positiven Sentiment zum zweiten Mal in Folge. Die Kategorie umfasst Solid, Vue, React, Angular und andere — Sveltes Entwickler-Zufriedenheitswert sticht weiterhin heraus.
+Eine schnelle Bestätigung: Die Ergebnisse des [State of JS 2025](https://2025.stateofjs.com/en-US) sind raus, und Svelte behält seine Position als top-bewertetes reaktives Framework beim positiven Sentiment zum zweiten Mal in Folge. Die Kategorie umfasst Solid, Vue, React, Angular und andere, Sveltes Entwickler-Zufriedenheitswert sticht weiterhin heraus.
 
 ## Community-Höhepunkte
 
 Die übliche Runde bemerkenswerter Projekte, die diesen Monat mit Svelte gebaut wurden:
 
-- **[Cherit](https://keshav.is-a.dev/Cherit/)** — Open-Source Markdown-Wissensdatenbank, gebaut mit Tauri
-- **[Mistral AIs worldwide Hackathon-Seite](https://worldwide-hackathon.mistral.ai/)** — mit Svelte gebaut, wie auf Reddit geteilt
-- **[Fretwise](https://fretwise.ai/)** — KI-gesteuerte Gitarren-Lernplattform, die Tabs und isolierte Stems generiert
-- **[SoundTime](https://github.com/CICCADA-CORP/SoundTime)** — Self-hosted Music-Streaming mit P2P-Sharing, gebaut mit Rust + Svelte
-- **[warpkit](https://github.com/upstat-io/warpkit)**** — eigenständiges Svelte-5-SPA-Framework mit zustandsbasiertem Routing und Datenfetching
-- **[svelte-grab](https://github.com/HeiCg/svelte-grab)** — Dev-Tool, das Komponentenkontext für LLM-Coding-Agents erfasst, Alt+Click auf beliebiges Element, um State zu inspizieren und Fehler zu tracen
+- **[Cherit](https://keshav.is-a.dev/Cherit/)**: Open-Source Markdown-Wissensdatenbank, gebaut mit Tauri
+- **[Mistral AIs worldwide Hackathon-Seite](https://worldwide-hackathon.mistral.ai/)**: mit Svelte gebaut, wie auf Reddit geteilt
+- **[Fretwise](https://fretwise.ai/)**: KI-gesteuerte Gitarren-Lernplattform, die Tabs und isolierte Stems generiert
+- **[SoundTime](https://github.com/CICCADA-CORP/SoundTime)**: Self-hosted Music-Streaming mit P2P-Sharing, gebaut mit Rust + Svelte
+- **[warpkit](https://github.com/upstat-io/warpkit)****, eigenständiges Svelte-5-SPA-Framework mit zustandsbasiertem Routing und Datenfetching
+- **[svelte-grab](https://github.com/HeiCg/svelte-grab)**: Dev-Tool, das Komponentenkontext für LLM-Coding-Agents erfasst, Alt+Click auf beliebiges Element, um State zu inspizieren und Fehler zu tracen
 
-Sveltes Ökosystem wächst weiter in Richtungen, die weit über die traditionelle Web-App hinausgehen — von Musik-Tools bis zu Hardware-Simulatoren und KI-Integrationen.
+Sveltes Ökosystem wächst weiter in Richtungen, die weit über die traditionelle Web-App hinausgehen, von Musik-Tools bis zu Hardware-Simulatoren und KI-Integrationen.

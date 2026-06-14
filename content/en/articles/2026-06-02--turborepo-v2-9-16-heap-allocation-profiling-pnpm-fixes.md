@@ -15,7 +15,7 @@ tldr:
 
 The most significant user-facing addition in v2.9.16 is **heap allocation profiling support** via OpenTelemetry (OTEL) traces. This release adds heap allocation data to Turborepo's existing OTEL trace output, letting you see per-task and per-package memory consumption in your CI or local tracing setup.
 
-To use it, point `TURBO_TRACE_ENDPOINT` at your OTEL collector as before — heap data now appears alongside the existing duration and span information. The implementation adds a new `heap.allocated` event to task spans with category breakdowns (V8 heap, native allocations, etc.).
+To use it, point `TURBO_TRACE_ENDPOINT` at your OTEL collector as before, heap data now appears alongside the existing duration and span information. The implementation adds a new `heap.allocated` event to task spans with category breakdowns (V8 heap, native allocations, etc.).
 
 This is particularly useful for monorepos where a single slow or memory-hungry package can drag down the whole CI pipeline.
 
@@ -23,7 +23,7 @@ This is particularly useful for monorepos where a single slow or memory-hungry p
 
 The v2.9.15 release introduced a regression in how Turborepo handles **pnpm injected peer packages**. When a package uses pnpm's `injected: true` workspace protocol for peer dependencies, Turborepo was incorrectly omitting or mishandling those entries during the task graph resolution.
 
-v2.9.16 fixes this. If your monorepo uses pnpm with injected peers — a pattern sometimes used to ensure a single physical copy of a peer package across the workspace — Turborepo now correctly preserves those entries.
+v2.9.16 fixes this. If your monorepo uses pnpm with injected peers, a pattern sometimes used to ensure a single physical copy of a peer package across the workspace, Turborepo now correctly preserves those entries.
 
 ## OTEL Endpoint Validation Hardened
 
@@ -33,13 +33,13 @@ Turborepo v2.9.16 also hardens the **OTEL endpoint URL validation**. Previously,
 
 Two smaller but impactful fixes:
 
-- **PTY shutdown hang** — on certain Linux distributions, the pseudo-terminal (PTY) used to run tasks in watch mode would hang on shutdown, leaving `turbo` processes orphaned. This is now fixed.
-- **npm tlog publish retries** — npm package publishing with `turbo run build --dry-run=json` (or the CI pipeline's tlog output) would fail unrecoverably on transient network errors. v2.9.16 adds automatic retries for tlog publish failures.
+- **PTY shutdown hang**: on certain Linux distributions, the pseudo-terminal (PTY) used to run tasks in watch mode would hang on shutdown, leaving `turbo` processes orphaned. This is now fixed.
+- **npm tlog publish retries**: npm package publishing with `turbo run build --dry-run=json` (or the CI pipeline's tlog output) would fail unrecoverably on transient network errors. v2.9.16 adds automatic retries for tlog publish failures.
 
 ## Other Changes
 
-- **`--gitignore` root handling in prune** — `turbo prune` now correctly respects the root `.gitignore` when determining what to include in the artifact for a given scope, fixing edge cases where extra files were included.
-- **Profile tracing coverage improved** — task spans that were missing parent attribution in previous releases are now correctly linked in the trace output.
+- **`--gitignore` root handling in prune**: `turbo prune` now correctly respects the root `.gitignore` when determining what to include in the artifact for a given scope, fixing edge cases where extra files were included.
+- **Profile tracing coverage improved**: task spans that were missing parent attribution in previous releases are now correctly linked in the trace output.
 
 ## Updating
 

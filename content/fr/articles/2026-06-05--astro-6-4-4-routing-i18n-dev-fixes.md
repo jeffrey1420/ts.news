@@ -27,12 +27,12 @@ Par ailleurs, `Astro.currentLocale` retourne maintenant correctement la locale d
 
 ## Expérience Dev : Plus de Rechargements Complets
 
-Auparavant, éditer un composant côté client (avec `client:idle`, `client:load`, etc.) en développement déclenchait un rechargement complet inutile du backend. C'est corrigé — les edits de composants déclenchent maintenant le remplacement à chaud normal sans redémarrer le serveur.
+Auparavant, éditer un composant côté client (avec `client:idle`, `client:load`, etc.) en développement déclenchait un rechargement complet inutile du backend. C'est corrigé, les edits de composants déclenchent maintenant le remplacement à chaud normal sans redémarrer le serveur.
 
 ## Autres Corrections
 
 - `App.match()` ne lève plus d'exception sur les chemins de requête contenant une séquence de percent-encoding invalide
-- Les endpoints de fichiers statiques utilisant `getStaticPaths` avec `.html` dans les valeurs des paramètres dynamiques ne plantent plus avec `NoMatchingStaticPathFound` — le suffixe `.html` n'est plus incorrectement supprimé
+- Les endpoints de fichiers statiques utilisant `getStaticPaths` avec `.html` dans les valeurs des paramètres dynamiques ne plantent plus avec `NoMatchingStaticPathFound`, le suffixe `.html` n'est plus incorrectement supprimé
 - Les problèmes de suppression de styles sur les systèmes de fichiers sensibles à la casse sont résolus
 - Les routes dynamiques ne retournent plus la chaîne `[object Object]` au lieu du contenu attendu dans certains runtimes
 

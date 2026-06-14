@@ -11,7 +11,7 @@ tldr:
   - Tencent EdgeOne Pages rejoint la liste des presets de déploiement, et H3 v2 apporte des vérifications de streaming plus strictes, la conformité RFC 6265bis pour les cookies, et une protection contre le path traversal
 faq:
   - question: "En quoi le tracing intégré de Nitro v3 diffère-t-il des intégrations OpenTelemetry existantes ?"
-    answer: "Les canaux de tracing de Nitro fournissent une couche d'observabilité plus basse et native au framework. Sans nécessiter de SDK OpenTelemetry externe, vous obtenez du tracing span requête depuis les internes de Nitro — les spans pour le traitement des routes, les requêtes base de données et les opérations cache sont émis automatiquement."
+    answer: "Les canaux de tracing de Nitro fournissent une couche d'observabilité plus basse et native au framework. Sans nécessiter de SDK OpenTelemetry externe, vous obtenez du tracing span requête depuis les internes de Nitro, les spans pour le traitement des routes, les requêtes base de données et les opérations cache sont émis automatiquement."
   - question: "Quels packages natifs sont maintenant détectés automatiquement par traceDeps ?"
     answer: "Le mode full-trace de traceDeps utilise une base de données croissante de packages natifs pour identifier les dépendances optionnelles avec des binaires pré-compilés (comme node-sqlite3, canvas ou sharp). Si Nitro les détecte, il évite de les bundler incorrectement."
   - question: "Comment fonctionnent les Vercel Queues dans Nitro ?"
@@ -22,13 +22,13 @@ La beta publique de Nitro v3 continue de évoluer rapidement. La mise à jour du
 
 ## Canaux de Tracing Intégrés
 
-L'ajout principal est le support expérimental des canaux de tracing ([PR #4001](https://github.com/nitrojs/nitro/pull/4001)). Nitro émet désormais des spans de trace structurés pour le cycle de vie des requêtes — correspondance de route, exécution de handler, cache hits/misses, timing des requêtes base de données — directement depuis le cœur du framework. Pas besoin de SDK OpenTelemetry ; le tracing est une fonctionnalité native de Nitro.
+L'ajout principal est le support expérimental des canaux de tracing ([PR #4001](https://github.com/nitrojs/nitro/pull/4001)). Nitro émet désormais des spans de trace structurés pour le cycle de vie des requêtes, correspondance de route, exécution de handler, cache hits/misses, timing des requêtes base de données, directement depuis le cœur du framework. Pas besoin de SDK OpenTelemetry ; le tracing est une fonctionnalité native de Nitro.
 
 ## Détection Intelligente des Dépendances avec Full-trace
 
 L'outil traceDeps de Nitro reçoit une amélioration importante ([PR #4175](https://github.com/nitrojs/nitro/pull/4175)). Le nouveau mode full-trace et les options de trace personnalisées donnent aux développeurs le contrôle sur la façon dont Nitro analyse le graphe de dépendances pendant le build.
 
-L'amélioration clé : le tracer upstream nf3 inclut désormais une base de données de packages natifs en expansion et la détection automatique des dépendances optionnelles. Si votre projet utilise des packages avec des binaires natifs — `sharp`, `canvas`, `better-sqlite3` — Nitro peut désormais les détecter automatiquement et éviter un bundling incorrect, source fréquente d'erreurs "ça marche en local, ça plante en prod".
+L'amélioration clé : le tracer upstream nf3 inclut désormais une base de données de packages natifs en expansion et la détection automatique des dépendances optionnelles. Si votre projet utilise des packages avec des binaires natifs, `sharp`, `canvas`, `better-sqlite3`, Nitro peut désormais les détecter automatiquement et éviter un bundling incorrect, source fréquente d'erreurs "ça marche en local, ça plante en prod".
 
 ## Vercel Queues et Configuration par Route
 
@@ -36,7 +36,7 @@ Le preset de déploiement Vercel gagne deux fonctionnalités de production.
 
 **Vercel Queues** : Les handlers de routes Nitro peuvent désormais enfiler du travail asynchrone via l'infrastructure queue de Vercel. Définissez des tâches avec `nitro.tasks`, déployez sur Vercel, et utilisez le SDK Vercel. Le preset gère la configuration automatiquement. Cela apporte une exécution asynchrone durable sans infrastructure queue séparée.
 
-**Override de config par route** : Les routes individuelles peuvent désormais surcharger la configuration de fonction Vercel par défaut — limite mémoire, timeout, `maxDuration`. Pratique quand une route spécifique a besoin de plus de ressources que le reste de l'application.
+**Override de config par route** : Les routes individuelles peuvent désormais surcharger la configuration de fonction Vercel par défaut, limite mémoire, timeout, `maxDuration`. Pratique quand une route spécifique a besoin de plus de ressources que le reste de l'application.
 
 ## Tencent EdgeOne Pages
 

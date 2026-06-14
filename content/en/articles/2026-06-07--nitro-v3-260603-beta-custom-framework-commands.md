@@ -18,7 +18,7 @@ faq:
     answer: "The fix ensures that when TypeScript retries resolving a module path with added extensions (.ts, .tsx), Nitro only strips extensions it actually retried, not all possible extensions. This prevents edge cases where legitimate module resolution could be incorrectly skipped."
 ---
 
-Nitro's v3 beta train keeps rolling. Build `3.0.260603-beta` — the date-stamped versioning means June 3, 2026 — is a small release, but two of its changes matter to anyone building a framework on top of Nitro, which since the [v3 beta announcement](https://nitro.build/blog/v3-beta) includes TanStack Start and the upcoming Nuxt major.
+Nitro's v3 beta train keeps rolling. Build `3.0.260603-beta`, the date-stamped versioning means June 3, 2026, is a small release, but two of its changes matter to anyone building a framework on top of Nitro, which since the [v3 beta announcement](https://nitro.build/blog/v3-beta) includes TanStack Start and the upcoming Nuxt major.
 
 ## Frameworks can now own `preview` and `deploy`
 
@@ -36,7 +36,7 @@ export default defineNitroConfig({
 });
 ```
 
-This is most useful in monorepos and framework presets where "no preset specified" should mean something specific to your setup — not whatever Nitro happens to default to.
+This is most useful in monorepos and framework presets where "no preset specified" should mean something specific to your setup, not whatever Nitro happens to default to.
 
 ## A type-stripping edge case, fixed
 
@@ -44,4 +44,4 @@ The release also fixes a subtle module-resolution bug: when resolution retries a
 
 ## Should you update?
 
-If you're on the v3 beta already, yes — it's a safe incremental update via `npm i nitro@beta`. If you're a framework author, the custom command hooks are the headline: they're the first piece of v3's "bring your own framework" story that extends past the build step into deployment. For everyone else, this is a good reminder that v3 is iterating fast — weekly date-stamped betas — ahead of [Nuxt 5 shipping on Nitro v3 and H3 v2](/articles/2026-06-03--nitro-v3-0-260522-beta-tracing-vfs-vercel-queues).
+If you're on the v3 beta already, yes, it's a safe incremental update via `npm i nitro@beta`. If you're a framework author, the custom command hooks are the headline: they're the first piece of v3's "bring your own framework" story that extends past the build step into deployment. For everyone else, this is a good reminder that v3 is iterating fast, weekly date-stamped betas, ahead of [Nuxt 5 shipping on Nitro v3 and H3 v2](/articles/2026-06-03--nitro-v3-0-260522-beta-tracing-vfs-vercel-queues).

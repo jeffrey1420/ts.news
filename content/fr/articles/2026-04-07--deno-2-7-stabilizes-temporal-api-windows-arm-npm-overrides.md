@@ -10,7 +10,7 @@ tags: ["runtimes", "typescript", "javascript"]
 Deno 2.7 est sorti le 25 février, et c'est l'une des versions les plus riches en fonctionnalités de la lignée 2.x. Les points forts : stabilisation de l'API Temporal, builds Windows on ARM officiels, support des overrides npm, et un lot significatif de travaux de compatibilité Node.js.
 
 [tldr]
-- L'API Temporal TC39 est désormais stable dans Deno sans le flag `--unstable-temporal` — Chrome 144 l'a expédiée en janvier 2026, Deno suit
+- L'API Temporal TC39 est désormais stable dans Deno sans le flag `--unstable-temporal`, Chrome 144 l'a expédiée en janvier 2026, Deno suit
 - Les builds Windows on ARM (aarch64-pc-windows-msvc) sont désormais officiels : Surface Pro X, ordinateurs Snapdragon, sans surcoût d'émulation
 - Le champ `overrides` de npm fonctionne désormais, permettant de piner des dépendances transitives profondément dans l'arbre
 - Des dizaines de corrections de compatibilité Node.js : worker_threads, child_process, zlib, sqlite tous améliorés
@@ -39,7 +39,7 @@ C'était une [fonctionnalité demandée depuis longtemps](https://github.com/den
 
 ## npm Overrides : Piner les Dépendances Transitives
 
-Le champ `overrides` de npm permet de piner ou remplacer des packages profondément dans l'arbre des dépendances — utile pour les correctifs de sécurité sur des dépendances transitives ou forcer la compatibilité. Le support de package.json de Deno gère désormais ceci :
+Le champ `overrides` de npm permet de piner ou remplacer des packages profondément dans l'arbre des dépendances, utile pour les correctifs de sécurité sur des dépendances transitives ou forcer la compatibilité. Le support de package.json de Deno gère désormais ceci :
 
 ```json
 {
@@ -72,12 +72,12 @@ Pour `child_process` : les flux stdio sont désormais de vraies instances Socket
 
 ## Écosystème Deno : Actualités Complémentaires
 
-Ce cycle a aussi vu Deno Deploy atteindre la disponibilité générale (3 février) et l'introduction de [Deno Sandbox](https://deno.com/blog/introducing-deno-sandbox) — des microVMs Linux instantanées pour exécuter du code non fiable avec une sécurité defense-in-depth.
+Ce cycle a aussi vu Deno Deploy atteindre la disponibilité générale (3 février) et l'introduction de [Deno Sandbox](https://deno.com/blog/introducing-deno-sandbox), des microVMs Linux instantanées pour exécuter du code non fiable avec une sécurité defense-in-depth.
 
 L'équipe Deno a également révélé que les utilisateurs de Deno Deploy étaient protégés contre deux vulnérabilités haute sévérité dans React Server Components / Next.js fin 2025 (CVE-2025-55184 et la RCE dans React Server Functions), avec des atténuations automatiques déployées à la périphérie.
 
 [faq]
 - **Dois-je modifier mon code pour l'API Temporal ?** Si vous utilisiez `--unstable-temporal`, supprimez ce flag. L'API est inchangée.
-- **Puis-je exécuter des packages npm avec Deno ?** Oui — Deno a un support de package.json de première classe et peut exécuter la plupart des packages npm directement.
-- **Deno Deploy est-il prêt pour la production ?** Oui — il a atteint la disponibilité générale le 3 février 2026.
+- **Puis-je exécuter des packages npm avec Deno ?** Oui, Deno a un support de package.json de première classe et peut exécuter la plupart des packages npm directement.
+- **Deno Deploy est-il prêt pour la production ?** Oui, il a atteint la disponibilité générale le 3 février 2026.
 [/faq]

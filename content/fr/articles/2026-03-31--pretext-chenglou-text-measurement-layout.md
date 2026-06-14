@@ -8,27 +8,27 @@ tags: ["css", "typescript", "performance"]
 readingTime: 7
 tldr:
   - "Pretext (@chenglou/pretext) mesure et dispose le texte multiligne sans toucher au DOM, en utilisant measureText du canvas comme vérité terrain."
-  - "Le layout() à chaud s'exécute en ~0,09ms pour 500 textes — 10 à 50x plus rapide que les appels getBoundingClientRect() individuels avec zéro reflow."
+  - "Le layout() à chaud s'exécute en ~0,09ms pour 500 textes, 10 à 50x plus rapide que les appels getBoundingClientRect() individuels avec zéro reflow."
   - "Support Unicode complet, emoji et texte bidirectionnel ; la séparation prepare()/layout() permet un setup en cache avec des chemins à arithmetic pure."
   - "Cas d'usage clés : virtualisation sans estimations de hauteur, prévention CLS, layout côté serveur et agents IA prédisant le débordement de texte."
 faq:
   - question: "Comment Pretext mesure-t-il le texte sans accéder au DOM ?"
     answer: "Pretext utilise l'API measureText() du canvas du navigateur, qui utilise le même moteur de typographie que le DOM. La mesure est précise car elle utilise la vraie typographie du navigateur, mais elle se produit hors écran sans déclencher de layout du tout."
   - question: "Pretext peut-il être utilisé pour les agents IA de codage ?"
-    answer: "Oui, c'est un cas d'usage majeur. Cuando un agente IA genera código UI, actualmente no tiene forma de saber si una etiqueta desbordará sin ejecutar el código en un navegador. Pretext da a los agentes IA la capacidad de predecir el layout del texto en tiempo de generación — antes de que el código se ejecute."
+    answer: "Oui, c'est un cas d'usage majeur. Cuando un agente IA genera código UI, actualmente no tiene forma de saber si una etiqueta desbordará sin ejecutar el código en un navegador. Pretext da a los agentes IA la capacidad de predecir el layout del texto en tiempo de generación, antes de que el código se ejecute."
   - question: "Quelles sont les limitations de Pretext ?"
-    answer: "Pretext cible white-space: normal, word-break: normal, overflow-wrap: break-word, line-break: auto — le cas courant, pas chaque modèle de texte CSS. system-ui n'est pas sûr pour la précision de mesure sur macOS — vous avez besoin d'une police nommée. Ce n'est pas un moteur de rendu de police complet."
+    answer: "Pretext cible white-space: normal, word-break: normal, overflow-wrap: break-word, line-break: auto, le cas courant, pas chaque modèle de texte CSS. system-ui n'est pas sûr pour la précision de mesure sur macOS, vous avez besoin d'une police nommée. Ce n'est pas un moteur de rendu de police complet."
 ---
 
-Une nouvelle bibliothèque est apparue sur npm le 29 mars avec zéro annonce et déjà des centaines de téléchargements : **Pretext** (`@chenglou/pretext`), une bibliothèque JavaScript et TypeScript pure pour la mesure et la disposition de texte multiligne — sans jamais toucher au DOM.
+Une nouvelle bibliothèque est apparue sur npm le 29 mars avec zéro annonce et déjà des centaines de téléchargements : **Pretext** (`@chenglou/pretext`), une bibliothèque JavaScript et TypeScript pure pour la mesure et la disposition de texte multiligne, sans jamais toucher au DOM.
 
-L'auteur est Cheng Lou, auparavant connu pour son travail sur React et ReasonML. Le concept est simple : mesurer le texte comme le font les navigateurs, en utilisant le propre moteur de police du navigateur comme vérité terrain, mais entièrement via canvas — pas de `getBoundingClientRect`, pas de `offsetHeight`, pas de reflow de layout.
+L'auteur est Cheng Lou, auparavant connu pour son travail sur React et ReasonML. Le concept est simple : mesurer le texte comme le font les navigateurs, en utilisant le propre moteur de police du navigateur comme vérité terrain, mais entièrement via canvas, pas de `getBoundingClientRect`, pas de `offsetHeight`, pas de reflow de layout.
 
 ## Pourquoi c'est important : le problème du reflow
 
-Chaque développeur front-end a rencontré ce mur : vous devez savoir combien de hauteur un bloc de texte occupera avant de le rendre. La réponse traditionnelle est de le rendre, le mesurer, puis ajuster. Cela déclenche un **reflow de layout** — l'une des opérations les plus coûteuses du navigateur. Pour une seule étiquette, c'est acceptable. Pour une liste de 10 000 messages, un scroll virtualisé ou un agent IA générant de l'UI dynamiquement, c'est une catastrophe.
+Chaque développeur front-end a rencontré ce mur : vous devez savoir combien de hauteur un bloc de texte occupera avant de le rendre. La réponse traditionnelle est de le rendre, le mesurer, puis ajuster. Cela déclenche un **reflow de layout**, l'une des opérations les plus coûteuses du navigateur. Pour une seule étiquette, c'est acceptable. Pour une liste de 10 000 messages, un scroll virtualisé ou un agent IA générant de l'UI dynamiquement, c'est une catastrophe.
 
-Pretext contourne complètement cela. Il mesure le texte en utilisant un canvas caché et l'API `measureText()` du navigateur, qui utilise le même moteur de police que le DOM. La mesure est précise car elle utilise la vraie typographie du navigateur — mais cela se passe hors écran, sans déclencher de layout du tout.
+Pretext contourne complètement cela. Il mesure le texte en utilisant un canvas caché et l'API `measureText()` du navigateur, qui utilise le même moteur de police que le DOM. La mesure est précise car elle utilise la vraie typographie du navigateur, mais cela se passe hors écran, sans déclencher de layout du tout.
 
 ```typescript
 import { prepare, layout } from '@chenglou/pretext'
@@ -54,7 +54,7 @@ Le cas d'usage principal : connaître la hauteur de votre texte avant de le rend
 
 ### 2. Layout de ligne manuel
 
-Si vous avez besoin du contenu réel des lignes — pour le rendu canvas/SVG, pour le texte qui circule autour des flottants, ou pour construire des renderers personnalisés — Pretext fournit des API de bas niveau :
+Si vous avez besoin du contenu réel des lignes, pour le rendu canvas/SVG, pour le texte qui circule autour des flottants, ou pour construire des renderers personnalisés, Pretext fournit des API de bas niveau :
 
 ```typescript
 import { prepareWithSegments, layoutWithLines } from '@chenglou/pretext'
@@ -67,7 +67,7 @@ for (let i = 0; i < lines.length; i++) {
 }
 ```
 
-`walkLineRanges()` ne construit jamais de chaînes de lignes — il appelle un callback pour chaque ligne avec sa largeur et ses positions de curseur. Cela permet des recherches binaires sur les dimensions de layout.
+`walkLineRanges()` ne construit jamais de chaînes de lignes, il appelle un callback pour chaque ligne avec sa largeur et ses positions de curseur. Cela permet des recherches binaires sur les dimensions de layout.
 
 ## Benchmarks
 

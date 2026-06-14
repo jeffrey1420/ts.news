@@ -1,19 +1,19 @@
 ---
 title: "TypeScript 6.0 – Die Letzte Version Vor dem Go-Umschreiben"
-description: "TypeScript 6.0 ist da — und das Microsoft-Team ist offen: Es ist eine Übergangsversion. Die eigentliche Geschichte kommt als nächstes: TypeScript 7, geschrieben in Go und bereits als Preview verfügbar, verspricht einen 10-fachen Performancegewinn."
+description: "TypeScript 6.0 ist da, und das Microsoft-Team ist offen: Es ist eine Übergangsversion. Die eigentliche Geschichte kommt als nächstes: TypeScript 7, geschrieben in Go und bereits als Preview verfügbar, verspricht einen 10-fachen Performancegewinn."
 date: "2026-04-06"
 image: "/images/heroes/2026-04-06--typescript-6-last-release-before-go-rewrite.png"
 author: lschvn
 tags: ["tooling", "typescript", "performance"]
 ---
 
-TypeScript 6.0 erschien am 23. März 2026, und das Microsoft-Team macht kein Geheimnis daraus: Es ist eine Übergangsversion. TypeScript 6.0 bereitet den Weg für TypeScript 7 — eine grundlegende Neuschreibung des Compilers und der Language Services in Go, mit einem bereits verifizierten 10-fachen Performancegewinn in den Preview-Builds.
+TypeScript 6.0 erschien am 23. März 2026, und das Microsoft-Team macht kein Geheimnis daraus: Es ist eine Übergangsversion. TypeScript 6.0 bereitet den Weg für TypeScript 7, eine grundlegende Neuschreibung des Compilers und der Language Services in Go, mit einem bereits verifizierten 10-fachen Performancegewinn in den Preview-Builds.
 
 ## Was sich wirklich in 6.0 geändert hat
 
 Die meisten Änderungen dienen der Angleichung an TypeScript 7, aber mehrere konkrete Verbesserungen haben es in diese Version geschafft.
 
-**Weniger Kontextsensibilität bei `this`-losen Funktionen.** TypeScript 6.0 behebt eine langjährige Inferenzlücke bei Methoden und Callbacks, die `this` nicht verwenden. Zuvor konnte eine Methode wie `consume(y) { return y.toFixed(); }` innerhalb eines generischen Aufrufs scheitern, wenn eine andere Eigenschaft zuerst kam — weil TypeScript annahm, dass `this` den generischen Typ benötigen könnte. Jetzt, wenn `this` nie verwendet wird, überspringt TypeScript die kontextuelle Sensitivitätsprüfung und die Inferenz funktioniert unabhängig von der Eigenschaftsreihenfolge korrekt. Diese Änderung wurde von Mateusz Burzyński beigesteuert.
+**Weniger Kontextsensibilität bei `this`-losen Funktionen.** TypeScript 6.0 behebt eine langjährige Inferenzlücke bei Methoden und Callbacks, die `this` nicht verwenden. Zuvor konnte eine Methode wie `consume(y) { return y.toFixed(); }` innerhalb eines generischen Aufrufs scheitern, wenn eine andere Eigenschaft zuerst kam, weil TypeScript annahm, dass `this` den generischen Typ benötigen könnte. Jetzt, wenn `this` nie verwendet wird, überspringt TypeScript die kontextuelle Sensitivitätsprüfung und die Inferenz funktioniert unabhängig von der Eigenschaftsreihenfolge korrekt. Diese Änderung wurde von Mateusz Burzyński beigesteuert.
 
 **Subpath-Imports unterstützen jetzt `#/`-Präfixe.** Node.js hat die Unterstützung für `#/` als nacktes Subpath-Import-Präfix hinzugefügt (statt `#root/` oder ähnliches). TypeScript 6.0 unterstützt dies unter `--moduleResolution nodenext` und `bundler`. Keine umständlichen Workarounds mehr für saubere interne Imports.
 
@@ -27,9 +27,9 @@ Die meisten Änderungen dienen der Angleichung an TypeScript 7, aber mehrere kon
 
 ## Die eigentliche Überschrift: TypeScript 7 ist nah
 
-TypeScript 6.0 existiert hauptsächlich, um das Ökosystem auf 7.0 vorzubereiten. Das Go-Rewrite — Codename "Project Corsa" — läuft seit Anfang 2025. Die native Preview (`@typescript/native-preview` auf npm) ist bereits stabil genug für den täglichen Gebrauch, und eine VS Code-Erweiterung wird jede Nacht aktualisiert.
+TypeScript 6.0 existiert hauptsächlich, um das Ökosystem auf 7.0 vorzubereiten. Das Go-Rewrite, Codename "Project Corsa", läuft seit Anfang 2025. Die native Preview (`@typescript/native-preview` auf npm) ist bereits stabil genug für den täglichen Gebrauch, und eine VS Code-Erweiterung wird jede Nacht aktualisiert.
 
-Der Language Service (Completions, Go-to-Definition, Rename, Find-All-References) ist im nativen Port bereits vollständig funktionsfähig. Die Typprüfung des Compilers wird als "so gut wie vollständig" beschrieben — von 20.000 Testfällen zeigen nur 74 Unterschiede zwischen 6.0 und der 7.0-Preview. Parallelität über Shared Memory ist der architektonische Hauptnutzen, der dramatische Geschwindigkeitsgewinne bei großen Monorepos ermöglicht.
+Der Language Service (Completions, Go-to-Definition, Rename, Find-All-References) ist im nativen Port bereits vollständig funktionsfähig. Die Typprüfung des Compilers wird als "so gut wie vollständig" beschrieben, von 20.000 Testfällen zeigen nur 74 Unterschiede zwischen 6.0 und der 7.0-Preview. Parallelität über Shared Memory ist der architektonische Hauptnutzen, der dramatische Geschwindigkeitsgewinne bei großen Monorepos ermöglicht.
 
 Wenn Sie heute TypeScript 6.0 verwenden, ermutigt Sie das Team, auch die TypeScript-7-Preview auszuprobieren. Beide können parallel über `tsgo` (7.0) und `tsc` (6.0) laufen.
 

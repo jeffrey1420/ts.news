@@ -10,7 +10,7 @@ image: "/images/heroes/cursor-composer-2-kimi-k25.png"
 tldr:
   - "Cursor Composer 2 a atteint 61,7% sur Terminal-Bench 2.0 mais s'est révélé basé sur Kimi K2.5, pas un modèle entièrement maison."
   - "Un développeur a découvert l'ID de modèle 'kimi-k2p5' dans les réponses API ; l'analyse du tokenizer a confirmé l'identité octet par octet avec Kimi."
-  - "La licence Modified MIT de Kimi K2.5 exige l'attribution 'Powered by Kimi K2.5' pour les produits dépassant 20M$ de revenus mensuels — Cursor est à ~2B$ ARR."
+  - "La licence Modified MIT de Kimi K2.5 exige l'attribution 'Powered by Kimi K2.5' pour les produits dépassant 20M$ de revenus mensuels, Cursor est à ~2B$ ARR."
   - "Moonshot AI a confirmé que l'arrangement avec Fireworks AI était conforme ; Cursor a reconnu l'échec d'attribution comme une erreur."
 faq:
   - question: "Cursor a-t-il volé le modèle Kimi K2.5 ?"
@@ -50,7 +50,7 @@ Kimi K2.5 est open-source sous une **licence MIT modifiée** avec des conditions
 
 > Les produits ou services commerciaux dépassant **20 millions de dollars de revenus mensuels** doivent afficher de manière prominente "Powered by Kimi K2.5" dans l'interface utilisateur.
 
-Les revenus de Cursor, largement rapportés en 2026, situent l'entreprise à environ **2 milliards de dollars de ARR annualisé** — soit **8× au-dessus du seuil mensuel** qui déclenche l'exigence d'attribution.
+Les revenus de Cursor, largement rapportés en 2026, situent l'entreprise à environ **2 milliards de dollars de ARR annualisé**, soit **8× au-dessus du seuil mensuel** qui déclenche l'exigence d'attribution.
 
 ## La résolution Fireworks
 
@@ -62,21 +62,21 @@ Lee Robinson, VP Developer Experience de Cursor, a reconnu directement l'échec 
 
 Kimi K2.5 est un modèle open-weight avec des capacités qui expliquent pourquoi Cursor l'a choisi comme base :
 
-- **Fenêtre de contexte de 256K tokens** — quatre fois ce que la plupart des concurrents offrent
-- **Architecture multimodale native** — traite texte, vision et spécifications visuelles dans un cadre unifié
-- **Agent Swarm** — jusqu'à 100 agents autonomes travaillant simultanément sur des sous-tâches
-- **Prix** — 0,60$ par million de tokens en entrée via API
+- **Fenêtre de contexte de 256K tokens**: quatre fois ce que la plupart des concurrents offrent
+- **Architecture multimodale native**: traite texte, vision et spécifications visuelles dans un cadre unifié
+- **Agent Swarm**: jusqu'à 100 agents autonomes travaillant simultanément sur des sous-tâches
+- **Prix**: 0,60$ par million de tokens en entrée via API
 
 ## Le pattern plus profond : l'open-source chinois comme infrastructure mondiale
 
-La vérité inconfortable est que **les modèles d'IA open-source chinois sont devenus silencieusement une infrastructure fondamentale pour l'industrie mondiale de l'IA**. Kimi K2.5, Qwen (Alibaba), DeepSeek et GLM ne sont pas des outsiders régionaux — ils sont compétitifs ou supérieurs aux offres open-weight occidentales à une fraction du coût.
+La vérité inconfortable est que **les modèles d'IA open-source chinois sont devenus silencieusement une infrastructure fondamentale pour l'industrie mondiale de l'IA**. Kimi K2.5, Qwen (Alibaba), DeepSeek et GLM ne sont pas des outsiders régionaux, ils sont compétitifs ou supérieurs aux offres open-weight occidentales à une fraction du coût.
 
 ## Ce que cela signifie pour les développeurs
 
-1. **Inspectez ce que vous achetez.** L'attribution des modèles est de plus en plus peu fiable en surface. Les marqueurs techniques — signatures de tokenizers, ID de modèles dans les réponses API — sont vérifiables.
+1. **Inspectez ce que vous achetez.** L'attribution des modèles est de plus en plus peu fiable en surface. Les marqueurs techniques, signatures de tokenizers, ID de modèles dans les réponses API, sont vérifiables.
 
 2. **Les licences open-source en IA rattraper leur retard.** La licence MIT modifiée de Kimi K2.5 est plus sophistiquée que la plupart. "Open-source" ne signifie pas "gratuit pour usage commercial inconditionnel."
 
-3. **Le vrai fossé est l'intégration, pas les modèles de base.** La position concurrentielle de Cursor repose sur son intégration profonde dans le flux de travail des développeurs — pas sur la possession du modèle de base.
+3. **Le vrai fossé est l'intégration, pas les modèles de base.** La position concurrentielle de Cursor repose sur son intégration profonde dans le flux de travail des développeurs, pas sur la possession du modèle de base.
 
 4. **Kimi K2.5 mérite d'être connu.** Que ce soit comme base pour votre propre affinage ou comme point de terminaison API pour le développement, c'est un modèle capable avec un ratio prix-performances que les alternatives propriétaires ne peuvent égaler.

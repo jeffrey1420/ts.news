@@ -8,7 +8,7 @@ author: lschvn
 readingTime: 4
 tags: ["tooling", "javascript"]
 tldr:
-  - "Vite 8 beta replaces both ESBuild and Rollup with Rolldown as the unified bundler — the biggest internal change since Vite's initial release."
+  - "Vite 8 beta replaces both ESBuild and Rollup with Rolldown as the unified bundler, the biggest internal change since Vite's initial release."
   - "Rolldown is built by the Oxc team and offers faster builds with lower memory usage, especially on large codebases."
   - "Rolldown usage jumped from 1% to 10% in one year per the State of JS 2025 survey, even before Vite 8's stable release."
   - "Plugins written against Rollup's hook system may need updates; Vite plugin authors should test against the beta now."
@@ -20,13 +20,13 @@ Rolldown, built by the same team behind the Rust-based JavaScript parser Oxc, ai
 
 ## What Changes
 
-In practice, most projects should see faster build times and lower memory usage — particularly on larger codebases where the Node.js-based bundlers hit their ceiling. Rolldown runs natively and is designed to leverage multi-threaded hardware in ways that Rollup cannot.
+In practice, most projects should see faster build times and lower memory usage, particularly on larger codebases where the Node.js-based bundlers hit their ceiling. Rolldown runs natively and is designed to leverage multi-threaded hardware in ways that Rollup cannot.
 
 The migration path from Vite 7 to 8 is described by the Vite team as straightforward for the majority of projects, but there are breaking changes. Plugins written against Rollup's hook system may need updates. Projects that rely on fine-grained control over the bundling process should test early.
 
 ## A Larger Trend: Rust Eating the Build Pipeline
 
-Rolldown's ascension is part of a broader shift. The State of JavaScript 2025 survey showed Rolldown jumping from 1% to 10% usage in a single year, even before Vite 8's official release. Turbopack, Vercel's Rust-based alternative, sits at 28% usage — but the satisfaction scores tell a different story. Vite's ecosystem moat has proven durable. This Rust-based tooling movement extends beyond Vite: [VoidZero's Vite+](/articles/vite-plus-unified-toolchain) wraps Rolldown, Oxc, and a suite of other Rust tools under a single CLI, representing the most coherent unified interface to the Rust-based JavaScript toolchain to date.
+Rolldown's ascension is part of a broader shift. The State of JavaScript 2025 survey showed Rolldown jumping from 1% to 10% usage in a single year, even before Vite 8's official release. Turbopack, Vercel's Rust-based alternative, sits at 28% usage, but the satisfaction scores tell a different story. Vite's ecosystem moat has proven durable. This Rust-based tooling movement extends beyond Vite: [VoidZero's Vite+](/articles/vite-plus-unified-toolchain) wraps Rolldown, Oxc, and a suite of other Rust tools under a single CLI, representing the most coherent unified interface to the Rust-based JavaScript toolchain to date.
 
 The pattern is consistent: tools written in Rust are displacing JavaScript-based equivalents in the build pipeline not because developers are chasing novelty, but because performance differences are significant and real. TypeScript has [the Go rewrite coming](/articles/2026-03-23-typescript-7-native-preview-go-compiler). Vite has Rolldown. The JavaScript toolchain is being rewritten in native languages, piece by piece.
 

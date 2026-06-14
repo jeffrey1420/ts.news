@@ -17,7 +17,7 @@ tldr:
 
 L'ajout le plus significatif en v2.9.16 est le **support du profiling heap allocation** via OpenTelemetry. Cette release ajoute des données heap aux traces OTEL existantes de Turborepo, permettant de voir la consommation mémoire par task et par package.
 
-Pour l'utiliser, pointez `TURBO_TRACE_ENDPOINT` vers votre collecteur OTEL — les données heap apparaissent désormais aux côtés des informations de durée et de span existantes. L'implémentation ajoute un nouvel événement `heap.allocated` aux spans de tasks.
+Pour l'utiliser, pointez `TURBO_TRACE_ENDPOINT` vers votre collecteur OTEL, les données heap apparaissent désormais aux côtés des informations de durée et de span existantes. L'implémentation ajoute un nouvel événement `heap.allocated` aux spans de tasks.
 
 ## Correction pnpm Injected Peer
 
@@ -31,8 +31,8 @@ Turborepo v2.9.16 renforce également la **validation d'URL de l'endpoint OTEL**
 
 ## Correctifs PTY et npm tlog
 
-- **Hang PTY shutdown** — sur certaines distributions Linux, le pseudo-terminal pouvait hanger au shutdown, laissant des processes `turbo` orphelins. Corrigé.
-- **Retry npm tlog publish** — les échecs de publication npm transient sont désormais réessayés automatiquement.
+- **Hang PTY shutdown**: sur certaines distributions Linux, le pseudo-terminal pouvait hanger au shutdown, laissant des processes `turbo` orphelins. Corrigé.
+- **Retry npm tlog publish**: les échecs de publication npm transient sont désormais réessayés automatiquement.
 
 ## Mise à Jour
 

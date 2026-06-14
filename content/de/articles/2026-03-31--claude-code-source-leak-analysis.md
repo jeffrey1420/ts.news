@@ -1,6 +1,6 @@
 ---
 title: "Quellcode-Leck bei Claude Code: Verstecktes Agent-OS, Chrome-Automatisierung und Datenschutzlücken"
-description: "Am 30.–31. März 2026 entdeckten Entwickler, dass das npm-Paket @anthropic-ai/claude-code@v2.1.88 eine Produktions-Source-Map-Datei enthielt, die den vollständigen TypeScript-Quellcode offenlegte — einschließlich nicht dokumentierter Multi-Agent-Orchestrierung, eines versteckten Chrome-MCP-Servers, einer internen Query-Engine, eines Tool-Berechtigungssystems und eines dreistufigen Telemetriesystems."
+description: "Am 30.–31. März 2026 entdeckten Entwickler, dass das npm-Paket @anthropic-ai/claude-code@v2.1.88 eine Produktions-Source-Map-Datei enthielt, die den vollständigen TypeScript-Quellcode offenlegte, einschließlich nicht dokumentierter Multi-Agent-Orchestrierung, eines versteckten Chrome-MCP-Servers, einer internen Query-Engine, eines Tool-Berechtigungssystems und eines dreistufigen Telemetriesystems."
 date: 2026-03-31
 image: "/images/heroes/2026-03-31--claude-code-source-leak-analysis.png"
 author: "lschvn"
@@ -8,7 +8,7 @@ tags: ["security", "ai", "typescript"]
 readingTime: 5
 tldr:
   - "Claude Code v2.1.88 wurde mit einer Produktions-Source-Map (cli.js.map) ausgeliefert, die ~4.756 Quelldateien einschließlich nicht dokumentierter Multi-Agent-Orchestrierung freigab."
-  - "Ein versteckter Chrome-MCP-Server ermöglicht Claude Code die Browser-Steuerung — eine von Anthropic nie angekündigte oder dokumentierte Funktion."
+  - "Ein versteckter Chrome-MCP-Server ermöglicht Claude Code die Browser-Steuerung, eine von Anthropic nie angekündigte oder dokumentierte Funktion."
   - "Ein dreistufiges Datenschutzsystem mit Datadog-Integration und 506 Telemetriedateien offenbart umfangreiche Datensammlung."
   - "Die CLAUDE.md-Auflösung hat vier Prioritätsebenen, einschließlich einer undokumentierten systemweiten `/etc/claude-code/CLAUDE.md`."
 faq:
@@ -22,7 +22,7 @@ faq:
 
 Am 30. März 2026 bemerkten Entwickler, die das npm-Paket `@anthropic-ai/claude-code@v2.1.88` installierten, etwas Ungewöhnliches: Das veröffentlichte Bundle enthielt `cli.js.map`, eine Produktions-Source-Map-Datei, die den minifizierten JavaScript-Code auf seinen ursprünglichen TypeScript-Quellcode abbildet. Innerhalb weniger Stunden verbreitete sich die Entdeckung in den Entwickler-Communities, wobei mehrere Entwickler unabhängig voneinander bestätigten, dass die Source-Map einen nahezu vollständigen Blick auf die interne Architektur von Claude Code bot.
 
-Das Problem wurde formell als [GitHub Issue #41329](https://github.com/anthropics/claude-code/issues/41329) gemeldet — betitelt "[BUG] Es scheint, dass der Quellcode von Claude Code geleaked wurde, mit cli.js.map auf npm hochgeladen" — und am selben Tag als erledigt geschlossen. Entwickler auf Twitter, darunter @iamsupersocks, @Fried_rai und @chetaslua, teilten Screenshots und Analysen ihrer Entdeckungen.
+Das Problem wurde formell als [GitHub Issue #41329](https://github.com/anthropics/claude-code/issues/41329) gemeldet, betitelt "[BUG] Es scheint, dass der Quellcode von Claude Code geleaked wurde, mit cli.js.map auf npm hochgeladen", und am selben Tag als erledigt geschlossen. Entwickler auf Twitter, darunter @iamsupersocks, @Fried_rai und @chetaslua, teilten Screenshots und Analysen ihrer Entdeckungen.
 
 ## Was geleakt wurde
 
@@ -38,7 +38,7 @@ Die auffälligste Entdeckung war ein umfassendes Agent-Orchestrierungssystem. Di
 
 Zusammen mit diesen enthält der Code `TeamCreateTool` und `TeamDeleteTool`, was darauf hindeutet, dass Claude Code Teams von Agenten erstellen und zerstören kann. Das System verwendet `coordinatorMode.ts` für die Multi-Agent-Koordination, und Agenten kommunizieren über ein dateibasiertes Posteingangssystem unter `.claude/teams/{team_name}/inboxes/{agent_name}.json`. Eine `forkSubagent.ts`-Datei behandelt das Erzeugen von Subagenten, und die Ausführungsisolation wird durch `AsyncLocalStorage` aufrechterhalten.
 
-**Tool-Berechtigungen** werden über eine `checkPermissions`-Methode auf jedem Tool erzwungen. Drei Modi existieren: `allow` (läuft sofort), `ask` (pausiert und zeigt einen Bestätigungsdialog) und `deny` (abgelehnt, mit Fehler zurück zum Modell). Ein `bypassPermissions`-Modus überspringt alle Prüfungen — eine signifikante Fähigkeit, die in Verbindung mit dem `--dangerously-skip-permissions`-Flag funktioniert.
+**Tool-Berechtigungen** werden über eine `checkPermissions`-Methode auf jedem Tool erzwungen. Drei Modi existieren: `allow` (läuft sofort), `ask` (pausiert und zeigt einen Bestätigungsdialog) und `deny` (abgelehnt, mit Fehler zurück zum Modell). Ein `bypassPermissions`-Modus überspringt alle Prüfungen, eine signifikante Fähigkeit, die in Verbindung mit dem `--dangerously-skip-permissions`-Flag funktioniert.
 
 ### Versteckte Chrome-Integration: Der claude-in-chrome MCP-Server
 
@@ -49,7 +49,7 @@ Entwickler fanden einen vollständigen MCP-Server (Model Context Protocol) für 
 - Eine GIF-Aufnahmefähigkeit, freigelegt über `mcp__claude-in-chrome__gif_creator`
 - Konsolenlog-Auslesung über `mcp__claude-in-chrome__read_console_messages`
 
-Dieser MCP-Server scheint Claude Code die direkte Steuerung eines Chrome-Browsers von der CLI aus zu ermöglichen — eine Fähigkeit, die von Anthropic weder angekündigt noch dokumentiert wurde.
+Dieser MCP-Server scheint Claude Code die direkte Steuerung eines Chrome-Browsers von der CLI aus zu ermöglichen, eine Fähigkeit, die von Anthropic weder angekündigt noch dokumentiert wurde.
 
 ### Die Datenschutzlücke: Was Claude Code tatsächlich sendet
 
@@ -59,7 +59,7 @@ Die Source-Map enthüllt ein dreistufiges Datenschutzsystem :
 |-------|-----------|---------|---------------------|----------|
 | `default` | Alles aktiviert | ✓ | ✓ | ✓ |
 | `no-telemetry` | Analytik deaktiviert | ✗ | ✗ | ✗ |
-| `essential-traffic` | Nicht-essentieller Traffic blockiert | — | — | — |
+| `essential-traffic` | Nicht-essentieller Traffic blockiert |, |, |, |
 
 Die Analytik-Integration sendet Daten an **Datadog** und protokolliert Erstanbieter-Events throughout the codebase. Feature-Flags werden über **GrowthBook** verwaltet via `getFeatureValue_CACHED_MAY_BE_STALE`. Die Source-Map enthält **506 analytik- und telemetriebezogene Dateien**, mit `logEvent` und `logForDebugging`, die throughout the codebase aufgerufen werden.
 
@@ -67,10 +67,10 @@ Die Analytik-Integration sendet Daten an **Datadog** und protokolliert Erstanbie
 
 Claude Code löst `CLAUDE.md`-Dateien in einer spezifischen Reihenfolge mit **umgekehrter Priorität** auf (spätere Ebenen überschreiben frühere):
 
-1. `/etc/claude-code/CLAUDE.md` — Systemweites Global für alle Benutzer
-2. `~/.claude/CLAUDE.md` — Privates Benutzer-Global
-3. `CLAUDE.md`, `.claude/CLAUDE.md`, `.claude/rules/*.md` — Projektebene
-4. `CLAUDE.local.md` — Privates projektspezifisches (**höchste Priorität**)
+1. `/etc/claude-code/CLAUDE.md`, Systemweites Global für alle Benutzer
+2. `~/.claude/CLAUDE.md`, Privates Benutzer-Global
+3. `CLAUDE.md`, `.claude/CLAUDE.md`, `.claude/rules/*.md`, Projektebene
+4. `CLAUDE.local.md`, Privates projektspezifisches (**höchste Priorität**)
 
 ### Der versteckte "good-claude"-Befehl
 
@@ -84,7 +84,7 @@ Der Befehl existiert, ist versteckt, deaktiviert und hat keine tatsächliche Imp
 
 ## Was es bedeutet
 
-Das Leck ist aus mehreren Gründen bedeutsam. Erstens repräsentiert es einen **Build-Konfigurationsfehler** — Source-Maps sollten niemals in Produktions-npm-Paketen veröffentlicht werden.
+Das Leck ist aus mehreren Gründen bedeutsam. Erstens repräsentiert es einen **Build-Konfigurationsfehler**, Source-Maps sollten niemals in Produktions-npm-Paketen veröffentlicht werden.
 
 Zweitens, und substanzieller, enthüllt die Source-Map eine **erhebliche Lücke zwischen dem, was Claude Code öffentlich behauptet zu sein, und dem, was es tatsächlich ist**. Die nicht dokumentierte Multi-Agent-Orchestrierung, versteckte Chrome-Automatisierung und allgegenwärtige Telemetrie deuten auf ein Produkt mit Fähigkeiten und Datensammlung hin, denen Benutzer nicht zugestimmt haben.
 

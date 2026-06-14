@@ -9,14 +9,14 @@ readingTime: 5
 tags: ["ai", "tooling", "typescript"]
 tldr:
   - "WebStorm 2026.1 enables the service-powered TypeScript engine by default, reducing CPU usage and improving responsiveness in large projects without changing how you work."
-  - "The AI chat now surfaces Junie, Claude Agent, Codex, Cursor, and GitHub Copilot via the new ACP Registry — install any agent in one click without leaving the IDE."
+  - "The AI chat now surfaces Junie, Claude Agent, Codex, Cursor, and GitHub Copilot via the new ACP Registry, install any agent in one click without leaving the IDE."
   - "Next edit suggestions are available without consuming your AI quota, extending traditional code completion to intelligently propagate related changes across an entire file."
-  - "Code With Me is being sunset in 2026.1 — JetBrains calls out declining demand and is directing users toward more modern collaborative workflows."
+  - "Code With Me is being sunset in 2026.1, JetBrains calls out declining demand and is directing users toward more modern collaborative workflows."
 faq:
   - question: "What does 'service-powered TypeScript engine' mean?"
     answer: "WebStorm now delegates TypeScript parsing, type checking, and language services to an external process rather than running them in the main IDE thread. The result is lower CPU usage and faster responsiveness in large monorepos. It was opt-in before; it's on by default in 2026.1."
   - question: "Is Cursor actually available inside WebStorm now?"
-    answer: "Cursor joined the ACP Registry in March 2026, which means its agent capabilities can be accessed directly from WebStorm's AI chat panel via the Agent Client Protocol. This is different from running Cursor as your primary IDE — it's more like adding Cursor's reasoning model as a backend to WebStorm's chat."
+    answer: "Cursor joined the ACP Registry in March 2026, which means its agent capabilities can be accessed directly from WebStorm's AI chat panel via the Agent Client Protocol. This is different from running Cursor as your primary IDE, it's more like adding Cursor's reasoning model as a backend to WebStorm's chat."
   - question: "What happened to Code With Me?"
     answer: "JetBrains is sunsetting Code With Me, its pair programming and collaborative coding service, starting with 2026.1. It will be unbundled from all JetBrains IDEs and moved to JetBrains Marketplace as a separate plugin. 2026.1 is the last IDE version to officially support it."
   - question: "Does this release support TypeScript 6?"
@@ -27,7 +27,7 @@ WebStorm 2026.1 landed in March with a release that tightens the bond between th
 
 ## Service-Powered TypeScript Engine, On by Default
 
-The most technically significant change in 2026.1 is the service-powered TypeScript engine flipping from opt-in to default. Large TypeScript codebases put constant pressure on editors — type checking, navigation, and refactoring all compete for CPU in the main IDE thread. The service-based engine offloads that work to a separate process, keeping the UI snappier without changing how code is written or how errors are displayed.
+The most technically significant change in 2026.1 is the service-powered TypeScript engine flipping from opt-in to default. Large TypeScript codebases put constant pressure on editors, type checking, navigation, and refactoring all compete for CPU in the main IDE thread. The service-based engine offloads that work to a separate process, keeping the UI snappier without changing how code is written or how errors are displayed.
 
 WebStorm also now shows inlay hints from the TypeScript Go-based language server directly in the editor, if you're running it. And with TypeScript 6 shipping around the same time, the team aligned the editor's defaults with TS6's changed `types` value and `rootDir` behavior, and started preparing for TypeScript 7's `baseUrl` changes.
 
@@ -42,13 +42,13 @@ Highlighting, go-to-definition, and rename refactoring all work correctly on the
 
 ## AI Chat Gets a Full Agent Roster
 
-JetBrains introduced an AI chat panel several releases ago. In 2026.1 it's now an agent hub. The ACP Registry — a marketplace within the IDE — lets you install agents in one click. The list already includes Junie (JetBrains' own agent), Claude Agent, Codex (OpenAI's coding model), Cursor, and GitHub Copilot, with more to come.
+JetBrains introduced an AI chat panel several releases ago. In 2026.1 it's now an agent hub. The ACP Registry, a marketplace within the IDE, lets you install agents in one click. The list already includes Junie (JetBrains' own agent), Claude Agent, Codex (OpenAI's coding model), Cursor, and GitHub Copilot, with more to come.
 
-The practical benefit: you can switch between different agents depending on the task — Codex for certain code generation tasks, Claude for reasoning-heavy work, Cursor's model for others — without leaving the editor. JetBrains calls this the Agent Client Protocol (ACP), and it's designed to be open, so the roster should grow through the year.
+The practical benefit: you can switch between different agents depending on the task, Codex for certain code generation tasks, Claude for reasoning-heavy work, Cursor's model for others, without leaving the editor. JetBrains calls this the Agent Client Protocol (ACP), and it's designed to be open, so the roster should grow through the year.
 
 ## Next Edit Suggestions, Without AI Quota
 
-Code completion in 2026.1 gets a meaningful upgrade. Next edit suggestions go beyond single-token completion: they intelligently apply related changes across the entire file when you press Tab. The example JetBrains gives is updating a function signature — instead of only changing the declaration, it propagates the change to all call sites in the same file.
+Code completion in 2026.1 gets a meaningful upgrade. Next edit suggestions go beyond single-token completion: they intelligently apply related changes across the entire file when you press Tab. The example JetBrains gives is updating a function signature, instead of only changing the declaration, it propagates the change to all call sites in the same file.
 
 Crucially, these suggestions don't consume your AI quota on JetBrains AI Pro, Ultimate, or Enterprise subscriptions. They're a Tab Tab experience that stays local.
 

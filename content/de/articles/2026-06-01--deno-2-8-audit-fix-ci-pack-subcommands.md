@@ -7,7 +7,7 @@ author: lschvn
 tags: ["runtimes", "typescript", "javascript"]
 ---
 
-Deno 2.8 ist da — und diesmal geht es nicht um ein einzelnes Killer-Feature, sondern um eine Sammlung von Quality-of-Life-Verbesserungen, die die Lücke zu Node.js schließen und gleichzeitig wirklich neue Tools hinzufügen. Die Version wurde am 22. Mai veröffentlicht, mit einem Patch (v2.8.1) fünf Tage später.
+Deno 2.8 ist da, und diesmal geht es nicht um ein einzelnes Killer-Feature, sondern um eine Sammlung von Quality-of-Life-Verbesserungen, die die Lücke zu Node.js schließen und gleichzeitig wirklich neue Tools hinzufügen. Die Version wurde am 22. Mai veröffentlicht, mit einem Patch (v2.8.1) fünf Tage später.
 
 <!-- more -->
 
@@ -20,7 +20,7 @@ Deno 2.8 ist da — und diesmal geht es nicht um ein einzelnes Killer-Feature, s
 
 ---
 
-## `deno audit fix` — Ein-Befehl-Schwachstellenbehebung
+## `deno audit fix`: Ein-Befehl-Schwachstellenbehebung
 
 `deno audit` wurde in Deno 2.6 als Sicherheits-Audit-Tool für npm-Pakete eingeführt. Deno 2.8 geht mit `deno audit fix` weiter und aktualisiert verwundbare Pakete automatisch auf die nächste gepatchte Version, die noch den Versionsbeschränkungen entspricht.
 
@@ -37,7 +37,7 @@ Wenn ein Paket ein Major-Version-Upgrade benötigt, listet Deno es separat auf, 
 
 ---
 
-## `deno ci` — Reproduzierbare CI-Installationen
+## `deno ci`: Reproduzierbare CI-Installationen
 
 Deno 2.8 führt `deno ci` ein, einen dedizierten Subcommand für CI-Umgebungen und Dockerfiles. Bisher bedeutete eine reproduzierbare Installation, sich an die richtige Kombination von Flags für `deno install` zu erinnern. Jetzt:
 
@@ -49,7 +49,7 @@ Es gibt einen Fehler aus, wenn `deno.lock` fehlt, entfernt jedes vorhandene `nod
 
 ---
 
-## `deno pack` — npm-Tarballs ohne Deno-Verlassen Bauen
+## `deno pack`: npm-Tarballs ohne Deno-Verlassen Bauen
 
 `deno pack` kombiniert das Verhalten von `tsc` und `npm pack` in einem einzigen Befehl. Ausgehend von einer `deno.json`:
 
@@ -72,7 +72,7 @@ Specifiers werden umgeschrieben, damit Pakete im npm-Ökosystem funktionieren: `
 
 ---
 
-## `deno bump-version` — Semver-Management für Workspaces
+## `deno bump-version`: Semver-Management für Workspaces
 
 `deno bump-version` aktualisiert das Versionsfeld in Ihrer `deno.json` oder `package.json` mit standardmäßigen semver-Incrementen:
 

@@ -1,5 +1,5 @@
 ---
-title: "TypeScript 7 Native Preview: Project Corsa Rewrites the Compiler in Go — and It Changes Everything"
+title: "TypeScript 7 Native Preview: Project Corsa Rewrites the Compiler in Go, and It Changes Everything"
 description: "Microsoft's port of the TypeScript compiler and language service to Go is now measurable: the VS Code codebase compiles in 7.5 seconds instead of 77.8. Here's what the native era means for your build pipeline and editor performance."
 date: "2026-03-23"
 category: "news"
@@ -8,22 +8,22 @@ tags: ["runtimes", "tooling", "typescript"]
 readingTime: 12
 image: "/images/heroes/2026-03-23-typescript-7-native-preview-go-compiler.png"
 tldr:
-  - "Project Corsa ports the TypeScript compiler to Go, cutting VS Code compilation from 77.8s to 7.5s — roughly 10x faster."
+  - "Project Corsa ports the TypeScript compiler to Go, cutting VS Code compilation from 77.8s to 7.5s, roughly 10x faster."
   - "TypeScript 6.0 will be the last JS-based release; TypeScript 7 is the native Go era with shared-memory multithreading."
   - "Node.js now runs TypeScript natively via type stripping (stable since v25.2.0), enabled by default since Node 22.18.0."
-  - "Developers should audit enums and namespaces now — these non-erasable features won't work under type stripping without migration."
+  - "Developers should audit enums and namespaces now, these non-erasable features won't work under type stripping without migration."
 faq:
   - question: "When will TypeScript 7.0 be released?"
     answer: "Microsoft has indicated that TypeScript 7.0 will arrive later in 2026. The native preview based on the Go compiler is already available via the @typescript/native-preview npm tag for testing against your codebase today."
   - question: "How much faster is the Go-based TypeScript compiler?"
-    answer: "Early benchmarks are dramatic. The VS Code codebase compiles in 7.5 seconds versus 77.8 seconds with the JavaScript-based compiler — a roughly 10x improvement. The Playwright test suite dropped from 11.1 seconds to 1.1 seconds. Project load times in VS Code also improved by approximately 8x."
+    answer: "Early benchmarks are dramatic. The VS Code codebase compiles in 7.5 seconds versus 77.8 seconds with the JavaScript-based compiler, a roughly 10x improvement. The Playwright test suite dropped from 11.1 seconds to 1.1 seconds. Project load times in VS Code also improved by approximately 8x."
   - question: "Will my existing TypeScript code work under the Go-based compiler?"
     answer: "For the most part, yes. The Go-based compiler targets feature parity with TypeScript 6.0. However, any code using non-erasable syntax like enums and namespaces may require migration. Enable --erasableSyntaxOnly in CI to surface issues before the transition."
 ---
 
-Microsoft's VS Code codebase compiles in 7.5 seconds under the TypeScript 7 native preview — versus 77.8 seconds with the current JavaScript-based compiler. That's a 10× improvement, and it's the headline result of Project Corsa, Microsoft's full rewrite of the TypeScript compiler and language service in Go.
+Microsoft's VS Code codebase compiles in 7.5 seconds under the TypeScript 7 native preview, versus 77.8 seconds with the current JavaScript-based compiler. That's a 10× improvement, and it's the headline result of Project Corsa, Microsoft's full rewrite of the TypeScript compiler and language service in Go.
 
-TypeScript 7 changes that. Or rather, it will — but the preview is already here, and the numbers are hard to argue with.
+TypeScript 7 changes that. Or rather, it will, but the preview is already here, and the numbers are hard to argue with.
 
 ## Project Corsa: The Native Port
 
@@ -31,7 +31,7 @@ In early 2025, Microsoft announced [Project Corsa](https://devblogs.microsoft.co
 
 ![Compiling VS Code: tsc 5.8 at 77.8s vs TS 7 native preview at 7.5s](/images/charts/typescript-native-compile.png)
 
-The initial benchmarks were striking. On the VS Code codebase itself — a large, real-world TypeScript project — compilation dropped from **77.8 seconds to 7.5 seconds**. On the Playwright test suite, it went from 11.1 seconds to 1.1 seconds. These aren't synthetic micro-benchmarks. They're the same codebase Microsoft uses to build VS Code, running on the same hardware.
+The initial benchmarks were striking. On the VS Code codebase itself, a large, real-world TypeScript project, compilation dropped from **77.8 seconds to 7.5 seconds**. On the Playwright test suite, it went from 11.1 seconds to 1.1 seconds. These aren't synthetic micro-benchmarks. They're the same codebase Microsoft uses to build VS Code, running on the same hardware.
 
 The port isn't complete yet. [TypeScript 6.0](/articles/2026-03-26-typescript-6-0-final-javascript-release) remains the JavaScript-based release that the ecosystem transitions through. Microsoft has indicated that TypeScript 6.0 will be the last major version built on the JS-based toolchain. TypeScript 7 is where the native era begins in earnest.
 
@@ -39,22 +39,22 @@ The port isn't complete yet. [TypeScript 6.0](/articles/2026-03-26-typescript-6-
 
 There are two dimensions to what TypeScript 7 changes, and it's worth separating them.
 
-**The compiler (`tsc`)** — The command-line TypeScript compiler. A Go-based `tsc` means faster compiles, lower memory usage during builds, and better integration with non-JavaScript toolchains. For projects that run `tsc` as part of CI pipelines, this translates directly into faster feedback cycles.
+**The compiler (`tsc`)**, The command-line TypeScript compiler. A Go-based `tsc` means faster compiles, lower memory usage during builds, and better integration with non-JavaScript toolchains. For projects that run `tsc` as part of CI pipelines, this translates directly into faster feedback cycles.
 
-**The language service** — This is what powers VS Code's IntelliSense, error underlining, jump-to-definition, and refactoring. Editor performance is bottlenecked on the language service, not the compiler. Microsoft reports that project load times have decreased roughly **8x** in early testing. For anyone who has waited 30+ seconds for a large TypeScript project to become responsive in VS Code, that number matters.
+**The language service**, This is what powers VS Code's IntelliSense, error underlining, jump-to-definition, and refactoring. Editor performance is bottlenecked on the language service, not the compiler. Microsoft reports that project load times have decreased roughly **8x** in early testing. For anyone who has waited 30+ seconds for a large TypeScript project to become responsive in VS Code, that number matters.
 
 ## Node.js Type Stripping: Running TypeScript Without Transpiling
 
-In parallel with the native compiler work, Node.js has been shipping native TypeScript support through a feature called **type stripping**. This is a fundamentally different approach to running TypeScript — instead of compiling `.ts` files to `.js`, Node.js can now execute TypeScript directly by stripping type annotations before execution.
+In parallel with the native compiler work, Node.js has been shipping native TypeScript support through a feature called **type stripping**. This is a fundamentally different approach to running TypeScript, instead of compiling `.ts` files to `.js`, Node.js can now execute TypeScript directly by stripping type annotations before execution.
 
 The timeline moved fast:
 - Node.js 22.18.0 (July 2025) enabled type stripping by default
 - Warnings were removed in v24.3.0/22.18.0
 - The feature stabilized in v25.2.0
 
-The key distinction is between **erasable syntax** (types, interfaces — anything that disappears at runtime) and **runtime syntax** (enums, namespaces — things that produce actual JavaScript). Type stripping works cleanly for the former. For the latter, the Node.js team has introduced a `--erasableSyntaxOnly` flag that enforces this separation explicitly.
+The key distinction is between **erasable syntax** (types, interfaces, anything that disappears at runtime) and **runtime syntax** (enums, namespaces, things that produce actual JavaScript). Type stripping works cleanly for the former. For the latter, the Node.js team has introduced a `--erasableSyntaxOnly` flag that enforces this separation explicitly.
 
-This means you can now write a TypeScript file and run it with `node file.ts` — no build step, no transpilation. For scripts, CLIs, and quick prototyping, this is a meaningful workflow improvement. For production builds, you'll still want `tsc` for cross-targeting and full type checking, but the gap between "I want to try something" and "running code" shrinks considerably.
+This means you can now write a TypeScript file and run it with `node file.ts`, no build step, no transpilation. For scripts, CLIs, and quick prototyping, this is a meaningful workflow improvement. For production builds, you'll still want `tsc` for cross-targeting and full type checking, but the gap between "I want to try something" and "running code" shrinks considerably.
 
 ## What Developers Need to Do Now
 
@@ -66,12 +66,12 @@ The transition isn't automatic, and there are concrete steps worth taking ahead 
 
 **Add TypeScript 7 preview to CI pipelines.** The `@typescript/native-preview` npm tag lets you test the Go-based compiler against your codebase today. It won't replace your production build yet, but it surfaces any issues before the migration lands.
 
-**Watch for strict-by-default changes.** [TypeScript 6.0](/articles/2026-03-26-typescript-6-0-final-javascript-release) is considering making `strict` mode the default for new projects. If you've been putting off enabling strict checks, now is the time — it won't be optional much longer.
+**Watch for strict-by-default changes.** [TypeScript 6.0](/articles/2026-03-26-typescript-6-0-final-javascript-release) is considering making `strict` mode the default for new projects. If you've been putting off enabling strict checks, now is the time, it won't be optional much longer.
 
 ## The Bigger Picture
 
-Two forces are converging. The first is compiler performance: a native TypeScript compiler solves the biggest pain point in the day-to-day developer experience — slow editor startup and sluggish type-checking in large codebases. The second is runtime support: Node.js running TypeScript natively removes the last friction point between writing a type-annotated file and executing it.
+Two forces are converging. The first is compiler performance: a native TypeScript compiler solves the biggest pain point in the day-to-day developer experience, slow editor startup and sluggish type-checking in large codebases. The second is runtime support: Node.js running TypeScript natively removes the last friction point between writing a type-annotated file and executing it.
 
-Together, they move TypeScript from "a language that compiles to JavaScript" toward something closer to a first-class systems language for the JavaScript ecosystem. Whether that's a good thing depends on your perspective — but the direction is clear, and the performance gains are real.
+Together, they move TypeScript from "a language that compiles to JavaScript" toward something closer to a first-class systems language for the JavaScript ecosystem. Whether that's a good thing depends on your perspective, but the direction is clear, and the performance gains are real.
 
 The JavaScript-based TypeScript era isn't over yet. But TypeScript 7, with its Go-based compiler and the Node.js type-stripping feature it enables, is the beginning of a different chapter.

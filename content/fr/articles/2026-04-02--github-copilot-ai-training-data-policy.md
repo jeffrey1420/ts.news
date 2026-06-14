@@ -1,13 +1,13 @@
 ---
-title: "Le Changement Silencieux de GitHub Copilot : Votre Code Entrainera Leurs Modèles — Sauf si Vous Vous Y Opposez"
-description: "À partir du 24 avril 2026, GitHub utilisera les données d'interaction des utilisateurs Free, Pro et Pro+ de Copilot pour entraîner des modèles IA — sauf opposition manuelle. Les offres Business et Enterprise ne sont pas concernées."
+title: "Le Changement Silencieux de GitHub Copilot : Votre Code Entrainera Leurs Modèles, Sauf si Vous Vous Y Opposez"
+description: "À partir du 24 avril 2026, GitHub utilisera les données d'interaction des utilisateurs Free, Pro et Pro+ de Copilot pour entraîner des modèles IA, sauf opposition manuelle. Les offres Business et Enterprise ne sont pas concernées."
 date: 2026-04-02
 image: "/images/heroes/2026-04-02--github-copilot-ai-training-data-policy.png"
 author: lschvn
 tags: ["security", "ai", "ecosystem"]
 readingTime: 5
 tldr:
-  - "À partir du 24 avril, GitHub utilisera les données d'interaction Copilot Free/Pro/Pro+ (entrées, sorties, extraits de code, contexte) pour entraîner des modèles IA par défaut — sauf opposition."
+  - "À partir du 24 avril, GitHub utilisera les données d'interaction Copilot Free/Pro/Pro+ (entrées, sorties, extraits de code, contexte) pour entraîner des modèles IA par défaut, sauf opposition."
   - "Les utilisateurs Copilot Business et Enterprise, ainsi que ceux ayant déjà refusé, ne sont pas concernés. Le changement vise les abonnés individuels sur tous les plans payants."
   - "L'option de refus se trouve dans les paramètres GitHub, section Copilot, onglet Confidentialité. Si vous ne la modifiez pas, vos données de code améliorent Copilot pour tous."
 ---
@@ -44,11 +44,11 @@ Si vous aviez déjà ce paramètre désactivé, votre préférence est automatiq
 
 ## Le Contexte Plus Large
 
-C'est un schéma familier à l'ère de l'IA : accès gratuit ou peu coûteux en échange de données. La différence ici est que les développeurs — naturellement soucieux de la vie privée — sont le produit. Les extraits de code peuvent révéler des logiques propriétaires, des conceptions d'API internes et des implémentations spécifiques à une entreprise.
+C'est un schéma familier à l'ère de l'IA : accès gratuit ou peu coûteux en échange de données. La différence ici est que les développeurs, naturellement soucieux de la vie privée, sont le produit. Les extraits de code peuvent révéler des logiques propriétaires, des conceptions d'API internes et des implémentations spécifiques à une entreprise.
 
 Plusieurs mainteneurs open source ont déjà exprimé leurs inquiétudes. Le code déposé sur des dépôts publics GitHub est déjà scrapé pour l'entraînement ; cette politique étend cette dynamique aux dépôts privés utilisés via Copilot.
 
-L'option de refus est disponible aujourd'hui. Que vous considériez cela comme un échange équitable pour un meilleur autocomplete est une question de jugement — mais sachez que le compte à rebours a commencé.
+L'option de refus est disponible aujourd'hui. Que vous considériez cela comme un échange équitable pour un meilleur autocomplete est une question de jugement, mais sachez que le compte à rebours a commencé.
 
 ---
 

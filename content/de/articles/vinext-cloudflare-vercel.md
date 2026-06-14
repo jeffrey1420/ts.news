@@ -21,11 +21,11 @@ faq:
     answer: "Cloudflare behauptet, dass der Aufbau auf dem Next.js-Build-Output als Grundlage schwierig und fragil war. By reimplementing from scratch verspricht vinext stabilere Kompatibilität. OpenNext muss den Next.js-Build-Output reverse-engineeren, was zu unvorhersehbaren Änderungen zwischen Versionen führt."
 ---
 
-Am 24. Februar 2026 veröffentlichte Cloudflare einen Blogbeitrag, der Schockwellen durch die Webentwickler-Community sendete. Der Titel: *"Wie wir Next.js mit KI in einer Woche neu erstellt haben."* Das Projekt, **vinext** (ausgesprochen "vee-next"), wurde als experimentelles Vite-Plugin präsentiert, das die Next.js-API-Oberfläche reimplementiert — damit Entwickler ihre Next.js-Anwendungen auf Cloudflare Workers statt auf Vercel ausführen können.
+Am 24. Februar 2026 veröffentlichte Cloudflare einen Blogbeitrag, der Schockwellen durch die Webentwickler-Community sendete. Der Titel: *"Wie wir Next.js mit KI in einer Woche neu erstellt haben."* Das Projekt, **vinext** (ausgesprochen "vee-next"), wurde als experimentelles Vite-Plugin präsentiert, das die Next.js-API-Oberfläche reimplementiert, damit Entwickler ihre Next.js-Anwendungen auf Cloudflare Workers statt auf Vercel ausführen können.
 
 ## Was ist vinext?
 
- vinext ist ein Vite-Plugin, das die öffentliche Next.js-API reimplementiert — Routing, Server-Side Rendering, React Server Components, Server Actions, Caching, Middleware und mehr — auf Vites Build-Infrastruktur statt auf Next.js' proprietären Compiler.
+ vinext ist ein Vite-Plugin, das die öffentliche Next.js-API reimplementiert, Routing, Server-Side Rendering, React Server Components, Server Actions, Caching, Middleware und mehr, auf Vites Build-Infrastruktur statt auf Next.js' proprietären Compiler.
 
 ![vinext baut dieselbe 33-Routen-App 4,4x schneller als Next.js 16](/images/charts/vinext-build.png)
 
@@ -45,7 +45,7 @@ Cloudflares Benchmarks auf einer 33-Routen-App-Router-Anwendung zeigten beeindru
 | Build-Zeit | 7,38s | 1,67s (**4,4× schneller**) |
 | Client-Bundle | 168,9 KB | 72,9 KB (**57% kleiner**) |
 
-Dies sind keine marginalen Verbesserungen — sie repräsentieren eine fundamentale Verschiebung in der Build-Performance.
+Dies sind keine marginalen Verbesserungen, sie repräsentieren eine fundamentale Verschiebung in der Build-Performance.
 
 ### KI-generierter Code im großen Maßstab
 
@@ -70,7 +70,7 @@ Als Cloudflare vinext veröffentlichte, war die Botschaft an Entwickler klar: **
 
 Das vinext GitHub README enthält dies prominent:
 
-> 🚧 **Experimentell — in intensiver Entwicklung.** Dieses Projekt ist ein Experiment in KI-gesteuerter Softwareentwicklung. Die überwältigende Mehrheit des Codes, der Tests und der Dokumentation wurde von KI geschrieben.
+> 🚧 **Experimentell, in intensiver Entwicklung.** Dieses Projekt ist ein Experiment in KI-gesteuerter Softwareentwicklung. Die überwältigende Mehrheit des Codes, der Tests und der Dokumentation wurde von KI geschrieben.
 
 ### Reale Nutzung
 

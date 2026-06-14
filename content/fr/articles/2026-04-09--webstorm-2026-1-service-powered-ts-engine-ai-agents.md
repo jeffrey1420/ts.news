@@ -9,9 +9,9 @@ readingTime: 5
 tags: ["ai", "tooling", "typescript"]
 tldr:
   - "WebStorm 2026.1 active par défaut le moteur TypeScript basé sur un service externe, réduisant l'utilisation CPU et améliorant la réactivité dans les grands projets."
-  - "Le chat IA intègre désormais Junie, Claude Agent, Codex, Cursor et GitHub Copilot via le nouveau registre ACP — installez n'importe quel agent en un clic."
+  - "Le chat IA intègre désormais Junie, Claude Agent, Codex, Cursor et GitHub Copilot via le nouveau registre ACP, installez n'importe quel agent en un clic."
   - "Les suggestions de prochaine édition sont disponibles sans consommer votre quota IA, propageant intelligemment les modifications apparentées dans tout un fichier."
-  - "Code With Me est abandonné dans la 2026.1 — JetBrains invoque une baisse de la demande et oriente les utilisateurs vers des workflows collaboratifs plus modernes."
+  - "Code With Me est abandonné dans la 2026.1, JetBrains invoque une baisse de la demande et oriente les utilisateurs vers des workflows collaboratifs plus modernes."
 faq:
   - question: "Que signifie 'moteur TypeScript alimenté par un service' ?"
     answer: "WebStorm délègue désormais l'analyse TypeScript, la vérification de types et les services linguistiques à un processus externe au lieu de les exécuter dans le thread principal de l'IDE. Le résultat : une utilisation CPU réduite et une meilleure réactivité dans les grands monorepos."
@@ -27,7 +27,7 @@ WebStorm 2026.1 est sorti en mars avec une version qui resserre le lien entre l'
 
 ## Moteur TypeScript basé sur un service, activé par défaut
 
-Le changement le plus significatif techniquement de la 2026.1 est le passage du moteur TypeScript basé sur un service de optionnel à par défaut. Les grandes bases de code TypeScript exercent une pression constante sur les éditeurs — vérification de types, navigation et refactoring compete tous pour le CPU dans le thread principal de l'EDI. Le moteur basé sur un service externalise ce travail vers un processus séparé, gardant l'interface plus réactive sans changer la façon dont le code est écrit.
+Le changement le plus significatif techniquement de la 2026.1 est le passage du moteur TypeScript basé sur un service de optionnel à par défaut. Les grandes bases de code TypeScript exercent une pression constante sur les éditeurs, vérification de types, navigation et refactoring compete tous pour le CPU dans le thread principal de l'EDI. Le moteur basé sur un service externalise ce travail vers un processus séparé, gardant l'interface plus réactive sans changer la façon dont le code est écrit.
 
 WebStorm affiche également désormais les indices inlay du serveur de langage TypeScript basé sur Go directement dans l'éditeur, si vous l'exécutez. Et comme TypeScript 6 sortait environ au même moment, l'équipe a aligné les valeurs par défaut de l'éditeur sur le comportement modifié de TS6 pour `types` et `rootDir`, et a commencé à préparer les changements de `baseUrl` de TypeScript 7.
 
@@ -42,9 +42,9 @@ La coloration syntaxique, la navigation vers la définition et le renommage fonc
 
 ## Le chat IA reçoit une liste complète d'agents
 
-JetBrains a introduit un panneau de chat IA il y a plusieurs versions. Dans la 2026.1, c'est maintenant un hub d'agents. Le registre ACP — une marketplace au sein de l'EDI — vous permet d'installer des agents en un clic. La liste inclut déjà Junie (l'agent propre à JetBrains), Claude Agent, Codex (le modèle de codage d'OpenAI), Cursor et GitHub Copilot, avec d'autres à venir.
+JetBrains a introduit un panneau de chat IA il y a plusieurs versions. Dans la 2026.1, c'est maintenant un hub d'agents. Le registre ACP, une marketplace au sein de l'EDI, vous permet d'installer des agents en un clic. La liste inclut déjà Junie (l'agent propre à JetBrains), Claude Agent, Codex (le modèle de codage d'OpenAI), Cursor et GitHub Copilot, avec d'autres à venir.
 
-Le bénéfice pratique : vous pouvez basculer entre différents agents selon la tâche — Codex pour certaines tâches de génération de code, Claude pour le travail lourd en raisonnement — sans quitter l'éditeur. JetBrains appelle cela le protocole Agent Client (ACP), et c'est conçu pour être ouvert.
+Le bénéfice pratique : vous pouvez basculer entre différents agents selon la tâche, Codex pour certaines tâches de génération de code, Claude pour le travail lourd en raisonnement, sans quitter l'éditeur. JetBrains appelle cela le protocole Agent Client (ACP), et c'est conçu pour être ouvert.
 
 ## Suggestions de prochaine édition, sans quota IA
 

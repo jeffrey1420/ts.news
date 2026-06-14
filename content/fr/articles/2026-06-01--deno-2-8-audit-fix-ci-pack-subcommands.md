@@ -7,7 +7,7 @@ author: lschvn
 tags: ["runtimes", "typescript", "javascript"]
 ---
 
-Deno 2.8 est disponible — et cette fois l'actualité n'est pas une seule fonctionnalité majeure mais un ensemble d'améliorations qualité de vie qui resserrent l'écart avec Node.js tout en ajoutant des outils véritablement nouveaux. La release est tombée le 22 mai, avec un patch (v2.8.1) cinq jours plus tard.
+Deno 2.8 est disponible, et cette fois l'actualité n'est pas une seule fonctionnalité majeure mais un ensemble d'améliorations qualité de vie qui resserrent l'écart avec Node.js tout en ajoutant des outils véritablement nouveaux. La release est tombée le 22 mai, avec un patch (v2.8.1) cinq jours plus tard.
 
 <!-- more -->
 
@@ -20,7 +20,7 @@ Deno 2.8 est disponible — et cette fois l'actualité n'est pas une seule fonct
 
 ---
 
-## `deno audit fix` — Correction de Vulnérabilités en Une Commande
+## `deno audit fix`: Correction de Vulnérabilités en Une Commande
 
 `deno audit` avait été introduit dans Deno 2.6 comme outil d'audit de sécurité pour les paquets npm. Deno 2.8 va plus loin avec `deno audit fix`, qui met automatiquement à niveau les paquets vulnérables vers la version corrigée la plus proche compatible avec vos contraintes de version.
 
@@ -37,7 +37,7 @@ Si un paquet nécessite une mise à jour de version majeure, Deno l'affiche sép
 
 ---
 
-## `deno ci` — Installations CI Reproductibles
+## `deno ci`: Installations CI Reproductibles
 
 Deno 2.8 introduit `deno ci`, une sous-commande dédiée aux environnements CI et Dockerfiles. Auparavant, obtenir une installation reproductible nécessitait de mémoriser la bonne combinaison de flags pour `deno install`. Maintenant :
 
@@ -49,7 +49,7 @@ La commande génère une erreur si `deno.lock` est absent, supprime tout `node_m
 
 ---
 
-## `deno pack` — Construire des Tarballs npm Sans Quitter Deno
+## `deno pack`: Construire des Tarballs npm Sans Quitter Deno
 
 `deno pack` combine le comportement de `tsc` et `npm pack` en une seule commande. Partant d'un `deno.json` :
 
@@ -72,7 +72,7 @@ Les spécifieurs sont réécrits pour que les paquets fonctionnent dans l'écosy
 
 ---
 
-## `deno bump-version` — Gestion Semver pour Workspaces
+## `deno bump-version`: Gestion Semver pour Workspaces
 
 `deno bump-version` met à jour le champ version dans votre `deno.json` ou `package.json` avec les incréments semver standard :
 

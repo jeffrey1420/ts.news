@@ -20,13 +20,13 @@ A: The Electron version drops Bun-specific API support. Plugins using Bun-only A
 
 ## TypeScript All the Way Down
 
-OpenCode is an open source AI coding agent built entirely in TypeScript. Its architecture follows a client-server model where the TUI, web UI, and desktop clients all communicate with a central server that handles LLM interactions, agent loops, and an SQLite database. This means a running server process is always required — which is what the Desktop app has always been wrapper around.
+OpenCode is an open source AI coding agent built entirely in TypeScript. Its architecture follows a client-server model where the TUI, web UI, and desktop clients all communicate with a central server that handles LLM interactions, agent loops, and an SQLite database. This means a running server process is always required, which is what the Desktop app has always been wrapper around.
 
 The initial Desktop build used Tauri, chosen for its lightweight profile as a thin webview container. On startup, it would launch the bundled CLI via `opencode serve`, giving the web UI a local server to connect to. It worked, but over time two problems compounded.
 
 ## The WebKit Problem
 
-Tauri uses the system WebView on macOS and Linux — WebKit on those platforms, and WebView2 on Windows. The OpenCode team found that WebKit not only renders their UI with worse performance than Chromium, but also produces minor visual inconsistencies between platforms. For an application used daily by developers who switch between operating systems, consistency matters.
+Tauri uses the system WebView on macOS and Linux, WebKit on those platforms, and WebView2 on Windows. The OpenCode team found that WebKit not only renders their UI with worse performance than Chromium, but also produces minor visual inconsistencies between platforms. For an application used daily by developers who switch between operating systems, consistency matters.
 
 > "Tauri has an ongoing effort to support Chromium via CEF instead of the system webview, but when that will be stable remains uncertain."
 
@@ -36,17 +36,17 @@ There is an active Chromium Embedded Framework (CEF) effort inside Tauri, but no
 
 The second issue was the bundled CLI itself. The OpenCode server code originally relied on Bun-specific APIs, which meant bundling the Bun CLI inside Tauri. This had two consequences: slower startup times, and occasional failures on Windows that the team spent significant effort working around.
 
-When OpenCode decided to move away from Bun-specific APIs anyway (in favor of Node compatibility), the appeal of bundling an entire CLI disappeared. Electron's built-in Node process could simply run the server directly — no subprocess, no extra binary, no startup tax.
+When OpenCode decided to move away from Bun-specific APIs anyway (in favor of Node compatibility), the appeal of bundling an entire CLI disappeared. Electron's built-in Node process could simply run the server directly, no subprocess, no extra binary, no startup tax.
 
 ## What Changes and What Doesn't
 
-OpenCode Desktop will soon ship the Electron build as the default for direct downloads and beta-channel updates, eventually moving general releases over as well. The underlying server still runs TypeScript — it just now executes inside Electron's Node process rather than a bundled external binary.
+OpenCode Desktop will soon ship the Electron build as the default for direct downloads and beta-channel updates, eventually moving general releases over as well. The underlying server still runs TypeScript, it just now executes inside Electron's Node process rather than a bundled external binary.
 
 The team is straightforward about the tradeoff: plugins that depend on Bun-specific APIs will not work in the Electron builds. A full explanation is promised with OpenCode 2.0.
 
 ## Not a Judgment on Rust or Tauri
 
-The OpenCode team took care to frame this as a use-case-driven decision, not a value judgment on Tauri or Rust. Tauri excels when an application's core logic lives in Rust and the webview is genuinely lightweight — as was the case with a previous video encoding project the author worked on. OpenCode's logic, however, is all TypeScript, meaning Rust's advantages never applied to the compute-heavy part of the stack.
+The OpenCode team took care to frame this as a use-case-driven decision, not a value judgment on Tauri or Rust. Tauri excels when an application's core logic lives in Rust and the webview is genuinely lightweight, as was the case with a previous video encoding project the author worked on. OpenCode's logic, however, is all TypeScript, meaning Rust's advantages never applied to the compute-heavy part of the stack.
 
 > "If you're building an app with a simpler UI that demands native performance or easy access to system APIs, I think Tauri is still a great fit."
 

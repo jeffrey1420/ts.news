@@ -17,7 +17,7 @@ tldr:
 
 Die wichtigste neue Funktion in v2.9.16 ist der **Heap-Allocation-Profiling-Support** über OpenTelemetry. Dieses Release fügt Heap-Daten zu Turborepos bestehender OTEL-Trace-Ausgabe hinzu, sodass Sie den Speicherverbrauch pro Task und Package sehen können.
 
-Um es zu nutzen, zeigen Sie mit `TURBO_TRACE_ENDPOINT` auf Ihren OTEL-Collector — Heap-Daten erscheinen jetzt neben den vorhandenen Duration- und Span-Informationen.
+Um es zu nutzen, zeigen Sie mit `TURBO_TRACE_ENDPOINT` auf Ihren OTEL-Collector, Heap-Daten erscheinen jetzt neben den vorhandenen Duration- und Span-Informationen.
 
 ## pnpm Injected Peer Fix
 
@@ -29,8 +29,8 @@ Turborepo v2.9.16 härtet auch die **OTEL-Endpoint-URL-Validierung**. Fehlerhaft
 
 ## PTY-Shutdown und npm tlog Fixes
 
-- **PTY-Shutdown-Hang** — auf bestimmten Linux-Distributionen konnte der Pseudo-Terminal beim Herunterfahren hängen bleiben. Behoben.
-- **npm tlog Retry** —transiente Netzwerkfehler beim npm-Publishing werden jetzt automatisch wiederholt.
+- **PTY-Shutdown-Hang**: auf bestimmten Linux-Distributionen konnte der Pseudo-Terminal beim Herunterfahren hängen bleiben. Behoben.
+- **npm tlog Retry**: transiente Netzwerkfehler beim npm-Publishing werden jetzt automatisch wiederholt.
 
 ## Update
 

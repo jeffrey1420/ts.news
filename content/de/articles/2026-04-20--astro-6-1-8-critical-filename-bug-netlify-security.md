@@ -15,7 +15,7 @@ faq:
   - question: "Wie schwerwiegend ist die /_image-Endpoint-Sicherheitslücke?"
     answer: "Mittel. Ein Angreifer konnte eine Anfrage an /_image?url=<interner-endpoint>&f=svg basteln, die internen JSON oder HTML mit einem image/svg+xml Content-Type Header zurückgab. Die Auswirkung wird durch das erforderliche allowedDomains begrenzt."
   - question: "Sollte ich sofort upgraden?"
-    answer: "Ja, besonders wenn Sie auf Netlify oder Vercel deployen. Der Dateinamen-Bug kann stillschweigend kaputte Deployments produzieren — der Build läuft durch, aber manche Seiten laden in der Produktion nicht."
+    answer: "Ja, besonders wenn Sie auf Netlify oder Vercel deployen. Der Dateinamen-Bug kann stillschweigend kaputte Deployments produzieren, der Build läuft durch, aber manche Seiten laden in der Produktion nicht."
 ---
 
 Astro 6.1.8 erschien am 18. April mit zwei Fixes, die Entwickler auf Netlify oder Vercel sofort anwenden sollten.
@@ -24,13 +24,13 @@ Astro 6.1.8 erschien am 18. April mit zwei Fixes, die Entwickler auf Netlify ode
 
 Der wichtigste Fix adressiert eine Regression: Build-Output-Dateinamen konnten Sonderzeichen (`!`, `~`, `{`, `}`) enthalten, die auf bestimmten Deployment-Plattformen ungültig oder getrimmt werden.
 
-Das Problem zeigt sich auf Netlify. Die Skew-Protection von Netlify — die sicherstellt, dass deployte Assets zum Build-Output passen — entfernt diese Zeichen vor dem Deployment. Wenn Ihr gebautes HTML auf `chunk.abc123!~{x}.js` verweist und Netlify es als `chunk.abc123.js` ausliefert, ist die Referenz kaputt.
+Das Problem zeigt sich auf Netlify. Die Skew-Protection von Netlify, die sicherstellt, dass deployte Assets zum Build-Output passen, entfernt diese Zeichen vor dem Deployment. Wenn Ihr gebautes HTML auf `chunk.abc123!~{x}.js` verweist und Netlify es als `chunk.abc123.js` ausliefert, ist die Referenz kaputt.
 
 Das Astro-Team bestätigt, dass dies Builds betraf, bei denen dynamische Imports oder bestimmte Code-Splitting-Patterns Chunks mit Hash-Segmenten erzeugten, die diese Zeichen enthielten. Version 6.1.8 normalisiert die Ausgabe-Dateinamen.
 
 ## /_image Endpoint Content-Type Confusion
 
-Der zweite bemerkenswerte Fix schließt eine Sicherheitslücke im integrierten Bildoptimierungs-Endpoint von Astro (`/_image`). Der Endpoint akzeptierte einen beliebigen `f=svg` Query-Parameter und lieferte den von der Upstream-URL zurückgegebenen Inhalt als `image/svg+xml` aus — ohne zu prüfen, ob der Inhalt tatsächlich SVG war.
+Der zweite bemerkenswerte Fix schließt eine Sicherheitslücke im integrierten Bildoptimierungs-Endpoint von Astro (`/_image`). Der Endpoint akzeptierte einen beliebigen `f=svg` Query-Parameter und lieferte den von der Upstream-URL zurückgegebenen Inhalt als `image/svg+xml` aus, ohne zu prüfen, ob der Inhalt tatsächlich SVG war.
 
 Ein Angreifer konnte dies für Content-Type-Confusion-Angriffe oder Cache-Poisoning nutzen. Das Astro-Team merkt an, dass der Endpoint `allowedDomains` explizit erfordert, was die Angriffsfläche begrenzt, aber der Fix ist dennoch richtig.
 

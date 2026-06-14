@@ -1,6 +1,6 @@
 ---
 title: "Vite 8 Stable: Sieben Patches in drei Wochen nach dem Stable-Release"
-description: "Vite 8.0.0 stable wurde am 12. März veröffentlicht, und die Patches haben nicht aufgehört — v8.0.7 landete am 7. April mit Fixes für CSS, SSR, WASM und Dev-Server-Verhalten. Ein Kontrast zum langen Beta-Zyklus."
+description: "Vite 8.0.0 stable wurde am 12. März veröffentlicht, und die Patches haben nicht aufgehört, v8.0.7 landete am 7. April mit Fixes für CSS, SSR, WASM und Dev-Server-Verhalten. Ein Kontrast zum langen Beta-Zyklus."
 image: "/images/heroes/2026-04-08--vite-8-stable-seven-patches-in-three-weeks.png"
 date: "2026-04-08"
 category: Tooling
@@ -11,7 +11,7 @@ tldr:
   - "Vite 8.0.0 stable wurde am 12. März 2026 veröffentlicht, mit Rolldown als unified Bundler, der sowohl ESBuild als auch Rollup ersetzt."
   - "Sieben Patches (v8.0.1 bis v8.0.7) folgten in drei Wochen, mit Fixes für CSS, WASM SSR, Dev-Server-Neustarts und Sourcemap-Handling."
   - "Die Weiterleitung der Browser-Konsole an das Dev-Server-Terminal war eine stark nachgefragte DX-Verbesserung, die im Beta-Zyklus hinzugefügt wurde."
-  - "Die rasante Patch-Frequenz spiegelt die Herausforderungen eines großen Bundler-Wechsels wider — Plugin-Autoren und große Projekte sollten das Changelog genau beobachten."
+  - "Die rasante Patch-Frequenz spiegelt die Herausforderungen eines großen Bundler-Wechsels wider, Plugin-Autoren und große Projekte sollten das Changelog genau beobachten."
 faq:
   - question: "Ist Vite 8 stable sicher für die Produktion?"
     answer: "Mit sieben Patches in drei Wochen adressiert das Vite-Team aktiv Regressionen. Für neue Projekte ist v8 vertretbar. Für große bestehende Projekte mit komplexer Build-Konfiguration: vor dem Upgrade testen."
@@ -25,9 +25,9 @@ Vite 8.0.0 ist am 12. März 2026 stable geworden. Drei Wochen und sieben Patches
 
 ## Was Stable mitbrachte
 
-Die Hauptänderung ist Rolldown. Vite 8 basiert auf `rolldown 1.0.0-rc.9`, das sowohl ESBuild (für Dependency Pre-Bundling) als auch Rollup (für Production-Builds) durch einen einzelnen Rust-basierten Bundler ersetzt. Die Performance- und Speichervorteile sind real — besonders für größere Projekte — aber auch die Edge Cases, wenn Hunderte von Community-Plugins gegen die exakte Hook-Schnittstelle von Rollup geschrieben wurden.
+Die Hauptänderung ist Rolldown. Vite 8 basiert auf `rolldown 1.0.0-rc.9`, das sowohl ESBuild (für Dependency Pre-Bundling) als auch Rollup (für Production-Builds) durch einen einzelnen Rust-basierten Bundler ersetzt. Die Performance- und Speichervorteile sind real, besonders für größere Projekte, aber auch die Edge Cases, wenn Hunderte von Community-Plugins gegen die exakte Hook-Schnittstelle von Rollup geschrieben wurden.
 
-Ebenfalls neu: Browser-Konsolen-Output wird jetzt an das Dev-Server-Terminal weitergeleitet. Das war eine häufig gewünschte DX-Verbesserung — Fehler und Logs erscheinen nun dort, wo man bereits hinschaut.
+Ebenfalls neu: Browser-Konsolen-Output wird jetzt an das Dev-Server-Terminal weitergeleitet. Das war eine häufig gewünschte DX-Verbesserung, Fehler und Logs erscheinen nun dort, wo man bereits hinschaut.
 
 ## Die Patch-Bilanz
 

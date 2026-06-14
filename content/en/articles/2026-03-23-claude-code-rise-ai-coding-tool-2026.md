@@ -14,24 +14,24 @@ tldr:
   - "Heavy Claude Code usage costs $100–$300/month via API tokens, powered by Claude Opus 4.6 which leads SWE-bench at 74.4%."
 faq:
   - question: "Why did Claude Code overtake Cursor and Copilot so quickly?"
-    answer: "Claude Code's terminal-first, agentic approach proved more powerful for the tasks developers cared most about — large refactors, autonomous feature implementation, and debugging sessions. Within eight months of its May 2025 launch, it captured 46% 'most loved' versus Cursor's 19% and Copilot's 9%."
+    answer: "Claude Code's terminal-first, agentic approach proved more powerful for the tasks developers cared most about, large refactors, autonomous feature implementation, and debugging sessions. Within eight months of its May 2025 launch, it captured 46% 'most loved' versus Cursor's 19% and Copilot's 9%."
   - question: "Is Claude Code worth the cost compared to Cursor at $20/month?"
-    answer: "For day-to-day line-level coding, Cursor's $20/month is hard to beat. But for large refactors, greenfield projects, and agentic workflows, Claude Code's capability advantage justifies $100–$300/month for power users. They're complementary — many developers use both."
+    answer: "For day-to-day line-level coding, Cursor's $20/month is hard to beat. But for large refactors, greenfield projects, and agentic workflows, Claude Code's capability advantage justifies $100–$300/month for power users. They're complementary, many developers use both."
   - question: "Which tool should I start with if I'm new to AI coding assistants?"
-    answer: "Start with Cursor if you're primarily doing frontend or day-to-day coding — it's editor-native and lower cost. Move to Claude Code when you need to tackle multi-file refactors, understand unfamiliar codebases, or run autonomous agentic loops from the terminal."
+    answer: "Start with Cursor if you're primarily doing frontend or day-to-day coding, it's editor-native and lower cost. Move to Claude Code when you need to tackle multi-file refactors, understand unfamiliar codebases, or run autonomous agentic loops from the terminal."
 ---
 
-Eight months. That's how long it took for Claude Code — Anthropic's CLI-based AI coding tool released in May 2025 — to go from launch to the most-loved AI coding tool in the developer community, reaching a 46% "most loved" rating by early 2026.
+Eight months. That's how long it took for Claude Code, Anthropic's CLI-based AI coding tool released in May 2025, to go from launch to the most-loved AI coding tool in the developer community, reaching a 46% "most loved" rating by early 2026.
 
 For context, those numbers represent a stunning reversal of the market that had been dominated by Copilot for three years and Cursor for two. Cursor sat at 19%, GitHub Copilot at 9%.
 
-But metrics don't tell you when to use which tool. They don't tell you that Cursor still has real advantages for day-to-day frontend work, or that Copilot's integration with the broader GitHub ecosystem remains a genuine differentiator. This is a breakdown of what each tool actually does well — based on months of daily use across multiple projects, not sponsored benchmarks.
+But metrics don't tell you when to use which tool. They don't tell you that Cursor still has real advantages for day-to-day frontend work, or that Copilot's integration with the broader GitHub ecosystem remains a genuine differentiator. This is a breakdown of what each tool actually does well, based on months of daily use across multiple projects, not sponsored benchmarks.
 
 ## The Landscape in 2026: Why This Comparison Actually Matters
 
 The AI coding tool category underwent a fundamental shift in 2025. By early 2026, 95% of developers use AI tools at least weekly, and 75% use AI for more than half of their coding work. That stopped being a niche a while ago. The tooling matured past autocomplete, too: these tools plan features, write and run tests, refactor across dozens of files, and execute agentic loops that can take a problem from description to working implementation without you touching the keyboard.
 
-The approach has a new name too: "agentic engineering" replaced "vibe coding." Whatever you call it, it represents a meaningfully different way of working — and the tools that do it well have pulled ahead of the ones that don't.
+The approach has a new name too: "agentic engineering" replaced "vibe coding." Whatever you call it, it represents a meaningfully different way of working, and the tools that do it well have pulled ahead of the ones that don't.
 
 ## Claude Code: The Terminal Tool That Took Over
 
@@ -39,18 +39,18 @@ Claude Code is Anthropic's CLI-based AI coding tool. There is no IDE integration
 
 That sounds primitive. In practice, it's the most capable tool in the category for certain classes of work.
 
-**What makes it different:** Claude Code lives in the shell, not in an editor. It has direct access to your file system, git history, test suite, and terminal output. When you ask it to build a feature, it reads relevant files, checks git context, writes changes, runs tests, and iterates based on what breaks — all without you clicking anything. The agentic loop is tighter than editor-based tools because it isn't constrained by a plugin architecture.
+**What makes it different:** Claude Code lives in the shell, not in an editor. It has direct access to your file system, git history, test suite, and terminal output. When you ask it to build a feature, it reads relevant files, checks git context, writes changes, runs tests, and iterates based on what breaks, all without you clicking anything. The agentic loop is tighter than editor-based tools because it isn't constrained by a plugin architecture.
 
-The model powering it is Claude Opus 4.6, which leads [SWE-bench](/articles/2026-03-23-typescript-7-native-preview-go-compiler) at 74.4% — the most widely-used benchmark for AI coding performance on real software engineering tasks.
+The model powering it is Claude Opus 4.6, which leads [SWE-bench](/articles/2026-03-23-typescript-7-native-preview-go-compiler) at 74.4%, the most widely-used benchmark for AI coding performance on real software engineering tasks.
 
 **Where Claude Code genuinely shines:**
 - Large refactors across many files. It can take a codebase of tens of thousands of lines, understand the architecture, and execute a refactor consistently. Editor-based tools typically struggle past a few files at a time.
 - Debugging sessions. When something is broken and you don't know why, the conversational terminal loop works better than clicking through an IDE. You paste errors, run commands, iterate.
-- Greenfield projects. Starting from scratch? Claude Code scaffolds full project structures and wires up stacks fast — functional Express APIs with auth and database in under 20 minutes.
+- Greenfield projects. Starting from scratch? Claude Code scaffolds full project structures and wires up stacks fast, functional Express APIs with auth and database in under 20 minutes.
 - Understanding unfamiliar codebases. If you inherit someone else's code, Claude Code walks through it with you, explains architecture, finds where things live.
 
 **Where it falls short:**
-- No GUI. For design-heavy frontend work, not being inside an editor is a real limitation. You can't point at a component and say "change this" — you have to describe it, which is a different skill.
+- No GUI. For design-heavy frontend work, not being inside an editor is a real limitation. You can't point at a component and say "change this", you have to describe it, which is a different skill.
 - Token cost. Because it reads broadly at the project level, Claude Code burns through tokens faster than tab-completion tools. Heavy daily use can run $100–$300/month.
 - Learning curve. Getting good at Claude Code means learning to prompt at the architectural level, not just the line level. That takes practice.
 
@@ -60,12 +60,12 @@ The model powering it is Claude Opus 4.6, which leads [SWE-bench](/articles/2026
 
 Cursor is a fork of VS Code with AI deeply integrated into the editing experience. It launched in 2023 and built a loyal following among developers who wanted AI capabilities without changing their workflow.
 
-In 2026, [Cursor](/articles/cursor-composer-2-kimi-k25) remains the tool of choice for a significant portion of the professional developer community — not because it wins on benchmarks, but because it fits naturally into how most developers already work.
+In 2026, [Cursor](/articles/cursor-composer-2-kimi-k25) remains the tool of choice for a significant portion of the professional developer community, not because it wins on benchmarks, but because it fits naturally into how most developers already work.
 
-**What makes it different:** Cursor gives you everything VS Code gives you — all your existing extensions, keybindings, and settings — with AI layered on top. The Composer feature handles multi-file instructions. The chat sidebar answers questions about your codebase. Autocomplete is fast and context-aware. The key difference from Claude Code is that Cursor is editor-first: the AI works with the code you're looking at, not from a birds-eye view of your whole repository.
+**What makes it different:** Cursor gives you everything VS Code gives you, all your existing extensions, keybindings, and settings, with AI layered on top. The Composer feature handles multi-file instructions. The chat sidebar answers questions about your codebase. Autocomplete is fast and context-aware. The key difference from Claude Code is that Cursor is editor-first: the AI works with the code you're looking at, not from a birds-eye view of your whole repository.
 
 **Where Cursor genuinely shines:**
-- Day-to-day coding. For writing code file by file, Cursor's inline AI is fast. Tab completion that understands context — not just adjacent tokens — makes the baseline writing experience measurably better.
+- Day-to-day coding. For writing code file by file, Cursor's inline AI is fast. Tab completion that understands context, not just adjacent tokens, makes the baseline writing experience measurably better.
 - Frontend work. Being inside an editor means you can reference files visually, inspect component trees, and describe UI changes in a way that terminal tools can't match.
 - Quick targeted edits. For "rename this variable everywhere," "add error handling to this function," or "write a unit test for this method," Cursor is faster because the scope is contained.
 - Price-to-value. Cursor Pro is $20/month with access to multiple frontier models. For a professional developer, that's a reasonable cost.
@@ -78,7 +78,7 @@ In 2026, [Cursor](/articles/cursor-composer-2-kimi-k25) remains the tool of choi
 
 ## GitHub Copilot: The Ecosystem Player
 
-GitHub Copilot was first to market and retains one genuine structural advantage: deep integration with the GitHub ecosystem — pull requests, issues, GitHub Actions, Codespaces. For developers who live entirely within GitHub's workflow, this integration is seamless in a way that neither Claude Code nor Cursor can match.
+GitHub Copilot was first to market and retains one genuine structural advantage: deep integration with the GitHub ecosystem, pull requests, issues, GitHub Actions, Codespaces. For developers who live entirely within GitHub's workflow, this integration is seamless in a way that neither Claude Code nor Cursor can match.
 
 But on raw capability, Copilot has fallen behind. The "most loved" rating of 9% reflects a tool that feels like it peaked. Its agentic features are less mature, its context window is smaller, and its model performance on SWE-bench trails Claude Opus 4.6 by a meaningful margin.
 
@@ -94,6 +94,6 @@ The 2026 AI coding tool landscape rewards specificity:
 - **Debugging complex issues across a large codebase?** Claude Code.
 - **Need the cheapest viable option for line-level autocomplete?** Cursor.
 
-These tools aren't converging — they're diverging. Claude Code went all-in on terminal-based agentic workflows. Cursor stayed inside the editor and optimized for the daily writing experience. Copilot stayed close to GitHub and paid the price in capability.
+These tools aren't converging, they're diverging. Claude Code went all-in on terminal-based agentic workflows. Cursor stayed inside the editor and optimized for the daily writing experience. Copilot stayed close to GitHub and paid the price in capability.
 
 The "best" tool depends entirely on what you're doing. But if you're not using Claude Code for large-scale work and Cursor for day-to-day editing, you're probably leaving time on the table.

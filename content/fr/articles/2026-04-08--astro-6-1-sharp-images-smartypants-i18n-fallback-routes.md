@@ -8,15 +8,15 @@ author: lschvn
 readingTime: 4
 tags: ["frameworks", "tooling", "javascript"]
 tldr:
-  - "Astro 6.1 expose les options d'encodage de Sharp au niveau du pipeline — MozJPEG, effort WebP, sous-échantillonnage chroma AVIF et compression PNG peuvent désormais être définis par défaut."
-  - "Le plugin SmartyPants accepte maintenant un objet d'options complet pour affiner les tirets, guillemets, apostrophes et ellipses — utile pour la localisation et les standards typographiques."
+  - "Astro 6.1 expose les options d'encodage de Sharp au niveau du pipeline, MozJPEG, effort WebP, sous-échantillonnage chroma AVIF et compression PNG peuvent désormais être définis par défaut."
+  - "Le plugin SmartyPants accepte maintenant un objet d'options complet pour affiner les tirets, guillemets, apostrophes et ellipses, utile pour la localisation et les standards typographiques."
   - "Les intégrations peuvent désormais accéder aux routes de repli i18n via `fallbackRoutes` sur le type `IntegrationResolvedRoute`, corrigeant les intégrations sitemap et routage."
   - "Astro a rejoint Cloudflare en janvier 2026 ; l'acquisition se reflète dans les priorités : sites riches en contenu, optimisés pour le edge."
 faq:
   - question: "Quelles sont les nouveautés d'Astro 6.1 par rapport à la 6.0 ?"
     answer: "Les fonctionnalités principales sont la configuration de l'encodeur Sharp au niveau du pipeline, le support de l'objet options pour SmartyPants, et l'exposition de `fallbackRoutes` sur le hook d'intégration. Ce sont des ajouts ciblés par rapport à la 6.0."
   - question: "Dois-je changer quelque chose en passant de Astro 6.0 ?"
-    answer: "Astro 6.1 est une version mineure — aucune rupture attendue. Les paramètres par défaut de Sharp sont additifs, et le comportement de SmartyPants est préservé sauf configuration explicite."
+    answer: "Astro 6.1 est une version mineure, aucune rupture attendue. Les paramètres par défaut de Sharp sont additifs, et le comportement de SmartyPants est préservé sauf configuration explicite."
   - question: "Que signifie 'les routes de repli i18n pour les intégrations' ?"
     answer: "Les sites utilisant `fallbackType: 'rewrite'` génèrent des routes supplémentaires qui n'étaient pas visibles par les intégrations. Astro 6.1 les expose via le hook `astro:routes:resolved`."
 ---
@@ -25,7 +25,7 @@ Astro 6.1 est sorti le 31 mars, et même si ce n'est pas une release aussi spect
 
 ## Sharp : contrôles au niveau de l'encodeur
 
-Le changement le plus utile en pratique : vous pouvez désormais définir les valeurs par défaut spécifiques au codec pour le pipeline d'images intégré à Astro. Avant la 6.1, vous pouviez contrôler la `quality` par image, mais les options sous-jacentes de l'encodeur — niveau MozJPEG, effort WebP, sous-échantillonnage AVIF, compression PNG — étaient fixes.
+Le changement le plus utile en pratique : vous pouvez désormais définir les valeurs par défaut spécifiques au codec pour le pipeline d'images intégré à Astro. Avant la 6.1, vous pouviez contrôler la `quality` par image, mais les options sous-jacentes de l'encodeur, niveau MozJPEG, effort WebP, sous-échantillonnage AVIF, compression PNG, étaient fixes.
 
 En 6.1, avec `astro/assets/services/sharp` :
 
@@ -72,7 +72,7 @@ Les conventions typographiques françaises, allemandes ou nordiques qui nécessi
 
 ## Routes de repli i18n accessibles aux intégrations
 
-Les intégrations peuvent désormais voir les routes de repli générées pour les configurations i18n avec `fallbackType: 'rewrite'`. Auparavant, ces routes existaient mais n'étaient pas exposées via le hook `astro:routes:resolved`. Les intégrations qui construisent des index de routes — notamment le sitemap — pouvaient générer des sitemaps incomplets.
+Les intégrations peuvent désormais voir les routes de repli générées pour les configurations i18n avec `fallbackType: 'rewrite'`. Auparavant, ces routes existaient mais n'étaient pas exposées via le hook `astro:routes:resolved`. Les intégrations qui construisent des index de routes, notamment le sitemap, pouvaient générer des sitemaps incomplets.
 
 La 6.1 ajoute `fallbackRoutes` au type `IntegrationResolvedRoute`, permettant aux intégrations sitemap et de routage de fonctionner correctement.
 

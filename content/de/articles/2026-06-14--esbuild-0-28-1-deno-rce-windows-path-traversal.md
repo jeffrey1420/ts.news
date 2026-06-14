@@ -28,7 +28,7 @@ Weil esbuild unter [Vites Dependency-Optimizer und TS/JSX-Pipeline](/articles/20
 
 Das ernsteste Element ist [GHSA-gv7w-rqvm-qjhr](https://github.com/evanw/esbuild/security/advisories/GHSA-gv7w-rqvm-qjhr), eingestuft als High mit CVSS 8.1. Die Deno-Distribution von esbuild (`lib/deno/mod.ts`) lädt die native esbuild-Binary aus einer npm-Registry herunter und schreibt sie mit ausführbaren Berechtigungen (`0o755`) auf die Platte, ohne ihren Inhalt zu verifizieren. Der Node-Installer hatte bereits ein `binaryIntegrityCheck()`, das einen SHA-256-Hash der heruntergeladenen Binary gegen erwartete Werte aus `package.json` vergleicht; der Deno-Pfad bekam das Pendant nie.
 
-Der Angrifsvektor ist die Umgebungsvariable `NPM_CONFIG_REGISTRY`. Das Deno-Modul baut seine Download-URL aus dieser Variable, daher kann jeder, der sie setzen kann, in einer CI-Pipeline, einer geteilten Entwicklungsmaschine oder einem Firmennetzwerk, das npm über eine Custom-Registry proxied, eine trojanierte Binary ausliefern, die esbuild gern ausführt. Das ist dieselbe Klasse von Supply-Chain-Vertrauensversagen, die den jüngsten [npm-`shai-hulud`-Account-Takeover-Vorfall](/articles/2026-06-06--npm-supply-chain-attack-red-hat-mini-shai-hulud) hervorgebracht hat: Die Registry ist standardmäßig vertraut, und es gibt keinen zweiten Check beim Konsumenten.
+Der Angriffsvektor ist die Umgebungsvariable `NPM_CONFIG_REGISTRY`. Das Deno-Modul baut seine Download-URL aus dieser Variable, daher kann jeder, der sie setzen kann, in einer CI-Pipeline, einer geteilten Entwicklungsmaschine oder einem Firmennetzwerk, das npm über eine Custom-Registry proxied, eine trojanierte Binary ausliefern, die esbuild gern ausführt. Das ist dieselbe Klasse von Supply-Chain-Vertrauensversagen, die den jüngsten [npm-`shai-hulud`-Account-Takeover-Vorfall](/articles/2026-06-06--npm-supply-chain-attack-red-hat-mini-shai-hulud) hervorgebracht hat: Die Registry ist standardmäßig vertraut, und es gibt keinen zweiten Check beim Konsumenten.
 
 0.28.1 portiert die SHA-256-Integritätsprüfung auf den Deno-Installer. Eine Binary, deren Hash nicht zum erwarteten Wert passt, schlägt jetzt mit einem Fehler fehl, statt ausgeführt zu werden. Beachtet, dass esbuilds Deno-API weiterhin standardmäßig aus `registry.npmjs.org` installiert und weiterhin `NPM_CONFIG_REGISTRY` respektiert; der Fix ist die Verifikation, nicht ein Quellenwechsel.
 
@@ -46,7 +46,7 @@ queryPath := path.Clean(req.URL.Path)[1:]
 
 ## Der `using`- und `await using`-Minifier-Bug
 
-Der dritte Fix ist der, für den die meisten Anwendungsentwickler ihren Output tatsächlich auditiern sollten. [Issue #4482](https://github.com/evanw/esbuild/issues/4482): Der Minifier von esbuild hat manchmal eine `using`- oder `await using`-Deklaration in ihre spätere Verwendung inlined, was das Binding verwirft und bedeutet, dass `Symbol.dispose` / `Symbol.asyncDispose` nie läuft. Der Fehler sieht so aus:
+Der dritte Fix ist der, für den die meisten Anwendungsentwickler ihren Output tatsächlich auditieren sollten. [Issue #4482](https://github.com/evanw/esbuild/issues/4482): Der Minifier von esbuild hat manchmal eine `using`- oder `await using`-Deklaration in ihre spätere Verwendung inlined, was das Binding verwirft und bedeutet, dass `Symbol.dispose` / `Symbol.asyncDispose` nie läuft. Der Fehler sieht so aus:
 
 ```js
 // Original-Code

@@ -23,26 +23,26 @@ Node.js a publié un ensemble coordonné de correctifs de sécurité le 24 mars 
 
 ## Les Deux Correctifs à Haute Sévérité
 
-**CVE-2026-21637 — Crash TLS SNICallback (High)**
+**CVE-2026-21637, Crash TLS SNICallback (High)**
 
 TLS SNICallback permet à un serveur de sélectionner le bon certificat selon le hostname du client. La vulnérabilité : si votre implémentation SNICallback levait une exception, Node.js ne la capturait pas, faisant planter le processus entier durant le handshake TLS. Matteo Collina a corrigé cela en wrappant l'invocation SNICallback dans un try/catch.
 
-**CVE-2026-21710 — Pollution Prototype HTTP (High)**
+**CVE-2026-21710, Pollution Prototype HTTP (High)**
 
 Les objets `headersDistinct` et `trailersDistinct` dans les réponses HTTP Node.js utilisaient des prototypes JavaScript standards. Cela ouvre une vecteur d'attaque par pollution prototype : si un attaquant pouvait influencer les clés définies sur ces objets, il pouvait injecter des propriétés comme `__proto__` ou `constructor`. La correction : utiliser un prototype null (`Object.create(null)`).
 
 ## Quatre Correctifs de Sévérité Moyenne et Basse
 
-**CVE-2026-21713 — Comparaison HMAC Timing-Safe (Medium)**
+**CVE-2026-21713, Comparaison HMAC Timing-Safe (Medium)**
 Filip Skokan a corrigé l'implémentation HMAC Web Cryptography pour utiliser une comparaison timing-safe, empêchant les attaques par canal auxiliaire.
 
-**CVE-2026-21714 — Contrôle de Flux NGHTTP2 (Medium)**
+**CVE-2026-21714, Contrôle de Flux NGHTTP2 (Medium)**
 RafaelGSS a corrigé un problème où les erreurs `NGHTTP2_ERR_FLOW_CONTROL` non gérées pouvaient causer des blocages dans les connexions HTTP/2.
 
-**CVE-2026-21717 — Test de Collision Hash (Medium)**
+**CVE-2026-21717, Test de Collision Hash (Medium)**
 Joyee Cheung a mis à jour la suite de tests V8 pour détecter correctement les attaques par collision hash sur les indices de tableau.
 
-**CVE-2026-21715 et CVE-2026-21716 — Failles du Système de Permissions (Low)**
+**CVE-2026-21715 et CVE-2026-21716, Failles du Système de Permissions (Low)**
 Deux vérifications de permissions manquaient dans `realpath.native` et les APIs `fs/promises`, permettant un accès filesystem hors des chemins permis.
 
 ## Autres Changements

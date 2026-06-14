@@ -20,13 +20,13 @@ A: La version Electron abandonne le support des API Bun. Les plugins qui dépend
 
 ## TypeScript du sol au plafond
 
-OpenCode est un agent de coding IA open source construit intégralement en TypeScript. Son architecture repose sur un modèle client-serveur : le TUI, l'interface web et les clients desktop communiquent tous avec un serveur central qui gère les interactions LLM, les boucles d'agent et une base SQLite. Cela signifie qu'un processus serveur en fonctionnement est toujours nécessaire — c'est autour de ce serveur que l'application Desktop a toujours été construite.
+OpenCode est un agent de coding IA open source construit intégralement en TypeScript. Son architecture repose sur un modèle client-serveur : le TUI, l'interface web et les clients desktop communiquent tous avec un serveur central qui gère les interactions LLM, les boucles d'agent et une base SQLite. Cela signifie qu'un processus serveur en fonctionnement est toujours nécessaire, c'est autour de ce serveur que l'application Desktop a toujours été construite.
 
 La première version Desktop utilisait Tauri, choisi pour son profil léger comme simple conteneur de webview. Au démarrage, le CLI bundlé lançait `opencode serve`, donnant à l'interface web un serveur local auquel se connecter. Ça fonctionnait, mais deux problèmes se sont accumulés avec le temps.
 
 ## Le problème WebKit
 
-Tauri utilise la WebView système sur macOS et Linux — WebKit sur ces plateformes, WebView2 sur Windows. L'équipe d'OpenCode a constaté que WebKit ne se contentait pas de rendre leur UI avec de moins bonnes performances que Chromium : il produisait aussi des incohérences visuelles mineures entre plateformes. Pour une application utilisée quotidiennement par des développeurs qui changent de système d'exploitation, la cohérence compte.
+Tauri utilise la WebView système sur macOS et Linux, WebKit sur ces plateformes, WebView2 sur Windows. L'équipe d'OpenCode a constaté que WebKit ne se contentait pas de rendre leur UI avec de moins bonnes performances que Chromium : il produisait aussi des incohérences visuelles mineures entre plateformes. Pour une application utilisée quotidiennement par des développeurs qui changent de système d'exploitation, la cohérence compte.
 
 Tauri a un effort en cours pour supporter Chromium via CEF plutôt que la webview système, mais aucune date ferme de stabilisation n'existe. OpenCode ne pouvait pas attendre.
 
@@ -34,11 +34,11 @@ Tauri a un effort en cours pour supporter Chromium via CEF plutôt que la webvie
 
 Le second problème était le CLI lui-même. Le code serveur d'OpenCode utilisait à l'origine des API spécifiques à Bun, ce qui nécessitait de bundler le CLI Bun dans Tauri. Cela avait deux conséquences : des temps de démarrage plus lents, et des plantages occasionnels sur Windows que l'équipe a consacrés beaucoup d'efforts à contourner.
 
-Quand OpenCode a décidé de toute façon de s'éloigner des API Bun (en faveur de la compatibilité Node), l'attrait de bundler un CLI entier a disparu. Le processus Node intégré à Electron pouvait simplement exécuter le serveur directement — pas de sous-processus, pas de binaire externe, pas de taxe au démarrage.
+Quand OpenCode a décidé de toute façon de s'éloigner des API Bun (en faveur de la compatibilité Node), l'attrait de bundler un CLI entier a disparu. Le processus Node intégré à Electron pouvait simplement exécuter le serveur directement, pas de sous-processus, pas de binaire externe, pas de taxe au démarrage.
 
 ## Ce qui change et ce qui ne change pas
 
-OpenCode Desktop va bientôt diffuser la build Electron par défaut pour les téléchargements directs et les mises à jour du canal bêta, avant de migrer progressivement les versions générales. Le serveur sous-jacent tourne toujours en TypeScript — il s'exécute juste maintenant dans le processus Node d'Electron plutôt que dans un binaire externe bundlé.
+OpenCode Desktop va bientôt diffuser la build Electron par défaut pour les téléchargements directs et les mises à jour du canal bêta, avant de migrer progressivement les versions générales. Le serveur sous-jacent tourne toujours en TypeScript, il s'exécute juste maintenant dans le processus Node d'Electron plutôt que dans un binaire externe bundlé.
 
 L'équipe est directe sur le compromis : les plugins qui dépendent d'API spécifiques à Bun ne fonctionneront plus dans les builds Electron. Une explication complète est promise avec OpenCode 2.0.
 

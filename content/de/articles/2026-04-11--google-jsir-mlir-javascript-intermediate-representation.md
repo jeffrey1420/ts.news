@@ -1,6 +1,6 @@
 ---
 title: "Google JSIR: Eine MLIR-basierte Zwischenrepräsentation für JavaScript-Analyse"
-description: "Google hat JSIR quelloffen gemacht, ein neuartiges JavaScript-Analysewerkzeug auf MLIR-Basis. Es unterstützt sowohl hochrangige Datenflussanalyse als auch verlustfreie Quellcode-Transformation — intern genutzt für Hermes-Bytecode-Dekompilierung und KI-gestützte JavaScript-Deobfuskation."
+description: "Google hat JSIR quelloffen gemacht, ein neuartiges JavaScript-Analysewerkzeug auf MLIR-Basis. Es unterstützt sowohl hochrangige Datenflussanalyse als auch verlustfreie Quellcode-Transformation, intern genutzt für Hermes-Bytecode-Dekompilierung und KI-gestützte JavaScript-Deobfuskation."
 image: "/images/heroes/2026-04-11--google-jsir-mlir-javascript-intermediate-representation.png"
 date: "2026-04-11"
 category: Open Source
@@ -8,16 +8,16 @@ author: lschvn
 readingTime: 5
 tags: ["security", "tooling", "javascript"]
 tldr:
-  - "JSIR ist Googles neue MLIR-basierte Zwischenrepräsentation für JavaScript, die sowohl hochrangige Datenflussanalyse als auch verlustfreie Quellcode-Transformation gleichzeitig unterstützt — eine Kombination, die bestehende IRs typischerweise opfern."
+  - "JSIR ist Googles neue MLIR-basierte Zwischenrepräsentation für JavaScript, die sowohl hochrangige Datenflussanalyse als auch verlustfreie Quellcode-Transformation gleichzeitig unterstützt, eine Kombination, die bestehende IRs typischerweise opfern."
   - "Google nutzt JSIR intern bereits für die Dekompilierung von Hermes-Bytecode und KI-gestützte JavaScript-Deobfuskation, wobei Gemini LLM mit JSIR kombiniert wird, um obfuskierten Code rückgängig zu machen."
-  - "Das Projekt richtet sich an Werkzeugentwickler: bessere Linter, intelligentere Bundler, leistungsfähigere Refactoring-Tools — nicht direkt an Endentwickler, aber die Auswirkungen wird das Ökosystem downstream spüren."
+  - "Das Projekt richtet sich an Werkzeugentwickler: bessere Linter, intelligentere Bundler, leistungsfähigere Refactoring-Tools, nicht direkt an Endentwickler, aber die Auswirkungen wird das Ökosystem downstream spüren."
 faq:
   - question: "Was unterscheidet JSIR von anderen JavaScript-IRs?"
-    answer: "Die meisten IRs für JavaScript müssen sich zwischen Hochrangig (genug Struktur bewahren, um Quellcode wiederherzustellen) und Niedrigrangig (ermöglicht tiefe Datenflussanalyse) entscheiden. Die meisten Systeme wählen eines. JSIR nutzt MLIR-Regionen, um die Kontrollflussstrukturen von JavaScript — Closures, try-catch-finally, Async-Funktionen, Generator-Frames — so präzise zu modellieren, dass beide Richtungen gleichzeitig unterstützt werden."
+    answer: "Die meisten IRs für JavaScript müssen sich zwischen Hochrangig (genug Struktur bewahren, um Quellcode wiederherzustellen) und Niedrigrangig (ermöglicht tiefe Datenflussanalyse) entscheiden. Die meisten Systeme wählen eines. JSIR nutzt MLIR-Regionen, um die Kontrollflussstrukturen von JavaScript, Closures, try-catch-finally, Async-Funktionen, Generator-Frames, so präzise zu modellieren, dass beide Richtungen gleichzeitig unterstützt werden."
   - question: "Was ist MLIR?"
     answer: "MLIR (Multi-Level Intermediate Representation) ist ein LLVM-Projekt, das ein flexibles Framework für Zwischenrepräsentationen bietet. Es wurde entwickelt, um verschiedene IRs in der Compiler-Infrastruktur zu vereinheitlichen. Durch den Aufbau von JSIR auf MLIR erhält Google Kompatibilität mit dem breiteren LLVM-Ökosystem und dessen Tools."
   - question: "Was ist Hermes-Bytecode?"
-    answer: "Hermes ist Facebooks JavaScript-Engine, die für React Native optimiert ist. Sie kompiliert JavaScript zu Hermes-Bytecode für schnellere Startzeiten. JSIR kann diesen Bytecode zurück nach JavaScript dekomilieren, indem es seine Quellcode-Hebbarkeit nutzt — eine Fähigkeit, die bestehenden Tools fehlt."
+    answer: "Hermes ist Facebooks JavaScript-Engine, die für React Native optimiert ist. Sie kompiliert JavaScript zu Hermes-Bytecode für schnellere Startzeiten. JSIR kann diesen Bytecode zurück nach JavaScript dekomilieren, indem es seine Quellcode-Hebbarkeit nutzt, eine Fähigkeit, die bestehenden Tools fehlt."
   - question: "Wie ermöglicht JSIR KI-Deobfuskation?"
     answer: "Google hat Forschung veröffentlicht (CASCADE-Paper, arXiv:2507.17691), die zeigt, wie sie Gemini LLM mit JSIR zur JavaScript-Deobfuskation kombinieren. JSIRs strukturierte Darstellung liefert der KI eine saubere, analysierbare Ansicht des obfuskierten Codes, und die KI kann Transformationen generieren, die JSIR dann zurück auf den Quellcode anwendet."
 ---
@@ -34,7 +34,7 @@ JavaScript-Tooling hat lange unter fragmentierten IR-Ansätzen gelitten. Babel-P
 
 Die zentrale technische Herausforderung, die JSIR löst, ist eine bekannte im Compiler-Design: Man muss sich typischerweise zwischen einer hochrangigen IR (bewahrt AST-Struktur, kann zu Quellcode angehoben werden) und einer niedrigrangigen IR (ermöglicht tiefe Datenflussanalyse wie Taint-Tracking und Konstantenpropagation) entscheiden. Die meisten Systeme wählen eines.
 
-JSIR nutzt MLIR-Regionen, um JavaScripts Kontrollflussstrukturen — Closures, try-catch-finally, Async-Funktionen, Generator-Frames — präzise so zu modellieren, dass beide Richtungen gleichzeitig unterstützt werden. Man kann Code transformieren und zu Quellcode anheben, oder Taint-Analyse auf derselben Repräsentation ausführen.
+JSIR nutzt MLIR-Regionen, um JavaScripts Kontrollflussstrukturen, Closures, try-catch-finally, Async-Funktionen, Generator-Frames, präzise so zu modellieren, dass beide Richtungen gleichzeitig unterstützt werden. Man kann Code transformieren und zu Quellcode anheben, oder Taint-Analyse auf derselben Repräsentation ausführen.
 
 Dies ermöglicht Anwendungsfälle, die zuvor unpraktisch waren:
 
@@ -44,7 +44,7 @@ Dies ermöglicht Anwendungsfälle, die zuvor unpraktisch waren:
 
 ## Die MLIR-Grundlage
 
-JSIR ist kein eigenständiges Projekt — es basiert auf MLIR, dem flexiblen IR-Framework des LLVM-Projekts. Das ist bedeutsam für die Ökosystem-Kompatibilität: MLIR hat bereits eine breite Palette existierender Dialekte, Transformationen und Tools. Durch die Ausdrucksweise der JavaScript-Analyse in MLIR-Begriffen kann sich JSIR in dieses Ökosystem einklinken, anstatt Infrastruktur neu zu erfinden.
+JSIR ist kein eigenständiges Projekt, es basiert auf MLIR, dem flexiblen IR-Framework des LLVM-Projekts. Das ist bedeutsam für die Ökosystem-Kompatibilität: MLIR hat bereits eine breite Palette existierender Dialekte, Transformationen und Tools. Durch die Ausdrucksweise der JavaScript-Analyse in MLIR-Begriffen kann sich JSIR in dieses Ökosystem einklinken, anstatt Infrastruktur neu zu erfinden.
 
 ## Erste Schritte
 
@@ -55,15 +55,15 @@ docker build -t jsir:latest .
 docker run --rm -v $(pwd):/workspace jsir:latest jsir_gen --input_file=/workspace/yourfile.js
 ```
 
-Der Build aus den Quellen erfordert clang, Bazel und erhebliche Build-Zeit — das Projekt weist darauf hin, dass das Abrufen und Kompilieren von LLVM Zeit braucht. Der Docker-Weg ist der praktische Einstiegspunkt für die meisten Entwickler.
+Der Build aus den Quellen erfordert clang, Bazel und erhebliche Build-Zeit, das Projekt weist darauf hin, dass das Abrufen und Kompilieren von LLVM Zeit braucht. Der Docker-Weg ist der praktische Einstiegspunkt für die meisten Entwickler.
 
 ## Was das für das Ökosystem bedeutet
 
-Die meisten Entwickler werden in naher Zukunft nicht direkt mit JSIR interagieren — es ist eine Grundlage, auf der Werkzeugentwickler aufbauen. Aber die langfristigen Implikationen sind bedeutsam. Eine geteilte, gut gestaltete IR könnte ermöglichen:
+Die meisten Entwickler werden in naher Zukunft nicht direkt mit JSIR interagieren, es ist eine Grundlage, auf der Werkzeugentwickler aufbauen. Aber die langfristigen Implikationen sind bedeutsam. Eine geteilte, gut gestaltete IR könnte ermöglichen:
 
 - Linter mit tieferem semantischem Verständnis (nicht nur Musterabgleich auf AST-Knoten)
 - Bundler mit besserer Todcode-Elimination durch Datenflussanalyse
 - Refactoring-Tools, die Code sicher über komplexe Kontrollflüsse hinweg transformieren können
 - Cross-Framework-Analyse, die unabhängig vom verwendeten Framework oder Build-Tool konsistent funktioniert
 
-Google hat es quelloffen gemacht, was bedeutet, dass die Community auf dieser Grundlage aufbauen kann. Ob es an Traktion gewinnt, hängt davon ab, ob Tool-Maintainer genügend Vorteile sehen, um JSIR-basierte Analyse in ihre Pipelines zu integrieren — aber die technische Grundlage ist solide.
+Google hat es quelloffen gemacht, was bedeutet, dass die Community auf dieser Grundlage aufbauen kann. Ob es an Traktion gewinnt, hängt davon ab, ob Tool-Maintainer genügend Vorteile sehen, um JSIR-basierte Analyse in ihre Pipelines zu integrieren, aber die technische Grundlage ist solide.

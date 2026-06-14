@@ -25,11 +25,11 @@ Node.js 26.3.0 wurde am 1. Juni 2026 auf der Current-Release-Linie veröffentlic
 
 Die wichtigste Runtime-Änderung ist die Erhöhung des Standard-`Buffer.poolSize` von 32 auf 64 KiB, beigetragen von Matteo Collina ([#63597](https://github.com/nodejs/node/pull/63597)). Nodes interner Slab-Allocator verwendet diesen Pool für `Buffer.allocUnsafe()` und `Buffer.from()`-Aufrufe, die unter dem Schwellenwert liegen. Ein größerer Slab reduziert die Häufigkeit, mit der der Allocator neue Speicherseiten vom OS anfordern muss, was Fragmentierung verringert und den Durchsatz für HTTP-Server, Streaming-Pipelines und jeden Code verbessert, der viele kleine bis mittlere Buffers alloziert.
 
-Die Änderung ist nicht Breaking — sie betrifft nur den Standardwert. Anwendungen können `Buffer.poolSize` weiterhin manuell konfigurieren. Aber wenn Sie Benchmarks ausführen, die den Allocator selbst messen, ist jetzt ein guter Zeitpunkt, diese erneut auszuführen.
+Die Änderung ist nicht Breaking, sie betrifft nur den Standardwert. Anwendungen können `Buffer.poolSize` weiterhin manuell konfigurieren. Aber wenn Sie Benchmarks ausführen, die den Allocator selbst messen, ist jetzt ein guter Zeitpunkt, diese erneut auszuführen.
 
 ## permission.drop() für feingranulare Privilegienabgabe
 
-Rafael Gonzaga steuerte `permission.drop()` ([#62672](https://github.com/nodejs/node/pull/62672)) bei, die meistgefragte Ergänzung zum experimentellen Berechtigungssystem von Node.js. Das bestehende Modell gewährte Fähigkeiten beim Start und hielt sie für die gesamte Prozesslebensdauer. `permission.drop()` erlaubt laufendem Code, einzelne Berechtigungshandles — Dateisystem, Umgebung, Kindprozess — abzugeben, ohne den Prozess zu beenden. Dies ermöglicht Patterns wie:
+Rafael Gonzaga steuerte `permission.drop()` ([#62672](https://github.com/nodejs/node/pull/62672)) bei, die meistgefragte Ergänzung zum experimentellen Berechtigungssystem von Node.js. Das bestehende Modell gewährte Fähigkeiten beim Start und hielt sie für die gesamte Prozesslebensdauer. `permission.drop()` erlaubt laufendem Code, einzelne Berechtigungshandles, Dateisystem, Umgebung, Kindprozess, abzugeben, ohne den Prozess zu beenden. Dies ermöglicht Patterns wie:
 
 ```javascript
 // Nach der Initialisierung, fs-Zugriff abgeben
@@ -41,7 +41,7 @@ Die Änderung bringt Node.js näher an kapazitätsbasierte Sicherheitsmodelle un
 
 ## Warnung zum macOS Universal Binary
 
-Antoine du Hamels PR [#63055](https://github.com/nodejs/node/pull/63055) dokumentiert formal, was das Projekt informell angedeutet hat: das macOS Universal Binary — das sowohl Intel- (x64) als auch Apple-Silicon- (arm64) Slices in einer einzigen Binärdatei bündelt — ist möglicherweise nicht für die gesamte Lebensdauer von Node.js 26 wartbar. Apple hat die Intel-Toolchain-Unterstützung schrittweise eingestellt, und die Node.js-Build-Infrastruktur stößt auf Reibung bei der Pflege des x64-Slice. Intel-basierte Macs bleiben Tier 2; arm64 ist Tier 1. Dies ist eine Warnung, keine unmittelbare Entfernung.
+Antoine du Hamels PR [#63055](https://github.com/nodejs/node/pull/63055) dokumentiert formal, was das Projekt informell angedeutet hat: das macOS Universal Binary, das sowohl Intel- (x64) als auch Apple-Silicon- (arm64) Slices in einer einzigen Binärdatei bündelt, ist möglicherweise nicht für die gesamte Lebensdauer von Node.js 26 wartbar. Apple hat die Intel-Toolchain-Unterstützung schrittweise eingestellt, und die Node.js-Build-Infrastruktur stößt auf Reibung bei der Pflege des x64-Slice. Intel-basierte Macs bleiben Tier 2; arm64 ist Tier 1. Dies ist eine Warnung, keine unmittelbare Entfernung.
 
 ## WebCrypto-Härtung und npm 11.16.0
 
