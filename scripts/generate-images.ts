@@ -125,6 +125,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-14--esbuild-0-28-1-deno-rce-windows-path-traversal': ['esbuild 0.28.1', 'Deno RCE + using bug', 'security'],
   '2026-06-14--openrouter-fusion-compound-ai-draco': ['OpenRouter Fusion', 'Compound AI + DRACO', 'ai'],
   '2026-06-15--vite-8-1-beta-wasm-esm-chunk-importmap': ['Vite 8.1 Beta', 'WASM ESM + importmap', 'tooling'],
+  '2026-06-15--mistral-le-chaton-fat-24-hour-fake-model': ['Le Chaton Fat', 'Meme of the day', 'ai'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
