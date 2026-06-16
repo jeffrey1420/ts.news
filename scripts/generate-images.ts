@@ -129,6 +129,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-15--playwright-1-61-webauthn-passkeys-webstorage': ['Playwright 1.61', 'WebAuthn + WebStorage', 'tooling'],
   '2026-06-16--astro-7-0-0-beta-4-satteri-default-advanced-routing': ['Astro 7 Beta', 'Sätteri default + routing', 'frameworks'],
   '2026-06-16--deno-desktop-subcommand-wef-cef-browserwindow': ['Deno Desktop', 'WEF + BrowserWindow', 'runtimes'],
+  '2026-06-16--staan-european-search-api-deep-dive': ['Staan', 'European search API', 'ai'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
