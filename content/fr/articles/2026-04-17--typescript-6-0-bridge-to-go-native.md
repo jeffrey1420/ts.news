@@ -18,11 +18,11 @@ faq:
     answer: "Déclarez explicitement 'types' (ex: ['node', 'jest']), configurez 'rootDir' si vos sources sont imbriquées, mettez 'strict': false si vous comptiez sur l'ancienne valeur par défaut, et révisez l'option ignoreDeprecations."
 ---
 
-TypeScript 6.0 est sorti ce mois-ci, et il porte un poids que peu de releases mineures assument : c'est la dernière version construite sur la base de code JavaScript actuelle. Tout ce qui suivra, à partir de la 7.0, sera compilé en Go natif, un compilateur que l'équipe développe depuis plus d'un an.
+[TypeScript 6.0](/articles/2026-04-06-typescript-6-last-release-before-go-rewrite) est sorti ce mois-ci, et il porte un poids que peu de releases mineures assument : c'est la dernière version construite sur la base de code JavaScript actuelle. Tout ce qui suivra, à partir de la 7.0, sera compilé en Go natif, un compilateur que l'équipe développe depuis plus d'un an.
 
 ## Un pont vers TypeScript 7.0
 
-L'histoire principale, c'est ce que 6.0 ne contient pas. Microsoft le dit clairement : c'est une "release de transition" dont le but est d'aligner les comportements et les API pour que le passage à la base de code Go se fasse sans accroc. L'équipe est directe : "TypeScript 7.0 est en fait extrêmement proche de la complétion." Vous pouvez déjà essayer le preview natif dans VS Code ou via `npmx.dev/package/@typescript/native-preview`.
+L'histoire principale, c'est ce que 6.0 ne contient pas. Microsoft le dit clairement : c'est une "release de transition" dont le but est d'aligner les comportements et les API pour que le passage à la base de code Go se fasse sans accroc. L'équipe est directe : "[TypeScript 7](/articles/2026-03-23-typescript-7-native-preview-go-compiler).0 est en fait extrêmement proche de la complétion." Vous pouvez déjà essayer le preview natif dans VS Code ou via `npmx.dev/package/@typescript/native-preview`.
 
 La plupart des changements de la 6.0 existent pour faciliter cette transition. Mais il y a aussi des fonctionnalités nouvelles.
 
@@ -34,7 +34,7 @@ TypeScript 6.0 vérifie désormais si `this` est réellement référencé avant 
 
 ## Les imports de sous-chemin supportent désormais `#/`
 
-Node.js a récemment ajouté le support des imports de sous-chemin commençant par `#/` plutôt que `#/quelquechose`. TypeScript 6.0 le prend en charge avec `--moduleResolution nodenext` et `bundler`. Vous pouvez désormais écrire :
+[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) a récemment ajouté le support des imports de sous-chemin commençant par `#/` plutôt que `#/quelquechose`. TypeScript 6.0 le prend en charge avec `--moduleResolution nodenext` et `bundler`. Vous pouvez désormais écrire :
 
 ```json
 {

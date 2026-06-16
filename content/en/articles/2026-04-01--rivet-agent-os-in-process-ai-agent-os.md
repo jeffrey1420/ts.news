@@ -31,7 +31,7 @@ Rivet's answer is different. Much different.
 
 ## What Is agentOS?
 
-agentOS is an **in-process operating system kernel written in JavaScript**, running inside a Node.js host process. That's not marketing language, it's a precise description of the architecture.
+agentOS is an **in-process operating system kernel written in JavaScript**, running inside a [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) host process. That's not marketing language, it's a precise description of the architecture.
 
 The kernel manages:
 - A **virtual filesystem** with mount drivers (S3, SQLite, host directories, in-memory)
@@ -41,7 +41,7 @@ The kernel manages:
 
 Into this kernel, three runtimes are mounted:
 
-**1. V8 isolates for agent code.** The agent (Pi, Claude Code, Codex, coming soon) runs in a V8 JavaScript context. This is the same isolation technology Chrome uses to sandbox every browser tab. Each isolate has its own heap and stack, no shared state, deny-by-default permissions for filesystem, network, and process access. Cold start is ~4–6ms because you're not booting anything, you're just creating a new JavaScript context inside an already-running V8 engine.
+**1. V8 isolates for agent code.** The agent (Pi, [Claude Code](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026), Codex, coming soon) runs in a V8 JavaScript context. This is the same isolation technology Chrome uses to sandbox every browser tab. Each isolate has its own heap and stack, no shared state, deny-by-default permissions for filesystem, network, and process access. Cold start is ~4–6ms because you're not booting anything, you're just creating a new JavaScript context inside an already-running V8 engine.
 
 **2. WebAssembly for POSIX utilities.** GNU coreutils, grep, sed, gawk, curl, jq, ripgrep, sqlite3, and 80+ other Unix commands compiled from C and Rust to WebAssembly. They run in a WASM runtime managed by the kernel, not in V8. The agent talks to them over a virtual PTY, just like a shell.
 
@@ -104,12 +104,12 @@ The foundational sandboxing library, **secure-exec**, is open source separately.
 
 If agentOS delivers on its numbers at scale, every sandbox provider faces pressure. The execution substrate for a simple agent task, file operations, API calls, scripting, can drop from roughly $0.05/vCPU-minute to $0.0000011/second. That's a 500x cost reduction for the runtime, not the LLM.
 
-For OpenClaw, Hermes, and every agent framework: the V8 isolate + virtual FS architecture is the thing to watch. Even if you don't adopt agentOS directly, the "host tools" pattern (direct function calls, no HTTP auth), the actor-per-session model, and the hybrid sandbox approach are architectural ideas worth absorbing.
+For [OpenClaw](/articles/2026-03-31-hermes-agent-vs-openclaw-ai-agent-comparison), Hermes, and every agent framework: the V8 isolate + virtual FS architecture is the thing to watch. Even if you don't adopt agentOS directly, the "host tools" pattern (direct function calls, no HTTP auth), the actor-per-session model, and the hybrid sandbox approach are architectural ideas worth absorbing.
 
 ACP vs MCP is a separate and longer-running battle. MCP has the mindshare. ACP is architecturally cleaner. The LSP parallel is worth remembering, the right answer doesn't always win on day one.
 
 ## Caveats
 
-This is beta. Only the **Pi agent** is production-ready today; Claude Code, Codex, OpenCode, and Amp are listed as coming soon. No third-party security audit has been published. The WASM POSIX layer is partial, git and make are planned but not shipped. GitHub has 1,576 stars, which is modest. The architecture is sound; the ecosystem is nascent.
+This is beta. Only the **Pi agent** is production-ready today; Claude Code, Codex, [OpenCode](/articles/2026-04-19-opencode-desktop-electron-tauri-typescript), and Amp are listed as coming soon. No third-party security audit has been published. The WASM POSIX layer is partial, git and make are planned but not shipped. GitHub has 1,576 stars, which is modest. The architecture is sound; the ecosystem is nascent.
 
 The image that opens this article is a circuit board. It felt appropriate: agentOS is infrastructure for people who care about what's under the hood.

@@ -30,7 +30,7 @@ GitHub schließt explizit Daten von Business-, Enterprise- und unternehmenseigen
 
 GitHub gibt an, bereits „signifikante Verbesserungen" nach der Integration von Interaktionsdaten der Microsoft-Mitarbeiter beobachtet zu haben, höhere Akzeptanzraten in mehreren Sprachen. Das Unternehmen argumentiert, dies sei ein etablierter Branchenstandard, und präsentiert es als Qualitätskompromiss: Gebt eure Codemuster preis, erhaltet bessere Vorschläge.
 
-Das Timing ist bedeutsam. Copilot steht in echtem Wettbewerb mit Claude Code, Cursor und JetBrains KI-Tools. Das Training auf Nutzerdaten ist ein Weg, die Lücke zu schließen, ohne mehr zu verlangen.
+Das Timing ist bedeutsam. Copilot steht in echtem Wettbewerb mit [Claude Code](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026), Cursor und [JetBrains](/articles/2026-04-02-intellij-idea-javascript-typescript-free) KI-Tools. Das Training auf Nutzerdaten ist ein Weg, die Lücke zu schließen, ohne mehr zu verlangen.
 
 ## So widersprecht ihr
 

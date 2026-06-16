@@ -19,7 +19,7 @@ faq:
     answer: "Les objets headersDistinct et trailersDistinct utilisaient un prototype Object standard, les rendant vulnérables à des attaques de pollution prototype. La correction utilise Object.create(null)."
 ---
 
-Node.js a publié un ensemble coordonné de correctifs de sécurité le 24 mars 2026, couvrant six CVE sur chaque ligne de release active. Si vous utilisez Node en production, c'est la mise à jour que vous attendiez.
+[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) a publié un ensemble coordonné de correctifs de sécurité le 24 mars 2026, couvrant six CVE sur chaque ligne de release active. Si vous utilisez Node en production, c'est la mise à jour que vous attendiez.
 
 ## Les Deux Correctifs à Haute Sévérité
 

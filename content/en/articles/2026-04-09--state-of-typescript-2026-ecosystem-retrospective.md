@@ -35,11 +35,11 @@ This milestone matters because it signals where the ecosystem's attention is. Fr
 
 Microsoft announced Project Corsa in early 2025: a native port of the TypeScript compiler and language service to Go. The goal is approximately 10x faster builds and near-instant incremental compilation. Initial benchmarks were stark, the VS Code codebase dropped from 77.8 seconds to 7.5 seconds to compile; Playwright dropped from 11.1 seconds to 1.1 seconds.
 
-TypeScript 6.0, released in Q1 2026, is planned as the last major version on the current JavaScript-based compiler codebase. TypeScript 7.0 (targeted for mid-2026) is expected to be the first release built on the Go-based compiler. The transition won't be seamless, plugin authors using the Compiler API will need to audit compatibility with the new implementation, but the performance gains are significant enough that the ecosystem is expected to migrate quickly.
+[TypeScript 6.0](/articles/2026-04-06-typescript-6-last-release-before-go-rewrite), released in Q1 2026, is planned as the last major version on the current JavaScript-based compiler codebase. [TypeScript 7](/articles/2026-03-23-typescript-7-native-preview-go-compiler).0 (targeted for mid-2026) is expected to be the first release built on the Go-based compiler. The transition won't be seamless, plugin authors using the Compiler API will need to audit compatibility with the new implementation, but the performance gains are significant enough that the ecosystem is expected to migrate quickly.
 
 ## Native TypeScript Execution in Node.js
 
-Node.js 22.18 stabilized native TypeScript execution via type stripping. Instead of transpiling `.ts` to `.js` before running, Node.js now understands which TypeScript syntax is erasable (types, interfaces) and which is runtime (enums, namespaces) and handles the latter directly. The `--erasableSyntaxOnly` flag formalizes the constraint: code must not use runtime TypeScript constructs that can't be expressed in JavaScript.
+[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) 22.18 stabilized native TypeScript execution via type stripping. Instead of transpiling `.ts` to `.js` before running, Node.js now understands which TypeScript syntax is erasable (types, interfaces) and which is runtime (enums, namespaces) and handles the latter directly. The `--erasableSyntaxOnly` flag formalizes the constraint: code must not use runtime TypeScript constructs that can't be expressed in JavaScript.
 
 For many projects, this eliminates `ts-node` and `tsx` as dev dependencies. For type-aware libraries, it means rethinking patterns like enum usage in favor of `as const` objects and ES modules.
 

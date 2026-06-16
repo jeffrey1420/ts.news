@@ -20,11 +20,11 @@ A: For now, nothing changes day-to-day. Bun's roadmap still prioritizes Node.js 
 
 ## From Minecraft Clone to AI Coding Infrastructure
 
-Five years ago, Jarred Sumner was building a Minecraft-style voxel game in the browser. The hot-reload cycle took 45 seconds. He got distracted fixing it, ported esbuild's JSX and TypeScript transpiler from Go to Zig, and accidentally created Bun.
+Five years ago, Jarred Sumner was building a Minecraft-style voxel game in the browser. The hot-reload cycle took 45 seconds. He got distracted fixing it, ported [esbuild](/articles/2026-06-14-esbuild-0-28-1-deno-rce-windows-path-traversal)'s JSX and TypeScript transpiler from Go to Zig, and accidentally created Bun.
 
-Today, Bun passes 7.2 million monthly npm downloads, competes directly with Node.js on raw HTTP throughput (59K vs 19K req/s in the official benchmarks), and ships a single-file executable format that has become the distribution mechanism of choice for AI coding tools.
+Today, Bun passes 7.2 million monthly npm downloads, competes directly with [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) on raw HTTP throughput (59K vs 19K req/s in the official benchmarks), and ships a single-file executable format that has become the distribution mechanism of choice for [AI coding tool](/articles/2026-03-25-ai-dev-tool-rankings-march-2026)s.
 
-On October 2025, Anthropic acquired Bun. The deal was announced on the Bun blog in a post that reads less like a corporate acquisition and more like a founder's letter explaining why the best available path forward runs through Claude Code.
+On October 2025, Anthropic acquired Bun. The deal was announced on the Bun blog in a post that reads less like a corporate acquisition and more like a founder's letter explaining why the best available path forward runs through [Claude Code](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026).
 
 ## Why Anthropic Wanted Bun
 

@@ -10,10 +10,10 @@ tags: ["security", "frameworks", "typescript"]
 Cloudflare launched EmDash this week, an open-source content management system it calls "the spiritual successor to WordPress." The project is notable for being built entirely in TypeScript, powered by Astro under the hood, and shipping with a fundamentally different approach to plugin security.
 
 [tldr]
-- EmDash is a new open-source CMS built on Astro 6.0, written entirely in TypeScript, MIT licensed
+- EmDash is a new open-source CMS built on [Astro 6](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).0, written entirely in TypeScript, MIT licensed
 - Plugins run in sandboxed Dynamic Workers isolates instead of having direct filesystem/database access, fixing WordPress's core security problem
 - 96% of WordPress security vulnerabilities come from plugins; EmDash's capability-based model eliminates this attack surface
-- Deployable to Cloudflare Workers or any Node.js server; early beta available now
+- Deployable to Cloudflare Workers or any [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) server; early beta available now
 [/tldr]
 
 ## Why WordPress Needed a Successor
@@ -55,7 +55,7 @@ There's also an [EmDash Playground](https://emdashcms.com/) where you can try th
 
 ## The Broader Context
 
-Cloudflare has been on a building spree with AI coding agents. The company rebuilt Next.js in a week (producing Vinext), then turned that same tooling at WordPress. Whether the output of that experiment is production-ready is a separate question, EmDash is launching in beta, not as a mature product.
+Cloudflare has been on a building spree with AI coding agents. The company rebuilt [Next.js](/articles/2026-04-04-next-js-16-2-stable-adapter-api-cross-platform) in a week (producing Vinext), then turned that same tooling at WordPress. Whether the output of that experiment is production-ready is a separate question, EmDash is launching in beta, not as a mature product.
 
 But the thesis is coherent: the marginal cost of building software has dropped dramatically when AI agents handle boilerplate, and the result can be a genuinely novel architecture rather than a WordPress theme. The plugin security model alone makes EmDash interesting to anyone who has had to audit a WordPress site with 30 plugins installed.
 

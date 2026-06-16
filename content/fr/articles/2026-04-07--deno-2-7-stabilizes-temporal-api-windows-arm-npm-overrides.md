@@ -7,7 +7,7 @@ author: lschvn
 tags: ["runtimes", "typescript", "javascript"]
 ---
 
-Deno 2.7 est sorti le 25 février, et c'est l'une des versions les plus riches en fonctionnalités de la lignée 2.x. Les points forts : stabilisation de l'API Temporal, builds Windows on ARM officiels, support des overrides npm, et un lot significatif de travaux de compatibilité Node.js.
+Deno 2.7 est sorti le 25 février, et c'est l'une des versions les plus riches en fonctionnalités de la lignée 2.x. Les points forts : stabilisation de l'API Temporal, builds Windows on ARM officiels, support des overrides npm, et un lot significatif de travaux de compatibilité [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams).
 
 [tldr]
 - L'API Temporal TC39 est désormais stable dans Deno sans le flag `--unstable-temporal`, Chrome 144 l'a expédiée en janvier 2026, Deno suit
@@ -74,7 +74,7 @@ Pour `child_process` : les flux stdio sont désormais de vraies instances Socket
 
 Ce cycle a aussi vu Deno Deploy atteindre la disponibilité générale (3 février) et l'introduction de [Deno Sandbox](https://deno.com/blog/introducing-deno-sandbox), des microVMs Linux instantanées pour exécuter du code non fiable avec une sécurité defense-in-depth.
 
-L'équipe Deno a également révélé que les utilisateurs de Deno Deploy étaient protégés contre deux vulnérabilités haute sévérité dans React Server Components / Next.js fin 2025 (CVE-2025-55184 et la RCE dans React Server Functions), avec des atténuations automatiques déployées à la périphérie.
+L'équipe Deno a également révélé que les utilisateurs de Deno Deploy étaient protégés contre deux vulnérabilités haute sévérité dans React Server Components / [Next.js](/articles/2026-04-04-next-js-16-2-stable-adapter-api-cross-platform) fin 2025 (CVE-2025-55184 et la RCE dans React Server Functions), avec des atténuations automatiques déployées à la périphérie.
 
 [faq]
 - **Dois-je modifier mon code pour l'API Temporal ?** Si vous utilisiez `--unstable-temporal`, supprimez ce flag. L'API est inchangée.

@@ -28,7 +28,7 @@ When a compiler intermediate representation (IR) makes the news, you know it mat
 
 An intermediate representation is the data structure that a compiler or analysis tool uses to represent code between parsing and code generation. If an AST tells you what the code looks like structurally, an IR tells you what it *does*. The quality of your IR determines what kind of analysis and transformation you can perform.
 
-JavaScript tooling has long suffered from fragmented IR approaches. Babel plugins work on ASTs. ESLint rules work on ASTs. Bundlers often work on their own internal representations with limited interoperability. A common, well-designed IR could let these tools share analysis work, and that's exactly what Google is proposing with JSIR.
+JavaScript tooling has long suffered from fragmented IR approaches. Babel plugins work on ASTs. [ESLint](/articles/2026-04-05-eslint-v10-flat-config-rust-alternatives) rules work on ASTs. [Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure)dlers often work on their own internal representations with limited interoperability. A common, well-designed IR could let these tools share analysis work, and that's exactly what Google is proposing with JSIR.
 
 ## High-Level and Low-Level Simultaneously
 

@@ -7,7 +7,7 @@ author: lschvn
 tags: ["css", "frameworks", "typescript"]
 ---
 
-Nuxt 4.4 est sorti le 12 mars 2026, et c'est l'une des mises à jour ponctuelles les plus substantielles du cycle 4.x. Les ajouts majeurs, Vue Router v5, les factories `useFetch` personnalisées, et le composable d'annonce d'accessibilité, coexistent avec une migration du moteur de routage qui accélère drastiquement l'expérience de développement.
+Nuxt 4.4 est sorti le 12 mars 2026, et c'est l'une des mises à jour ponctuelles les plus substantielles du cycle 4.x. Les ajouts majeurs, [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals) Router v5, les factories `useFetch` personnalisées, et le composable d'annonce d'accessibilité, coexistent avec une migration du moteur de routage qui accélère drastiquement l'expérience de développement.
 
 ## Vue Router v5
 

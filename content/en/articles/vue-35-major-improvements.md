@@ -14,7 +14,7 @@ tldr:
   - "Vue 3.6 targets Vapor Mode, compiling templates to direct DOM ops with a goal of 100,000 component mounts in 100ms."
 ---
 
-Vue 3.5 dropped in September 2024 with what Evan You called a minor release, and a refactored reactivity system that delivers **56% lower memory usage** and **up to 10× faster operations on large, deeply reactive arrays**. The developer community's response was roughly: *"This does not feel like a minor release."*
+[Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals) 3.5 dropped in September 2024 with what Evan You called a minor release, and a refactored reactivity system that delivers **56% lower memory usage** and **up to 10× faster operations on large, deeply reactive arrays**. The developer community's response was roughly: *"This does not feel like a minor release."*
 
 Those aren't incremental gains, they're the kind of improvements that change what "large-scale Vue" means in practice.
 
@@ -68,7 +68,7 @@ const AsyncComp = defineAsyncComponent({
 })
 ```
 
-Components can now be deferred until they scroll into view, become interactive, or match other conditions. The Nuxt team immediately began building higher-level syntax on top of this API, which tells you how long this capability has been needed.
+Components can now be deferred until they scroll into view, become interactive, or match other conditions. The [Nuxt](/articles/2026-04-06-nuxt-4-4-vue-router-v5-typed-layout-props-28x-faster-dev-routing) team immediately began building higher-level syntax on top of this API, which tells you how long this capability has been needed.
 
 ### useId(): Stable IDs Across Server and Client
 

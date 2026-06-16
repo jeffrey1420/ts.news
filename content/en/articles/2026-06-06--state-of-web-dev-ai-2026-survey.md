@@ -26,7 +26,7 @@ The second annual **State of Web Dev AI** survey has landed, and the numbers con
 
 The most striking finding is the rate at which AI-generated code has scaled. Last year, respondents reported that **28%** of their code was AI-generated on average. This year that figure is **54%**, nearly doubling. The fastest-growing segment is developers producing 75% or more of their code with AI assistance.
 
-The frequency data tells a similar story. The share of developers using AI **"constantly"** doubled year-over-year, while "never" responses dropped sharply. AI coding tools have moved from being a novel addition to a continuous background process for a large portion of the developer population.
+The frequency data tells a similar story. The share of developers using AI **"constantly"** doubled year-over-year, while "never" responses dropped sharply. [AI coding tool](/articles/2026-03-25-ai-dev-tool-rankings-march-2026)s have moved from being a novel addition to a continuous background process for a large portion of the developer population.
 
 ## Coding Agents Are Winning
 
@@ -67,6 +67,6 @@ Hallucinations remain the Achilles heel. Despite dramatic improvements in model 
 
 TypeScript's position in this landscape is worth noting. The survey's language breakdowns consistently show TypeScript outperforming JavaScript on metrics like AI adoption and developer satisfaction. As AI coding tools become the primary interface for many developers, TypeScript's compile-time safety becomes more valuable, not just for humans catching bugs, but for AI systems that benefit from explicit types when generating code.
 
-The rise of AI coding agents also creates new pressure on the toolchain. Agents that can autonomously navigate large codebases, run tests, and manage dependencies are increasingly dependent on fast, reliable tooling, which is why Rust-based tools like Oxc, Rolldown, and their ilk are getting so much attention from the development community.
+The rise of AI coding agents also creates new pressure on the toolchain. Agents that can autonomously navigate large codebases, run tests, and manage dependencies are increasingly dependent on fast, reliable tooling, which is why Rust-based tools like [Oxc](/articles/2026-04-05-oxc-rust-javascript-toolchain-benchmarks), [Rolldown](/articles/2026-06-05-rolldown-1-1-0-lazybarrel-default-tsconfig), and their ilk are getting so much attention from the development community.
 
 The full survey results are available at [2026.stateofai.dev](https://2026.stateofai.dev/en-US/).

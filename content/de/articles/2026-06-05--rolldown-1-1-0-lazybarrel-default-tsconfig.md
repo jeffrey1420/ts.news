@@ -61,4 +61,4 @@ faq:
   - question: "Mein Build funktioniert nach dem Rolldown-Upgrade nicht mehr. Was sollte ich prüfen?"
     answer: "Prüfen Sie zuerst, ob Sie sich auf Nebeneffekte von Barrel-Re-exports verlassen. Sie können vorübergehend mit `experimental: { lazyBarrel: false }` deaktivieren. Wenn Sie TypeScript-Projektreferenzen verwenden, verifizieren Sie, dass Ihre tsconfig-Struktur den TypeScript-Erwartungen entspricht."
   - question: "Wie wirkt sich das auf Vite-Nutzer aus?"
-    answer: "Rolldown ist der Bundler, der Vite 8 und höher antreibt. Diese Änderungen gelten automatisch, wenn Sie Rolldown als Abhängigkeit aktualisieren oder wenn Vite eine neue Rolldown-Version ausliefert."
+    answer: "Rolldown ist der Bundler, der [Vite 8](/articles/2026-04-08-vite-8-stable-seven-patches-in-three-weeks) und höher antreibt. Diese Änderungen gelten automatisch, wenn Sie Rolldown als Abhängigkeit aktualisieren oder wenn Vite eine neue Rolldown-Version ausliefert."

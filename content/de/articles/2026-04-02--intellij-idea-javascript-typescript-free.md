@@ -23,7 +23,7 @@ Die kostenlose Stufe fügt hinzu:
 - **Code-Navigation**: Gutter-Icons für Jump-to-Aktionen, rekursive Aufrufe, TypeScript-Source-Mapping
 - **Kern-Refactorings**: Rename, Introduce Variable/Constant, Change Signature, Move Members
 - **Integrierte Inspections und Quick-Fixes**: erkennt potenzielle Probleme frühzeitig beim Coden
-- **Prettier-, ESLint-, TSLint- und StyleLint-Integration**: Code-Formatierung und Linting direkt in der IDE
+- **[Prettier](/articles/2026-04-05-oxc-rust-javascript-toolchain-benchmarks)-, [ESLint](/articles/2026-04-05-eslint-v10-flat-config-rust-alternatives)-, TSLint- und StyleLint-Integration**: Code-Formatierung und Linting direkt in der IDE
 - **Vite-Projektgenerator**: Webprojekte ohne Verlassen der IDE erstellen
 - **Abhängigkeits-Vulnerabilitäts-Scanning**: Sicherheitsprüfungen für eure package.json
 
@@ -33,7 +33,7 @@ Falls ihr das vollständige Frontend-Toolkit benötigt, bleibt Ultimate erforder
 
 - Dedizierte JavaScript- und TypeScript-Debugger
 - Test-Runner- und Test-UI-Tools
-- Angular- und Vue-Support
+- Angular- und [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals)-Support
 - Erweiterte Refactorings jenseits des Kernsatzes
 
 JetBrains ist transparent: Die kostenlose Stufe deckt „das Erstellen moderner Webanwendungen" ab, aber professionelle Full-Stack-Arbeit erfordert weiterhin kostenpflichtige Tools.

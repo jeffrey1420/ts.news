@@ -23,7 +23,7 @@ tldr:
 
 The team behind [Knip](https://github.com/webpro-nl/knip), the widely-used open-source tool for finding unused files, dependencies, and exports in JavaScript and TypeScript projects, has shipped version 6, and the headline number is hard to ignore: **2 to 4 times faster** across the board.
 
-The key change is a complete swap of the TypeScript backend for [oxc-parser](https://oxc.rs/docs/guide/usage/parser), the Rust-based parser from the Oxc Project. Author Lars Kappert calls it the natural next step after years of incremental tuning.
+The key change is a complete swap of the TypeScript backend for [oxc-parser](https://oxc.rs/docs/guide/usage/parser), the Rust-based parser from the [Oxc](/articles/2026-04-05-oxc-rust-javascript-toolchain-benchmarks) Project. Author Lars Kappert calls it the natural next step after years of incremental tuning.
 
 ## Why the TypeScript backend hit a wall
 
@@ -49,13 +49,13 @@ The Rust-based parser tears through the Microsoft TypeScript repo in under a sec
 
 ## What else changed in v6
 
-Beyond the core performance work, several plugins were updated to statically analyze configuration files directly rather than importing them, including ESLint (flat config), tsdown, and tsup. This removes the need to actually load transitive dependencies just to scan them, further improving speed and reducing memory pressure.
+Beyond the core performance work, several plugins were updated to statically analyze configuration files directly rather than importing them, including [ESLint](/articles/2026-04-05-eslint-v10-flat-config-rust-alternatives) (flat config), tsdown, and tsup. This removes the need to actually load transitive dependencies just to scan them, further improving speed and reducing memory pressure.
 
 Support for **TypeScript namespaces and modules** improved too, via a new `namespaceMembers` issue type that was previously ignored in v5.
 
 ## Breaking changes to be aware of
 
-- **Node.js v20.19.0+ required**: v18 support is dropped
+- **[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) v20.19.0+ required**: v18 support is dropped
 - **classMembers issue type removed**: no longer viable without TypeScript's JS-based LanguageService API
 - `--include-libs` and `--isolate-workspaces` flags removed, these are now the default (and only) behavior
 - `--experimental-tags` renamed to `--tags`

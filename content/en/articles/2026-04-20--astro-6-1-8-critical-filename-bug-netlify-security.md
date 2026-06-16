@@ -18,7 +18,7 @@ faq:
     answer: "Yes, especially if you deploy to Netlify or Vercel. The filename bug can silently produce broken deploys, the build succeeds but some pages fail to load in production. The image endpoint fix is a defense-in-depth improvement that closes a real security gap."
 ---
 
-Astro 6.1.8 dropped on April 18 with two fixes that developers deploying to Netlify or Vercel should apply immediately, plus a handful of smaller improvements.
+[Astro 6.1](/articles/2026-04-08-astro-6-1-sharp-images-smartypants-i18n-fallback-routes).8 dropped on April 18 with two fixes that developers deploying to Netlify or Vercel should apply immediately, plus a handful of smaller improvements.
 
 ## The Filename Bug That Breaks Netlify Deploys
 
@@ -26,7 +26,7 @@ The most impactful fix in this release addresses a regression introduced in earl
 
 The issue surfaces on Netlify specifically. Netlify's skew protection mechanism, which ensures deployed assets match the build output, strips characters it considers unsafe from filenames before deploying. If your built HTML references `chunk.abc123!~{x}.js` and Netlify serves it as `chunk.abc123.js`, the file reference breaks and the page fails to load.
 
-The Astro team confirmed this affected builds where dynamic imports or certain code-splitting patterns produced chunks with hash-like segments containing these characters. Version 6.1.8 normalizes the output filenames to avoid the problematic characters before the build artifacts are written.
+The [Astro](/articles/2026-03-30-astro-6-rust-compiler-cloudflare) team confirmed this affected builds where dynamic imports or certain code-splitting patterns produced chunks with hash-like segments containing these characters. Version 6.1.8 normalizes the output filenames to avoid the problematic characters before the build artifacts are written.
 
 If you've been debugging mysterious blank pages on Netlify deploys with no build errors, this is likely the cause.
 
@@ -36,7 +36,7 @@ The second notable fix closes a security gap in Astro's built-in image optimizat
 
 An attacker could potentially use this for content-type confusion attacks, cache poisoning, or social engineering if they could convince a victim to load a crafted image URL pointing at an internal endpoint. The Astro team notes that the endpoint requires `allowedDomains` to be configured, which limits the blast radius, but the fix is still the right call: the endpoint now validates that the source is actually SVG before setting the `image/svg+xml` content type.
 
-This is a defense-in-depth fix in the same category as the H3 `redirectBack()` protection in this week's Nitro update, not a critical remote code execution, but a real security gap that should be closed.
+This is a defense-in-depth fix in the same category as the H3 `redirectBack()` protection in this week's [Nitro](/articles/2026-04-20-nitro-v3-beta-tracing-dep-tracing-vercel-queues) update, not a critical remote code execution, but a real security gap that should be closed.
 
 ## Performance: Dev Server Dependency Caching
 

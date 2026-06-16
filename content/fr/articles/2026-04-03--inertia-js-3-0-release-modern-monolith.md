@@ -25,7 +25,7 @@ En 2026, choisir comment construire une application web oppose généralement de
 
 Inertia est une couche d'adaptation qui permet d'utiliser un framework serveur comme backend pour un SPA JavaScript moderne, sans construire d'API REST ou GraphQL séparée. Vous écrivez la logique des contrôleurs dans Laravel, Rails ou Django, puis retournez des composants Inertia au lieu de HTML. Inertia gère le protocole client-serveur, l'hydration et la synchronisation d'état automatiquement.
 
-Le résultat : votre app React, Vue ou Svelte se comporte comme un SPA (pas de rechargement de page complet, navigation côté client) mais votre backend conserve le contrôle sur l'authentification, les autorisations et la récupération de données.
+Le résultat : votre app React, [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals) ou [Svelte](/articles/2026-04-17-svelte-march-2026-context-html-comments-error-boundaries) se comporte comme un SPA (pas de rechargement de page complet, navigation côté client) mais votre backend conserve le contrôle sur l'authentification, les autorisations et la récupération de données.
 
 ## Quoi de Neuf en 3.0
 
@@ -37,7 +37,7 @@ Les améliorations principales d'Inertia.js 3.0 se concentrent sur la performanc
 
 **Prefetch au Survol.** Inertia Link précharge désormais les données d'une page au survol d'un lien, pas seulement au clic. Combiné aux props différés, la navigation peut sembler instantanée.
 
-**Versioning des Assets Refondu.** Une implémentation plus propre gère le cache busting entre les outils de build, un point douloureux permanent pour les équipes utilisant Vite ou esbuild avec Inertia.
+**Versioning des Assets Refondu.** Une implémentation plus propre gère le cache busting entre les outils de build, un point douloureux permanent pour les équipes utilisant Vite ou [esbuild](/articles/2026-06-14-esbuild-0-28-1-deno-rce-windows-path-traversal) avec Inertia.
 
 **Couverture TypeScript Revampée.** Les définitions TypeScript ont été overhaulées, avec une meilleure inférence des types de props et un typage plus strict sur les données partagées.
 

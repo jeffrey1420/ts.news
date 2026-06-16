@@ -18,7 +18,7 @@ faq:
     answer: "Oui, particulièrement si vous déployez sur Netlify ou Vercel. Le bug de nom de fichier peut produire des déploiements cassés sans message d'erreur de build."
 ---
 
-Astro 6.1.8 est sorti le 18 avril avec deux correctifs que les développeurs déployant sur Netlify ou Vercel devraient appliquer immédiatement.
+[Astro 6.1](/articles/2026-04-08-astro-6-1-sharp-images-smartypants-i18n-fallback-routes).8 est sorti le 18 avril avec deux correctifs que les développeurs déployant sur Netlify ou Vercel devraient appliquer immédiatement.
 
 ## Le Bug de Nom de Fichier qui Casse les Déploiements Netlify
 
@@ -26,7 +26,7 @@ La correction la plus impactante adresse une régression des versions 6.x : les 
 
 Le problème se manifeste sur Netlify. La protection anti-skew, qui garantit que les assets déployés correspondent à la sortie du build, supprime les caractères jugés unsafe des noms de fichiers. Si votre HTML buildé référence `chunk.abc123!~{x}.js` et que Netlify le sert comme `chunk.abc123.js`, la référence casse et la page ne charge pas.
 
-La équipe Astro confirme que cela affectait les builds où des imports dynamiques ou certains patterns de code-splitting produisaient des chunks avec des segments hash contenant ces caractères. La version 6.1.8 normalise les noms de fichiers en sortie pour éviter ces caractères.
+La équipe [Astro](/articles/2026-03-30-astro-6-rust-compiler-cloudflare) confirme que cela affectait les builds où des imports dynamiques ou certains patterns de code-splitting produisaient des chunks avec des segments hash contenant ces caractères. La version 6.1.8 normalise les noms de fichiers en sortie pour éviter ces caractères.
 
 ## Faille Content-Type de /_image
 

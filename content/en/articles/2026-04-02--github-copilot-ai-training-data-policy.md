@@ -30,7 +30,7 @@ GitHub explicitly excludes data from Business, Enterprise, and enterprise-owned 
 
 GitHub says it already saw "meaningful improvements" after incorporating Microsoft employee interaction data, higher acceptance rates across multiple languages. The company argues this is standard industry practice and frames it as a quality trade-off: contribute your patterns, get better suggestions.
 
-The timing matters. Copilot faces real competition from Claude Code, Cursor, and JetBrains' AI tooling. Training on user data is one way to close the gap without charging more.
+The timing matters. Copilot faces real competition from [Claude Code](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026), Cursor, and [JetBrains](/articles/2026-04-02-intellij-idea-javascript-typescript-free)' AI tooling. Training on user data is one way to close the gap without charging more.
 
 ## How to Opt Out
 

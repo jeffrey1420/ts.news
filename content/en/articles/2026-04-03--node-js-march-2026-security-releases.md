@@ -19,7 +19,7 @@ faq:
     answer: "The headersDistinct and trailersDistinct objects in Node.js HTTP responses used a regular Object prototype, making them vulnerable to prototype pollution attacks. The fix switches to a null prototype (Object.create(null)), removing the prototype chain entirely from these internal structures."
 ---
 
-Node.js released a coordinated set of security patches on March 24, 2026, covering six CVEs across every active release line. If you're running Node in production, this is the update you've been waiting for.
+[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) released a coordinated set of security patches on March 24, 2026, covering six CVEs across every active release line. If you're running Node in production, this is the update you've been waiting for.
 
 ## The Two High-Severity Fixes
 

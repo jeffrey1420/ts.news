@@ -54,7 +54,7 @@ L'attaque a touché un large spectre de clients JavaScript Red Hat Cloud Service
 | `@redhat-cloud-services/frontend-components` | 7.7.2, 7.7.3, 7.7.5 |
 | `@redhat-cloud-services/notifications-client` | 6.1.4, 6.1.5, 6.1.7 |
 
-Une seconde vague est apparue le 4 juin, utilisant `binding.gyp` (fichier de configuration de build natif Node.js) pour exécuter du code malveillant pendant l'installation du paquet, cohérent avec la campagne Miasma.
+Une seconde vague est apparue le 4 juin, utilisant `binding.gyp` (fichier de configuration de build natif [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams)) pour exécuter du code malveillant pendant l'installation du paquet, cohérent avec la campagne Miasma.
 
 ## Ce Que Cela Signifie pour l'Écosystème npm
 

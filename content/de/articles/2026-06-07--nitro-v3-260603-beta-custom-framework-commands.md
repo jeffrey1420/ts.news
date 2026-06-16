@@ -18,7 +18,7 @@ faq:
     answer: "Der Fix stellt sicher, dass wenn TypeScript die Auflösung eines Modulpfads mit hinzugefügten Erweiterungen (.ts, .tsx) erneut versucht, Nitro nur die Erweiterungen entfernt, die tatsächlich erneut versucht wurden, nicht alle möglichen Erweiterungen. Dies verhindert Edge-Cases, bei denen legitime Modulauflösungen incorrect übergangen werden könnten."
 ---
 
-Der Beta-Zug von Nitro v3 rollt weiter. Build `3.0.260603-beta`, das datumsbasierte Versionsschema steht für den 3. Juni 2026, ist ein kleines Release, aber zwei Änderungen sind für alle relevant, die ein Framework auf Nitro aufbauen. Und das sind seit der [v3-Beta-Ankündigung](https://nitro.build/blog/v3-beta) unter anderem TanStack Start und das kommende Nuxt-Major.
+Der Beta-Zug von [Nitro v3](/articles/2026-04-20-nitro-v3-beta-tracing-dep-tracing-vercel-queues) rollt weiter. Build `3.0.260603-beta`, das datumsbasierte Versionsschema steht für den 3. Juni 2026, ist ein kleines Release, aber zwei Änderungen sind für alle relevant, die ein Framework auf Nitro aufbauen. Und das sind seit der [v3-Beta-Ankündigung](https://nitro.build/blog/v3-beta) unter anderem TanStack Start und das kommende [Nuxt](/articles/2026-04-06-nuxt-4-4-vue-router-v5-typed-layout-props-28x-faster-dev-routing)-Major.
 
 ## Frameworks besitzen jetzt `preview` und `deploy`
 

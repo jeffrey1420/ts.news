@@ -59,11 +59,11 @@ Error boundaries (`svelte:boundary`) previously only worked on the client. Svelt
 
 Navigation callbacks (`beforeNavigate`, `onNavigate`, `afterNavigate`) now include scroll position information on the `from` and `to` navigation targets. This enables scroll-aware transition animations, you can check whether the user is navigating back or forward and animate accordingly, all without extra bookkeeping.
 
-The update also stabilizes Vite 8 support (kit@2.53.0) and adds an official `better-auth` addon to the Svelte CLI (`sv@0.12.0`).
+The update also stabilizes [Vite 8](/articles/2026-04-08-vite-8-stable-seven-patches-in-three-weeks) support (kit@2.53.0) and adds an official `better-auth` addon to the Svelte CLI (`sv@0.12.0`).
 
 ## State of JS 2025: Svelte Holds First Place
 
-A quick vindication: the [State of JS 2025 survey](https://2025.stateofjs.com/en-US) results are out, and Svelte retains its position as the top-ranked reactive framework in positive sentiment for the second consecutive year. The category includes Solid, Vue, React, Angular, and others, Svelte's developer satisfaction score continues to stand out.
+A quick vindication: the [State of JS 2025 survey](https://2025.stateofjs.com/en-US) results are out, and Svelte retains its position as the top-ranked reactive framework in positive sentiment for the second consecutive year. The category includes Solid, [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals), React, Angular, and others, Svelte's developer satisfaction score continues to stand out.
 
 ## Community Highlights
 

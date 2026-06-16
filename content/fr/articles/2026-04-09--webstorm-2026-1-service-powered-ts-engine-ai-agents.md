@@ -29,7 +29,7 @@ WebStorm 2026.1 est sorti en mars avec une version qui resserre le lien entre l'
 
 Le changement le plus significatif techniquement de la 2026.1 est le passage du moteur TypeScript basé sur un service de optionnel à par défaut. Les grandes bases de code TypeScript exercent une pression constante sur les éditeurs, vérification de types, navigation et refactoring compete tous pour le CPU dans le thread principal de l'EDI. Le moteur basé sur un service externalise ce travail vers un processus séparé, gardant l'interface plus réactive sans changer la façon dont le code est écrit.
 
-WebStorm affiche également désormais les indices inlay du serveur de langage TypeScript basé sur Go directement dans l'éditeur, si vous l'exécutez. Et comme TypeScript 6 sortait environ au même moment, l'équipe a aligné les valeurs par défaut de l'éditeur sur le comportement modifié de TS6 pour `types` et `rootDir`, et a commencé à préparer les changements de `baseUrl` de TypeScript 7.
+WebStorm affiche également désormais les indices inlay du serveur de langage TypeScript basé sur Go directement dans l'éditeur, si vous l'exécutez. Et comme TypeScript 6 sortait environ au même moment, l'équipe a aligné les valeurs par défaut de l'éditeur sur le comportement modifié de TS6 pour `types` et `rootDir`, et a commencé à préparer les changements de `baseUrl` de [TypeScript 7](/articles/2026-03-23-typescript-7-native-preview-go-compiler).
 
 Les spécificateurs d'importation et d'exportation à littéraux de chaîne sont désormais entièrement compris par l'analyseur et le navigateur :
 
@@ -42,7 +42,7 @@ La coloration syntaxique, la navigation vers la définition et le renommage fonc
 
 ## Le chat IA reçoit une liste complète d'agents
 
-JetBrains a introduit un panneau de chat IA il y a plusieurs versions. Dans la 2026.1, c'est maintenant un hub d'agents. Le registre ACP, une marketplace au sein de l'EDI, vous permet d'installer des agents en un clic. La liste inclut déjà Junie (l'agent propre à JetBrains), Claude Agent, Codex (le modèle de codage d'OpenAI), Cursor et GitHub Copilot, avec d'autres à venir.
+[JetBrains](/articles/2026-04-02-intellij-idea-javascript-typescript-free) a introduit un panneau de chat IA il y a plusieurs versions. Dans la 2026.1, c'est maintenant un hub d'agents. Le registre ACP, une marketplace au sein de l'EDI, vous permet d'installer des agents en un clic. La liste inclut déjà Junie (l'agent propre à JetBrains), Claude Agent, Codex (le modèle de codage d'OpenAI), Cursor et [GitHub Copilot](/articles/2026-04-02-github-copilot-ai-training-data-policy), avec d'autres à venir.
 
 Le bénéfice pratique : vous pouvez basculer entre différents agents selon la tâche, Codex pour certaines tâches de génération de code, Claude pour le travail lourd en raisonnement, sans quitter l'éditeur. JetBrains appelle cela le protocole Agent Client (ACP), et c'est conçu pour être ouvert.
 
@@ -54,7 +54,7 @@ Crucialement, ces suggestions ne consomment pas votre quota IA sur les abonnemen
 
 ## Mises à jour des frameworks
 
-WebStorm 2026.1 apporte le support des nouvelles directives React (`use memo`, `use no memo` aux côtés de `use client` et `use server` existants), de la syntaxe de template Angular 21 complète (fonctions fléchées, `instanceof`, littéraux regex, spread), et une intégration TypeScript Vue mise à jour via `@vue/typescript-plugin 3.2.4`.
+WebStorm 2026.1 apporte le support des nouvelles directives React (`use memo`, `use no memo` aux côtés de `use client` et `use server` existants), de la syntaxe de template Angular 21 complète (fonctions fléchées, `instanceof`, littéraux regex, spread), et une intégration TypeScript [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals) mise à jour via `@vue/typescript-plugin 3.2.4`.
 
 Les génériques Svelte dans les balises `<script>` fonctionnent désormais avec la recherche d'utilisation, la navigation vers les déclarations et le renommage. Le serveur de langage Astro accepte la configuration JSON directement depuis les paramètres de l'EDI. Et les aperçus de couleur CSS affiche désormais la fonction `color()` et les espaces colorimétriques CSS étendus.
 

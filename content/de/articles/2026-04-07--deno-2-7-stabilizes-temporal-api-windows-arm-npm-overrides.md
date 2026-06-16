@@ -7,7 +7,7 @@ author: lschvn
 tags: ["runtimes", "typescript", "javascript"]
 ---
 
-Deno 2.7 wurde am 25. Februar veröffentlicht und ist eine der funktionsreichsten Releases in der 2.x-Reihe. Die Highlights sind die Stabilisierung der Temporal API, offizielle Windows-on-ARM-Builds und npm `overrides`-Support, aber das Release enthält auch eine bedeutende Menge an Node.js-Kompatibilitätsarbeit.
+Deno 2.7 wurde am 25. Februar veröffentlicht und ist eine der funktionsreichsten Releases in der 2.x-Reihe. Die Highlights sind die Stabilisierung der Temporal API, offizielle Windows-on-ARM-Builds und npm `overrides`-Support, aber das Release enthält auch eine bedeutende Menge an [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams)-Kompatibilitätsarbeit.
 
 [tldr]
 - Die TC39 Temporal API ist nun stable in Deno ohne das `--unstable-temporal`-Flag, Chrome 144 hat sie im Januar 2026 ausgeliefert, Deno zieht nach
@@ -74,7 +74,7 @@ Für `child_process`: stdio-Streams sind nun echte Socket-Instanzen, Shell-Weite
 
 In diesem Zyklus erreichte Deno Deploy auch die allgemeine Verfügbarkeit (3. Februar) und die Einführung von [Deno Sandbox](https://deno.com/blog/introducing-deno-sandbox), sofort einsatzbereite Linux-MicroVMs zum Ausführen nicht vertrauenswürdigen Codes mit Defense-in-Depth-Sicherheit.
 
-Das Deno-Team deckte auch auf, dass Deno-Deploy-Nutzer vor zwei hochkritischen React-Server-Components-/Next.js-Schwachstellen Ende 2025 geschützt waren (CVE-2025-55184 und die RCE in React Server Functions), mit automatischen Abschwächungen, die am Edge bereitgestellt wurden.
+Das Deno-Team deckte auch auf, dass Deno-Deploy-Nutzer vor zwei hochkritischen React-Server-Components-/[Next.js](/articles/2026-04-04-next-js-16-2-stable-adapter-api-cross-platform)-Schwachstellen Ende 2025 geschützt waren (CVE-2025-55184 und die RCE in React Server Functions), mit automatischen Abschwächungen, die am Edge bereitgestellt wurden.
 
 [faq]
 - **Muss ich meinen Code für die Temporal API ändern?** Wenn Sie `--unstable-temporal` verwendet haben, entfernen Sie dieses Flag. Die API ist unverändert.

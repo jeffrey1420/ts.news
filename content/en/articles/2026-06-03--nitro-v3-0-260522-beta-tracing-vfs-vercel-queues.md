@@ -19,7 +19,7 @@ faq:
     answer: "The `vercel dev` command in Nitro's Vercel preset now detects queue handler definitions (`nitro.tasks`) and spins up a local Vercel Runtime emulator that processes queue jobs. You can enqueue work from a route handler using `@vercel/functions` and debug the full async flow: retries, dead-letter handling, before deploying."
 ---
 
-Nitro v3.0.260522-beta dropped May 22, 2026, extending the v3 beta track that began in April. The release adds three features that together significantly improve the development experience for production-oriented server-side TypeScript applications: build-time tracing instrumentation, a VFS-backed dynamic code cache, and local Vercel queue emulation.
+[Nitro v3](/articles/2026-04-20-nitro-v3-beta-tracing-dep-tracing-vercel-queues).0.260522-beta dropped May 22, 2026, extending the v3 beta track that began in April. The release adds three features that together significantly improve the development experience for production-oriented server-side TypeScript applications: build-time tracing instrumentation, a VFS-backed dynamic code cache, and local Vercel queue emulation.
 
 ## Build-time route handler tracing
 
@@ -31,7 +31,7 @@ This is distinct from the OpenTelemetry SDK approach: Nitro is emitting spans fr
 
 PR [#4251](https://github.com/nitrojs/nitro/pull/4251) introduces a VFS layer for Nitro's dynamic app code. Previously, a dev-server restart forced Nitro to re-evaluate the entire module graph, every route handler, every `useStorage()` call, every event hook. For applications with hundreds of routes or expensive initialization logic, this added seconds to every restart.
 
-The new VFS cache serializes the resolved state of Nitro's internal registry after the first request is handled. Subsequent starts load from this cache, skipping the evaluation step. The cache is invalidated automatically when source files change. The improvement is most visible in large monorepos and Nuxt 3 applications using Nitro as the server layer.
+The new VFS cache serializes the resolved state of Nitro's internal registry after the first request is handled. Subsequent starts load from this cache, skipping the evaluation step. The cache is invalidated automatically when source files change. The improvement is most visible in large monorepos and [Nuxt](/articles/2026-04-06-nuxt-4-4-vue-router-v5-typed-layout-props-28x-faster-dev-routing) 3 applications using Nitro as the server layer.
 
 ## Vercel queues in local dev
 
@@ -65,6 +65,6 @@ Two vulnerabilities patched in the prior beta (v3.0.260429-beta) are also presen
 
 ## AWS Amplify supports Node.js 24
 
-The AWS Amplify preset now ships with Node.js 24 runtime support ([#4245](https://github.com/nitrojs/nitro/pull/4245)). The preset was updated to use the new Amplify Node.js 24 handler interface, so existing Amplify deployments can bump their Nitro runtime to Node 24 without configuration changes.
+The AWS Amplify preset now ships with [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) 24 runtime support ([#4245](https://github.com/nitrojs/nitro/pull/4245)). The preset was updated to use the new Amplify Node.js 24 handler interface, so existing Amplify deployments can bump their Nitro runtime to Node 24 without configuration changes.
 
 Nitro v3.0.260522-beta is available on npm as `nitro@3.0.0-260522-beta`. The v3 beta track is considered stable for most workloads; the team is targeting a stable v3.0 release in the coming weeks.

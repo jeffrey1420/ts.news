@@ -15,7 +15,7 @@ La plupart des changements sont liés à l'alignement avec le comportement de Ty
 
 **Moins de sensibilité au contexte pour les fonctions sans `this`.** TypeScript 6.0 corrige un problème d'inférence de type récurrent quand les méthodes et callbacks n'utilisent pas `this`. Auparavant, une méthode comme `consume(y) { return y.toFixed(); }` pouvait échouer si une autre propriété précédait la sienne, car TypeScript supposait que `this` pouvait avoir besoin du type générique. Désormais, si `this` n'est jamais utilisé, TypeScript ignore le contrôle de sensibilité contextuelle et l'inférence fonctionne correctement quel que soit l'ordre des propriétés. Cette correction a été contribué par Mateusz Burzyński.
 
-**Les importations de sous-chemins supportent maintenant le préfixe `#/`.** Node.js a ajouté le support de `#/` comme préfixe d'importation de sous-chemin nu (au lieu de `#root/` ou similaire). TypeScript 6.0 supporte ceci via `--moduleResolution nodenext` et `bundler`. Fini les contournements maladroits pour des importations internes propres.
+**Les importations de sous-chemins supportent maintenant le préfixe `#/`.** [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) a ajouté le support de `#/` comme préfixe d'importation de sous-chemin nu (au lieu de `#root/` ou similaire). TypeScript 6.0 supporte ceci via `--moduleResolution nodenext` et `bundler`. Fini les contournements maladroits pour des importations internes propres.
 
 **`--moduleResolution bundler` + `--module commonjs` est maintenant valide.** Auparavant cette combinaison était rejetée. Avec `--moduleResolution node` déprécié, la combinaison `bundler` + `commonjs` est désormais le chemin de migration recommandé pour de nombreux projets.
 
@@ -27,7 +27,7 @@ La plupart des changements sont liés à l'alignement avec le comportement de Ty
 
 ## Le vrai titre : TypeScript 7 est proche
 
-TypeScript 6.0 existe principalement pour préparer l'écosystème à la 7.0. La réécriture en Go, nom de code "Project Corsa", est en cours depuis début 2025. La preview native (`@typescript/native-preview` sur npm) est déjà suffisamment stable pour une utilisation quotidienne, et une extension VS Code est mise à jour chaque nuit.
+TypeScript 6.0 existe principalement pour préparer l'écosystème à la 7.0. La réécriture en Go, nom de code "[Project Corsa](/articles/2026-03-23-typescript-7-native-preview-go-compiler)", est en cours depuis début 2025. La preview native (`@typescript/native-preview` sur npm) est déjà suffisamment stable pour une utilisation quotidienne, et une extension VS Code est mise à jour chaque nuit.
 
 Le langage de service (complétions, go-to-definition, rename, find-all-references) est déjà pleinement fonctionnel dans le port natif. La vérification de type du compilateur est décrite comme "quasi complète", sur 20 000 cas de test, seulement 74 montrent des différences entre la 6.0 et la preview 7.0. Le parallélisme via la mémoire partagée est la victoire architecturale clé, permettant des gains de vitesse spectaculaires sur les grands monorepos.
 

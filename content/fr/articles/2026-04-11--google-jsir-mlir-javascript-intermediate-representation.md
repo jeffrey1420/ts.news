@@ -28,7 +28,7 @@ Quand une représentation intermédiaire de compilateur fait la une, c'est que �
 
 Une représentation intermédiaire est la structure de données qu'un compilateur ou un outil d'analyse utilise pour représenter le code entre le parsing et la génération de code. Si un AST vous dit à quoi ressemble le code structurellement, une IR vous dit ce qu'il *fait*. La qualité de votre IR détermine le type d'analyse et de transformation que vous pouvez effectuer.
 
-L'outillage JavaScript a longtemps souffert d'approches fragmentées des IR. Les plugins Babel travaillent sur des AST. Les règles ESLint travaillent sur des AST. Les bundlers travaillent souvent sur leurs propres représentations internes avec une interopérabilité limitée. Une IR commune et bien conçue pourrait permettre à ces outils de partager le travail d'analyse, et c'est exactement ce que Google propose avec JSIR.
+L'outillage JavaScript a longtemps souffert d'approches fragmentées des IR. Les plugins Babel travaillent sur des AST. Les règles [ESLint](/articles/2026-04-05-eslint-v10-flat-config-rust-alternatives) travaillent sur des AST. Les bundlers travaillent souvent sur leurs propres représentations internes avec une interopérabilité limitée. Une IR commune et bien conçue pourrait permettre à ces outils de partager le travail d'analyse, et c'est exactement ce que Google propose avec JSIR.
 
 ## Haut niveau et bas niveau simultanément
 

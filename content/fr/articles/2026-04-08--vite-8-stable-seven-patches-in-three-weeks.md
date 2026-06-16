@@ -21,7 +21,7 @@ faq:
     answer: "Pour un nouveau projet, utilisez v8. Pour un projet v7 stable avec une config de build complexe, consultez le guide de migration v7 vers v8 avant de mettre à jour."
 ---
 
-Vite 8.0.0 est passé en stable le 12 mars 2026. Trois semaines et sept correctifs plus tard, l'équipe Vite est sur v8.0.7 au 7 avril. C'est un rythme de réponse plus rapide que la plupart des releases majeures dans l'écosystème JavaScript, et cela reflète la complexité inhérente au remplacement simultané d'ESBuild et Rollup par Rolldown comme bundler unifié.
+Vite 8.0.0 est passé en stable le 12 mars 2026. Trois semaines et sept correctifs plus tard, l'équipe Vite est sur v8.0.7 au 7 avril. C'est un rythme de réponse plus rapide que la plupart des releases majeures dans l'écosystème JavaScript, et cela reflète la complexité inhérente au remplacement simultané d'ESBuild et Rollup par [Rolldown](/articles/2026-06-05-rolldown-1-1-0-lazybarrel-default-tsconfig) comme bundler unifié.
 
 ## Ce qu'a apporté la stable
 

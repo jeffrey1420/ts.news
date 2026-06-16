@@ -29,7 +29,7 @@ WebStorm 2026.1 landed in March with a release that tightens the bond between th
 
 The most technically significant change in 2026.1 is the service-powered TypeScript engine flipping from opt-in to default. Large TypeScript codebases put constant pressure on editors, type checking, navigation, and refactoring all compete for CPU in the main IDE thread. The service-based engine offloads that work to a separate process, keeping the UI snappier without changing how code is written or how errors are displayed.
 
-WebStorm also now shows inlay hints from the TypeScript Go-based language server directly in the editor, if you're running it. And with TypeScript 6 shipping around the same time, the team aligned the editor's defaults with TS6's changed `types` value and `rootDir` behavior, and started preparing for TypeScript 7's `baseUrl` changes.
+WebStorm also now shows inlay hints from the TypeScript Go-based language server directly in the editor, if you're running it. And with TypeScript 6 shipping around the same time, the team aligned the editor's defaults with TS6's changed `types` value and `rootDir` behavior, and started preparing for [TypeScript 7](/articles/2026-03-23-typescript-7-native-preview-go-compiler)'s `baseUrl` changes.
 
 String-literal import and export specifiers are now fully understood by the parser and navigator:
 
@@ -42,7 +42,7 @@ Highlighting, go-to-definition, and rename refactoring all work correctly on the
 
 ## AI Chat Gets a Full Agent Roster
 
-JetBrains introduced an AI chat panel several releases ago. In 2026.1 it's now an agent hub. The ACP Registry, a marketplace within the IDE, lets you install agents in one click. The list already includes Junie (JetBrains' own agent), Claude Agent, Codex (OpenAI's coding model), Cursor, and GitHub Copilot, with more to come.
+[JetBrains](/articles/2026-04-02-intellij-idea-javascript-typescript-free) introduced an AI chat panel several releases ago. In 2026.1 it's now an agent hub. The ACP Registry, a marketplace within the IDE, lets you install agents in one click. The list already includes Junie (JetBrains' own agent), Claude Agent, Codex (OpenAI's coding model), Cursor, and [GitHub Copilot](/articles/2026-04-02-github-copilot-ai-training-data-policy), with more to come.
 
 The practical benefit: you can switch between different agents depending on the task, Codex for certain code generation tasks, Claude for reasoning-heavy work, Cursor's model for others, without leaving the editor. JetBrains calls this the Agent Client Protocol (ACP), and it's designed to be open, so the roster should grow through the year.
 
@@ -54,7 +54,7 @@ Crucially, these suggestions don't consume your AI quota on JetBrains AI Pro, Ul
 
 ## Framework Updates
 
-WebStorm 2026.1 brings support for new React directives (`use memo`, `use no memo` alongside the existing `use client` and `use server`), Angular 21's full template syntax (arrow functions, `instanceof`, regex literals, spread), and updated Vue TypeScript integration via `@vue/typescript-plugin 3.2.4`.
+WebStorm 2026.1 brings support for new React directives (`use memo`, `use no memo` alongside the existing `use client` and `use server`), Angular 21's full template syntax (arrow functions, `instanceof`, regex literals, spread), and updated [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals) TypeScript integration via `@vue/typescript-plugin 3.2.4`.
 
 Svelte generics in `<script>` tags now work with usage search, declaration navigation, and rename refactoring. The Astro language server accepts JSON configuration directly from the IDE settings. And CSS color swatches now preview the `color()` function and extended CSS color spaces.
 

@@ -21,7 +21,7 @@ faq:
     answer: "Les sites utilisant `fallbackType: 'rewrite'` génèrent des routes supplémentaires qui n'étaient pas visibles par les intégrations. Astro 6.1 les expose via le hook `astro:routes:resolved`."
 ---
 
-Astro 6.1 est sorti le 31 mars, et même si ce n'est pas une release aussi spectaculaire que la 6.0 (compilateur Rust expérimental), elle apporte trois améliorations ciblées qui répondent à de véritables points de friction pour les sites riches en contenu déployés au edge.
+[Astro 6](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).1 est sorti le 31 mars, et même si ce n'est pas une release aussi spectaculaire que la 6.0 (compilateur Rust expérimental), elle apporte trois améliorations ciblées qui répondent à de véritables points de friction pour les sites riches en contenu déployés au edge.
 
 ## Sharp : contrôles au niveau de l'encodeur
 

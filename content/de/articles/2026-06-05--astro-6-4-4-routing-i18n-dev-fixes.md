@@ -11,7 +11,7 @@ tldr:
   - Bearbeitung von Client-Komponenten löst keine unnötigen vollständigen Programm-Neustarts mehr im Development aus
 ---
 
-Astro 6.4.4 erschien am 3. Juni 2026 als fokussiertes Patch-Release mit sieben Bugfixes rund um Routing, Internationalisierung und Entwicklererfahrung.
+[Astro 6.4](/articles/2026-06-01-astro-6-4-rust-satteri-markdown-optimizer).4 erschien am 3. Juni 2026 als fokussiertes Patch-Release mit sieben Bugfixes rund um Routing, Internationalisierung und Entwicklererfahrung.
 
 ## Routenpattern-Groß-/Kleinschreibung Behoben
 
@@ -38,4 +38,4 @@ Zuvor löste das Bearbeiten einer Client-Komponente (mit `client:idle`, `client:
 
 Das `@astrojs/mdx`-Integration wurde ebenfalls auf v6.0.2 aktualisiert, mit dem aktualisierten Sätteri-Prozessor (v0.8.0).
 
-Astro 6.4.4 ist jetzt auf npm verfügbar.
+[Astro 6](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).4.4 ist jetzt auf npm verfügbar.

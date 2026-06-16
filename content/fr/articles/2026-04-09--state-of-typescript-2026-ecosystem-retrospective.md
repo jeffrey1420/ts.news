@@ -33,11 +33,11 @@ En août 2025, GitHub a rapporté que TypeScript était devenu le langage le plu
 
 Microsoft a annoncé Project Corsa début 2025 : un port natif du compilateur TypeScript et du service linguistique vers Go. L'objectif est approximativement 10x plus rapide en compilation et une compilation incrémentielle quasi instantanée. Les benchmarks initiaux étaient frappants, le codebase VS Code est passé de 77,8 secondes à 7,5 secondes ; Playwright de 11,1 secondes à 1,1 seconde.
 
-TypeScript 6.0, sorti au Q1 2026, est prévu comme dernière version majeure sur l'actuel codebase compilé en JavaScript. TypeScript 7.0 (cible mi-2026) devrait être la première version construite sur le compilateur Go. Les auteurs de plugins utilisant l'API Compilateur devront vérifier la compatibilité avec la nouvelle implémentation.
+[TypeScript 6.0](/articles/2026-04-06-typescript-6-last-release-before-go-rewrite), sorti au Q1 2026, est prévu comme dernière version majeure sur l'actuel codebase compilé en JavaScript. TypeScript 7.0 (cible mi-2026) devrait être la première version construite sur le compilateur Go. Les auteurs de plugins utilisant l'API Compilateur devront vérifier la compatibilité avec la nouvelle implémentation.
 
 ## Exécution TypeScript native dans Node.js
 
-Node.js 22.18 a stabilisé l'exécution TypeScript native via le type stripping. Au lieu de transpiler `.ts` en `.js` avant l'exécution, Node.js comprend maintenant quelle syntaxe TypeScript est effaçable (types, interfaces) et laquelle est runtime (enums, namespaces) et gère ces derniers directement. Le flag `--erasableSyntaxOnly` formalise la contrainte.
+[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) 22.18 a stabilisé l'exécution TypeScript native via le type stripping. Au lieu de transpiler `.ts` en `.js` avant l'exécution, Node.js comprend maintenant quelle syntaxe TypeScript est effaçable (types, interfaces) et laquelle est runtime (enums, namespaces) et gère ces derniers directement. Le flag `--erasableSyntaxOnly` formalise la contrainte.
 
 Pour beaucoup de projets, cela élimine `ts-node` et `tsx` comme dépendances de dev. Pour les bibliothèques aware des types, cela signifie repenser les patterns comme l'utilisation des enums au profit d'objets `as const` et de modules ES.
 
@@ -61,6 +61,6 @@ Le correctif a atterri en décembre 2025, mais l'incident a remodelé la façon 
 
 ## Perspective : TypeScript 7 et le futur strict
 
-Le rapport State of TypeScript 2026 décrit une feuille de route 2026 dominée par la migration. TypeScript 7 n'est pas qu'une mise à niveau de performance, c'est une version avec des changements cassants. Le mode `strict` sera activé par défaut, le ciblage ES5 sera abandonné (ES2015+ uniquement), `baseUrl` sera supprimé, et la résolution de module Node classique sera retirée.
+Le rapport State of TypeScript 2026 décrit une feuille de route 2026 dominée par la migration. [TypeScript 7](/articles/2026-03-23-typescript-7-native-preview-go-compiler) n'est pas qu'une mise à niveau de performance, c'est une version avec des changements cassants. Le mode `strict` sera activé par défaut, le ciblage ES5 sera abandonné (ES2015+ uniquement), `baseUrl` sera supprimé, et la résolution de module Node classique sera retirée.
 
 L'année 2025 a montré que la dominance de TypeScript ne fait plus de doute. Ce qui reste à voir, c'est comment l'écosystème gère la complexité qui l'accompagne.

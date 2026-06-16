@@ -31,7 +31,7 @@ Tauri hat eine laufende Anstrengung, Chromium via CEF statt der System-WebView z
 
 ## Die Steuer des gebündelten CLI
 
-Das zweite Problem war der gebündelte CLI selbst. OpenCodes Servercode nutzte ursprünglich Bun-spezifische APIs, was das Bündeln des Bun-CLI in Tauri erforderte. Das hatte zwei Konsequenzen: Langsamere Startzeiten und gelegentliche Abstürze unter Windows, die das Team mit erheblichem Aufwand umging.
+Das zweite Problem war der gebündelte CLI selbst. OpenCodes Servercode nutzte ursprünglich [Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure)-spezifische APIs, was das Bündeln des Bun-CLI in Tauri erforderte. Das hatte zwei Konsequenzen: Langsamere Startzeiten und gelegentliche Abstürze unter Windows, die das Team mit erheblichem Aufwand umging.
 
 Als OpenCode sich ohnehin entschied, von Bun-APIs abzuweichen (zugunsten von Node-Kompatibilität), verschwand der Reiz, einen gesamten CLI zu bündeln. Electrons eingebauter Node-Prozess konnte den Server direkt ausführen, kein Subprozess, keine externe Binärdatei, keine Startsteuer.
 

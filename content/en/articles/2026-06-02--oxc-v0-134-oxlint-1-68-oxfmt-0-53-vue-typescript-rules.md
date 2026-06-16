@@ -13,7 +13,7 @@ tldr:
 
 ## oxlint v1.68.0: Vue and TypeScript Rules
 
-The headline additions in oxlint v1.68.0 are two Vue-specific linter rules.
+The headline additions in oxlint v1.68.0 are two [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals)-specific linter rules.
 
 **`vue/no-reserved-component-names`** prevents using reserved names for Vue component definitions. Vue reserves names like `Switch`, `KeepAlive`, and `Teleport`, using them as local component names can cause rendering issues, especially when used with `resolveComponent` or in `.vue` file `<script>` blocks.
 
@@ -56,11 +56,11 @@ The complete release notes for oxc crates v0.134.0, oxlint v1.68.0, and oxfmt v0
 
 > **FAQ**
 >
-> **Q: How does oxlint compare to ESLint?**
+> **Q: How does oxlint compare to [ESLint](/articles/2026-04-05-eslint-v10-flat-config-rust-alternatives)?**
 > oxlint is a drop-in replacement for ESLint written in Rust. It aims for compatibility with ESLint rules and configs while delivering 10–100x faster performance on large codebases.
 >
 > **Q: Can oxfmt replace Prettier?**
 > oxfmt is a Rust-based formatter that supports JavaScript, TypeScript, JSX, and Vue. It is Prettier-compatible for most formatting decisions and is significantly faster on large projects.
 >
-> **Q: What projects use Oxc?**
+> **Q: What projects use [Oxc](/articles/2026-04-05-oxc-rust-javascript-toolchain-benchmarks)?**
 > Rolldown (the Rust-based Rollup successor), T ranspilation pipelines in production tooling, and various framework internal toolchains use Oxc under the hood.

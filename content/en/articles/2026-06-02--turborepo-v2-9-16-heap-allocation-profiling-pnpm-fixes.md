@@ -13,7 +13,7 @@ tldr:
 
 ## Heap Allocation Profiling
 
-The most significant user-facing addition in v2.9.16 is **heap allocation profiling support** via OpenTelemetry (OTEL) traces. This release adds heap allocation data to Turborepo's existing OTEL trace output, letting you see per-task and per-package memory consumption in your CI or local tracing setup.
+The most significant user-facing addition in v2.9.16 is **heap allocation profiling support** via OpenTelemetry (OTEL) traces. This release adds heap allocation data to [Turborepo](/articles/2026-04-14-turborepo-96-percent-faster-ai-agents-humans)'s existing OTEL trace output, letting you see per-task and per-package memory consumption in your CI or local tracing setup.
 
 To use it, point `TURBO_TRACE_ENDPOINT` at your OTEL collector as before, heap data now appears alongside the existing duration and span information. The implementation adds a new `heap.allocated` event to task spans with category breakdowns (V8 heap, native allocations, etc.).
 

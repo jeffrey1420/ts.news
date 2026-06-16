@@ -7,7 +7,7 @@ author: lschvn
 tags: ["frameworks", "typescript", "javascript"]
 ---
 
-Astro 6.4 landed May 28 with one headline feature that matters for any content-heavy site: an optional Rust-based markdown processor called Sätteri, designed to replace the slow unified ecosystem for sites with hundreds or thousands of Markdown files.
+[Astro 6](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).4 landed May 28 with one headline feature that matters for any content-heavy site: an optional Rust-based markdown processor called Sätteri, designed to replace the slow unified ecosystem for sites with hundreds or thousands of Markdown files.
 
 <!-- more -->
 

@@ -31,7 +31,7 @@ Rivets Antwort ist anders. Sehr anders.
 
 ## Was ist agentOS?
 
-agentOS ist ein **In-Process-Betriebssystemkernel, geschrieben in JavaScript**, der innerhalb eines Node.js-Host-Prozesses läuft. Das ist kein Marketing-Jargon, das ist eine präzise Beschreibung der Architektur.
+agentOS ist ein **In-Process-Betriebssystemkernel, geschrieben in JavaScript**, der innerhalb eines [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams)-Host-Prozesses läuft. Das ist kein Marketing-Jargon, das ist eine präzise Beschreibung der Architektur.
 
 Der Kernel verwaltet:
 - Ein **virtuelles Dateisystem** mit Mount-Treibern (S3, SQLite, Host-Verzeichnisse, In-Memory)
@@ -41,7 +41,7 @@ Der Kernel verwaltet:
 
 In diesen Kernel werden drei Runtimes gemountet:
 
-**1. V8-Isolates für Agent-Code.** Der Agent (Pi, Claude Code, Codex, demnächst) läuft in einem V8-JavaScript-Kontext. Dies ist dieselbe Isolationstechnologie, die Chrome verwendet, um jeden Browser-Tab zu sandboxen. Jedes Isolate hat seinen eigenen Heap und Stack, keinen gemeinsamen Status, Berechtigungen, die standardmäßig verweigert werden, für Dateisystem-, Netzwerk- und Prozesszugriff. Cold Start liegt bei ~4–6 ms, weil Sie nichts booten, Sie erstellen lediglich einen neuen JavaScript-Kontext innerhalb einer bereits laufenden V8-Engine.
+**1. V8-Isolates für Agent-Code.** Der Agent (Pi, [Claude Code](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026), Codex, demnächst) läuft in einem V8-JavaScript-Kontext. Dies ist dieselbe Isolationstechnologie, die Chrome verwendet, um jeden Browser-Tab zu sandboxen. Jedes Isolate hat seinen eigenen Heap und Stack, keinen gemeinsamen Status, Berechtigungen, die standardmäßig verweigert werden, für Dateisystem-, Netzwerk- und Prozesszugriff. Cold Start liegt bei ~4–6 ms, weil Sie nichts booten, Sie erstellen lediglich einen neuen JavaScript-Kontext innerhalb einer bereits laufenden V8-Engine.
 
 **2. WebAssembly für POSIX-Tools.** GNU coreutils, grep, sed, gawk, curl, jq, ripgrep, sqlite3 und über 80 weitere Unix-Befehle, die von C und Rust nach WebAssembly kompiliert wurden. Sie laufen in einem WASM-Runtime, das vom Kernel verwaltet wird, nicht in V8. Der Agent kommuniziert mit ihnen über eine virtuelle PTY, wie in einer Shell.
 
@@ -104,12 +104,12 @@ Die grundlegende Sandbox-Bibliothek, **secure-exec**, ist separat Open Source. *
 
 Wenn agentOS seine Zahlen in großem Maßstab liefert, steht jeder Sandbox-Anbieter unter Druck. Das Ausführungssubstrat für eine einfache Agent-Aufgabe, Dateioperationen, API-Aufrufe, Scripting, kann von ca. 0,05 $/vCPU-Minute auf 0,0000011 $/Sekunde fallen. Das ist eine 500-fache Kostenreduzierung für den Runtime, nicht für das LLM.
 
-Für OpenClaw, Hermes und jedes Agent-Framework: Die V8-Isolate-Architektur ist das, was es zu beobachten gilt. Selbst wenn Sie agentOS nicht direkt übernehmen, sind das „Host Tools"-Muster (direkte Funktionsaufrufe, kein HTTP-Auth), das Actor-per-Session-Modell und der hybride Sandbox-Ansatz architektonische Ideen, die es wert sind, absorbiert zu werden.
+Für [OpenClaw](/articles/2026-03-31-hermes-agent-vs-openclaw-ai-agent-comparison), Hermes und jedes Agent-Framework: Die V8-Isolate-Architektur ist das, was es zu beobachten gilt. Selbst wenn Sie agentOS nicht direkt übernehmen, sind das „Host Tools"-Muster (direkte Funktionsaufrufe, kein HTTP-Auth), das Actor-per-Session-Modell und der hybride Sandbox-Ansatz architektonische Ideen, die es wert sind, absorbiert zu werden.
 
 ACP vs. MCP ist eine separate und längerfristige Auseinandersetzung. MCP hat den Mindsshare. ACP ist architektonisch sauberer. Die LSP-Parallele sollte man im Hinterkopf behalten, die richtige Antwort gewinnt nicht immer am ersten Tag.
 
 ## Einschränkungen
 
-Das ist Beta. Nur der **Pi-Agent** ist heute produktionsreif; Claude Code, Codex, OpenCode und Amp sind als „demnächst verfügbar" aufgeführt. Es wurde kein Drittanbieter-Sicherheitsaudit veröffentlicht. Die WASM-POSIX-Schicht ist unvollständig, git und make sind geplant, aber noch nicht ausgeliefert. GitHub hat 1.576 Sterne, was bescheiden ist. Die Architektur ist solide; das Ökosystem ist noch jung.
+Das ist Beta. Nur der **Pi-Agent** ist heute produktionsreif; Claude Code, Codex, [OpenCode](/articles/2026-04-19-opencode-desktop-electron-tauri-typescript) und Amp sind als „demnächst verfügbar" aufgeführt. Es wurde kein Drittanbieter-Sicherheitsaudit veröffentlicht. Die WASM-POSIX-Schicht ist unvollständig, git und make sind geplant, aber noch nicht ausgeliefert. GitHub hat 1.576 Sterne, was bescheiden ist. Die Architektur ist solide; das Ökosystem ist noch jung.
 
 Das Bild, das diesen Artikel eröffnet, ist eine Leiterplatte. Das fühlte sich passend an: agentOS ist Infrastruktur für Menschen, denen egal ist, was unter der Haube steckt.

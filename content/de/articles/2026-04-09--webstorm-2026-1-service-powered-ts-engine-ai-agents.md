@@ -29,7 +29,7 @@ WebStorm 2026.1 erschien im März mit einem Release, das die Bindung zwischen de
 
 Die technisch bedeutendste Änderung in 2026.1 ist der Wechsel der TypeScript-Engine von optional zu standardmäßig. Große TypeScript-Codebasen belasten Editoren ständig, Typprüfung, Navigation und Refactoring konkurrieren alle um CPU im Haupt-IDE-Thread. Die servicebasierte Engine lagert diese Arbeit auf einen separaten Prozess aus und hält die UI reaktionsschneller, ohne die Arbeitsweise beim Schreiben von Code zu verändern.
 
-WebStorm zeigt jetzt auch Inline-Hints vom TypeScript-Go-basierten Sprachserver direkt im Editor an, wenn dieser läuft. Und da TypeScript 6 ungefähr zur gleichen Zeit erschien, hat das Team die Standardwerte des Editors an TS6s geändertes Verhalten bei `types` und `rootDir` angepasst und bereits mit der Vorbereitung auf TypeScript 7s `baseUrl`-Änderungen begonnen.
+WebStorm zeigt jetzt auch Inline-Hints vom TypeScript-Go-basierten Sprachserver direkt im Editor an, wenn dieser läuft. Und da TypeScript 6 ungefähr zur gleichen Zeit erschien, hat das Team die Standardwerte des Editors an TS6s geändertes Verhalten bei `types` und `rootDir` angepasst und bereits mit der Vorbereitung auf [TypeScript 7](/articles/2026-03-23-typescript-7-native-preview-go-compiler)s `baseUrl`-Änderungen begonnen.
 
 String-Literal-Import- und Export-Spezifizierer werden jetzt vom Parser und Navigator vollständig verstanden:
 
@@ -42,7 +42,7 @@ Syntaxhervorhebung, Ge-zu-Definition und Umbenennungs-Refactoring funktionieren 
 
 ## KI-Chat erhält vollständigen Agenten-Roster
 
-JetBrains hat vor mehreren Releases ein KI-Chat-Panel eingeführt. In 2026.1 ist es jetzt ein Agent-Hub. Die ACP-Registry, ein Marktplatz innerhalb der IDE, ermöglicht die Installation von Agenten mit einem Klick. Die Liste umfasst bereits Junie (JetBrains eigener Agent), Claude Agent, Codex (OpenAIs Programmiermodell), Cursor und GitHub Copilot, mit mehr in Zukunft.
+[JetBrains](/articles/2026-04-02-intellij-idea-javascript-typescript-free) hat vor mehreren Releases ein KI-Chat-Panel eingeführt. In 2026.1 ist es jetzt ein Agent-Hub. Die ACP-Registry, ein Marktplatz innerhalb der IDE, ermöglicht die Installation von Agenten mit einem Klick. Die Liste umfasst bereits Junie (JetBrains eigener Agent), Claude Agent, Codex (OpenAIs Programmiermodell), Cursor und [GitHub Copilot](/articles/2026-04-02-github-copilot-ai-training-data-policy), mit mehr in Zukunft.
 
 Der praktische Vorteil: Entwickler können je nach Aufgabe zwischen verschiedenen Agenten wechseln, Codex für bestimmte Codegenerierungsaufgaben, Claude für rechenintensive Arbeit, ohne den Editor zu verlassen.
 
@@ -54,7 +54,7 @@ Entscheidend: Diese Vorschläge verbrauchen kein KI-Kontingent bei JetBrains AI 
 
 ## Framework-Updates
 
-WebStorm 2026.1 bringt Unterstützung für neue React-Direktiven (`use memo`, `use no memo` neben den bestehenden `use client` und `use server`), Angular 21s vollständige Template-Syntax (Pfeilfunktionen, `instanceof`, Regex-Literale, Spread) und aktualisierte Vue-TypeScript-Integration über `@vue/typescript-plugin 3.2.4`.
+WebStorm 2026.1 bringt Unterstützung für neue React-Direktiven (`use memo`, `use no memo` neben den bestehenden `use client` und `use server`), Angular 21s vollständige Template-Syntax (Pfeilfunktionen, `instanceof`, Regex-Literale, Spread) und aktualisierte [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals)-TypeScript-Integration über `@vue/typescript-plugin 3.2.4`.
 
 Svelte-Generics in `<script>`-Tags funktionieren jetzt mit Verwendungs-suche, Deklarationsnavigation und Umbenennungs-Refactoring. Der Astro-Sprachserver akzeptiert JSON-Konfiguration direkt aus den IDE-Einstellungen. Und CSS-Farbfelder zeigen jetzt die `color()`-Funktion und erweiterte CSS-Farbräume in der Vorschau an.
 
