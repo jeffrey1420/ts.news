@@ -44,4 +44,4 @@ The release also fixes a subtle module-resolution bug: when resolution retries a
 
 ## Should you update?
 
-If you're on the v3 beta already, yes, it's a safe incremental update via `npm i nitro@beta`. If you're a framework author, the custom command hooks are the headline: they're the first piece of v3's "bring your own framework" story that extends past the build step into deployment. For everyone else, this is a good reminder that v3 is iterating fast, weekly date-stamped betas, ahead of [Nuxt 5 shipping on Nitro v3 and H3 v2](/articles/2026-06-03--nitro-v3-0-260522-beta-tracing-vfs-vercel-queues).
+If you're on the v3 beta already, yes, it's a safe incremental update via `npm i nitro@beta`. If you're a framework author, the custom command hooks are the headline: they're the first piece of v3's "bring your own framework" story that extends past the build step into deployment. For everyone else, this is a good reminder that v3 is iterating fast, weekly date-stamped betas, ahead of [Nuxt 5 shipping on Nitro v3 and H3 v2](/articles/2026-06-03-nitro-v3-0-260522-beta-tracing-vfs-vercel-queues).

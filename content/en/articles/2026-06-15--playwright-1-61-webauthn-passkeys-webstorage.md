@@ -49,7 +49,7 @@ await page.goto('https://example.com/login');
 
 The release notes call out an alternative pattern: run a one-shot setup test that registers a passkey through the real UI, read it back with [`credentials.get()`](https://playwright.dev/docs/api/class-credentials#credentials-get), and seed it into the rest of the suite. That is the right shape for projects that discover passkey support is required to log in and that previously skipped those tests entirely.
 
-The practical consequence is that the [`explicit resource management` patch Bun shipped in 1.3.12](/articles/2026-04-13--bun-1-3-12-webview-browser-automation-using-await-using) is now a much smaller excuse: testing a passkey-only login used to require a real YubiKey on the CI runner, a custom virtual authenticator driver, or skipping the flow. After 1.61.0, it is a `credentials.create` call in a `beforeEach`.
+The practical consequence is that the [`explicit resource management` patch Bun shipped in 1.3.12](/articles/2026-04-13-bun-1-3-12-webview-browser-automation-using-await-using) is now a much smaller excuse: testing a passkey-only login used to require a real YubiKey on the CI runner, a custom virtual authenticator driver, or skipping the flow. After 1.61.0, it is a `credentials.create` call in a `beforeEach`.
 
 ## A first-class `page.localStorage` and `page.sessionStorage` API
 
@@ -65,7 +65,7 @@ const items = await page.sessionStorage.items();
 
 ## Network: `securityDetails()` and `serverAddr()` on API responses
 
-The new [`apiResponse.securityDetails()`](https://playwright.dev/docs/api/class-apiresponse#api-response-security-details) and [`apiResponse.serverAddr()`](https://playwright.dev/docs/api/class-apiresponse#api-response-server-addr) mirror the browser-side [`response.securityDetails()`](https://playwright.dev/docs/api/class-response#response-security-details) and [`response.serverAddr()`](https://playwright.dev/docs/api/class-response#response-server-addr). For teams that intercept and replay HTTP via Playwright's `request` / `APIRequestContext` API, that is finally a way to assert the negotiated TLS version, the cipher, the certificate subject, and the resolved server address, all in a single test. It is the same kind of capability that drove the [esbuild 0.28.1 dev-server path-traversal story](/articles/2026-06-14--esbuild-0-28-1-deno-rce-windows-path-traversal) for offense; this is the defense side.
+The new [`apiResponse.securityDetails()`](https://playwright.dev/docs/api/class-apiresponse#api-response-security-details) and [`apiResponse.serverAddr()`](https://playwright.dev/docs/api/class-apiresponse#api-response-server-addr) mirror the browser-side [`response.securityDetails()`](https://playwright.dev/docs/api/class-response#response-security-details) and [`response.serverAddr()`](https://playwright.dev/docs/api/class-response#response-server-addr). For teams that intercept and replay HTTP via Playwright's `request` / `APIRequestContext` API, that is finally a way to assert the negotiated TLS version, the cipher, the certificate subject, and the resolved server address, all in a single test. It is the same kind of capability that drove the [esbuild 0.28.1 dev-server path-traversal story](/articles/2026-06-14-esbuild-0-28-1-deno-rce-windows-path-traversal) for offense; this is the defense side.
 
 ## Test runner: trace-style video modes and `expect.soft.poll`
 

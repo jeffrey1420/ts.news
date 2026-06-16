@@ -44,4 +44,4 @@ Das Release behebt außerdem einen subtilen Bug in der Modulauflösung: Wenn die
 
 ## Lohnt das Update?
 
-Wer schon auf der v3-Beta ist: ja, ein gefahrloses inkrementelles Update per `npm i nitro@beta`. Für Framework-Autoren sind die Custom-Command-Hooks die Schlagzeile: das erste Stück der „Bring your own framework"-Geschichte von v3, das über den Build hinaus bis ins Deployment reicht. Für alle anderen ist es eine gute Erinnerung daran, dass v3 schnell iteriert, wöchentliche, datierte Betas, auf dem Weg zu [Nuxt 5 auf Nitro v3 und H3 v2](/articles/2026-06-03--nitro-v3-0-260522-beta-tracing-vfs-vercel-queues).
+Wer schon auf der v3-Beta ist: ja, ein gefahrloses inkrementelles Update per `npm i nitro@beta`. Für Framework-Autoren sind die Custom-Command-Hooks die Schlagzeile: das erste Stück der „Bring your own framework"-Geschichte von v3, das über den Build hinaus bis ins Deployment reicht. Für alle anderen ist es eine gute Erinnerung daran, dass v3 schnell iteriert, wöchentliche, datierte Betas, auf dem Weg zu [Nuxt 5 auf Nitro v3 und H3 v2](/articles/2026-06-03-nitro-v3-0-260522-beta-tracing-vfs-vercel-queues).

@@ -72,7 +72,7 @@ Les routes basées sur des fichiers obtiennent la même capacité via `ctx.upgra
 Trois ajouts plus discrets méritent l'attention :
 
 - **Nonces CSP.** Fresh peut injecter un nonce par requête dans les scripts et styles qu'il émet, ce qui rend une `Content-Security-Policy` stricte praticable sans maintenir des hashes à la main.
-- **Temporal dans les islands.** Les huit types Temporal passent comme props d'island et se sérialisent correctement entre serveur et client, utile maintenant que [Temporal se stabilise dans les runtimes](/articles/2026-04-07--deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides).
+- **Temporal dans les islands.** Les huit types Temporal passent comme props d'island et se sérialisent correctement entre serveur et client, utile maintenant que [Temporal se stabilise dans les runtimes](/articles/2026-04-07-deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides).
 - **Prerendering.** Marquez une route avec `prerender: true` et Fresh la rend en HTML statique au build ; les routes dynamiques peuvent énumérer leurs chemins. Combiné aux pages zéro-JS, Fresh devient discrètement un très bon générateur de sites statiques.
 
 Fresh 2.3 s'installe avec un simple `deno update`, et avec Deno 2.7+ les nouveaux projets se créent via `deno create`. Pour un framework dont l'identité entière est la retenue, c'est la release où la retenue cesse d'être approximative.
