@@ -151,7 +151,8 @@ onMounted(() => {
           duration: 1.6,
           ease: 'power1.out',
           snap: { value: 1 },
-          scrollTrigger: { trigger: el, start: 'top 85%' },
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+          onStart: () => { el.textContent = '0' },
           onUpdate: () => { el.textContent = String(Math.round(counter.value)) },
         })
       }
@@ -358,7 +359,7 @@ onBeforeUnmount(() => {
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-10">
           <div v-for="stat in stats" :key="stat.label" class="reveal-item">
             <div class="text-5xl sm:text-6xl tracking-tight font-normal">
-              <span v-if="stat.numeric" class="stat-number" :data-target="stat.value">0</span>
+              <span v-if="stat.numeric" class="stat-number" :data-target="stat.value">{{ stat.value }}</span>
               <span v-else class="text-primary">{{ stat.value }}</span>
             </div>
             <p class="mt-3 text-sm font-mono uppercase tracking-widest opacity-60">
