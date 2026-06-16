@@ -23,7 +23,7 @@ faq:
 
 Microsoft a publié TypeScript 6.0 le 23 mars 2026. C'est, par conception, la fin d'une ère. C'est la dernière version majeure de TypeScript construite sur le codebase original du compilateur basé sur JavaScript. [TypeScript 7.0](/articles/2026-03-23-typescript-7-native-preview-go-compiler), actuellement en développement et écrit en Go, arrivera plus tard cette année avec des vitesses d'exécution natives et du multithreading à mémoire partagée.
 
-Daniel Rosenwasser, directeur de programme principal pour TypeScript, [l'a qualifié](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/) de « pont » entre TypeScript 5.9 et [TypeScript 7.0](/articles/2026-03-23-typescript-7-native-preview-go-compiler), et la description correspond. 6.0 est moins sobre de nouvelles fonctionnalités языка flashy et plus sobre de nettoyer la maison et préparer l'écosystème pour le saut vers du code natif.
+Daniel Rosenwasser, directeur de programme principal pour TypeScript, [l'a qualifié](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/) de « pont » entre TypeScript 5.9 et [TypeScript 7.0](/articles/2026-03-23-typescript-7-native-preview-go-compiler), et la description correspond. 6.0 est moins une question de nouvelles fonctionnalités de langage tape-à-l'œil et plus une question de nettoyage de la maison et de préparation de l'écosystème au saut vers le code natif.
 
 ## Quoi de Neuf dans TypeScript 6.0
 

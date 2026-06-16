@@ -18,7 +18,7 @@ faq:
   - question: "Le code généré par IA est-il fiable ?"
     answer: "Le projet Cloudflare souligne que presque chaque ligne a été écrite par IA mais passe les mêmes portes de qualité que le code écrit par humain. Plus de 1 700 tests Vitest et 380 tests Playwright E2E sont inclus. L'ingénieur a noté : 'Il y avait des PR qui étaient simplement fausses. L'IA implémentait avec confiance quelque chose qui semblait juste mais ne correspondait pas au comportement réel de Next.js.'"
   - question: "Comment vinext se compare-t-il à OpenNext ?"
-    answer: "Cloudflare affirme que построить поверх вывода Next.js как фундамента оказалось сложным и хрупким подходом. Reconstruire from scratch plutôt que d'adapter la sortie promet une compatibilité plus stable. OpenNext doit reverse-engineer la sortie de build de Next.js, ce qui donne des changements imprévisibles entre versions."
+    answer: "Cloudflare affirme que construire par-dessus la sortie de Next.js comme fondation s'est avéré être une approche difficile et fragile. OpenNext doit faire du reverse-engineering de la sortie de build de Next.js, ce qui entraîne des changements imprévisibles entre versions et demande beaucoup de travail à corriger. Reconstruire from scratch plutôt que d'adapter la sortie promet une compatibilité plus stable."
 ---
 
 Le 24 février 2026, Cloudflare a publié un billet de blog qui a envoyé des ondes de choc à travers la communauté du développement web. Le titre : *"Comment nous avons reconstruit Next.js avec l'IA en une semaine."* Le projet, appelé **vinext** (prononcé "vee-next"), a été présenté comme un plugin Vite expérimental qui réimplémente la surface API publique de Next.js, permettant aux développeurs d'exécuter leurs applications Next.js sur Cloudflare Workers au lieu de Vercel.
@@ -88,7 +88,7 @@ Malgré l'étiquette expérimentale, de vrais clients fonctionnent déjà avec v
 
 ### Pour Vercel
 
-Vercel fait face à une vérité inconfortable : leur fossé concurrentiel peut être plus fin qu'espéré. La компании a bâti un excellent produit, mais vinext démontre que la compatibilité Next.js peut être atteinte ailleurs.
+Vercel fait face à une vérité inconfortable : leur fossé concurrentiel peut être plus fin qu'espéré. L'entreprise a bâti un excellent produit, mais vinext démontre que la compatibilité Next.js peut être atteinte ailleurs.
 
 ### Pour Cloudflare
 

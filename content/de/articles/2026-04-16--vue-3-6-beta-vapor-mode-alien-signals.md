@@ -44,7 +44,7 @@ Für Bibliotheksautoren und Entwickler, die Vues niedrigere APIs verwenden, `h()
 
 ## @vue/reactivity Überarbeitung mit alien-signals
 
-Das Reaktivitätssystem, die Engine, die `ref()`, `reactive()`, `computed()` und `watch()` von Vue antreibt, wurde überarbeitet, um [alien-signals](https://github.com/stackblitz/alien-signals) zu verwenden. Dies ist eine grundlegende Änderung anstatt einer поверхностlichen API-Änderung, `ref()` und `reactive()` funktionieren weiterhin auf dieselbe Weise.
+Das Reaktivitätssystem, die Engine, die `ref()`, `reactive()`, `computed()` und `watch()` von Vue antreibt, wurde überarbeitet, um [alien-signals](https://github.com/stackblitz/alien-signals) zu verwenden. Dies ist eine grundlegende Änderung anstatt einer oberflächlichen API-Änderung, `ref()` und `reactive()` funktionieren weiterhin auf dieselbe Weise.
 
 Die Motivation ist Leistung. Die vorherige Reaktivitätsimplementierung hatte trotz guter Konstruktion Overhead durch die Art und Weise, wie sie Abhängigkeiten verfolgte und Updates plante. alien-signals ist mit einem engeren Fokus entworfen: reaktive Berechnungen so schnell wie möglich mit minimaler Speicherallokation ausführen. Das Vue-Team evaluierte mehrere Signal-Implementierungen und wählte alien-signals wegen seiner Benchmark-Leistung und seiner Ausrichtung auf Vues Update-Planungsmodell.
 

@@ -32,7 +32,7 @@ In den folgenreichsten 24 Stunden der jüngeren europäischen KI-Geschichte soll
 
 Die Geschichte beginnt, wie jede große KI-Geschichte, mit einem Screenshot. Der Account [@viemccoy](https://x.com/viemccoy/status/2066300980241764392) postete um 23:25 UTC am 14. Juni ein Standbild einer gefälschten Mistral-Produktseite, unterschrieben mit einem Satz, der seither den Klang einer Prophezeiung angenommen hat: « Caught this before they deleted it, Le Chaton Fat soon? ». Der Post wurde in zwölf Stunden 73.800 Mal angesehen. Le Chaton Fat, als Modell, existierte zu diesem Zeitpunkt nicht. Dieses Detail würde natürlich später klargestellt werden.
 
-> [@viemccoy](https://x.com/viemccoy/status/2066300980241764392) — 23:25 · 14. Juni 2026
+> [@viemccoy](https://x.com/viemccoy/status/2066300980241764392) · 23:25 · 14. Juni 2026
 >
 > Caught this before they deleted it, Le Chaton Fat soon?
 
@@ -42,7 +42,7 @@ Weniger als vierzig Minuten später machte [@AlexanderKnigge](https://x.com/Alex
 
 Eine Community Note wurde dem Post schließlich angehängt: « Mistral did not post or release a model called 'Le Chaton Fat'. Their last post at the time of writing was on May 28 and does not mention any new model. Same on the website. Additionally, the Image is AI-generated. » Die Note sollte nicht das letzte Wort in der Sache sein.
 
-> [@AlexanderKnigge](https://x.com/AlexanderKnigge/status/2066309920124026939) — 0:00 · 15. Juni 2026
+> [@AlexanderKnigge](https://x.com/AlexanderKnigge/status/2066309920124026939) · 0:00 · 15. Juni 2026
 >
 > oh my god its happening
 >
@@ -57,7 +57,7 @@ Eine Community Note wurde dem Post schließlich angehängt: « Mistral did not p
 
 Innerhalb einer halben Stunde hatte [@notnullptr](https://x.com/notnullptr/status/2066316901404274784) die Torpfosten bereits an einen Ort verschoben, an dem noch nie ein Modell, real oder erfunden, gestanden hatte: 100 Billionen Parameter, trainiert auf einem Datensatz von exakt acht Tokens. Der Post, verfasst im nüchternen Duktus einer Agenturmeldung, sammelte 282 Likes von Leuten, die den Bit erkannten. Eine Community Note wurde nicht angehängt, möglicherweise weil die Note-Schreibenden selbst lachten.
 
-> [@notnullptr](https://x.com/notnullptr/status/2066316901404274784) — 0:28 · 15. Juni 2026
+> [@notnullptr](https://x.com/notnullptr/status/2066316901404274784) · 0:28 · 15. Juni 2026
 >
 > BREAKING: le chaton fat revealed to have 100 trillion parameters, trained on 8 tokens
 
@@ -67,7 +67,7 @@ Um 00:54 kehrte [Knigge zurück](https://x.com/AlexanderKnigge/status/2066323528
 
 Keines der beiden Organe hatte zum Zeitpunkt des Verfassens irgendeine Direktive oder Stellungnahme veröffentlicht, weil Le Chaton Fat weiterhin nicht existierte. Das hinderte 89 Accounts nicht daran, den Post zu liken. Das institutionelle Cosplay hatte begonnen. Das Format ist übrigens dasselbe, dem [die tatsächliche Fable-5-Exportkontroll-Anordnung](/articles/2026-06-13--anthropic-fable-mythos-suspended-us-government) eine Woche zuvor gefolgt war, und die Parodie auf dieses Format war der zweite Witz.
 
-> [@AlexanderKnigge](https://x.com/AlexanderKnigge/status/2066323528631320681) — 0:54 · 15. Juni 2026
+> [@AlexanderKnigge](https://x.com/AlexanderKnigge/status/2066323528631320681) · 0:54 · 15. Juni 2026
 >
 > BREAKING: @FrenchForces @EmmanuelMacron @europeanunion have officially issued a directive to suspend access to Le Chaton Fat, stating that Le Chaton Fat's advanced capabilities "could pose a risk of misuse contrary to EU security interests"
 >
@@ -77,11 +77,11 @@ Keines der beiden Organe hatte zum Zeitpunkt des Verfassens irgendeine Direktive
 
 Um 02:18 war der Diskurs durch die Parodie hindurch und auf der anderen Seite wieder herausgekommen, in etwas, das eher einer Volksreligion ähnelte. [@Sauers_](https://x.com/Sauers_/status/2066344508510318697), derselbe Account, der schon am 11. Juni das ursprüngliche « Big if true »-Bild hatte schweben lassen, postete zwei Wörter und ein Foto: « Chaton truthers unite. » Der Post, eine Art Sammelruf für die Bekehrten, sammelte in Minuten 112 Likes. Einundzwanzig Minuten später, in einer beinahe wörtlich aus dem AI-Safety-Vokabular entlehnten Wendung, [schrieb derselbe Account « fast takeoff »](https://x.com/Sauers_/status/2066349793014603894), und der Witz mutierte endgültig, unumkehrbar zum Manifest. Um 02:39 hatte ein Account namens Josh You, mit einem einzigen 🤯-Emoji und einem Screenshot eines der gefälschten Posts, 30.600 Views erreicht. Die Community war zu diesem Zeitpunkt vollständig online.
 
-> [@Sauers_](https://x.com/Sauers_/status/2066344508510318697) — 2:18 · 15. Juni 2026
+> [@Sauers_](https://x.com/Sauers_/status/2066344508510318697) · 2:18 · 15. Juni 2026
 >
 > Chaton truthers unite
 >
-> [@Sauers_](https://x.com/Sauers_/status/2066349793014603894) — 2:39 · 15. Juni 2026
+> [@Sauers_](https://x.com/Sauers_/status/2066349793014603894) · 2:39 · 15. Juni 2026
 >
 > fast takeoff
 
@@ -91,7 +91,7 @@ Dann kamen die Zahlen. [@scaling01](https://x.com/scaling01/status/2066347912909
 
 Sieben Minuten später lieferte derselbe Account das Follow-up: « Le Chaton is now recursively self-improving. It has developed a personality and found a [more efficient bottle cap design](https://x.com/scaling01/status/2066349518900072826). » Eine neue Schwelle war überschritten. Das Modell war nun, zusätzlich zur Leistungsstärksten der Welt, auch noch besser im Verpacken.
 
-> [@scaling01](https://x.com/scaling01/status/2066347912909439461) — 2:31 · 15. Juni 2026
+> [@scaling01](https://x.com/scaling01/status/2066347912909439461) · 2:31 · 15. Juni 2026
 >
 > You might be smarter than Claude Mythos, but you haven't met the final boss of LLMs:
 > Le Chaton Fat.
@@ -102,7 +102,7 @@ Sieben Minuten später lieferte derselbe Account das Follow-up: « Le Chaton is 
 
 War der vorherige Akt bürokratisch und vage bedrohlich gewesen, so gehörte dieser ins Personalwesen. Knigge, offenbar zum Interimspressesprecher einer nicht existierenden Firma ernannt, [berichtete um 03:01](https://x.com/AlexanderKnigge/status/2066355372664017371), dass Andrej Karpathy, der leise einflussreiche KI-Forscher, zu Mistral gestoßen sei. Das Zitat, das Karpathy zugeschrieben wurde, lautete: « I'm extremely excited about the direction of Mistral AI and the Le Chaton Fat models. Very excited about what the future of 30T+ models and European AI has in store. » Karpathy, der über eigene, sehr reale und bestens bekannte Kommunikationskanäle verfügt, hat die Nachricht weder bestätigt noch dementiert. Möglicherweise, weil er nicht informiert wurde.
 
-> [@AlexanderKnigge](https://x.com/AlexanderKnigge/status/2066355372664017371) — 3:01 · 15. Juni 2026
+> [@AlexanderKnigge](https://x.com/AlexanderKnigge/status/2066355372664017371) · 3:01 · 15. Juni 2026
 >
 > Breaking: Andrej Karpathy has joined Mistral
 >

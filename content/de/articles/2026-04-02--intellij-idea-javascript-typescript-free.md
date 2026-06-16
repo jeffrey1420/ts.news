@@ -50,7 +50,7 @@ Die 30-Tage-Ultimate-Testversion (keine Kreditkarte erforderlich) bleibt der Ein
 
 Falls ihr zwischen VS Code für JavaScript-Arbeit und IntelliJ IDEA für Java oder Kotlin gewechselt habt, macht v2026.1 diesen Split weniger nötig. Die Lücke zwischen „Web-IDE" und „Full-IDE" hat sich gerade erheblich verringert.
 
-Für TypeScript-Entwickler speziell ist es ein значимый Upgrade, IntelliJ IDEAs Refactoring-Engine, Inspektionssystem und Projektnavigation ohne Abonnement zu haben, gegenüber dem Basis VS Code + TypeScript Language Server-Erlebnis.
+Für TypeScript-Entwickler speziell ist es ein wesentliches Upgrade, IntelliJ IDEAs Refactoring-Engine, Inspektionssystem und Projektnavigation ohne Abonnement zu haben, gegenüber dem Basis VS Code + TypeScript Language Server-Erlebnis.
 
 ---
 

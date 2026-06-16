@@ -72,7 +72,7 @@ L'Agent Communication Protocol (ACP) est un protocole standardisé pour la commu
 
 ## Les chiffres
 
-Tous les benchmarks ci-dessous proviennent des propres материалов de Rivet. Les benchmarks de la bibliothèque secure-exec (la couche la plus granulaire) sont indépendamment reproductibles, Rivet publie les scripts. Tout le reste est auto-déclaré.
+Tous les benchmarks ci-dessous proviennent des propres matériaux de Rivet. Les benchmarks de la bibliothèque secure-exec (la couche la plus granulaire) sont indépendamment reproductibles, Rivet publie les scripts. Tout le reste est auto-déclaré.
 
 | Percentile | agentOS | E2B (sandboxes les plus rapides) | Accélération |
 |---|---|---|---|

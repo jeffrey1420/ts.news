@@ -4,7 +4,7 @@ description: "Le 12 juin 2026 à 17h21 ET, Anthropic a reçu une directive d'exp
 date: 2026-06-13
 image: "/images/heroes/2026-06-13--anthropic-fable-mythos-suspended-us-government.png"
 author: lschvn
-tags: ["ai", "security", "ecosystem"]
+tags: ["security", "ai", "ecosystem"]
 tldr:
   - "Anthropic a reçu le 12 juin à 17h21 ET une directive d'export control du gouvernement américain ordonnant la suspension de Fable 5 et Mythos 5 pour tout utilisateur, y compris les ressortissants étrangers présents aux États-Unis et les employés d'Anthropic de nationalité étrangère."
   - "Anthropic indique que la crainte citée est un « jailbreak étroit, non universel » qui demande au modèle de lire une base de code et d'identifier des failles, une capacité que l'entreprise dit déjà disponible dans GPT-5.5 et d'autres modèles publics, et que les défenseurs utilisent chaque jour."

@@ -4,7 +4,7 @@ description: "Die Fusion-API von OpenRouter führt mehrere LLMs parallel aus, l�
 date: 2026-06-14
 image: "/images/heroes/2026-06-14--openrouter-fusion-compound-ai-draco.png"
 author: lschvn
-tags: ["ai", "ecosystem", "tooling"]
+tags: ["ai", "tooling", "ecosystem"]
 tldr:
   - "OpenRouter Fusion schickt einen Prompt parallel an mehrere LLMs, jeweils mit aktivierter Websuche. Anschließend extrahiert ein Richter-Modell Konsens-Punkte, Widersprüche und blinde Flecken, bevor ein Synthesizer die endgültige Antwort schreibt. Die gesamte Pipeline läuft serverseitig hinter einem einzigen Modell-Slug: openrouter/fusion."
   - "Auf dem DRACO-Benchmark (100 Aufgaben für tiefe Recherche, ca. 39 gewichtete Kriterien pro Aufgabe) erzielte ein fusioniertes Panel aus Budget-Modellen (Gemini 3 Flash, Kimi K2.6, DeepSeek V4 Pro) 64,7% und schlug damit GPT-5.5 (60,0%) und Claude Opus 4.8 (58,8%) im Solobetrieb, bei ungefähr halben Kosten von Claude Fable 5 (65,3%). Ein Frontier-Panel aus Fable 5 + GPT-5.5 erreichte 69,0% und übertraf damit jedes Einzelmodell."

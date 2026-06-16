@@ -4,7 +4,7 @@ description: "L'implémentation NumPy en pur TypeScript atteint un jalon de corr
 date: 2026-04-01
 image: "/images/heroes/2026-04-01-numpy-ts-1-2-half-native-performance.png"
 author: lschvn
-tags: ["javascript", "typescript", "performance"]
+tags: ["typescript", "performance", "javascript"]
 faq:
   - question: "Qu'est-ce que numpy-ts ?"
     answer: "numpy-ts est une implémentation en pur TypeScript de l'API NumPy, créée par Nico Dupont, conçue pour tourner dans les navigateurs, Node.js, Bun et Deno sans dépendances natives. Elle couvre environ 94 % de la surface d'API de NumPy (476 fonctions sur 507) et valide ses sorties contre NumPy lui-même avec plus de 6 000 tests."

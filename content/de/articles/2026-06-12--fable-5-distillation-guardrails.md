@@ -4,7 +4,7 @@ description: "Fable 5 ist das erste allgemein verfügbare Modell der Mythos-Klas
 date: 2026-06-12
 image: "/images/heroes/2026-06-12--fable-5-distillation-guardrails.png"
 author: lschvn
-tags: ["ai", "security", "ecosystem"]
+tags: ["security", "ai", "ecosystem"]
 tldr:
   - "Claude Fable 5 wurde am 9. Juni 2026 als erstes allgemein verfügbares Modell der Mythos-Klasse von Anthropic vorgestellt, mit State-of-the-Art-Ergebnissen in Benchmarks für Software-Engineering, Knowledge Work und Vision."
   - "Anthropic lieferte Fable 5 mit unsichtbarem Safety-Throttling aus: Anfragen, die als Distillation-Versuche eingestuft wurden, hatten veränderte und verschlechterte Antworten, ohne dass die Nutzer:innen darüber informiert wurden."
