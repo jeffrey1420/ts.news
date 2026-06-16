@@ -1,0 +1,94 @@
+---
+title: "Deno Lands `deno desktop` Subcommand: WEF-Backed Self-Contained Desktop Apps with Deno.BrowserWindow, Unified DevTools, and Cross-Compile to macOS, Windows, and Linux"
+description: "Deno merged `deno desktop` on June 16, 2026 (PR #33441), a new subcommand that turns a Deno project into a self-contained desktop application. The feature ships the WEF backend (CEF by default, plus WebView and raw winit), the Deno.BrowserWindow API for window lifecycle and native events, framework auto-detection for Next, Astro, Fresh, Remix, Nuxt, SvelteKit, SolidStart, TanStack Start, and Vite SSR, a CDP multiplexer that exposes both V8 isolates in a single DevTools session, an auto-updater with bsdiff patches, and cross-compiled .app/.dmg/.exe/.AppImage outputs. Three smaller Deno PRs landed the same morning: `deno link`/`unlink`, `deno test --shard`, and a fetch `request_builder_hook` for `x-deno-fetch-token`/`cdn-loop` headers."
+date: 2026-06-16
+image: "/images/heroes/2026-06-16--deno-desktop-subcommand-wef-cef-browserwindow.png"
+author: lschvn
+tags: ["runtimes", "frameworks", "tooling"]
+tldr:
+  - "Deno merged [PR #33441](https://github.com/denoland/deno/pull/33441) on June 16, 2026, adding the `deno desktop` subcommand. It compiles a Deno project into a self-contained desktop app backed by WEF (WebView Engine Foundation), with CEF (bundled Chromium) as the default engine, plus WebView (OS webview) and raw (winit, no engine) backends. The feature is gated to a new subcommand so existing CLI behavior is untouched."
+  - "The release introduces the `Deno.BrowserWindow` API for window lifecycle, size, position, native menus, dock/tray integration, and a `bind`/`unbind` RPC channel to JS in the webview, plus framework auto-detection for Next.js, Astro, Fresh, Remix, Nuxt, SvelteKit, SolidStart, TanStack Start, and Vite SSR projects. `Deno.serve()` in the entry auto-binds to the port the webview navigates to via a new `DENO_SERVE_ADDRESS` env var."
+  - "The HMR mode and `--inspect` / `--inspect-brk` work through a CDP multiplexer that exposes the Deno runtime V8 and the CEF renderer V8 as two targets in a single DevTools session (one Console dropdown, one Sources panel). The same morning also landed `deno link`/`unlink` subcommands ([#34359](https://github.com/denoland/deno/pull/34359)), `deno test --shard=<i>/<n>` ([#35057](https://github.com/denoland/deno/pull/35057)), and a fetch `request_builder_hook` that injects `x-deno-fetch-token` and `cdn-loop` headers for cloud deployments ([#35088](https://github.com/denoland/deno/pull/35088))."
+faq:
+  - question: "What is `deno desktop`?"
+    answer: "`deno desktop` is a new Deno subcommand that compiles a Deno project into a self-contained desktop application. It uses the WEF (WebView Engine Foundation) backend to host a webview (CEF/bundled Chromium by default, the OS WebView, or a raw winit window without a web engine), a new `Deno.BrowserWindow` API for window lifecycle and native menus, framework auto-detection for Next/Astro/Fresh/Remix/Nuxt/SvelteKit/SolidStart/TanStack Start/Vite SSR, a `--hmr` mode, a unified `--inspect` DevTools session that covers both the Deno runtime V8 and the CEF renderer V8, an auto-updater with bsdiff patches, and cross-compile to macOS .app/.dmg, Windows .exe + DLLs, and Linux app directory/.AppImage."
+  - question: "What is WEF and how does `deno desktop` use it?"
+    answer: "WEF (WebView Engine Foundation) is the new backend that `deno desktop` ships its webview on. The Deno CLI downloads prebuilt WEF backends from `github.com/denoland/wef/releases`, pins the version via the project's Cargo.lock, verifies them with SHA-256, and caches them under `<deno_dir>/wef/<version>/`. There are three backends: `cef` (the default, a bundled Chromium), `webview` (the host operating system's webview), and `raw` (a winit window with no embedded engine). For development against a local WEF checkout, the `WEF_DEV_DIR` env var points the CLI at that directory instead of downloading."
+  - question: "Can I build a desktop app from an existing Next.js, Nuxt, or SvelteKit project?"
+    answer: "Yes. `deno desktop` ships framework auto-detection (the implementation lives in `cli/tools/framework.rs`) for Next.js, Astro, Fresh, Remix, Nuxt, SvelteKit, SolidStart, TanStack Start, and Vite SSR. The framework's production server runs by default, and the framework's dev server runs under `--hmr`. `Deno.serve()` in the entry auto-binds to the port the webview navigates to via the new `DENO_SERVE_ADDRESS` env var, so a framework's normal `port` config can stay pointing at the framework default."
+  - question: "Does `deno desktop` support hot module reload?"
+    answer: "Yes, via the `--hmr` flag. For detected framework projects, `--hmr` runs the framework's own dev server (Next's dev server, Nuxt's dev server, Vite SSR's dev server, etc.). For non-framework projects, the CLI uses file-watch plus a CDP `Debugger.setScriptSource` hot-swap to push edits into the running V8 isolate while the runtime and the CEF process stay alive. Icon sets are not supported under `--hmr` for now; only a single icon path works in that mode."
+  - question: "What else landed in Deno main the same morning?"
+    answer: "Three other features landed in the same Deno `main` branch on June 16, 2026, all in the 06:59 to 07:15 UTC window: `deno link <path>` and `deno unlink <path-or-name>` ([PR #34359](https://github.com/denoland/deno/pull/34359)) give first-class CLI access to the `links` array in `deno.json` (the npm-link-style workflow for local JSR packages), with a `deno add ./local-dir` hint that suggests `deno link` when the spec resolves to a linkable directory. `deno test --shard=<i>/<n>` ([PR #35057](https://github.com/denoland/deno/pull/35057)) splits a test run across CI machines with a stable sort. A fetch `request_builder_hook` ([PR #35088](https://github.com/denoland/deno/pull/35088)) injects `x-deno-fetch-token` and `cdn-loop` headers for cloud deployments and scrubs user-supplied copies of `x-deno-fetch-token` so user code cannot spoof the runtime value."
+  - question: "What platforms does `deno desktop` not yet support?"
+    answer: "Several features degrade gracefully on a subset of platforms: auto-update (bsdiff dylib swap and rollback) is unix-only and a no-op on Windows; NAPI native-addon support is unix-only (the `promote_dylib_symbols_to_global` re-`dlopen` is `#[cfg(unix)]`); notification permissions are macOS-specific; Linux is X11-only (the launcher forces `--ozone-platform=x11`, Wayland runs through XWayland); `Deno.dock` is macOS-only. Codesigning is implemented (macOS, ad-hoc fallback for unsigned), but notarization and stapling via `notarytool` are not. Windows MSI, Linux .deb/.rpm installers, clipboard, and secureStorage are also still TODO."
+---
+
+[Deno merged `deno desktop`](https://github.com/denoland/deno/pull/33441) on June 16, 2026 (PR #33441, [originally filed in April 2026 as issue #3234](https://github.com/denoland/deno/issues/3234)), adding a new subcommand that compiles a Deno project into a self-contained desktop application. The same morning also landed three smaller PRs: [`deno link` / `deno unlink`](https://github.com/denoland/deno/pull/34359) for the `links` array in `deno.json`, [`deno test --shard`](https://github.com/denoland/deno/pull/35057) to split a test run across machines, and a fetch [`request_builder_hook`](https://github.com/denoland/deno/pull/35088) for cloud deployments. The headline is the desktop subcommand: it gives Deno a first-class path to ship cross-platform desktop apps with a single `deno desktop <entry>` invocation, and the implementation is the biggest single addition to the Deno CLI since [Deno 2.7 stabilized the Temporal API and Windows-on-Arm builds](/articles/2026-04-07--deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides).
+
+## What `deno desktop` actually does
+
+`deno desktop <entry>` compiles a Deno project into a self-contained desktop app, built on WEF (WebView Engine Foundation). The CLI downloads prebuilt WEF backends from `github.com/denoland/wef/releases`, pins the version via the project's `Cargo.lock`, SHA-256-verifies them, and caches them under `<deno_dir>/wef/<version>/`. For development against a local WEF checkout, `WEF_DEV_DIR` points the CLI at a local directory instead of downloading.
+
+There are three backends, selectable per project:
+
+- `cef`, the default, a bundled Chromium (CEF is the same engine family Electron's renderer is built on).
+- `webview`, the host operating system's webview (Edge WebView2 on Windows, WKWebView on macOS, WebKitGTK on Linux).
+- `raw`, a winit window with no embedded engine, for projects that want to draw into the window themselves.
+
+`Deno.serve()` in the entry auto-binds to the port the webview navigates to, via a new `DENO_SERVE_ADDRESS` environment variable that the desktop runtime injects. A framework project can keep its normal `port` config and let the desktop runtime do the binding.
+
+## Framework auto-detection and HMR
+
+The CLI auto-detects framework projects in [`cli/tools/framework.rs`](https://github.com/denoland/deno/pull/33441/files), with first-class support for Next.js, Astro, Fresh, Remix, Nuxt, SvelteKit, SolidStart, TanStack Start, and Vite SSR. A detected framework project gets the framework's production server by default; under `--hmr`, the framework's dev server runs instead (Next's dev server for Next, Nuxt's dev server for Nuxt, Vite's dev server for Vite SSR, etc.).
+
+Non-framework projects still get hot-reload under `--hmr`, but through a different mechanism. The CLI uses a file-watcher plus a CDP `Debugger.setScriptSource` hot-swap to push edits into the running V8 isolate while the Deno runtime and the CEF process stay alive. The practical effect is the same: edit a file, see the change, the window does not reload. The asymmetry is that framework projects get the framework's own HMR pipeline, which is usually more granular (component-scoped updates, fast-refresh boundaries, framework-level state preservation), while non-framework projects get V8-script-level hot-swap. The trade-off is documented in the PR: icon sets are not supported in `--hmr` mode yet, only a single icon path works in that mode.
+
+## Deno.BrowserWindow and the native API surface
+
+The new `Deno.BrowserWindow` API (declared in `cli/tsc/dts/lib.deno.desktop.d.ts`) is what user code calls to drive a window. The surface covers window lifecycle (`show` / `hide` / `focus` / `close` / `reload`), size and position, `alwaysOnTop`, navigation, app and context menus, native window handles, and keyboard, mouse, wheel, resize, and focus events. Two native-only modules slot in alongside: `Deno.dock` (macOS-only) for dock-tile integration, and `Deno.Tray` (cross-platform) for status-area icons with tooltips, dark-mode variants, and context menus.
+
+A `bind` / `unbind` RPC channel exposes the webview's JS to the Deno side as `bindings.<name>()`, and the reverse direction is `executeJs` from Deno into the webview. The runtime integration is the part that has the most leverage on existing JS code: `prompt()`, `alert()`, and `confirm()` in the webview become native popups, and uncaught errors show a native alert with an optional `POST` to `desktop.errorReporting.url` for crash reporting. The auto-updater exposes `Deno.desktopVersion` and a `Deno.autoUpdate({ url, interval, onUpdateReady, onRollback })` that polls `<url>/latest.json`, applies bsdiff patches to the dylib (via `qbsdiff`), stages the result for the next launch, and rolls back on a failed launch.
+
+## One DevTools session, two V8 isolates
+
+The `--inspect` and `--inspect-brk` and `--inspect-wait` flags go through a new [CDP multiplexer](https://github.com/denoland/deno/pull/33441/files) in `cli/tools/desktop_devtools.rs` that exposes the Deno runtime V8 and the CEF renderer V8 as two attached targets in a single DevTools session. The user-facing effect is a single Console dropdown (Renderer / Deno) and a single Sources panel with both threads. The multiplexer speaks Chrome DevTools Protocol to the inspector client and multiplexes it onto two backends, one CDP connection to the runtime's V8 and one to the renderer's V8.
+
+`--inspect-brk` pauses both isolates at startup (Deno via its own mechanism, CEF via an injected `Debugger.enable` + `Debugger.pause` before navigation). For most desktop debugging, that is the workflow: pause both, set a breakpoint in the renderer, set a breakpoint in the runtime, unpause, drive the app, and step between threads in the same Sources panel. The CEF target is the same DevTools target Chromium uses, including the same Performance, Memory, and Network panels; the Deno target is the standard Deno V8 target with `deno_core` introspection.
+
+## Cross-compile and distribution
+
+The `--target` and `--all-targets` flags download prebuilt `denort` binaries and WEF backends for the target triple. The outputs are:
+
+- macOS: a `.app` bundle (framework under `Contents/Frameworks/`), with `.dmg` produced via `hdiutil`.
+- Windows: a `.exe` plus a DLLs directory.
+- Linux: an app directory and a `.AppImage` produced via `appimagetool`.
+
+Codesigning is implemented on macOS via the `macos.codesignIdentity` key in `deno.json` (with an ad-hoc signature fallback for unsigned builds), but notarization and stapling via `notarytool` are not wired up yet. Windows MSI installers, Linux `.deb` / `.rpm` installers, clipboard, and secureStorage are all still TODO in the PR description.
+
+## OS-specific limits worth knowing up front
+
+The PR description is unusually explicit about the gaps. Six limitations are called out as "degrade gracefully" but worth knowing:
+
+- Auto-update is unix-only. `apply_pending_update`, `get_dylib_path`, and `AutoUpdateState` are `#[cfg(unix)]`, so on Windows the staged-update, bsdiff, and rollback path is a no-op.
+- NAPI native-addon support is unix-only. `promote_dylib_symbols_to_global` (the re-`dlopen` with `RTLD_GLOBAL` that makes NAPI symbols visible to addons like `next-swc`) is `#[cfg(unix)]`; on Windows, frameworks that pull native addons may fail to load them.
+- Notification permissions are macOS-specific. The LAUFEY backend is launched via `disclaim_spawn` (posix_spawn with TCC responsibility disclaimed) so it becomes its own permission principal; without it, `UNUserNotificationCenter.requestAuthorization` fails.
+- Linux is X11-only. The generated launcher forces `--ozone-platform=x11` and `GDK_BACKEND=x11` because the LAUFEY mouse, focus, and resize event monitor uses XI2 on X11. On Wayland sessions it runs through XWayland; native Wayland is unsupported.
+- `Deno.dock` is macOS-only.
+- Icon sets are not supported in `--hmr` mode (any platform).
+
+The motivation for shipping with these gaps is the same as every "ship the first cut, file the limits" release: the desktop subcommand is the first time Deno has shipped a non-server runtime, and getting the WEF integration, the `Deno.BrowserWindow` API, the framework auto-detect, the unified DevTools, the auto-updater, and the cross-compile working on at least one platform (macOS) is the prerequisite for everything else. The cross-platform gaps are real, but they are gaps in the first cut, not gaps in the architecture.
+
+## The other three PRs from the same morning
+
+The same Deno `main` branch saw three other features land between 06:59 and 07:15 UTC, before `deno desktop` at 10:41 UTC. They are smaller in scope but they are all primary-source-verified on the same release and they round out the morning's "Deno adds a bunch of plumbing" story.
+
+[`deno link` and `deno unlink`](https://github.com/denoland/deno/pull/34359) give first-class CLI access to the `links` array in `deno.json`, which has been the user-facing way to use a local JSR package in place of a registry version, but until now had no CLI to manipulate. `deno link <path>` validates the path, appends the relative path to `links` (creating the array if missing, preserving formatting via the existing CST machinery), and runs install. `deno unlink <path-or-name>` removes an entry by literal path, resolved path, or by the linked package's JSR name read from the target's `deno.json`. When no argument matches, `unlink` exits non-zero, so a typo is detectable from scripts. As a discoverability fix, `deno add ./local-dir` and `deno install ./local-dir` now bail with a "Did you mean `deno link ./local-dir`?" hint when the spec resolves to a linkable directory.
+
+[`deno test --shard=<i>/<n>`](https://github.com/denoland/deno/pull/35057) brings Vitest / Jest / Playwright-style CI sharding to `deno test`. The discovered test files are sorted for a stable order, then split into `<n>` consecutive, balanced groups, and only the files for `<i>` are run. Every file lands in exactly one shard, group sizes differ by at most one, and the selection happens before any `--shuffle`, so a given shard runs the same files on every machine regardless of the shuffle seed. The PR is explicit about the trade-off: the shard is selected at run time, after the module graph for the full suite has been built and type-checked, so every machine still pays the graph-build and type-check cost for the whole suite. Moving the shard pre-filter ahead of type-checking, so each machine only loads and checks its own subset, is a natural follow-up.
+
+The [fetch `request_builder_hook`](https://github.com/denoland/deno/pull/35088) reads the `X_DENO_FETCH_TOKEN` and `CDN_LOOP` environment variables once and, when present, injects them as `x-deno-fetch-token` and `cdn-loop` headers on every outbound `fetch()` (both the main worker and web workers). The `cdn-loop` header lets upstream infrastructure detect request loops. To keep the fetch token trustworthy, any user-supplied `x-deno-fetch-token` header is scrubbed before the runtime value is applied, so user code cannot spoof it. When neither env var is set, no extra headers are added. This is the runtime side of the same cloud-deployment plumbing that Deno's deploy product uses to identify which deployment made an outbound call.
+
+## What is next
+
+The four-PR cluster is a strong signal of where Deno is going: a `main` line that treats desktop as a first-class target, adds CI-sharding parity with Vitest / Jest / Playwright, finishes the npm-link-style local-package workflow, and exposes the runtime-level fetch headers that cloud deployments need. The next Deno release (likely 2.8.4, given the [Deno 2.8 release notes](/articles/2026-06-01--deno-2-8-audit-fix-ci-pack-subcommands) shipped on June 1) is the first chance these features get into a tagged build. The `deno desktop` PR was the last of the four to land, and it is the one with the most surface area to validate against, so the first tagged build that ships all four is also the one to file feedback against.
