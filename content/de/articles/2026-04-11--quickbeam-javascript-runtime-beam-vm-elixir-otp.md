@@ -79,7 +79,7 @@ Man kann auch `QuickBEAM.ContextPool` verwenden, um einen Pool von JS-Runtime-Ko
 
 ## Die Nische
 
-QuickBEAM versucht nicht, Node.js oder Deno zu ersetzen. Es ist ein spezialisierter Runtime für Elixir/Erlang-Teams, die bestimmte Komponenten in JavaScript schreiben wollen, ohne das BEAM-Zuverlässigkeitsmodell aufzugeben. Die Integrationsfläche, `Beam.call()`, Prozess-Messaging, Supervision, ist der Punkt, nicht der Runtime selbst.
+QuickBEAM versucht nicht, [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) oder [Deno](/articles/2026-04-07-deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides) zu ersetzen. Es ist ein spezialisierter Runtime für Elixir/Erlang-Teams, die bestimmte Komponenten in JavaScript schreiben wollen, ohne das BEAM-Zuverlässigkeitsmodell aufzugeben. Die Integrationsfläche, `Beam.call()`, Prozess-Messaging, Supervision, ist der Punkt, nicht der Runtime selbst.
 
 Für das breitere JavaScript-Ökosystem ist es ein Existenzbeweis, dass BEAMs Nebenläufigkeitsmodell von JavaScript aus zugänglich ist. Ob es eine echte Nutzerbasis findet, hängt davon ab, ob Teams, die hochzuverlässige Systeme in Elixir bauen, genügend Wert darin sehen, bestimmte Komponenten in JavaScript statt in Elixir selbst zu schreiben.
 

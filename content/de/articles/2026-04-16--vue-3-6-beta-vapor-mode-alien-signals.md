@@ -26,7 +26,7 @@ Vue 3.6 Beta ist erschienen, und es markiert einen Wendepunkt in der Entwicklung
 
 ## Vapor Mode: Features Abgeschlossen
 
-Vapor Mode ist Vues Antwort auf eine Frage, die sich die Frontend-Welt seit Jahren stellt: Was wäre, wenn wir die Ergonomie und das Komponentenmodell von Vue mit der Laufzeiteffizienz von kompilierten, Direct-DOM-Frameworks wie Solid oder Svelte haben könnten?
+Vapor Mode ist Vues Antwort auf eine Frage, die sich die Frontend-Welt seit Jahren stellt: Was wäre, wenn wir die Ergonomie und das Komponentenmodell von Vue mit der Laufzeiteffizienz von kompilierten, Direct-DOM-Frameworks wie Solid oder [Svelte](/articles/2026-04-17-svelte-march-2026-context-html-comments-error-boundaries) haben könnten?
 
 Die Kernidee ist einfach. Im aktuellen Vue 3-Kompilierungsmodell werden Templates zu Render-Funktionen kompiliert, die Virtual-DOM-Knoten erzeugen. Wenn sich der Zustand ändert, erstellt Vue einen neuen Virtual-DOM-Baum und gleicht ihn gegen den vorherigen Baum ab, um die minimale Menge an tatsächlich benötigten DOM-Mutationen zu bestimmen. Dieses vdom-Diffing ist für die meisten Anwendungen schnell genug, aber es ist nicht kostenlos, die Erstellung von Vnode-Objekten und der Diffing-Algorithmus verbrauchen beide CPU und Speicher.
 

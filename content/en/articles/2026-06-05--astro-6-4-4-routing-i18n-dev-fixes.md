@@ -11,7 +11,7 @@ tldr:
   - Client-side component edits no longer trigger unnecessary full program reloads during development
 ---
 
-Astro 6.4.4 landed on June 3rd, 2026, with a focused patch release addressing seven bugs across routing, internationalization, and the development experience.
+[Astro 6.4](/articles/2026-06-01-astro-6-4-rust-satteri-markdown-optimizer).4 landed on June 3rd, 2026, with a focused patch release addressing seven bugs across routing, internationalization, and the development experience.
 
 ## Route Pattern Casing Fix
 
@@ -36,6 +36,6 @@ Previously, editing a client-side component (using `client:idle`, `client:load`,
 - Style stripping issues on case-sensitive file systems (e.g. running `astro dev` from `d:\dev\app` when the folder on disk is `D:\dev\app`) have been resolved
 - Dynamic routes no longer return the string `[object Object]` instead of expected content in certain runtimes
 
-The `@astrojs/mdx` integration was also updated to v6.0.2, pulling in an updated Sätteri processor (v0.8.0) from the Markdown parser work that shipped in Astro 6.4.
+The `@astrojs/mdx` integration was also updated to v6.0.2, pulling in an updated Sätteri processor (v0.8.0) from the Markdown parser work that shipped in [Astro 6](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).4.
 
 Astro 6.4.4 is available on npm now.

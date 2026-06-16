@@ -20,11 +20,11 @@ A: Vorerst ändert sich im Alltag nichts. Buns Roadmap priorisiert weiterhin Nod
 
 ## Vom Minecraft-Klon zur KI-Coding-Infrastruktur
 
-Vor fünf Jahren baute Jarred Sumner ein Minecraft-artiges Voxel-Spiel im Browser. Der Hot-Reload-Zyklus dauerte 45 Sekunden. Er ließ sich ablenken, indem er versuchte, ihn zu beheben, portierte esbuilds JSX- und TypeScript-Transpiler von Go nach Zig, und schuf versehentlich Bun.
+Vor fünf Jahren baute Jarred Sumner ein Minecraft-artiges Voxel-Spiel im Browser. Der Hot-Reload-Zyklus dauerte 45 Sekunden. Er ließ sich ablenken, indem er versuchte, ihn zu beheben, portierte [esbuild](/articles/2026-06-14-esbuild-0-28-1-deno-rce-windows-path-traversal)s JSX- und TypeScript-Transpiler von Go nach Zig, und schuf versehentlich Bun.
 
-Heute verzeichnet Bun über 7,2 Millionen monatliche npm-Downloads, konkurriert direkt mit Node.js beim HTTP-Durchsatz (59K vs. 19K req/s in den offiziellen Benchmarks) und bietet ein Single-File-Executable-Format, das zum bevorzugten Verteilungsmechanismus für KI-Coding-Tools geworden ist.
+Heute verzeichnet Bun über 7,2 Millionen monatliche npm-Downloads, konkurriert direkt mit [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) beim HTTP-Durchsatz (59K vs. 19K req/s in den offiziellen Benchmarks) und bietet ein Single-File-Executable-Format, das zum bevorzugten Verteilungsmechanismus für KI-Coding-Tools geworden ist.
 
-Im Oktober 2025 übernahm Anthropic Bun. Die Vereinbarung wurde im Bun-Blog angekündigt und liest sich weniger wie eine Unternehmensübernahme und mehr wie ein Gründerbrief, der erklärt, warum der beste verfügbare Weg vorwärts durch Claude Code führt.
+Im Oktober 2025 übernahm Anthropic Bun. Die Vereinbarung wurde im Bun-Blog angekündigt und liest sich weniger wie eine Unternehmensübernahme und mehr wie ein Gründerbrief, der erklärt, warum der beste verfügbare Weg vorwärts durch [Claude Code](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026) führt.
 
 ## Warum Anthropic Bun Wollte
 

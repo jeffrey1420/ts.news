@@ -10,10 +10,10 @@ tags: ["security", "frameworks", "typescript"]
 Cloudflare hat diese Woche EmDash gestartet, ein Open-Source-Content-Management-System, das es als „den spirituellen Nachfolger von WordPress" bezeichnet. Das Projekt ist bemerkenswert, weil es vollständig in TypeScript geschrieben, von Astro angetrieben und mit einem fundamentally anderen Ansatz für Plugin-Sicherheit ausgestattet ist.
 
 [tldr]
-- EmDash ist ein neues Open-Source-CMS, gebaut auf Astro 6.0, vollständig in TypeScript geschrieben, MIT-lizenziert
+- EmDash ist ein neues Open-Source-CMS, gebaut auf [Astro 6](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).0, vollständig in TypeScript geschrieben, MIT-lizenziert
 - Plugins laufen in sandboxed Dynamic Workers statt direktem Dateisystem-/Datenbankzugriff, und löst damit das Kern-Sicherheitsproblem von WordPress
 - 96 % der WordPress-Sicherheitslücken stammen von Plugins; EmDashs kapazitätsbasiertes Modell beseitigt diese Angriffsoberfläche
-- Einsetzbar auf Cloudflare Workers oder jedem Node.js-Server; frühe Entwickler-Beta verfügbar
+- Einsetzbar auf Cloudflare Workers oder jedem [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams)-Server; frühe Entwickler-Beta verfügbar
 [/tldr]
 
 ## Warum WordPress einen Nachfolger Brauchte
@@ -55,7 +55,7 @@ Es gibt auch einen [EmDash Playground](https://emdashcms.com/), wo Sie die Admin
 
 ## Der Breitere Kontext
 
-Cloudflare ist im Baurausch mit KI-Codieragenten. Das Unternehmen hat Next.js in einer Woche wiederaufgebaut (und Vinext produziert), dann dieselben Tools auf WordPress angesetzt. Ob das Ergebnis produktionsreif ist, ist eine andere Frage, EmDash startet als Beta, nicht als ausgereiftes Produkt.
+Cloudflare ist im Baurausch mit KI-Codieragenten. Das Unternehmen hat [Next.js](/articles/2026-04-04-next-js-16-2-stable-adapter-api-cross-platform) in einer Woche wiederaufgebaut (und Vinext produziert), dann dieselben Tools auf WordPress angesetzt. Ob das Ergebnis produktionsreif ist, ist eine andere Frage, EmDash startet als Beta, nicht als ausgereiftes Produkt.
 
 Aber die These stimmt: Die Grenzkosten für den Bau von Software sind drastisch gesunken, wenn KI-Agenten Boilerplate erledigen, und das Ergebnis kann eine genuinely neuartige Architektur sein statt eines WordPress-Themes. Das Plugin-Sicherheitsmodell allein macht EmDash für jeden interessant, der eine WordPress-Site mit 30 installierten Plugins auditieren musste.
 

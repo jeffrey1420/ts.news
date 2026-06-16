@@ -18,7 +18,7 @@ faq:
     answer: "Le fix garantit que quand TypeScript ré-essaie de résoudre un chemin de module avec des extensions ajoutées (.ts, .tsx), Nitro ne retire que les extensions qu'il a réellement essayées, pas toutes les extensions possibles. Cela évite que des cas légitimes de résolution de modules soient incorrectement sautés."
 ---
 
-Le train des betas Nitro v3 continue d'avancer. Le build `3.0.260603-beta`, le versioning daté signifie 3 juin 2026, est une petite release, mais deux de ses changements comptent pour quiconque construit un framework au-dessus de Nitro, ce qui depuis [l'annonce de la beta v3](https://nitro.build/blog/v3-beta) inclut TanStack Start et la prochaine majeure de Nuxt.
+Le train des betas [Nitro v3](/articles/2026-04-20-nitro-v3-beta-tracing-dep-tracing-vercel-queues) continue d'avancer. Le build `3.0.260603-beta`, le versioning daté signifie 3 juin 2026, est une petite release, mais deux de ses changements comptent pour quiconque construit un framework au-dessus de Nitro, ce qui depuis [l'annonce de la beta v3](https://nitro.build/blog/v3-beta) inclut TanStack Start et la prochaine majeure de [Nuxt](/articles/2026-04-06-nuxt-4-4-vue-router-v5-typed-layout-props-28x-faster-dev-routing).
 
 ## Les frameworks possèdent désormais `preview` et `deploy`
 

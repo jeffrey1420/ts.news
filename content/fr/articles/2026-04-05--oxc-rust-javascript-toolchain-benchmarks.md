@@ -13,9 +13,9 @@ Il y a un projet appelé [Oxc](https://oxc.rs/) que la plupart des développeurs
 
 Oxc n'est pas un outil unique. C'est une suite de composants qui ciblent chacun un travail spécifique dans le pipeline d'outils JavaScript :
 
-- **Oxlint**: un linter compatible ESLint réclamant 50–100x plus rapide qu'ESLint, avec 700+ règles et support des plugins JS ESLint
-- **Oxfmt**: un formateur compatible Prettier affichant 30x plus rapide que Prettier et 3x plus rapide que Biome
-- **oxc-parser**: un parser JavaScript/TypeScript 3x plus rapide que SWC et 5x plus rapide que Biome sur les benchmarks de parsing
+- **Oxlint**: un linter compatible [ESLint](/articles/2026-04-05-eslint-v10-flat-config-rust-alternatives) réclamant 50–100x plus rapide qu'ESLint, avec 700+ règles et support des plugins JS ESLint
+- **Oxfmt**: un formateur compatible Prettier affichant 30x plus rapide que Prettier et 3x plus rapide que [Biome](/articles/2026-06-12-biome-v2-5-js-api-v6-major)
+- **oxc-parser**: un parser JavaScript/TypeScript 3x plus rapide que [SWC](/articles/2026-04-16-swc-v1-15-26-rust-javascript-compiler) et 5x plus rapide que Biome sur les benchmarks de parsing
 - **oxc-transform**: un transpileur gérant TypeScript, JSX et React Fast Refresh
 - **oxc-resolver**: un résolveur de modules 28x plus rapide que enhanced-resolve de webpack
 - **oxc-minify**: un minifier en alpha avec élimination du code mort et mangling des noms de variables
@@ -36,7 +36,7 @@ Ce ne sont pas des gains incrementaux. C'est un écart architectural.
 
 ## Linting type-aware sans tsc
 
-L'une des affirmations les plus intéressantes est le « vrai linting type-aware alimenté par tsgo ». La plupart des règles ESLint type-aware (ou l'inférence de type de Biome) nécessitent d'exécuter le compilateur TypeScript en étape séparée ou d'implémenter une inférence de type personnalisée. L'approche d'Oxc ne semble pas reposer sur `tsc` de la même manière, ce qui serait significatif pour la vitesse de lint dans les grandes codebases TypeScript.
+L'une des affirmations les plus intéressantes est le « vrai linting type-aware alimenté par [tsgo](/articles/2026-03-23-typescript-7-native-preview-go-compiler) ». La plupart des règles ESLint type-aware (ou l'inférence de type de Biome) nécessitent d'exécuter le compilateur TypeScript en étape séparée ou d'implémenter une inférence de type personnalisée. L'approche d'Oxc ne semble pas reposer sur `tsc` de la même manière, ce qui serait significatif pour la vitesse de lint dans les grandes codebases TypeScript.
 
 ## Compatibilité plugins ESLint
 

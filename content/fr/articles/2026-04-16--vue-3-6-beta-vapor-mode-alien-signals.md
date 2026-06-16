@@ -26,7 +26,7 @@ Vue 3.6 beta est arrivé, et il marque un moment charnière dans l'évolution du
 
 ## Vapor Mode : Fonctionnalités Complètes
 
-Le Vapor Mode est la réponse de Vue à une question que le monde frontend se pose depuis des années : et si on pouvait avoir l'ergonomie et le modèle de composant de Vue avec l'efficacité runtime des frameworks compilés, à manipulation DOM directe comme Solid ou Svelte ?
+Le Vapor Mode est la réponse de Vue à une question que le monde frontend se pose depuis des années : et si on pouvait avoir l'ergonomie et le modèle de composant de Vue avec l'efficacité runtime des frameworks compilés, à manipulation DOM directe comme Solid ou [Svelte](/articles/2026-04-17-svelte-march-2026-context-html-comments-error-boundaries) ?
 
 L'idée centrale est simple. Dans le modèle de compilation Vue 3 actuel, les templates sont compilés en fonctions de rendu qui produisent des noeuds virtual DOM. Quand l'état change, Vue crée un nouvel arbre virtual DOM et le diff contre l'arbre précédent pour déterminer l'ensemble minimal de mutations DOM réelles nécessaires. Ce diff vdom est suffisamment rapide pour la plupart des applications, mais il n'est pas gratuit, la création d'objets vnode et l'algorithme de diff consomment tous les deux du CPU et de la mémoire.
 

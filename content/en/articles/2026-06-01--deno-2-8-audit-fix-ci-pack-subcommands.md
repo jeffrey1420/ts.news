@@ -7,7 +7,7 @@ author: lschvn
 tags: ["runtimes", "typescript", "javascript"]
 ---
 
-Deno 2.8 is out, and this time the headline isn't a single killer feature but a cluster of quality-of-life improvements that tighten the gap with Node.js while adding genuinely new tooling. The release dropped May 22, with a patch (v2.8.1) following five days later.
+[Deno](/articles/2026-04-07-deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides) 2.8 is out, and this time the headline isn't a single killer feature but a cluster of quality-of-life improvements that tighten the gap with [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) while adding genuinely new tooling. The release dropped May 22, with a patch (v2.8.1) following five days later.
 
 <!-- more -->
 

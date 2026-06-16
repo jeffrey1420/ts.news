@@ -13,7 +13,7 @@ tldr:
 
 ## What Changed
 
-Next.js 16.3.0-canary dropped two days ago and the changelog is packed. Here's what's worth paying attention to.
+[Next.js](/articles/2026-04-04-next-js-16-2-stable-adapter-api-cross-platform) 16.3.0-canary dropped two days ago and the changelog is packed. Here's what's worth paying attention to.
 
 ### Fine-Grained Prefetch Configuration
 

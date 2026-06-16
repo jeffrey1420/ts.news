@@ -11,7 +11,7 @@ tldr:
   - Les modifications de composants côté client ne déclenchent plus de rechargement complet du backend en développement
 ---
 
-Astro 6.4.4 est paru le 3 juin 2026, un patch centré sur sept bugs touchant le routage, l'internationalisation et l'expérience de développement.
+[Astro 6.4](/articles/2026-06-01-astro-6-4-rust-satteri-markdown-optimizer).4 est paru le 3 juin 2026, un patch centré sur sept bugs touchant le routage, l'internationalisation et l'expérience de développement.
 
 ## Correction de la Casse des Route Patterns
 
@@ -38,4 +38,4 @@ Auparavant, éditer un composant côté client (avec `client:idle`, `client:load
 
 L'intégration `@astrojs/mdx` a aussi été mise à jour en v6.0.2, intégrant le processeur Sätteri v0.8.0.
 
-Astro 6.4.4 est disponible sur npm.
+[Astro 6](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).4.4 est disponible sur npm.

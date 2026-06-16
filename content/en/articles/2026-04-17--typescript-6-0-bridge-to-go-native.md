@@ -18,11 +18,11 @@ faq:
     answer: "Set 'types' explicitly (e.g. ['node', 'jest']), set 'rootDir' if sources are nested, set 'strict': false if you relied on the old default, and review the ignoreDeprecations option in tsconfig."
 ---
 
-TypeScript 6.0 shipped this month, and it carries a weight most point releases don't: this is the last version built on the current JavaScript codebase. Everything from 7.0 onward will run on a Go-based native compiler that the team has been building for over a year.
+[TypeScript 6.0](/articles/2026-04-06-typescript-6-last-release-before-go-rewrite) shipped this month, and it carries a weight most point releases don't: this is the last version built on the current JavaScript codebase. Everything from 7.0 onward will run on a Go-based native compiler that the team has been building for over a year.
 
 ## A Bridge to TypeScript 7.0
 
-The headline story is what you don't get in 6.0. Microsoft describes it as a "bridge release", aligning APIs and behavior so the jump to TypeScript 7.0's new codebase goes smoothly. The team is candid: "TypeScript 7.0 is actually extremely close to completion." You can already try the native preview in VS Code or via `npmx.dev/package/@typescript/native-preview`.
+The headline story is what you don't get in 6.0. Microsoft describes it as a "bridge release", aligning APIs and behavior so the jump to [TypeScript 7](/articles/2026-03-23-typescript-7-native-preview-go-compiler).0's new codebase goes smoothly. The team is candid: "TypeScript 7.0 is actually extremely close to completion." You can already try the native preview in VS Code or via `npmx.dev/package/@typescript/native-preview`.
 
 Most changes in 6.0 exist to smooth that transition. But there are still features worth knowing about.
 
@@ -34,7 +34,7 @@ TypeScript 6.0 checks whether `this` is actually referenced before flagging a me
 
 ## Subpath Imports Now Support `#/`
 
-Node.js recently added support for subpath imports that start with `#/` rather than `#/something`. TypeScript 6.0 picks this up under `--moduleResolution nodenext` and `bundler`. You can now write:
+[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) recently added support for subpath imports that start with `#/` rather than `#/something`. TypeScript 6.0 picks this up under `--moduleResolution nodenext` and `bundler`. You can now write:
 
 ```json
 {

@@ -18,7 +18,7 @@ faq:
     answer: "Ja, besonders wenn Sie auf Netlify oder Vercel deployen. Der Dateinamen-Bug kann stillschweigend kaputte Deployments produzieren, der Build läuft durch, aber manche Seiten laden in der Produktion nicht."
 ---
 
-Astro 6.1.8 erschien am 18. April mit zwei Fixes, die Entwickler auf Netlify oder Vercel sofort anwenden sollten.
+[Astro 6.1](/articles/2026-04-08-astro-6-1-sharp-images-smartypants-i18n-fallback-routes).8 erschien am 18. April mit zwei Fixes, die Entwickler auf Netlify oder Vercel sofort anwenden sollten.
 
 ## Der Dateinamen-Bug, der Netlify Deployments brach
 
@@ -26,7 +26,7 @@ Der wichtigste Fix adressiert eine Regression: Build-Output-Dateinamen konnten S
 
 Das Problem zeigt sich auf Netlify. Die Skew-Protection von Netlify, die sicherstellt, dass deployte Assets zum Build-Output passen, entfernt diese Zeichen vor dem Deployment. Wenn Ihr gebautes HTML auf `chunk.abc123!~{x}.js` verweist und Netlify es als `chunk.abc123.js` ausliefert, ist die Referenz kaputt.
 
-Das Astro-Team bestätigt, dass dies Builds betraf, bei denen dynamische Imports oder bestimmte Code-Splitting-Patterns Chunks mit Hash-Segmenten erzeugten, die diese Zeichen enthielten. Version 6.1.8 normalisiert die Ausgabe-Dateinamen.
+Das [Astro](/articles/2026-03-30-astro-6-rust-compiler-cloudflare)-Team bestätigt, dass dies Builds betraf, bei denen dynamische Imports oder bestimmte Code-Splitting-Patterns Chunks mit Hash-Segmenten erzeugten, die diese Zeichen enthielten. Version 6.1.8 normalisiert die Ausgabe-Dateinamen.
 
 ## /_image Endpoint Content-Type Confusion
 

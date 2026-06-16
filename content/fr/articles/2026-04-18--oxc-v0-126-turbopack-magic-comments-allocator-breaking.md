@@ -13,13 +13,13 @@ tldr:
 
 ## Ce qui a changé
 
-Le release Oxc du 16 avril, crates v0.126.0, est relativement calme en features visibles mais apporte des améliorations d'outillage importantes.
+Le release [Oxc](/articles/2026-04-05-oxc-rust-javascript-toolchain-benchmarks) du 16 avril, crates v0.126.0, est relativement calme en features visibles mais apporte des améliorations d'outillage importantes.
 
 ### Magic Comments Turbopack dans le Parser
 
 L'amélioration principale est [le support des Turbopack Magic Comments par le parser](https://github.com/oxc-project/oxc/pull/20803). Ces commentaires spéciaux comme `/* webpackChunkName */` et `/* resource */` permettent aux bundlers de communiquer des métadonnées sur les imports dynamiques. Avant ce changement, le parser Oxc les traitait comme de simples commentaires. Avec cette mise à jour, ils sont reconnus et préservés sémantiquement.
 
-Si vous utilisez Rolldown ou un outil basé sur le parser Oxc, cela devrait réduire les avertissements parasites et améliorer les décisions de tree-shaking.
+Si vous utilisez [Rolldown](/articles/2026-06-05-rolldown-1-1-0-lazybarrel-default-tsconfig) ou un outil basé sur le parser Oxc, cela devrait réduire les avertissements parasites et améliorer les décisions de tree-shaking.
 
 ### Breaking Change sur l'Allocator
 
@@ -27,7 +27,7 @@ Si vous utilisez Rolldown ou un outil basé sur le parser Oxc, cela devrait réd
 
 ### NAPI Transform : Contrôle de l'Optimisation des Enums
 
-La bindings Node.js (`oxc_transform`) expose désormais `optimizeConstEnums` et `optimizeEnums` en options configurables. Cela donne le contrôle sur l'inlining des enums à la compilation.
+La bindings [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) (`oxc_transform`) expose désormais `optimizeConstEnums` et `optimizeEnums` en options configurables. Cela donne le contrôle sur l'inlining des enums à la compilation.
 
 ### Performance
 
@@ -38,7 +38,7 @@ La bindings Node.js (`oxc_transform`) expose désormais `optimizeConstEnums` et 
 
 ### Est-ce que ça touche les utilisateurs d'oxlint ?
 
-Non. oxlint utilise l'infrastructure de linting, pas les changements sur l'allocator ou le parser.
+Non. [oxlint](/articles/2026-06-02-oxc-v0-134-oxlint-1-68-oxfmt-0-53-vue-typescript-rules) utilise l'infrastructure de linting, pas les changements sur l'allocator ou le parser.
 
 ### Comment mettre à jour ?
 

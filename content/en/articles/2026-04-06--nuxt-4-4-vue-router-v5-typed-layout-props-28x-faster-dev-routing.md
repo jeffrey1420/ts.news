@@ -7,7 +7,7 @@ author: lschvn
 tags: ["css", "frameworks", "typescript"]
 ---
 
-Nuxt 4.4 landed on March 12, 2026, and it's one of the most substantial point releases in the 4.x cycle. The headline additions, Vue Router v5, custom `useFetch` factories, and an accessibility announcer composable, sit alongside a routing engine migration that dramatically speeds up the development experience.
+Nuxt 4.4 landed on March 12, 2026, and it's one of the most substantial point releases in the 4.x cycle. The headline additions, [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals) Router v5, custom `useFetch` factories, and an accessibility announcer composable, sit alongside a routing engine migration that dramatically speeds up the development experience.
 
 ## Vue Router v5
 

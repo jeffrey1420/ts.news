@@ -20,7 +20,7 @@ faq:
     answer: "Yes. Next.js added SWC as an optional compiler starting with version 12, and it became the default compiler in Next.js 13. Users can opt into using Babel instead for specific transform compatibility needs. The SWC transform is what enables Next.js's fast refresh and compilation speeds at scale."
 ---
 
-swc-project/swc v1.15.26 landed on April 14, 2026, marking another point release in the Rust-based JavaScript and TypeScript compiler's steady release cadence. The project, which has been production-hardened through its integration in Next.js, Parcel, and Deno, continues to ship compatibility fixes and performance refinements without major new features in this cycle.
+swc-project/swc v1.15.26 landed on April 14, 2026, marking another point release in the Rust-based JavaScript and TypeScript compiler's steady release cadence. The project, which has been production-hardened through its integration in [Next.js](/articles/2026-04-04-next-js-16-2-stable-adapter-api-cross-platform), Parcel, and [Deno](/articles/2026-04-07-deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides), continues to ship compatibility fixes and performance refinements without major new features in this cycle.
 
 ## What Is SWC?
 
@@ -42,7 +42,7 @@ Key areas of ongoing work include:
 
 SWC exists in a crowded but healthy part of the JavaScript tooling landscape. The three major Rust-based JavaScript tool projects each occupy a different niche:
 
-- **esbuild** (by Evan Wallace), the oldest, focused on raw compilation speed
+- **[esbuild](/articles/2026-06-14-esbuild-0-28-1-deno-rce-windows-path-traversal)** (by Evan Wallace), the oldest, focused on raw compilation speed
 - **SWC**: the most Babel-compatible, deepest integration with existing frameworks
 - **OXC** (Oxidation Compiler), the newest, backed by the Vercel/Nx team, targeting full TypeScript type-checker coverage and Rollup-compatible bundling
 

@@ -21,7 +21,7 @@ faq:
     answer: "Sites using `fallbackType: 'rewrite'` generate extra routes that weren't visible to integrations before. Astro 6.1 exposes these via the `astro:routes:resolved` hook so tools like the sitemap integration can include them."
 ---
 
-Astro 6.1 dropped on March 31, and while it's not as dramatic a release as Astro 6.0's experimental Rust compiler, it ships three targeted improvements that address real friction points for content-heavy sites deployed at the edge.
+[Astro 6](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).1 dropped on March 31, and while it's not as dramatic a release as Astro 6.0's experimental Rust compiler, it ships three targeted improvements that address real friction points for content-heavy sites deployed at the edge.
 
 ## Sharp Image Service Gets Encoder-Level Controls
 

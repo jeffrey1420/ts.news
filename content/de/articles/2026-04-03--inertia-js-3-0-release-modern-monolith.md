@@ -25,7 +25,7 @@ Wenn man 2026 eine Web-App baut, steht man meist vor der Wahl: entweder serverse
 
 Inertia ist eine Adapter-Schicht, die es ermöglicht, ein serverseitiges Framework als Backend für eine moderne JavaScript-SPA zu nutzen, ohne eine separate REST- oder GraphQL-API zu bauen. Man schreibt Controller-Logik in Laravel, Rails oder Django und gibt statt HTML Inertia-Seitenkomponenten zurück. Inertia übernimmt automatisch das Client-Server-Protokoll, Hydration und State-Synchronisierung.
 
-Das Ergebnis: Die React-, Vue- oder Svelte-App verhält sich wie eine SPA (keine vollständigen Page-Reloads, clientseitige Navigation), aber das Backend behält die Kontrolle über Authentifizierung, Autorisierung und Datenabruf.
+Das Ergebnis: Die React-, [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals)- oder [Svelte](/articles/2026-04-17-svelte-march-2026-context-html-comments-error-boundaries)-App verhält sich wie eine SPA (keine vollständigen Page-Reloads, clientseitige Navigation), aber das Backend behält die Kontrolle über Authentifizierung, Autorisierung und Datenabruf.
 
 ## Was ist Neu in 3.0
 
@@ -37,7 +37,7 @@ Die wichtigsten Verbesserungen in Inertia.js 3.0 konzentrieren sich auf Performa
 
 **Prefetching beim Hover.** Inertia Link lädt Seiteninhalte jetzt bereits beim Hover über einen Link vor, nicht erst beim Klick. Kombiniert mit Deferred Props fühlt sich die Navigation fast instantan an.
 
-**Überarbeitetes Asset Versioning.** Eine sauberere Implementierung für Cache Busting über Build-Tools hinweg, ein dauerhafter Schmerzpunkt für Teams mit Vite oder esbuild.
+**Überarbeitetes Asset Versioning.** Eine sauberere Implementierung für Cache Busting über Build-Tools hinweg, ein dauerhafter Schmerzpunkt für Teams mit Vite oder [esbuild](/articles/2026-06-14-esbuild-0-28-1-deno-rce-windows-path-traversal).
 
 **Überarbeitete TypeScript-Abdeckung.** Die TypeScript-Definitionen wurden überarbeitet, mit besserer Typ-Inferenz für Props und strengerem Typing bei Shared Data und Page Components.
 

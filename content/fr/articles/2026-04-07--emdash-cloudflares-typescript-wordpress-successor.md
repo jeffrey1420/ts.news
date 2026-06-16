@@ -10,10 +10,10 @@ tags: ["security", "frameworks", "typescript"]
 Cloudflare a lancé EmDash cette semaine, un système de gestion de contenu open source qu'il qualifie de « success spirituelle de WordPress ». Le projet se distingue par le fait d'être construit entièrement en TypeScript, propulsé par Astro, et par une approche fondamentalement différente de la sécurité des plugins.
 
 [tldr]
-- EmDash est un nouveau CMS open source construit sur Astro 6.0, écrit entièrement en TypeScript, sous licence MIT
+- EmDash est un nouveau CMS open source construit sur [Astro 6](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).0, écrit entièrement en TypeScript, sous licence MIT
 - Les plugins s'exécutent dans des Dynamic Workers isolés plutôt que d'avoir un accès direct au système de fichiers et à la base de données, corrigeant le problème de sécurité central de WordPress
 - 96 % des vulnérabilités de sécurité WordPress proviennent des plugins ; le modèle basé sur les capacités d'EmDash élimine cette surface d'attaque
-- Déployable sur Cloudflare Workers ou tout serveur Node.js ; bêta développeur précoce disponible
+- Déployable sur Cloudflare Workers ou tout serveur [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) ; bêta développeur précoce disponible
 [/tldr]
 
 ## Pourquoi WordPress Avait Besoin d'un Successeur
@@ -55,7 +55,7 @@ Il y a aussi un [EmDash Playground](https://emdashcms.com/) où vous pouvez essa
 
 ## Le Contexte Plus Large
 
-Cloudflare est en pleine phase de construction avec les agents de codage IA. L'entreprise a reconstruit Next.js en une semaine (produisant Vinext), puis a appliqué le même outillage à WordPress. Que le résultat de cette expérience soit prêt pour la production est une question séparée, EmDash démarre en bêta, pas en produit mature.
+Cloudflare est en pleine phase de construction avec les agents de codage IA. L'entreprise a reconstruit [Next.js](/articles/2026-04-04-next-js-16-2-stable-adapter-api-cross-platform) en une semaine (produisant Vinext), puis a appliqué le même outillage à WordPress. Que le résultat de cette expérience soit prêt pour la production est une question séparée, EmDash démarre en bêta, pas en produit mature.
 
 Mais la thèse est cohérente : le coût marginal de la construction de logiciels a considérablement diminué lorsque les agents IA gèrent le code répétitif, et le résultat peut être une architecture véritablement novelle plutôt qu'un thème WordPress. Le modèle de sécurité des plugins seul rend EmDash intéressant pour quiconque a dû auditer un site WordPress avec 30 plugins installés.
 

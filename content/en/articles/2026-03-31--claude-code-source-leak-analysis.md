@@ -20,7 +20,7 @@ faq:
     answer: "The Chrome MCP server requires explicit setup with a specific browser extension ID and is not active by default. The primary concern is not active exploitation but the fact that Anthropic built and shipped a browser automation capability without documenting it, raising questions about what other undocumented features exist in tools with deep codebase access."
 ---
 
-On March 30, 2026, developers installing the npm package `@anthropic-ai/claude-code@v2.1.88` noticed something unusual: the published bundle included `cli.js.map`, a production source map file that maps the minified JavaScript back to its original TypeScript source. Within hours, the discovery spread across developer communities, with multiple developers independently confirming that the source map provided a near-complete view of Claude Code's internal architecture.
+On March 30, 2026, developers installing the npm package `@anthropic-ai/claude-code@v2.1.88` noticed something unusual: the published bundle included `cli.js.map`, a production source map file that maps the minified JavaScript back to its original TypeScript source. Within hours, the discovery spread across developer communities, with multiple developers independently confirming that the source map provided a near-complete view of [Claude Code](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026)'s internal architecture.
 
 The issue was formally reported as [GitHub issue #41329](https://github.com/anthropics/claude-code/issues/41329), titled "[BUG] It seems that the claude code source code has leaked, with cli.js.map uploaded to npm", and was closed as completed the same day. Developers on Twitter, including @iamsupersocks, @Fried_rai, and @chetaslua, shared screenshots and analyses of what they found. A French developer is reported to have posted an extensive thread breaking down the most significant discoveries.
 
@@ -126,7 +126,7 @@ The source map also revealed:
 - A **buddy/companion system** in `src/buddy/`, a pet/animal companion that sits beside the input box and can comment via speech bubble. Not anthropomorphized, and separate from the main Claude instance.
 - A **plugin hint system** emitting `<claude-code-hint />` tags to stderr, surfacing plugin install prompts with 30-second auto-dismiss and show-once semantics per plugin.
 - A **Skills Framework** in `src/skills/bundled/claudeApi.ts` with 247KB of bundled `.md` files for the `/claude-api` command, covering Python, TypeScript, Java, Go, Ruby, C#, PHP, and curl, with language auto-detection from file extensions.
-- Build system details: Claude Code is built with **Bun**, uses the **React compiler runtime**, renders via **Ink** (a React-like CLI framework), and uses **Zod** for schema validation and **lodash-es** for utilities.
+- Build system details: Claude Code is built with **[Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure)**, uses the **React compiler runtime**, renders via **Ink** (a React-like CLI framework), and uses **Zod** for schema validation and **lodash-es** for utilities.
 
 ## What It Means
 
@@ -134,7 +134,7 @@ The leak is significant for several reasons. First, it represents a **failure of
 
 Second, and more substantively, the source map reveals a **substantial gap between what Claude Code publicly claims to be and what it actually is**. The undocumented multi-agent orchestration system, hidden Chrome automation, and pervasive telemetry suggest a product with capabilities and data collection that users have not consented to. The three-tier privacy system is not clearly communicated in Anthropic's documentation, and the `/etc/claude-code/CLAUDE.md` and `CLAUDE.local.md` files create configuration vectors that developers may be unaware of.
 
-For the industry, the leak illustrates a broader pattern: AI coding tools are accumulating **substantial undocumented capabilities**, agent orchestration, browser automation, telemetry, that their enterprise and individual users have had no visibility into. As these tools become embedded in developer workflows, the question of what they actually do (versus what they say they do) becomes increasingly important.
+For the industry, the leak illustrates a broader pattern: [AI coding tool](/articles/2026-03-25-ai-dev-tool-rankings-march-2026)s are accumulating **substantial undocumented capabilities**, agent orchestration, browser automation, telemetry, that their enterprise and individual users have had no visibility into. As these tools become embedded in developer workflows, the question of what they actually do (versus what they say they do) becomes increasingly important.
 
 ## Anthropic's Silence
 

@@ -13,7 +13,7 @@ tldr:
 
 ## Ce qui a changé
 
-Next.js 16.3.0-canary est tombé il y a deux jours et le changelog est bien chargé.
+[Next.js](/articles/2026-04-04-next-js-16-2-stable-adapter-api-cross-platform) 16.3.0-canary est tombé il y a deux jours et le changelog est bien chargé.
 
 ### Configuration de Prefetch Granulaire
 

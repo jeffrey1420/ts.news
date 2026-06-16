@@ -34,7 +34,7 @@ Aber die Ingenieure identifizierten schnell ein Muster: **Agenten produzierten b
 
 Als das Team versuchte, Standard-Chrome-Trace-JSON-Profile mit den Agenten zu verwenden, waren die Ergebnisse schlecht. Funktionsnamen wurden über Zeilen hinweg geteilt, irrelevante Metadaten mit Timing-Daten vermischt, nicht grep-freundlich. Die Agenten kämpften sich durch diese Dateien auf die gleiche Weise wie ein Mensch, schlecht.
 
-Der Durchbruch kam durch die Beobachtung, dass Bun ein `--cpu-prof-md`-Flag eingeführt hatte, das Profile als Markdown generiert. Das Vercel-Team erstellte eine `turborepo-profile-md`-Crate, die Begleit-`.md`-Dateien neben jeder Trace ausgibt: heiße Funktionen sortiert nach Eigzeit, Aufruf-Bäume nach Gesamtzeit, Aufrufer-/Aufgerufenen-Beziehungen, alles greppbar, alles einzeilig.
+Der Durchbruch kam durch die Beobachtung, dass [Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure) ein `--cpu-prof-md`-Flag eingeführt hatte, das Profile als Markdown generiert. Das Vercel-Team erstellte eine `turborepo-profile-md`-Crate, die Begleit-`.md`-Dateien neben jeder Trace ausgibt: heiße Funktionen sortiert nach Eigzeit, Aufruf-Bäume nach Gesamtzeit, Aufrufer-/Aufgerufenen-Beziehungen, alles greppbar, alles einzeilig.
 
 Der Unterschied war sofort sichtbar. Gleiches Modell, gleiche Codebasis, gleicher Harness. Nur ein anderes Format. Die Agenten produzierten plötzlich dramatisch bessere Optimierungsvorschläge.
 

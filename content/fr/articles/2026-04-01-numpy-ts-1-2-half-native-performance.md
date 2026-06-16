@@ -52,7 +52,7 @@ Float16 (demi-précision) utilise 16 bits par nombre et fait partie du paysage d
 
 ## Un package, tous les runtimes
 
-Jusqu'ici, chaque runtime demandait son point d'entrée, un import pour Node, un autre pour les navigateurs. La 1.2 les unifie : un package au comportement identique sur Node.js, Bun, Deno et navigateurs, pour environ 93 kB minifié et gzippé, sans aucune dépendance.
+Jusqu'ici, chaque runtime demandait son point d'entrée, un import pour Node, un autre pour les navigateurs. La 1.2 les unifie : un package au comportement identique sur [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams), [Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure), [Deno](/articles/2026-04-07-deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides) et navigateurs, pour environ 93 kB minifié et gzippé, sans aucune dépendance.
 
 ## Alors, c'est rapide ou pas ?
 

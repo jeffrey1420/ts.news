@@ -30,7 +30,7 @@ GitHub exclut explicitement les données des offres Business, Enterprise et des 
 
 GitHub indique avoir déjà observé des "améliorations significatives" après avoir intégré les données d'interaction des employés Microsoft : des taux d'acceptation plus élevés dans plusieurs langages. L'entreprise présente cela comme une pratique industrielle standard et défend un compromis qualité : contribuez vos motifs de code, recevez de meilleures suggestions.
 
-Le contexte compte. Copilot fait face à une réelle concurrence de Claude Code, Cursor et des outils IA de JetBrains. Entraîner sur les données utilisateurs est un moyen de combler le gap sans augmenter les prix.
+Le contexte compte. Copilot fait face à une réelle concurrence de [Claude Code](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026), Cursor et des outils IA de [JetBrains](/articles/2026-04-02-intellij-idea-javascript-typescript-free). Entraîner sur les données utilisateurs est un moyen de combler le gap sans augmenter les prix.
 
 ## Comment S'y Opposer
 

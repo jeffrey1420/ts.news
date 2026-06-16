@@ -52,7 +52,7 @@ Float16 (halbe Präzision) nutzt 16 Bit pro Zahl und gehört seit Jahren zur GPU
 
 ## Ein Paket, jede Runtime
 
-Bisher brauchten verschiedene Runtimes verschiedene Entry-Points, ein Import für Node, ein anderer für Browser. Version 1.2 vereinheitlicht das: ein Paket, das sich auf Node.js, Bun, Deno und im Browser identisch verhält, bei rund 93 kB minifiziert und gzipped, ohne Abhängigkeiten.
+Bisher brauchten verschiedene Runtimes verschiedene Entry-Points, ein Import für Node, ein anderer für Browser. Version 1.2 vereinheitlicht das: ein Paket, das sich auf [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams), [Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure), [Deno](/articles/2026-04-07-deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides) und im Browser identisch verhält, bei rund 93 kB minifiziert und gzipped, ohne Abhängigkeiten.
 
 ## Und wie schnell ist es ehrlicherweise?
 
