@@ -4,7 +4,7 @@ description: "Moonshot AI released Kimi K2.7-Code, a 1T-parameter MoE coding mod
 date: 2026-06-12
 image: "/images/heroes/2026-06-12--kimi-k2-7-code-mimo-code.png"
 author: lschvn
-tags: ["ai", "ecosystem", "performance"]
+tags: ["ai", "performance", "ecosystem"]
 tldr:
   - "Moonshot AI released Kimi K2.7-Code, a 1T-parameter MoE coding model with 32B activated parameters, 256K context, and a roughly 30% drop in thinking tokens versus K2.6, open-source on Hugging Face."
   - "Xiaomi shipped MiMo Code as an open-weights coding model in the same week, making it the second open-source coding model release in a tight window."

@@ -4,7 +4,7 @@ description: "Playwright v1.61.0 (15. Juni 2026) liefert einen virtuellen Authen
 date: 2026-06-15
 image: "/images/heroes/2026-06-15--playwright-1-61-webauthn-passkeys-webstorage.png"
 author: lschvn
-tags: ["tooling", "security", "javascript"]
+tags: ["security", "tooling", "javascript"]
 tldr:
   - "Playwright v1.61.0, veröffentlicht am 15. Juni 2026, ergänzt einen virtuellen WebAuthn-Authenticator: Tests können jetzt `navigator.credentials.create()` / `navigator.credentials.get()`-Zeremonien über `browserContext.credentials` ohne echte Hardware beantworten, in jedem Browser-Kanal."
   - "Eine neue erstklassige WebStorage-API exponiert `page.localStorage` und `page.sessionStorage` mit `setItem` / `getItem` / `items`, und auf APIResponse-Seite kommen `securityDetails()` und `serverAddr()` hinzu, passend zur Browser-seitigen Response-API."

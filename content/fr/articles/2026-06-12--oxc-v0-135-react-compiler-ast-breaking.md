@@ -4,7 +4,7 @@ description: "Oxc 0.135 intègre le port Rust du React Compiler, marque les nœu
 date: 2026-06-12
 image: "/images/heroes/2026-06-12--oxc-v0-135-react-compiler-ast-breaking.png"
 author: lschvn
-tags: ["tooling", "performance", "typescript"]
+tags: ["tooling", "typescript", "performance"]
 tldr:
   - "Oxc 0.135 intègre le React Compiler de Meta comme outil Rust dans le monorepo oxc (PR #22942), donnant aux bundlers et toolchains en aval une implémentation Rust de première classe."
   - "La release marque les nœuds AST d'Oxc comme #[non_exhaustive], un breaking change qui impose un patch release pour chaque crate Rust qui pattern-matche l'AST."

@@ -4,7 +4,7 @@ description: "Moonshot AI a livré Kimi K2.7-Code, un modèle de code MoE à 1T 
 date: 2026-06-12
 image: "/images/heroes/2026-06-12--kimi-k2-7-code-mimo-code.png"
 author: lschvn
-tags: ["ai", "ecosystem", "performance"]
+tags: ["ai", "performance", "ecosystem"]
 tldr:
   - "Moonshot AI a livré Kimi K2.7-Code, un modèle de code MoE à 1T de paramètres avec 32B activés, 256K de contexte, et une baisse d'environ 30% des thinking tokens vs K2.6, open-source sur Hugging Face."
   - "Xiaomi a livré MiMo Code en open-weights la même semaine, ce qui en fait le deuxième modèle de code open-source dans une fenêtre serrée."

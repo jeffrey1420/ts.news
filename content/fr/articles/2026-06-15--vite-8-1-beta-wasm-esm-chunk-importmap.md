@@ -4,7 +4,7 @@ description: "Vite 8.1.0-beta.0 (15 juin 2026) est la première beta de la ligne
 date: 2026-06-15
 image: "/images/heroes/2026-06-15--vite-8-1-beta-wasm-esm-chunk-importmap.png"
 author: lschvn
-tags: ["tooling", "javascript", "typescript"]
+tags: ["tooling", "typescript", "javascript"]
 tldr:
   - "Vite 8.1.0-beta.0 est sorti le 15 juin 2026 comme première beta de la ligne 8.1 et première release de features sur la [branche stable Vite 8](/articles/2026-04-08--vite-8-stable-seven-patches-in-three-weeks). Elle livre les imports `.wasm` directs via le draft [WASM ESM Integration](https://github.com/WebAssembly/esm-integration), une option build.chunkImportMap qui utilise les import maps du navigateur pour stabiliser le cache des chunks, l'intégration avec Vite Task pour du cache de build sans configuration, le support des dépendances de plugin lightningcss, et un breaking rename qui déplace toutes les options `server.hmr` vers `server.ws`."
   - "Le support WASM ESM Integration ferme le long-standing vite#4551 et remplace les suffixes `?init` / `?url` / `?raw` par un seul pattern d'import que le bundler résout en glue code ESM. Vite parse le binaire, extrait les imports et exports, et émet un module import-friendly qui fonctionne en dev comme en build SSR."
