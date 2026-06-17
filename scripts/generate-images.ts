@@ -132,6 +132,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-16--staan-european-search-api-deep-dive': ['Staan', 'European search API', 'ai'],
   '2026-06-16--spacex-acquires-cursor-60-billion-deep-dive': ['SpaceX · Cursor', '$60bn acquisition', 'ai'],
   '2026-06-16--glm-5-2-long-horizon-deep-dive': ['GLM-5.2', 'Z.ai 1M context, MIT', 'ai'],
+  '2026-06-17--google-cloud-okf-open-knowledge-format-deep-dive': ['Open Knowledge Format', 'Google Cloud spec, v0.1', 'ai'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
