@@ -134,6 +134,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-16--glm-5-2-long-horizon-deep-dive': ['GLM-5.2', 'Z.ai 1M context, MIT', 'ai'],
   '2026-06-17--google-cloud-okf-open-knowledge-format-deep-dive': ['Open Knowledge Format', 'Google Cloud spec, v0.1', 'ai'],
   '2026-06-17--pnpm-11-7-frozen-store-publish-batch': ['pnpm 11.7', 'Frozen store + lockfile fix', 'tooling'],
+  '2026-06-18--openai-codex-0-141-noise-relay-cross-platform-exec': ['Codex 0.141', 'Noise relay + cross-OS exec', 'ai'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
