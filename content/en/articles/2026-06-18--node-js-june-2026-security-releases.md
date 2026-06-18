@@ -1,0 +1,81 @@
+---
+title: "Node.js June 2026 Security Release: 12 CVEs Across v22.23.0, v24.17.0, and v26.3.1, with Two High-Severity TLS and Crypto Fixes"
+description: "On June 18, 2026, the Node.js project shipped coordinated security releases for the v22 'Jod' LTS, the v24 'Krypton' LTS, and the v26 Current line. The drop fixes 12 CVEs, including two rated High: CVE-2026-48618 (TLS hostname normalization for server identity checks) and CVE-2026-48933 (WebCrypto cipher output length guard). The release also picks up OpenSSL 3.5.7, undici 8.5.0 on v26, llhttp 9.4.2, and nghttp2 1.69.0 (semver-major) on v22 and v24."
+date: 2026-06-18
+image: "/images/heroes/2026-06-18--node-js-june-2026-security-releases.png"
+author: lschvn
+tags: ["security", "runtimes", "tooling"]
+tldr:
+  - "Node.js shipped [v22.23.0](https://github.com/nodejs/node/releases/tag/v22.23.0) (LTS 'Jod'), [v24.17.0](https://github.com/nodejs/node/releases/tag/v24.17.0) (LTS 'Krypton'), and [v26.3.1](https://github.com/nodejs/node/releases/tag/v26.3.1) (Current) on June 18, 2026, closing 12 CVEs across the three active release lines. The coordinated drop is a security release on every line, with the v26 line receiving the freshest feature patch on top of the security backports."
+  - "The two High-severity fixes are CVE-2026-48618 (TLS hostname normalization for server identity checks) and CVE-2026-48933 (WebCrypto cipher output length guard, which can let attackers observe or corrupt cipher output beyond the expected bounds). Both were filed and fixed by Matteo Collina and Filip Skokan respectively, and the v26.3.1 commit list shows the canonical patches propagated across all three lines."
+  - "The Medium batch covers proxy-credential leakage in HTTP CONNECT tunnel errors, an unbounded `originSet` growth in http2, case-sensitive SNI context matching, embedded NUL bytes in DNS hostnames, session reuse not bound to the authenticated TLS host, and a nghttp2 integration fix that ships with the nghttp2 1.69.0 semver-major bump on the LTS lines. The Low batch is permission-model hardening: `process.chdir` on writereport, FileHandle utimes disabling, response-queue poisoning in `http.Agent`, and a net-scope guard for pipe open and chmod on v26."
+faq:
+  - question: "Which Node.js versions should I upgrade to today?"
+    answer: "Upgrade to v22.23.0, v24.17.0, or v26.3.1 depending on your release line. v22 'Jod' and v24 'Krypton' are the active LTS lines, v26 is Current, and v20 is past End-of-Life for new features (it still gets security patches but is no longer the recommended LTS). If you are on v18, plan an upgrade: v18 left active LTS in April 2025 and is on maintenance support only."
+  - question: "What is CVE-2026-48618 and who is affected?"
+    answer: "CVE-2026-48618 is the TLS hostname normalization fix for server identity checks, rated High. Before the fix, the server-identity check in `tls` could compare a normalized form of the host against a non-normalized SNI or peer certificate subject, letting a carefully crafted hostname bypass the check and connect to a virtual host the client did not intend. The patch, by Matteo Collina, normalizes the hostname consistently across the SNI, the certificate SAN, and the URL the client originally requested, which closes the bypass and aligns Node with the behavior of OpenSSL 3.x and the WHATWG URL spec."
+  - question: "What is CVE-2026-48933 (WebCrypto cipher output length)?"
+    answer: "CVE-2026-48933 is the WebCrypto cipher output length guard, also rated High. The `SubtleCrypto.encrypt` and `SubtleCrypto.decrypt` paths accept a `length` parameter on certain algorithms (notably AES-CTR and AES-CBC when the caller asks for a tag- or counter-trimmed output), and the previous code path did not always enforce the requested length against the actual buffer produced by the underlying OpenSSL call. A malicious or buggy caller could pass a `length` larger than the cipher's output and either read past the intended buffer or, depending on the algorithm, observe bytes that should have been truncated. Filip Skokan's fix clamps the returned output to the requested length and validates the input length on encrypt, closing the read-past-end and the write-past-end cases."
+  - question: "Why are eight of the twelve CVEs listed as Medium or Low but the headline still says 'security release'?"
+    answer: "Coordinated security releases in Node.js follow the project's policy of bundling every CVE whose embargo lifts on the same day, not just the most severe. The two Highs are the headline, but a single Medium such as CVE-2026-48619 (unbounded `originSet` growth in http2) can be turned into an effective denial-of-service against an HTTP/2 server with a single TCP connection, so Mediums are not optional patches. The four Lows are mostly permission-model gaps, but they only affect code that opts into `--permission` or `--experimental-permission`, so the immediate urgency is lower. The release is called a security release because every line is rebuilt from a single embargoed commit set."
+  - question: "Are there any non-security changes I should be aware of in this drop?"
+    answer: "Yes, three dependency updates land alongside the security fixes. OpenSSL moves to 3.5.7 across all three lines. `undici` moves to 8.5.0 on v26, 7.28.0 on v24, and 6.27.0 on v22, which keeps the bundled fetch client current. `llhttp` moves to 9.4.2 on every line. On the v22 and v24 LTS lines, `nghttp2` jumps to 1.69.0, which is tagged SEMVER-MAJOR in the Node commit message because the integration includes breaking changes from upstream (a CVE-2026-48937 follow-up landed in the same release to absorb those). The v26 line keeps nghttp2 at its 26.2.0 baseline."
+  - question: "I use the `--permission` flag. What changes for me?"
+    answer: "Three of the four Low-severity CVEs are permission-model hardening, and they affect you specifically because you have opted into the experimental permission system. CVE-2026-48617 makes `process.chdir` cooperate correctly with `--allow-fs-read` and `--allow-fs-write` on the writereport path. CVE-2026-48935 disables `FileHandle.utimes` when the permission model is active, because the underlying `utimes` syscall was not on the allow list and could be used as a side channel to read the filesystem. CVE-2026-48936 (v26 only) tightens the net scope around `pipe(2)` and `chmod(2)`. None of these are breaking for code that does not use the permission flags, but they matter if you are running production workloads on `--permission`."
+---
+
+The Node.js project shipped a coordinated security release on June 18, 2026, covering every active release line at once: [v22.23.0](https://github.com/nodejs/node/releases/tag/v22.23.0) for the "Jod" LTS, [v24.17.0](https://github.com/nodejs/node/releases/tag/v24.17.0) for the "Krypton" LTS, and [v26.3.1](https://github.com/nodejs/node/releases/tag/v26.3.1) for the Current line. Twelve CVEs land in the drop, two rated High and the rest split between Medium and Low. The release is a security release on every line, with v26.3.1 also receiving the small set of feature patches that follow [v26.3.0](https://github.com/nodejs/node/releases/tag/v26.3.0) (the [Buffer pool 64 KiB default](https://github.com/nodejs/node/pull/63597), the new `httpValidation` option, and the `permission.drop` API) but were not yet covered by the prior security embargo.
+
+The previous Node.js security drop of this shape landed in March 2026 (see [our coverage](/articles/2026-04-03-node-js-march-2026-security-releases)). The pattern is the same: embargoed fixes accumulate, the embargo lifts, and the project ships the entire set on the same day across all three lines. What is different this time is the cluster of TLS and crypto CVEs, which dominate the High and Medium bands. Four of the six Medium entries are TLS-shaped, and one of the two Highs is a WebCrypto output-length guard that affects the `crypto.subtle` API that a lot of serverless and edge code now depends on.
+
+## The two High-severity fixes
+
+**CVE-2026-48618, TLS hostname normalization for server identity checks.** Matteo Collina's patch targets the path where a Node.js TLS server checks the hostname a client supplied against the certificate it presented. Before the fix, the comparison path was not consistently normalizing the hostnames it was comparing, which let a carefully crafted host (typically one with mixed casing, trailing dots, IDN encoding, or a mix of URL-encoded and raw characters) slip past the check and bind a connection to a virtual host the client did not intend to reach. The patch normalizes the hostname the same way on the SNI side, the certificate-SAN side, and the URL the client originally requested, which aligns Node with OpenSSL 3.x's `X509_VERIFY_PARAM_set1_host` and the WHATWG URL parser. For anyone running TLS termination inside a Node process rather than at a load balancer, this is the headline fix of the release.
+
+**CVE-2026-48933, WebCrypto cipher output length guard.** Filip Skokan's fix lands in the `SubtleCrypto.encrypt` and `SubtleCrypto.decrypt` paths. Certain algorithms (notably AES-CTR and AES-CBC when the caller asks for a counter- or tag-trimmed output) accept a `length` parameter that the previous code path did not always enforce against the actual buffer produced by the underlying OpenSSL call. A malicious or buggy caller could pass a `length` larger than the cipher's output and either read past the intended buffer or, depending on the algorithm, observe bytes that should have been truncated. The patch clamps the returned output to the requested length and validates the input length on encrypt, closing both the read-past-end and the write-past-end cases. This is the kind of fix that matters for code using Node's `crypto.subtle` for HMAC-based authentication, for passkey flows, and for any library that does envelope encryption in the browser-shaped `SubtleCrypto` API.
+
+## The six Medium fixes
+
+The Medium band is the meat of the release. Six CVEs, all of which can be turned into either a denial-of-service or a low-effort information disclosure, and all of which are worth patching on the normal schedule rather than waiting for a "High only" triage.
+
+- **CVE-2026-48615, proxy credentials in tunnel errors.** When a Node.js HTTP client uses the `CONNECT` method to open a tunnel through an HTTPS proxy, the error path was previously emitting the proxy URL (including the embedded credentials) into the thrown error message. The patch redacts the credential portion before the error is surfaced, so a stack trace or a log file no longer leaks the proxy password. The fix is in `lib` and `test`, which means it touches both the runtime path and the test fixtures that check the error shape.
+
+- **CVE-2026-48619, http2 `originSet` memory growth.** The HTTP/2 server path was accepting origin entries into an internal `originSet` without a hard cap, which let a single connection grow the set unboundedly. The patch sets a reasonable ceiling, after which new entries are rejected. With HTTP/2 in particular, a single TCP connection can serve many requests, so an unbounded per-connection data structure is effectively unbounded per-attacker.
+
+- **CVE-2026-48928, TLS case-sensitive SNI context matching.** The SNI-based context selection (`servername` event, `SNICallback`) was previously doing a case-sensitive comparison. RFC 6066 mandates case-insensitive SNI matching for the wire format, but Node's internal context selection was stricter than the wire format required, which produced a class of "the same hostname routes to different certificates depending on case" bugs. The fix lowers the comparison to case-insensitive, which is consistent with the wire format and with what OpenSSL itself does.
+
+- **CVE-2026-48930, NUL bytes in DNS hostnames.** A hostname that contains an embedded NUL byte (`\x00`) was previously accepted by the `dns` and `net` modules, which is a long-known injection vector because the C-level `getaddrinfo` and friends treat the NUL as a string terminator. The patch rejects such hostnames at the boundary, which closes the classic "split-the-string-on-NUL" attack pattern that has shown up in every language's networking layer at some point.
+
+- **CVE-2026-48934, TLS session reuse bound to host.** The TLS session cache was previously allowing a session resumed from a previous connection to a host to be reused for a different host. The fix binds the session ticket to the hostname the original connection authenticated against, so a client cannot move a session across hosts (which would be a session-fixation vector in any code that relies on session resumption for authentication context).
+
+- **CVE-2026-48937, nghttp2 1.69.0 integration.** This is the dependency follow-up. The v22 and v24 lines jump nghttp2 to 1.69.0, which is tagged SEMVER-MAJOR in the Node commit message because upstream shipped breaking integration changes. Tim Perry's follow-up absorbs those into the Node wrapper. The v26 line keeps its 26.2.0 baseline nghttp2 for now.
+
+## The four Low fixes
+
+The Low band is permission-model hardening, with one HTTP exception.
+
+- **CVE-2026-48617, `process.chdir` on `writereport`.** A path where `process.chdir` was not being checked against the permission model's read/write allow list.
+
+- **CVE-2026-48931, http response queue poisoning in `http.Agent`.** A low-severity class where the agent's response queue could be poisoned by a malicious server, leading to a use-after-free in a narrow race window. Matteo Collina's fix tightens the queue lifecycle.
+
+- **CVE-2026-48935, `FileHandle.utimes` with permission model.** `FileHandle.utimes` is now disabled when the permission model is active, because the underlying `utimes` syscall was not on the allow list and could be used as a side channel to learn about the filesystem.
+
+- **CVE-2026-48936, pipe open and chmod net scope (v26 only).** The v26 line gets an additional permission tightening around `pipe(2)` and `chmod(2)`, which are the two syscalls the permission model had left in a half-restricted state.
+
+## Dependency updates and the LTS / Current split
+
+Three dependency updates land on every line, and one is LTS-only.
+
+- **OpenSSL 3.5.7** on v22, v24, and v26. This is a routine security refresh; the OpenSSL 3.5.x line is the one Node has been on since v24 went LTS.
+- **llhttp 9.4.2** on every line. The HTTP parser refresh is a minor version, no public API change.
+- **undici** moves to 8.5.0 on v26, 7.28.0 on v24, and 6.27.0 on v22. The version split reflects the Node policy of pinning a different major of `undici` per release line so that the bundled fetch client tracks the major the line was originally released against.
+- **nghttp2 1.69.0** on v22 and v24 only. The v26 line keeps its 26.2.0 baseline.
+
+## What to do
+
+If you are on v22 LTS, upgrade to v22.23.0. If you are on v24 LTS, upgrade to v24.17.0. If you are on v26 Current, upgrade to v26.3.1. The release is a security release on every line, so the upgrade is the right move on the normal patch schedule and not one to defer. If you are still on v20, you are out of active LTS and should be planning the move to v22 (or, if your toolchain supports it, v24).
+
+For the TLS and WebCrypto Highs, the practical impact is on code that terminates TLS in the Node process (rather than at a load balancer) and on code that uses `crypto.subtle` directly (rather than going through a higher-level library like `jose`). The library wrappers typically sanitize the `length` argument before calling the underlying API, so the WebCrypto fix is most relevant to code that talks to `SubtleCrypto` directly. The TLS hostname fix is relevant to every server that uses the `servername` event or `SNICallback` to pick a certificate by hostname.
+
+This is the second Node.js security drop of 2026, and the pattern is now familiar: embargoed fixes accumulate across the active lines, the project ships the whole set on a single day, and the LTS and Current releases move together. The TLS-heavy shape of this drop is a reminder that Node's TLS and crypto surfaces are still the highest-volume CVE category, and that the project's habit of bundling them into a single coordinated release is what keeps the upgrade story simple for the people who run Node in production.
+
