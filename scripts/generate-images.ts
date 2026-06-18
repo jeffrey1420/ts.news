@@ -135,6 +135,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-17--google-cloud-okf-open-knowledge-format-deep-dive': ['Open Knowledge Format', 'Google Cloud spec, v0.1', 'ai'],
   '2026-06-17--pnpm-11-7-frozen-store-publish-batch': ['pnpm 11.7', 'Frozen store + lockfile fix', 'tooling'],
   '2026-06-18--openai-codex-0-141-noise-relay-cross-platform-exec': ['Codex 0.141', 'Noise relay + cross-OS exec', 'ai'],
+  '2026-06-18--typephp-swoole-aot-native-binary-php': ['TypePHP', 'Swoole AOT renamed, native binary', 'runtimes'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
