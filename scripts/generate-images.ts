@@ -137,6 +137,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-18--openai-codex-0-141-noise-relay-cross-platform-exec': ['Codex 0.141', 'Noise relay + cross-OS exec', 'ai'],
   '2026-06-18--typephp-swoole-aot-native-binary-php': ['TypePHP', 'Swoole AOT renamed, native binary', 'runtimes'],
   '2026-06-18--node-js-june-2026-security-releases': ['Node.js', 'June 2026 security release', 'security'],
+  '2026-06-19--react-router-v8-major-release-future-flags-esm': ['React Router v8', 'Major release: future flags graduate', 'frameworks'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
