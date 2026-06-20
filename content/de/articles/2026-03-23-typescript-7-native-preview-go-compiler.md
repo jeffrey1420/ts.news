@@ -33,7 +33,7 @@ Anfang 2025 kündigte Microsoft [Project Corsa](https://devblogs.microsoft.com/t
 
 Die ersten Benchmarks waren auffällig. Auf der VS Code-Codebase selbst, einem großen, realen TypeScript-Projekt, fiel die Kompilierung von **77,8 Sekunden auf 7,5 Sekunden**. Bei der Playwright-Testsuite ging es von 11,1 Sekunden auf 1,1 Sekunde. Das sind keine synthetischen Micro-Benchmarks. Es ist dieselbe Codebase, die Microsoft zum Erstellen von VS Code verwendet, auf derselben Hardware ausgeführt.
 
-Der Port ist noch nicht vollständig. [TypeScript 6.0](/articles/2026-03-26-typescript-6-0-final-javascript-release) bleibt die JavaScript-basierte Version, durch die das Ökosystem migriert. Microsoft hat angekündigt, dass [TypeScript 6.0](/articles/2026-04-06-typescript-6-last-release-before-go-rewrite) die letzte Hauptversion sein wird, die auf dem JS-basierten Toolchain aufbaut. TypeScript 7 ist dort, wo die native Ära wirklich beginnt.
+Der Port ist noch nicht vollständig. [TypeScript 6.0](/articles/2026-03-26-typescript-6-0-final-javascript-release) bleibt die JavaScript-basierte Version, durch die das Ökosystem migriert. Microsoft hat angekündigt, dass [TypeScript 6.0](/articles/2026-04-06--typescript-6-last-release-before-go-rewrite) die letzte Hauptversion sein wird, die auf dem JS-basierten Toolchain aufbaut. TypeScript 7 ist dort, wo die native Ära wirklich beginnt.
 
 ## Was „Nativ" In Der Praxis Wirklich Bedeutet
 
@@ -45,7 +45,7 @@ Es gibt zwei Dimensionen dessen, was TypeScript 7 ändert, und es lohnt sich, si
 
 ## Node.js Type Stripping: TypeScript Ohne Transpiling Ausführen
 
-Parallel zur nativen Compiler-Arbeit hat [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) nativen TypeScript-Support durch eine Funktion namens **Type Stripping** ausgeliefert. Das ist ein fundamental anderer Ansatz zum Ausführen von TypeScript, anstatt `.ts`-Dateien in `.js` zu kompilieren, kann Node.js TypeScript jetzt direkt ausführen, indem es Type-Annotationen vor der Ausführung entfernt.
+Parallel zur nativen Compiler-Arbeit hat [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) nativen TypeScript-Support durch eine Funktion namens **Type Stripping** ausgeliefert. Das ist ein fundamental anderer Ansatz zum Ausführen von TypeScript, anstatt `.ts`-Dateien in `.js` zu kompilieren, kann Node.js TypeScript jetzt direkt ausführen, indem es Type-Annotationen vor der Ausführung entfernt.
 
 Der Zeitplan bewegte sich schnell:
 - Node.js 22.18.0 (Juli 2025) aktivierte Type Stripping standardmäßig

@@ -13,7 +13,7 @@ Cloudflare hat diese Woche EmDash gestartet, ein Open-Source-Content-Management-
 - EmDash ist ein neues Open-Source-CMS, gebaut auf [Astro 6](/articles/2026-03-30-astro-6-rust-compiler-cloudflare).0, vollständig in TypeScript geschrieben, MIT-lizenziert
 - Plugins laufen in sandboxed Dynamic Workers statt direktem Dateisystem-/Datenbankzugriff, und löst damit das Kern-Sicherheitsproblem von WordPress
 - 96 % der WordPress-Sicherheitslücken stammen von Plugins; EmDashs kapazitätsbasiertes Modell beseitigt diese Angriffsoberfläche
-- Einsetzbar auf Cloudflare Workers oder jedem [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams)-Server; frühe Entwickler-Beta verfügbar
+- Einsetzbar auf Cloudflare Workers oder jedem [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams)-Server; frühe Entwickler-Beta verfügbar
 [/tldr]
 
 ## Warum WordPress einen Nachfolger Brauchte

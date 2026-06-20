@@ -7,7 +7,7 @@ author: lschvn
 tags: ["runtimes", "typescript", "javascript"]
 ---
 
-Deno 2.7 est sorti le 25 février, et c'est l'une des versions les plus riches en fonctionnalités de la lignée 2.x. Les points forts : stabilisation de l'API Temporal, builds Windows on ARM officiels, support des overrides npm, et un lot significatif de travaux de compatibilité [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams).
+Deno 2.7 est sorti le 25 février, et c'est l'une des versions les plus riches en fonctionnalités de la lignée 2.x. Les points forts : stabilisation de l'API Temporal, builds Windows on ARM officiels, support des overrides npm, et un lot significatif de travaux de compatibilité [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams).
 
 [tldr]
 - L'API Temporal TC39 est désormais stable dans Deno sans le flag `--unstable-temporal`, Chrome 144 l'a expédiée en janvier 2026, Deno suit

@@ -11,7 +11,7 @@ tldr:
   - Bearbeitung von Client-Komponenten löst keine unnötigen vollständigen Programm-Neustarts mehr im Development aus
 ---
 
-[Astro 6.4](/articles/2026-06-01-astro-6-4-rust-satteri-markdown-optimizer).4 erschien am 3. Juni 2026 als fokussiertes Patch-Release mit sieben Bugfixes rund um Routing, Internationalisierung und Entwicklererfahrung.
+[Astro 6.4](/articles/2026-06-01--astro-6-4-rust-satteri-markdown-optimizer).4 erschien am 3. Juni 2026 als fokussiertes Patch-Release mit sieben Bugfixes rund um Routing, Internationalisierung und Entwicklererfahrung.
 
 ## Routenpattern-Groß-/Kleinschreibung Behoben
 

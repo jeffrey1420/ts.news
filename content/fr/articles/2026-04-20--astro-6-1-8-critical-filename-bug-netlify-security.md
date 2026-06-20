@@ -18,7 +18,7 @@ faq:
     answer: "Oui, particulièrement si vous déployez sur Netlify ou Vercel. Le bug de nom de fichier peut produire des déploiements cassés sans message d'erreur de build."
 ---
 
-[Astro 6.1](/articles/2026-04-08-astro-6-1-sharp-images-smartypants-i18n-fallback-routes).8 est sorti le 18 avril avec deux correctifs que les développeurs déployant sur Netlify ou Vercel devraient appliquer immédiatement.
+[Astro 6.1](/articles/2026-04-08--astro-6-1-sharp-images-smartypants-i18n-fallback-routes).8 est sorti le 18 avril avec deux correctifs que les développeurs déployant sur Netlify ou Vercel devraient appliquer immédiatement.
 
 ## Le Bug de Nom de Fichier qui Casse les Déploiements Netlify
 

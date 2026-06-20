@@ -7,7 +7,7 @@ author: lschvn
 tags: ["runtimes", "typescript", "javascript"]
 ---
 
-[Deno](/articles/2026-04-07-deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides) 2.8 ist da, und diesmal geht es nicht um ein einzelnes Killer-Feature, sondern um eine Sammlung von Quality-of-Life-Verbesserungen, die die Lücke zu [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) schließen und gleichzeitig wirklich neue Tools hinzufügen. Die Version wurde am 22. Mai veröffentlicht, mit einem Patch (v2.8.1) fünf Tage später.
+[Deno](/articles/2026-04-07--deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides) 2.8 ist da, und diesmal geht es nicht um ein einzelnes Killer-Feature, sondern um eine Sammlung von Quality-of-Life-Verbesserungen, die die Lücke zu [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) schließen und gleichzeitig wirklich neue Tools hinzufügen. Die Version wurde am 22. Mai veröffentlicht, mit einem Patch (v2.8.1) fünf Tage später.
 
 <!-- more -->
 

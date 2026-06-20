@@ -11,7 +11,7 @@ tldr:
   - Client-side component edits no longer trigger unnecessary full program reloads during development
 ---
 
-[Astro 6.4](/articles/2026-06-01-astro-6-4-rust-satteri-markdown-optimizer).4 landed on June 3rd, 2026, with a focused patch release addressing seven bugs across routing, internationalization, and the development experience.
+[Astro 6.4](/articles/2026-06-01--astro-6-4-rust-satteri-markdown-optimizer).4 landed on June 3rd, 2026, with a focused patch release addressing seven bugs across routing, internationalization, and the development experience.
 
 ## Route Pattern Casing Fix
 

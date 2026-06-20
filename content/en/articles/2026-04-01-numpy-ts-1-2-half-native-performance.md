@@ -52,7 +52,7 @@ Float16 (half-precision) uses 16 bits per number and has been a fixture of GPU i
 
 ## One package, every runtime
 
-Until now, different runtimes needed different entry points, one import for Node, another for browsers. Version 1.2 unifies them: one package that behaves identically on [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams), [Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure), [Deno](/articles/2026-04-07-deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides), and in browsers, at about 93 kB minified and gzipped with zero dependencies.
+Until now, different runtimes needed different entry points, one import for Node, another for browsers. Version 1.2 unifies them: one package that behaves identically on [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams), [Bun](/articles/2026-04-19--bun-joins-anthropic-ai-coding-infrastructure), [Deno](/articles/2026-04-07--deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides), and in browsers, at about 93 kB minified and gzipped with zero dependencies.
 
 ## So how fast is it, honestly?
 

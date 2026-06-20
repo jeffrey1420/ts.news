@@ -110,7 +110,7 @@ Quand vous `import { Button } from 'antd'`, le bundleur doit traditionnellement 
 
 Le pairing Bun-et-Anthropic est plus qu'une acquisition, c'est une déclaration d'intention sur où le développement assisté par IA se dirige. Les outils qui écrivent, testent et déploient du code à l'échelle sont de plus en plus les mêmes outils que les développeurs utilisent pour exécuter leurs serveurs localement. Bun se positionnant comme le runtime "all-in-one" (bundleur, testeur, gestionnaire de paquets, runtime serveur) en fait un fit naturel pour les agents IA qui ont besoin d'exécuter du code fiablement à travers les environnements.
 
-Pour les développeurs TypeScript spécifiquement, le support complet des décorateurs TC39 dans v1.3.10 est un unlock silencieux mais important. La proposition des décorateurs est en stage 3 depuis plus de deux ans et est largement attendue pour atteindre le stage 4, etEventually land in the ECMAScript spec, dans un avenir proche. Le support précoce de Bun signifie que vous pouvez commencer à écrire du code basé sur les décorateurs future-proof aujourd'hui.
+Pour les développeurs TypeScript spécifiquement, le support complet des décorateurs TC39 dans v1.3.10 est un unlock silencieux mais important. La proposition des décorateurs est en stage 3 depuis plus de deux ans et est largement attendue pour atteindre le stage 4, puis pour être intégrée à la spec ECMAScript, dans un avenir proche. Le support précoce de Bun signifie que vous pouvez commencer à écrire du code basé sur des décorateurs future-proof dès aujourd'hui.
 
 Installez ou mettez à niveau avec :
 

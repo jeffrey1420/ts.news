@@ -7,7 +7,7 @@ author: lschvn
 tags: ["runtimes", "typescript", "javascript"]
 ---
 
-Deno 2.7 dropped on February 25th, and it is one of the most feature-rich releases in the 2.x line. The headline items are Temporal API stabilization, official Windows on ARM builds, and npm `overrides` support, but the release also ships a significant batch of [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) compatibility work that makes migrating existing projects easier.
+Deno 2.7 dropped on February 25th, and it is one of the most feature-rich releases in the 2.x line. The headline items are Temporal API stabilization, official Windows on ARM builds, and npm `overrides` support, but the release also ships a significant batch of [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) compatibility work that makes migrating existing projects easier.
 
 [tldr]
 - The TC39 Temporal API is now stable in Deno without the `--unstable-temporal` flag, Chrome 144 shipped it in January 2026, Deno follows
@@ -79,6 +79,6 @@ The Deno team also disclosed that Deno Deploy users were protected against two h
 [faq]
 - **Do I need to change my code for the Temporal API?** If you were using `--unstable-temporal`, remove that flag. The API is unchanged.
 - **Can I run npm packages with Deno?** Yes, Deno has first-class package.json support and can run most npm packages directly.
-- **What about [Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure) vs Deno?** Bun has historically had faster startup times. Deno's strength is its TypeScript-first approach, security model, and the Deno Deploy edge network.
+- **What about [Bun](/articles/2026-04-19--bun-joins-anthropic-ai-coding-infrastructure) vs Deno?** Bun has historically had faster startup times. Deno's strength is its TypeScript-first approach, security model, and the Deno Deploy edge network.
 - **Is Deno Deploy production-ready?** Yes, it reached general availability on February 3rd, 2026.
 [/faq]

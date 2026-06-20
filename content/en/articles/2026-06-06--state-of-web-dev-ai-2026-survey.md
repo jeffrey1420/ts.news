@@ -67,6 +67,6 @@ Hallucinations remain the Achilles heel. Despite dramatic improvements in model 
 
 TypeScript's position in this landscape is worth noting. The survey's language breakdowns consistently show TypeScript outperforming JavaScript on metrics like AI adoption and developer satisfaction. As AI coding tools become the primary interface for many developers, TypeScript's compile-time safety becomes more valuable, not just for humans catching bugs, but for AI systems that benefit from explicit types when generating code.
 
-The rise of AI coding agents also creates new pressure on the toolchain. Agents that can autonomously navigate large codebases, run tests, and manage dependencies are increasingly dependent on fast, reliable tooling, which is why Rust-based tools like [Oxc](/articles/2026-04-05-oxc-rust-javascript-toolchain-benchmarks), [Rolldown](/articles/2026-06-05-rolldown-1-1-0-lazybarrel-default-tsconfig), and their ilk are getting so much attention from the development community.
+The rise of AI coding agents also creates new pressure on the toolchain. Agents that can autonomously navigate large codebases, run tests, and manage dependencies are increasingly dependent on fast, reliable tooling, which is why Rust-based tools like [Oxc](/articles/2026-04-05--oxc-rust-javascript-toolchain-benchmarks), [Rolldown](/articles/2026-06-05--rolldown-1-1-0-lazybarrel-default-tsconfig), and their ilk are getting so much attention from the development community.
 
 The full survey results are available at [2026.stateofai.dev](https://2026.stateofai.dev/en-US/).

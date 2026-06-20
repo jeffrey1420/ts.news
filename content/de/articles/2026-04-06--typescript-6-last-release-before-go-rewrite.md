@@ -15,7 +15,7 @@ Die meisten Änderungen dienen der Angleichung an TypeScript 7, aber mehrere kon
 
 **Weniger Kontextsensibilität bei `this`-losen Funktionen.** TypeScript 6.0 behebt eine langjährige Inferenzlücke bei Methoden und Callbacks, die `this` nicht verwenden. Zuvor konnte eine Methode wie `consume(y) { return y.toFixed(); }` innerhalb eines generischen Aufrufs scheitern, wenn eine andere Eigenschaft zuerst kam, weil TypeScript annahm, dass `this` den generischen Typ benötigen könnte. Jetzt, wenn `this` nie verwendet wird, überspringt TypeScript die kontextuelle Sensitivitätsprüfung und die Inferenz funktioniert unabhängig von der Eigenschaftsreihenfolge korrekt. Diese Änderung wurde von Mateusz Burzyński beigesteuert.
 
-**Subpath-Imports unterstützen jetzt `#/`-Präfixe.** [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) hat die Unterstützung für `#/` als nacktes Subpath-Import-Präfix hinzugefügt (statt `#root/` oder ähnliches). TypeScript 6.0 unterstützt dies unter `--moduleResolution nodenext` und `bundler`. Keine umständlichen Workarounds mehr für saubere interne Imports.
+**Subpath-Imports unterstützen jetzt `#/`-Präfixe.** [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) hat die Unterstützung für `#/` als nacktes Subpath-Import-Präfix hinzugefügt (statt `#root/` oder ähnliches). TypeScript 6.0 unterstützt dies unter `--moduleResolution nodenext` und `bundler`. Keine umständlichen Workarounds mehr für saubere interne Imports.
 
 **`--moduleResolution bundler` + `--module commonjs` ist jetzt gültig.** Zuvor wurde diese Kombination abgelehnt. Mit der Deprecation von `--moduleResolution node` ist die Kombination `bundler` + `commonjs` nun der empfohlene Migrationspfad für viele Projekte.
 

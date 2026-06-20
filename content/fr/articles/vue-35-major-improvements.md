@@ -21,7 +21,7 @@ faq:
     answer: "Oui. Dans Vue 3.5, destructurer les props dans <script setup> préserve maintenant la réactivité. Vous n'avez plus besoin de withDefaults() pour maintenir la réactivité lors de la destruction. Mais les computed et composables consommant des props détruites ont toujours besoin d'un getter wrapper."
 ---
 
-[Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals) 3.5 est sorti en septembre 2024 avec ce qu'Evan You a appelé une version mineure, et un système de réactivité refactoré qui livre **56% d'usage mémoire en moins** et **des opérations jusqu'à 10× plus rapides sur les grands tableaux profondément réactifs**. La réponse de la communauté des développeurs était approximativement : *"Cela ne ressemble pas à une version mineure."*
+[Vue](/articles/2026-04-16--vue-3-6-beta-vapor-mode-alien-signals) 3.5 est sorti en septembre 2024 avec ce qu'Evan You a appelé une version mineure, et un système de réactivité refactoré qui livre **56% d'usage mémoire en moins** et **des opérations jusqu'à 10× plus rapides sur les grands tableaux profondément réactifs**. La réponse de la communauté des développeurs était approximativement : *"Cela ne ressemble pas à une version mineure."*
 
 Les chiffres confirment cet instinct. Le système de réactivité refactoré de Vue 3.5 livre des gains réels et mesurables.
 

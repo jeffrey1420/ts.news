@@ -19,7 +19,7 @@ JSX-Reference-Tracking ist die andere wichtige Neuerung. Zuvor flaggte ESLints `
 
 `RuleTester` erhält drei neue Assertionsoptionen, `requireMessage`, `requireLocation` und `requireData`, mit denen Plugin-Autoren strengere und konsistentere Testdefinitionen durchsetzen können. Stack Traces enthalten jetzt den Index und Dateispeicherort der fehlgeschlagenen Testfälle.
 
-Die [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams)-Unterstützung wurde verschärft auf `^20.19.0 || ^22.13.0 || >=24`, alle Versionen 21 und 23 sind gestrichen.
+Die [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams)-Unterstützung wurde verschärft auf `^20.19.0 || ^22.13.0 || >=24`, alle Versionen 21 und 23 sind gestrichen.
 
 ## Die Migration
 
@@ -37,9 +37,9 @@ Ein Hindernis: `eslint-plugin-react` hatte ESLint 10 zum Zeitpunkt der Veröffen
 
 ESLint saß über ein Jahrzehnt lang weitgehend unangegriffen als Standard-JS-Linter. Diese Position wird jetzt von zwei Richtungen gleichzeitig in Frage gestellt.
 
-[Biome](https://biomejs.dev/) kombiniert Linting und Formatierung in einem einzigen Tool, keine separate ESLint + [Prettier](/articles/2026-04-05-oxc-rust-javascript-toolchain-benchmarks)-Einrichtung, mit 467 Regeln aus ESLint, TypeScript ESLint und anderen Quellen. Die Version 2.4 (Februar 2026) fügte Unterstützung für eingebettete CSS- und GraphQL-Snippets, 15 HTML-Barrierefreiheitsregeln und experimentelle vollständige Unterstützung für [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals), Svelte und Astro hinzu. Es verwendet einen Rust-basierten Parser und ist bekannt für deutlich geringeren Speicherverbrauch.
+[Biome](https://biomejs.dev/) kombiniert Linting und Formatierung in einem einzigen Tool, keine separate ESLint + [Prettier](/articles/2026-04-05--oxc-rust-javascript-toolchain-benchmarks)-Einrichtung, mit 467 Regeln aus ESLint, TypeScript ESLint und anderen Quellen. Die Version 2.4 (Februar 2026) fügte Unterstützung für eingebettete CSS- und GraphQL-Snippets, 15 HTML-Barrierefreiheitsregeln und experimentelle vollständige Unterstützung für [Vue](/articles/2026-04-16--vue-3-6-beta-vapor-mode-alien-signals), Svelte und Astro hinzu. Es verwendet einen Rust-basierten Parser und ist bekannt für deutlich geringeren Speicherverbrauch.
 
-[Oxc](https://oxc.rs/) trägt das Performance-Argument weiter. Sein Linter, Oxlint, beansprucht 50–100x schnelleren Durchsatz als ESLint, je nach CPU-Kernanzahl. Es hat über 700 Regeln, echtes Type-Aware-Linting über sein `tsgo`-Projekt und unterstützt nativ ESLint-JS-Plugins. Sein Formatter, Oxfmt, erreicht 30x schneller als Prettier und 3x schneller als [Biome](/articles/2026-06-12-biome-v2-5-js-api-v6-major). Alles ist Open Source unter der OpenJS Foundation.
+[Oxc](https://oxc.rs/) trägt das Performance-Argument weiter. Sein Linter, Oxlint, beansprucht 50–100x schnelleren Durchsatz als ESLint, je nach CPU-Kernanzahl. Es hat über 700 Regeln, echtes Type-Aware-Linting über sein `tsgo`-Projekt und unterstützt nativ ESLint-JS-Plugins. Sein Formatter, Oxfmt, erreicht 30x schneller als Prettier und 3x schneller als [Biome](/articles/2026-06-12--biome-v2-5-js-api-v6-major). Alles ist Open Source unter der OpenJS Foundation.
 
 Der Kompromiss ist die Regelabdeckung. Oxlint hat noch nicht den vollständigen Katalog von ESLint, und Biome holt bei TypeScript-spezifischen Regeln noch auf. Aber die Richtung ist klar, und der Leistungsunterschied ist nicht marginal, er ist strukturell. ESLints Single-Threaded-JavaScript-Architektur hat eine Decke, die Rust-basierte Alternativen nicht teilen.
 

@@ -23,7 +23,7 @@ The free tier adds:
 - **Code navigation**: gutter icons for jump-to actions, recursive calls, TypeScript source mapping
 - **Core refactorings**: Rename, Introduce Variable/Constant, Change Signature, Move Members
 - **Built-in inspections and quick fixes**: catch potential issues as you code
-- **[Prettier](/articles/2026-04-05-oxc-rust-javascript-toolchain-benchmarks), [ESLint](/articles/2026-04-05-eslint-v10-flat-config-rust-alternatives), TSLint, and StyleLint integration**: code formatting and linting from within the IDE
+- **[Prettier](/articles/2026-04-05--oxc-rust-javascript-toolchain-benchmarks), [ESLint](/articles/2026-04-05--eslint-v10-flat-config-rust-alternatives), TSLint, and StyleLint integration**: code formatting and linting from within the IDE
 - **Vite project generator**: scaffold web projects without leaving the IDE
 - **Dependency vulnerability scanning**: security checks on your `package.json`
 
@@ -33,7 +33,7 @@ If you need the full frontend toolkit, Ultimate is still required for:
 
 - Dedicated JavaScript and TypeScript debuggers
 - Test runner and test UI tooling
-- Angular and [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals) support
+- Angular and [Vue](/articles/2026-04-16--vue-3-6-beta-vapor-mode-alien-signals) support
 - Advanced refactorings beyond the core set
 
 JetBrains is transparent about this: the free tier covers "building modern web applications," but full-stack professional work still needs paid tooling.

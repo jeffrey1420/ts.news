@@ -26,11 +26,11 @@ VoidZero hat heute Vite+ Alpha veröffentlicht, eine vereinheitlichte Entwicklun
 
 Vite+ orchestriert eine Reihe etablierter Rust-basierter Tools:
 
-- **[Vite 8](/articles/2026-04-08-vite-8-stable-seven-patches-in-three-weeks)**: Dev-Server und Build-Orchestrator
+- **[Vite 8](/articles/2026-04-08--vite-8-stable-seven-patches-in-three-weeks)**: Dev-Server und Build-Orchestrator
 - **Vitest 4.1**: Test-Runner
-- **Oxlint 1.52**: [ESLint](/articles/2026-04-05-eslint-v10-flat-config-rust-alternatives)-kompatibler Linter (50–100× schneller)
-- **Oxfmt Beta**: [Prettier](/articles/2026-04-05-oxc-rust-javascript-toolchain-benchmarks)-kompatibler Formatter (bis zu 30× schneller)
-- **[Rolldown](/articles/2026-06-05-rolldown-1-1-0-lazybarrel-default-tsconfig)**: Production-Bundler (1,6× bis 7,7× schneller als Vite 7)
+- **Oxlint 1.52**: [ESLint](/articles/2026-04-05--eslint-v10-flat-config-rust-alternatives)-kompatibler Linter (50–100× schneller)
+- **Oxfmt Beta**: [Prettier](/articles/2026-04-05--oxc-rust-javascript-toolchain-benchmarks)-kompatibler Formatter (bis zu 30× schneller)
+- **[Rolldown](/articles/2026-06-05--rolldown-1-1-0-lazybarrel-default-tsconfig)**: Production-Bundler (1,6× bis 7,7× schneller als Vite 7)
 - **tsdown**: TypeScript-Library-Bundler
 - **Vite Task**: neuer Task-Runner mit automatischem Caching
 

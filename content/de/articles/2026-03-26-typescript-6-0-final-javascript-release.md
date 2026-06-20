@@ -21,7 +21,7 @@ faq:
     answer: "TypeScript 7.0 ist eine vollständige Neuschreibung des TypeScript-Compilers in Go und ersetzt den ursprünglichen JavaScript-basierten Codebase. Der Go-Rewrite zielt auf native Ausführungsgeschwindigkeit und Shared-Memory-Multithreading, was die aktuelle Architektur nicht effektiv nutzen kann. Frühe Benchmarks zeigen signifikant schnellere Type-Checking auf großen Projekten, die VS Code-Codebase kompiliert etwa 10x schneller unter dem Go-Compiler."
 ---
 
-Microsoft veröffentlichte [TypeScript 6.0](/articles/2026-04-06-typescript-6-last-release-before-go-rewrite) am 23. März 2026. Es ist, per Design, das Ende einer Ära. Dies ist die letzte Hauptversion von TypeScript, die auf dem ursprünglichen JavaScript-basierten Compiler-Codebase aufbaut. [TypeScript 7.0](/articles/2026-03-23-typescript-7-native-preview-go-compiler), derzeit in Entwicklung und in Go geschrieben, wird später dieses Jahr mit nativen Ausführungsgeschwindigkeiten und Shared-Memory-Multithreading erscheinen.
+Microsoft veröffentlichte [TypeScript 6.0](/articles/2026-04-06--typescript-6-last-release-before-go-rewrite) am 23. März 2026. Es ist, per Design, das Ende einer Ära. Dies ist die letzte Hauptversion von TypeScript, die auf dem ursprünglichen JavaScript-basierten Compiler-Codebase aufbaut. [TypeScript 7.0](/articles/2026-03-23-typescript-7-native-preview-go-compiler), derzeit in Entwicklung und in Go geschrieben, wird später dieses Jahr mit nativen Ausführungsgeschwindigkeiten und Shared-Memory-Multithreading erscheinen.
 
 Daniel Rosenwasser, Principal Program Manager für TypeScript, [nannte es](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/) ein „Bridge" zwischen TypeScript 5.9 und [TypeScript 7.0](/articles/2026-03-23-typescript-7-native-preview-go-compiler), und die Beschreibung passt. 6.0 geht es weniger um schicke neue Sprachfeatures und mehr darum, aufzuräumen und das Ökosystem auf den Sprung zu nativem Code vorzubereiten.
 
@@ -47,7 +47,7 @@ Die generelle Richtung des TypeScript-Teams ist klar: Wenn etwas in 6.0 veraltet
 
 ## Warum Der Go-Rewrite Relevant Ist
 
-Der Wechsel zu Go ist nicht kosmetisch. Der aktuelle TypeScript-Compiler, der auf [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) läuft, hat dokumentierte Performance-Deckel, besonders auf großen Codebases. Der Go-Rewrite zielt auf zwei Dinge: native Ausführungsgeschwindigkeit und Shared-Memory-Multithreading, was die aktuelle Architektur nicht effektiv nutzen kann.
+Der Wechsel zu Go ist nicht kosmetisch. Der aktuelle TypeScript-Compiler, der auf [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) läuft, hat dokumentierte Performance-Deckel, besonders auf großen Codebases. Der Go-Rewrite zielt auf zwei Dinge: native Ausführungsgeschwindigkeit und Shared-Memory-Multithreading, was die aktuelle Architektur nicht effektiv nutzen kann.
 
 Frühe Benchmarks von Microsoft deuten darauf hin, dass der Go-Compiler bei Type-Checking großer Projekte signifikant schneller ist. Das ist die Hauptsache, die große Enterprise-TypeScript-Codebases nachts wachhält.
 

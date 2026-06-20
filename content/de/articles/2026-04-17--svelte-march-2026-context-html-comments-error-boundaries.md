@@ -63,7 +63,7 @@ Das Update stabilisiert auch Vite-8-Support (kit@2.53.0) und fügt ein offiziell
 
 ## State of JS 2025: Svelte hält den ersten Platz
 
-Eine schnelle Bestätigung: Die Ergebnisse des [State of JS 2025](https://2025.stateofjs.com/en-US) sind raus, und Svelte behält seine Position als top-bewertetes reaktives Framework beim positiven Sentiment zum zweiten Mal in Folge. Die Kategorie umfasst Solid, [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals), React, Angular und andere, Sveltes Entwickler-Zufriedenheitswert sticht weiterhin heraus.
+Eine schnelle Bestätigung: Die Ergebnisse des [State of JS 2025](https://2025.stateofjs.com/en-US) sind raus, und Svelte behält seine Position als top-bewertetes reaktives Framework beim positiven Sentiment zum zweiten Mal in Folge. Die Kategorie umfasst Solid, [Vue](/articles/2026-04-16--vue-3-6-beta-vapor-mode-alien-signals), React, Angular und andere, Sveltes Entwickler-Zufriedenheitswert sticht weiterhin heraus.
 
 ## Community-Höhepunkte
 

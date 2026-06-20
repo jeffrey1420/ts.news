@@ -22,7 +22,7 @@ faq:
 
 [TypeScript 7.0 RC](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0-rc/) est sorti le 18 juin 2026, et c'est le release candidate du compilateur que Microsoft porte en Go depuis plus d'un an. Le titre, c'est la vitesse : 7.0 est souvent environ **10 fois plus rapide que TypeScript 6.0**, résultat de l'exécution native et du parallélisme en mémoire partagée plutôt que du compilateur mono-thread et auto-amorcé en JavaScript que l'écosystème utilise depuis le début. Vous pouvez l'installer dès aujourd'hui avec `npm install -D typescript@rc`, et `npx tsc --version` affiche `7.0.1-rc`.
 
-C'est l'aboutissement de [Project Corsa](/articles/2026-03-23-typescript-7-native-preview-go-compiler), le port natif annoncé par Microsoft début 2025. [TypeScript 6.0](/articles/2026-04-17-typescript-6-0-bridge-to-go-native) avait été délibérément conçu comme une version « pont » pour préparer la transition, et [l'équipe décrivait 7.0 comme « extrêmement proche d'être terminé »](/articles/2026-04-06-typescript-6-last-release-before-go-rewrite) dès avril. Le RC est cette fin, figé en fonctionnalités.
+C'est l'aboutissement de [Project Corsa](/articles/2026-03-23-typescript-7-native-preview-go-compiler), le port natif annoncé par Microsoft début 2025. [TypeScript 6.0](/articles/2026-04-17--typescript-6-0-bridge-to-go-native) avait été délibérément conçu comme une version « pont » pour préparer la transition, et [l'équipe décrivait 7.0 comme « extrêmement proche d'être terminé »](/articles/2026-04-06--typescript-6-last-release-before-go-rewrite) dès avril. Le RC est cette fin, figé en fonctionnalités.
 
 ## Porté, pas réécrit
 

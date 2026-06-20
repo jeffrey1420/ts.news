@@ -13,9 +13,9 @@ There's a project called [Oxc](https://oxc.rs/) that most JavaScript developers 
 
 Oxc isn't a single tool. It's a suite of components that each target a specific job in the JavaScript tooling pipeline:
 
-- **Oxlint**: an [ESLint](/articles/2026-04-05-eslint-v10-flat-config-rust-alternatives)-compatible linter claiming 50–100x faster throughput than ESLint, with 700+ rules and ESLint JS plugin support
-- **Oxfmt**: a Prettier-compatible formatter benchmarking 30x faster than Prettier and 3x faster than [Biome](/articles/2026-06-12-biome-v2-5-js-api-v6-major)
-- **oxc-parser**: a JavaScript/TypeScript parser that's 3x faster than [SWC](/articles/2026-04-16-swc-v1-15-26-rust-javascript-compiler) and 5x faster than Biome on parsing benchmarks
+- **Oxlint**: an [ESLint](/articles/2026-04-05--eslint-v10-flat-config-rust-alternatives)-compatible linter claiming 50–100x faster throughput than ESLint, with 700+ rules and ESLint JS plugin support
+- **Oxfmt**: a Prettier-compatible formatter benchmarking 30x faster than Prettier and 3x faster than [Biome](/articles/2026-06-12--biome-v2-5-js-api-v6-major)
+- **oxc-parser**: a JavaScript/TypeScript parser that's 3x faster than [SWC](/articles/2026-04-16--swc-v1-15-26-rust-javascript-compiler) and 5x faster than Biome on parsing benchmarks
 - **oxc-transform**: a transpiler handling TypeScript, JSX, and React Fast Refresh
 - **oxc-resolver**: a module resolver 28x faster than webpack's enhanced-resolve
 - **oxc-minify**: an alpha-stage minifier with dead code elimination and variable name mangling

@@ -11,7 +11,7 @@ tldr:
   - Les modifications de composants côté client ne déclenchent plus de rechargement complet du backend en développement
 ---
 
-[Astro 6.4](/articles/2026-06-01-astro-6-4-rust-satteri-markdown-optimizer).4 est paru le 3 juin 2026, un patch centré sur sept bugs touchant le routage, l'internationalisation et l'expérience de développement.
+[Astro 6.4](/articles/2026-06-01--astro-6-4-rust-satteri-markdown-optimizer).4 est paru le 3 juin 2026, un patch centré sur sept bugs touchant le routage, l'internationalisation et l'expérience de développement.
 
 ## Correction de la Casse des Route Patterns
 

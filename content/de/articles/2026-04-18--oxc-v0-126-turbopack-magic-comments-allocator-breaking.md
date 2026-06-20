@@ -13,7 +13,7 @@ tldr:
 
 ## Was sich geändert hat
 
-[Oxc](/articles/2026-04-05-oxc-rust-javascript-toolchain-benchmarks)'s Release v0.126.0 (16. April) bringt bedeutende Verbesserungen in der Tooling-Integration und eine unvermeidliche Breaking Change.
+[Oxc](/articles/2026-04-05--oxc-rust-javascript-toolchain-benchmarks)'s Release v0.126.0 (16. April) bringt bedeutende Verbesserungen in der Tooling-Integration und eine unvermeidliche Breaking Change.
 
 ### Turbopack Magic Comments im Parser
 
@@ -21,7 +21,7 @@ Die wichtigste Neuerung ist die [Parser-Unterstützung für Turbopack Magic Comm
 
 ### Breaking Change beim Allocator
 
-[Box- und Vec-Methoden im Allocator-Crate wurden umbenannt](https://github.com/oxc-project/oxc/pull/21395). Das betrifft hauptsächlich Projekte, die direkt von Oxc's internem Allocator-API abhängen – die meisten Nutzer über [Rolldown](/articles/2026-06-05-rolldown-1-1-0-lazybarrel-default-tsconfig) oder oxlint sind nicht betroffen.
+[Box- und Vec-Methoden im Allocator-Crate wurden umbenannt](https://github.com/oxc-project/oxc/pull/21395). Das betrifft hauptsächlich Projekte, die direkt von Oxc's internem Allocator-API abhängen – die meisten Nutzer über [Rolldown](/articles/2026-06-05--rolldown-1-1-0-lazybarrel-default-tsconfig) oder oxlint sind nicht betroffen.
 
 ### NAPI Transform: Enum-Optimierung
 
@@ -35,7 +35,7 @@ Zwei Commits zielen auf kontinuierliche Performance-Verbesserungen: Die Arena-Sp
 
 ### Betrifft das oxlint-Nutzer?
 
-Nein. [oxlint](/articles/2026-06-02-oxc-v0-134-oxlint-1-68-oxfmt-0-53-vue-typescript-rules) basiert auf Oxc's Linting-Infrastruktur, nicht auf den Allocator-Änderungen.
+Nein. [oxlint](/articles/2026-06-02--oxc-v0-134-oxlint-1-68-oxfmt-0-53-vue-typescript-rules) basiert auf Oxc's Linting-Infrastruktur, nicht auf den Allocator-Änderungen.
 
 ### Wie aktualisiere ich?
 

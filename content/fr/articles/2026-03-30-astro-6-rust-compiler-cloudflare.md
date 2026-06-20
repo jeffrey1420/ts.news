@@ -23,11 +23,11 @@ Astro a expédié deux releases significatives en moins de trois semaines, Astro
 
 ## La question Cloudflare: Répondue
 
-Back en janvier, quand Astro a annoncé qu'il rejoignait Cloudflare, la préoccupation naturelle de la communauté était le lock-in. Est-ce qu'Astro allait devenir un framework Cloudflare-only ? La release 6.0 dissipé rapidement cela. L'équipe a été explicite : Astro reste sous licence MIT, open-source et agnostique quant à la plateforme. Toutes les cibles de déploiement, Node.js, Vercel, Deno, Bun, Cloudflare Workers, continuent d'être supportées.
+En janvier, quand Astro a annoncé qu'il rejoignait Cloudflare, la préoccupation naturelle de la communauté était le lock-in. Est-ce qu'Astro allait devenir un framework Cloudflare-only ? La release 6.0 a dissipé rapidement cela. L'équipe a été explicite : Astro reste sous licence MIT, open-source et agnostique quant à la plateforme. Toutes les cibles de déploiement, Node.js, Vercel, Deno, Bun, Cloudflare Workers, continuent d'être supportées.
 
-Ce que Cloudflare apporte, ce sont des ressources et du fokus. Fred Schott a décrit des années à courir après les primitives d'hébergement payées qui n'ont jamais cliqué, drainant des cycles du framework lui-même. Avec Cloudflare backing the company, l'équipe core Astro peut retourner au travail open source à temps plein.
+Ce que Cloudflare apporte, ce sont des ressources et du fokus. Fred Schott a décrit des années à courir après les primitives d'hébergement payées qui n'ont jamais cliqué, drainant des cycles du framework lui-même. Avec le soutien de Cloudflare, l'équipe core Astro peut retourner au travail open source à temps plein.
 
-L'alignement est logique : Cloudflare a heavily invested dans l'infrastructure edge globale rapide. Astro a construit un framework optimisé pour les sites web driven par le contenu qui expédient minimal JavaScript. Ensemble, le fossé entre le développement local et le déploiement de production se rétrécit, et 6.0 est la première release qui attaque seriously ce problème.
+L'alignement est logique : Cloudflare a investi massivement dans une infrastructure edge globale rapide. Astro a construit un framework optimisé pour les sites web orientés contenu qui expédient un minimum de JavaScript. Ensemble, le fossé entre le développement local et le déploiement de production se rétrécit, et 6.0 est la première release qui s'attaque sérieusement à ce problème.
 
 ## Serveur de dev redesigné : Fonctionne comme en production
 

@@ -1,26 +1,26 @@
 ---
-title: "The CSS vertical-align Problem Is Finally Solved: text-box-trim and margin-block"
-description: "For decades, centering text vertically in buttons, badges, and layouts felt slightly off. The culprit: leading space, invisible padding built into every font's metrics. Two CSS properties now solve this at different levels: text-box-trim for inline text and margin-block with cap/lh units for block layouts."
+title: "Das CSS-Problem der vertikalen Zentrierung ist endlich gelöst: text-box-trim und margin-block"
+description: "Jahrzehntelang wirkte das vertikale Zentrieren von Text in Buttons, Badges und Layouts leicht daneben. Der Übeltäter: der Leading Space, ein unsichtbarer Abstand, der in den Metriken jeder Schriftart eingebaut ist. Zwei CSS-Eigenschaften lösen das jetzt auf unterschiedlichen Ebenen: text-box-trim für Inline-Text und margin-block mit cap/lh-Einheiten für Block-Layouts."
 date: 2026-04-13
 image: "/images/heroes/2026-04-13--css-text-box-trim-margin-block-vertical-center.png"
 author: lschvn
 tags: ["css", "javascript"]
 readingTime: 7
 tldr:
-  - "Text never truly centers in CSS because browsers align to the line-height box, not the visual letters. Leading space (invisible padding above and below cap height) throws off every button, badge, and heading."
-  - "text-box-trim (experimental) removes leading space directly for inline text, paired with text-box-edge to specify which font metric to use as boundaries."
-  - "margin-block: calc(0.5cap - 0.5lh) achieves the same effect with superior browser support, using font-relative units that work in production today."
+  - "Text wird in CSS nie wirklich zentriert, weil Browser an der Line-Height-Box ausrichten, nicht an den sichtbaren Buchstaben. Der Leading Space (unsichtbare Polsterung ober- und unterhalb der Versalhöhe) verschiebt jeden Button, jedes Badge und jede Überschrift."
+  - "text-box-trim (experimentell) entfernt den Leading Space direkt für Inline-Text, kombiniert mit text-box-edge, um festzulegen, welche Schriftmetrik als Begrenzung dient."
+  - "margin-block: calc(0.5cap - 0.5lh) erzielt denselben Effekt mit deutlich besserer Browser-Unterstützung und nutzt schriftrelative Einheiten, die heute in der Produktion funktionieren."
 faq:
-  - question: "Why does text appear vertically off-center even when CSS says otherwise?"
-    answer: "Because browsers align text to the line-height box, not to the visual letters. Fonts include invisible 'leading space' above cap height and below the baseline. A 16px font with line-height 1.5 allocates 24px of vertical space, but the actual letters only occupy ~11px. That 6-7px difference per line is what makes text look misaligned in buttons and badges."
-  - question: "What is text-box-trim?"
-    answer: "An experimental CSS property that removes leading space from inline text. Use text-box-trim: trim-both to remove space above and below visual letters, combined with text-box-edge: cap alphabetic to specify trimming from cap height down to the alphabetic baseline. Browser support is limited to cutting-edge versions."
-  - question: "How does margin-block achieve the same result?"
-    answer: "margin-block: calc(0.5cap - 0.5lh) offsets the line-height box against the cap height. The formula subtracts half the line-height from half the cap height, producing a negative margin that pulls visual text up into the center of its allocated space. It works with excellent browser support today."
-  - question: "Can I use both techniques together?"
-    answer: "No, they stack and create double the adjustment. Always use @supports (text-box-trim: trim-both) to detect text-box-trim support and cancel margin-block inside that block. The correct pattern: start with margin-block as baseline, apply text-box-trim as enhancement, cancel margin-block when text-box-trim is available."
-  - question: "What are cap and lh units?"
-    answer: "cap is the height of capital letters relative to the font's em-box. lh is the computed line-height value. Both are font-relative units that scale with the font, making the margin-block formula work correctly regardless of font size or family."
+  - question: "Warum wirkt Text vertikal versetzt, obwohl das CSS anderes sagt?"
+    answer: "Weil Browser den Text an der Line-Height-Box ausrichten, nicht an den sichtbaren Buchstaben. Schriftarten enthalten unsichtbaren 'Leading Space' oberhalb der Versalhöhe und unterhalb der Grundlinie. Eine 16px-Schriftart mit line-height 1,5 weist 24px vertikalen Raum zu, aber die eigentlichen Buchstaben nehmen nur etwa 11px ein. Dieser Unterschied von 6–7px pro Zeile sorgt dafür, dass Text in Buttons und Badges verschoben wirkt."
+  - question: "Was ist text-box-trim?"
+    answer: "Eine experimentelle CSS-Eigenschaft, die den Leading Space aus Inline-Text entfernt. Verwenden Sie text-box-trim: trim-both, um den Raum ober- und unterhalb der sichtbaren Buchstaben zu entfernen, kombiniert mit text-box-edge: cap alphabetic, um den Schnitt von der Versalhöhe bis zur Grundlinie festzulegen. Die Browser-Unterstützung beschränkt sich auf aktuelle Versionen."
+  - question: "Wie erreicht margin-block dasselbe Ergebnis?"
+    answer: "margin-block: calc(0.5cap - 0.5lh) verschiebt die Line-Height-Box gegen die Versalhöhe. Die Formel zieht die halbe Zeilenhöhe von der halben Versalhöhe ab und erzeugt so einen negativen Außenabstand, der den sichtbaren Text in die Mitte seines zugewiesenen Raums zieht. Die Technik funktioniert mit hervorragender Browser-Unterstützung bereits heute."
+  - question: "Kann ich beide Techniken kombinieren?"
+    answer: "Nein, sie addieren sich und erzeugen eine doppelte Anpassung. Verwenden Sie immer @supports (text-box-trim: trim-both), um die text-box-trim-Unterstützung zu erkennen und margin-block innerhalb dieses Blocks aufzuheben. Das richtige Muster: Starten Sie mit margin-block als Basis, ergänzen Sie text-box-trim als Erweiterung und heben Sie margin-block auf, sobald text-box-trim verfügbar ist."
+  - question: "Was sind die Einheiten cap und lh?"
+    answer: "cap ist die Höhe der Großbuchstaben relativ zur Em-Box der Schriftart. lh ist der berechnete line-height-Wert. Beides sind schriftrelative Einheiten, die mit der Schriftart skalieren und dafür sorgen, dass die margin-block-Formel unabhängig von Schriftgröße und -familie korrekt funktioniert."
 ---
 
 Öffnen Sie einen Button in Ihrem Browser-Inspector. Fügen Sie Padding hinzu. Der Text scheint zentriert zu sein. Fügen Sie jetzt mehr Padding hinzu, oder wechseln Sie die Schriftart. Plötzlich ist er 4 Pixel verschoben. Das ist kein Bug in Ihrem CSS. Es ist ein grundlegender Konflikt zwischen der Art und Weise, wie Browser Text messen, und wie Menschen ihn wahrnehmen.

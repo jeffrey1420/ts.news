@@ -72,7 +72,7 @@ File-based routes get the same capability through `ctx.upgrade()` inside a GET h
 Three smaller additions are worth knowing about:
 
 - **CSP nonces.** Fresh can now inject a per-request nonce into the scripts and styles it emits, which makes a strict `Content-Security-Policy` practical without hand-maintaining hashes.
-- **Temporal in islands.** All eight Temporal types can be passed as island props and serialize correctly across the server/client boundary, useful now that [Temporal is stabilizing across runtimes](/articles/2026-04-07-deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides).
+- **Temporal in islands.** All eight Temporal types can be passed as island props and serialize correctly across the server/client boundary, useful now that [Temporal is stabilizing across runtimes](/articles/2026-04-07--deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides).
 - **Prerendering.** Mark a route with `prerender: true` and Fresh renders it to static HTML at build time; dynamic routes can enumerate their paths. Combined with zero-JS pages, Fresh quietly becomes a capable static site generator.
 
 Fresh 2.3 is a `deno update` away, and with Deno 2.7+ new projects scaffold via `deno create`. For a framework whose whole identity is restraint, this is the release where the restraint stops being approximate.

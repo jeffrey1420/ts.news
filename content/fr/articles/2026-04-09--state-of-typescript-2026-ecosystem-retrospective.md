@@ -33,11 +33,11 @@ En août 2025, GitHub a rapporté que TypeScript était devenu le langage le plu
 
 Microsoft a annoncé Project Corsa début 2025 : un port natif du compilateur TypeScript et du service linguistique vers Go. L'objectif est approximativement 10x plus rapide en compilation et une compilation incrémentielle quasi instantanée. Les benchmarks initiaux étaient frappants, le codebase VS Code est passé de 77,8 secondes à 7,5 secondes ; Playwright de 11,1 secondes à 1,1 seconde.
 
-[TypeScript 6.0](/articles/2026-04-06-typescript-6-last-release-before-go-rewrite), sorti au Q1 2026, est prévu comme dernière version majeure sur l'actuel codebase compilé en JavaScript. TypeScript 7.0 (cible mi-2026) devrait être la première version construite sur le compilateur Go. Les auteurs de plugins utilisant l'API Compilateur devront vérifier la compatibilité avec la nouvelle implémentation.
+[TypeScript 6.0](/articles/2026-04-06--typescript-6-last-release-before-go-rewrite), sorti au Q1 2026, est prévu comme dernière version majeure sur l'actuel codebase compilé en JavaScript. TypeScript 7.0 (cible mi-2026) devrait être la première version construite sur le compilateur Go. Les auteurs de plugins utilisant l'API Compilateur devront vérifier la compatibilité avec la nouvelle implémentation.
 
 ## Exécution TypeScript native dans Node.js
 
-[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) 22.18 a stabilisé l'exécution TypeScript native via le type stripping. Au lieu de transpiler `.ts` en `.js` avant l'exécution, Node.js comprend maintenant quelle syntaxe TypeScript est effaçable (types, interfaces) et laquelle est runtime (enums, namespaces) et gère ces derniers directement. Le flag `--erasableSyntaxOnly` formalise la contrainte.
+[Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) 22.18 a stabilisé l'exécution TypeScript native via le type stripping. Au lieu de transpiler `.ts` en `.js` avant l'exécution, Node.js comprend maintenant quelle syntaxe TypeScript est effaçable (types, interfaces) et laquelle est runtime (enums, namespaces) et gère ces derniers directement. Le flag `--erasableSyntaxOnly` formalise la contrainte.
 
 Pour beaucoup de projets, cela élimine `ts-node` et `tsx` comme dépendances de dev. Pour les bibliothèques aware des types, cela signifie repenser les patterns comme l'utilisation des enums au profit d'objets `as const` et de modules ES.
 

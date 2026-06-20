@@ -18,7 +18,7 @@ faq:
     answer: "Déclarez explicitement 'types' (ex: ['node', 'jest']), configurez 'rootDir' si vos sources sont imbriquées, mettez 'strict': false si vous comptiez sur l'ancienne valeur par défaut, et révisez l'option ignoreDeprecations."
 ---
 
-[TypeScript 6.0](/articles/2026-04-06-typescript-6-last-release-before-go-rewrite) est sorti ce mois-ci, et il porte un poids que peu de releases mineures assument : c'est la dernière version construite sur la base de code JavaScript actuelle. Tout ce qui suivra, à partir de la 7.0, sera compilé en Go natif, un compilateur que l'équipe développe depuis plus d'un an.
+[TypeScript 6.0](/articles/2026-04-06--typescript-6-last-release-before-go-rewrite) est sorti ce mois-ci, et il porte un poids que peu de releases mineures assument : c'est la dernière version construite sur la base de code JavaScript actuelle. Tout ce qui suivra, à partir de la 7.0, sera compilé en Go natif, un compilateur que l'équipe développe depuis plus d'un an.
 
 ## Un pont vers TypeScript 7.0
 
@@ -34,7 +34,7 @@ TypeScript 6.0 vérifie désormais si `this` est réellement référencé avant 
 
 ## Les imports de sous-chemin supportent désormais `#/`
 
-[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) a récemment ajouté le support des imports de sous-chemin commençant par `#/` plutôt que `#/quelquechose`. TypeScript 6.0 le prend en charge avec `--moduleResolution nodenext` et `bundler`. Vous pouvez désormais écrire :
+[Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) a récemment ajouté le support des imports de sous-chemin commençant par `#/` plutôt que `#/quelquechose`. TypeScript 6.0 le prend en charge avec `--moduleResolution nodenext` et `bundler`. Vous pouvez désormais écrire :
 
 ```json
 {

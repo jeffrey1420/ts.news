@@ -20,7 +20,7 @@ faq:
     answer: "Oui. Next.js a ajouté SWC comme compilateur optionnel à partir de la version 12, et il est devenu le compilateur par défaut dans Next.js 13. Les utilisateurs peuvent opter pour Babel à la place pour des besoins spécifiques de compatibilité de transforms."
 ---
 
-swc-project/swc v1.15.26 est sorti le 14 avril 2026, marquant une nouvelle release de maintenance dans le cycle régulier du compilateur JavaScript et TypeScript basé sur Rust. Le projet, renforcé en production à travers son intégration dans [Next.js](/articles/2026-04-04-next-js-16-2-stable-adapter-api-cross-platform), Parcel et [Deno](/articles/2026-04-07-deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides), continue de livrer des corrections de compatibilité et des optimisations sans nouvelles fonctionnalités majeures dans ce cycle.
+swc-project/swc v1.15.26 est sorti le 14 avril 2026, marquant une nouvelle release de maintenance dans le cycle régulier du compilateur JavaScript et TypeScript basé sur Rust. Le projet, renforcé en production à travers son intégration dans [Next.js](/articles/2026-04-04-next-js-16-2-stable-adapter-api-cross-platform), Parcel et [Deno](/articles/2026-04-07--deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides), continue de livrer des corrections de compatibilité et des optimisations sans nouvelles fonctionnalités majeures dans ce cycle.
 
 ## Qu'est-ce que SWC ?
 
@@ -42,7 +42,7 @@ Les domaines clés du travail en cours incluent :
 
 SWC existe dans un espace partiel mais sain du paysage des outils JavaScript. Les trois projets majeurs d'outils JavaScript basés sur Rust occupent chacun une niche différente :
 
-- **[esbuild](/articles/2026-06-14-esbuild-0-28-1-deno-rce-windows-path-traversal)** (par Evan Wallace), le plus ancien, concentré sur la vitesse brute de compilation
+- **[esbuild](/articles/2026-06-14--esbuild-0-28-1-deno-rce-windows-path-traversal)** (par Evan Wallace), le plus ancien, concentré sur la vitesse brute de compilation
 - **SWC**: le plus compatible avec Babel, l'intégration la plus profonde avec les frameworks existants
 - **OXC** (Oxidation Compiler), le plus récent, soutenu par l'équipe Vercel/Nx, ciblant la couverture complète du vérificateur de types TypeScript et le bundling compatible Rollup
 

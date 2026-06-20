@@ -7,7 +7,7 @@ author: lschvn
 tags: ["runtimes", "typescript", "javascript"]
 ---
 
-[Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure) v1.3.12 landed April 10 with one of the most ambitious feature sets in recent releases. Two standouts reshape what a JavaScript runtime can do out of the box: native headless browser automation and native support for the TC39 Explicit Resource Management proposal. Here's what changed.
+[Bun](/articles/2026-04-19--bun-joins-anthropic-ai-coding-infrastructure) v1.3.12 landed April 10 with one of the most ambitious feature sets in recent releases. Two standouts reshape what a JavaScript runtime can do out of the box: native headless browser automation and native support for the TC39 Explicit Resource Management proposal. Here's what changed.
 
 ## Bun.WebView: Headless Browser Automation Built In
 
@@ -72,7 +72,7 @@ Key guarantees: no overlap (the next fire is scheduled only after the handler se
 ## Other Improvements
 
 - **UDP socket fixes**: ICMP errors (port unreachable, host unreachable) are now surfaced through the error handler instead of silently closing the socket. Truncated datagrams are detectable via a new `flags.truncated` argument.
-- **Unix domain socket lifecycle**: now matches [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams), binding to an existing socket correctly returns `EADDRINUSE`, and `stop()` automatically cleans up the socket file.
+- **Unix domain socket lifecycle**: now matches [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams), binding to an existing socket correctly returns `EADDRINUSE`, and `stop()` automatically cleans up the socket file.
 - **Standalone executables on Linux**: `bun build --compile` now embeds the module graph via an ELF `.bun` section instead of reading from `/proc/self/exe`, fixing binaries with execute-only permissions.
 - **SIMD optimizations**: `Bun.stripANSI`, `Bun.stringWidth`, and shared ANSI helpers received SIMD acceleration (4×-unrolled prologue, bulk CSI/OSC skips), with up to ~4× improvement on plain ASCII input.
 - **JIT improvements**: faster tier-up for stable functions, `Array.isArray` as a JIT intrinsic, optimized `String#includes`, and improved BigInt arithmetic.

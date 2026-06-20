@@ -19,7 +19,7 @@ faq:
     answer: "La commande vercel dev dans le preset Vercel de Nitro détecte désormais les définitions de handlers de queue (nitro.tasks) et exécute un stub local du Vercel Runtime qui traite les jobs. Vous pouvez enfiler du travail depuis un route handler et déboguer le flux async complet : retries, dead-letter queue, avant de déployer."
 ---
 
-[Nitro v3](/articles/2026-04-20-nitro-v3-beta-tracing-dep-tracing-vercel-queues).0.260522-beta est sorti le 22 mai 2026, prolongeant la phase bêta v3 démarrée en avril. Cette release ajoute trois fonctionnalités qui améliorent ensemble significativement l'expérience de développement pour les applications TypeScript server-side orientées production : instrumentation de tracing automatique à la compilation, un cache VFS pour le code dynamique, et l'émulation locale des queues Vercel.
+[Nitro v3](/articles/2026-04-20--nitro-v3-beta-tracing-dep-tracing-vercel-queues).0.260522-beta est sorti le 22 mai 2026, prolongeant la phase bêta v3 démarrée en avril. Cette release ajoute trois fonctionnalités qui améliorent ensemble significativement l'expérience de développement pour les applications TypeScript server-side orientées production : instrumentation de tracing automatique à la compilation, un cache VFS pour le code dynamique, et l'émulation locale des queues Vercel.
 
 ## Tracing automatique des handlers à la compilation
 
@@ -44,6 +44,6 @@ Deux vulnérabilités corrigées dans la beta v3.0.260429-beta affectent égalem
 
 ## AWS Amplify supporte Node.js 24
 
-Le preset AWS Amplify supporte désormais le runtime [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) 24 ([#4245](https://github.com/nitrojs/nitro/pull/4245)).
+Le preset AWS Amplify supporte désormais le runtime [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) 24 ([#4245](https://github.com/nitrojs/nitro/pull/4245)).
 
 Nitro v3.0.260522-beta est disponible sur npm via `nitro@3.0.0-260522-beta`.

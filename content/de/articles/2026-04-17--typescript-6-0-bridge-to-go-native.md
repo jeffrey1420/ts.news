@@ -18,7 +18,7 @@ faq:
     answer: "Setzen Sie 'types' explizit (z.B. ['node', 'jest']), konfigurieren Sie 'rootDir' falls Sources verschachtelt sind, setzen Sie 'strict': false falls Sie sich auf den alten Default verlassen haben, und prüfen Sie die ignoreDeprecations-Option."
 ---
 
-[TypeScript 6.0](/articles/2026-04-06-typescript-6-last-release-before-go-rewrite) ist diesen Monat erschienen, und es trägt ein Gewicht, das die meisten Nebenversionen nicht tragen: Es ist die letzte Version auf der aktuellen JavaScript-Codebasis. Alles ab 7.0 wird auf einem nativen Go-Compiler laufen, den das Team seit über einem Jahr aufbaut.
+[TypeScript 6.0](/articles/2026-04-06--typescript-6-last-release-before-go-rewrite) ist diesen Monat erschienen, und es trägt ein Gewicht, das die meisten Nebenversionen nicht tragen: Es ist die letzte Version auf der aktuellen JavaScript-Codebasis. Alles ab 7.0 wird auf einem nativen Go-Compiler laufen, den das Team seit über einem Jahr aufbaut.
 
 ## Eine Brücke zu TypeScript 7.0
 
@@ -34,7 +34,7 @@ TypeScript 6.0 prüft jetzt, ob `this` tatsächlich referenziert wird, bevor ein
 
 ## Subpath-Imports unterstützen jetzt `#/`
 
-[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) hat kürzlich Support für Subpath-Imports hinzugefügt, die mit `#/` statt mit `#/etwas` beginnen. TypeScript 6.0 übernimmt dies unter `--moduleResolution nodenext` und `bundler`. Sie können jetzt schreiben:
+[Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) hat kürzlich Support für Subpath-Imports hinzugefügt, die mit `#/` statt mit `#/etwas` beginnen. TypeScript 6.0 übernimmt dies unter `--moduleResolution nodenext` und `bundler`. Sie können jetzt schreiben:
 
 ```json
 {

@@ -34,7 +34,7 @@ But the engineers quickly identified a pattern: **agents produced impressive mic
 
 When the team tried using standard Chrome Trace JSON profiles with the agents, the results were poor. Function names split across lines, irrelevant metadata mixed with timing data, not grep-friendly. The agents fumbled through these files the same way a human would, badly.
 
-The breakthrough came from noticing that [Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure) had shipped a `--cpu-prof-md` flag that generates profiles as Markdown. The Vercel team created a `turborepo-profile-md` crate that outputs companion `.md` files alongside every trace: hot functions sorted by self-time, call trees by total-time, caller/callee relationships, all greppable, all on single lines.
+The breakthrough came from noticing that [Bun](/articles/2026-04-19--bun-joins-anthropic-ai-coding-infrastructure) had shipped a `--cpu-prof-md` flag that generates profiles as Markdown. The Vercel team created a `turborepo-profile-md` crate that outputs companion `.md` files alongside every trace: hot functions sorted by self-time, call trees by total-time, caller/callee relationships, all greppable, all on single lines.
 
 The difference was immediate. Same model, same codebase, same harness. Just a different format. The agents suddenly produced dramatically better optimization suggestions.
 

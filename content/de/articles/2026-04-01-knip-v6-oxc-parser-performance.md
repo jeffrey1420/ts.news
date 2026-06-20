@@ -23,7 +23,7 @@ tldr:
 
 Das Team hinter [Knip](https://github.com/webpro-nl/knip), dem beliebten Open-Source-Tool zum Finden ungenutzter Dateien, Abhängigkeiten und Exports in JavaScript- und TypeScript-Projekten, hat Version 6 veröffentlicht. Die Kernzahl: **2 bis 4 mal schneller** auf ganzer Linie.
 
-Der entscheidende Wechsel: Der komplette Austausch des TypeScript-Backends gegen [oxc-parser](https://oxc.rs/docs/guide/usage/parser), den Rust-basierten Parser des [Oxc](/articles/2026-04-05-oxc-rust-javascript-toolchain-benchmarks) Project.
+Der entscheidende Wechsel: Der komplette Austausch des TypeScript-Backends gegen [oxc-parser](https://oxc.rs/docs/guide/usage/parser), den Rust-basierten Parser des [Oxc](/articles/2026-04-05--oxc-rust-javascript-toolchain-benchmarks) Project.
 
 ## Warum das TypeScript-Backend an eine Wand stieß
 
@@ -47,7 +47,7 @@ Das Microsoft-TypeScript-Repo wird in unter einer Sekunde analysiert.
 
 ## Wichtige Breaking Changes
 
-- **[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) v20.19.0+ erforderlich**: v18 wird nicht mehr unterstützt
+- **[Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) v20.19.0+ erforderlich**: v18 wird nicht mehr unterstützt
 - **classMembers-Issue-Typ entfernt**: nicht mehr machbar ohne TypeScripts LanguageService-API
 - `--include-libs` und `--isolate-workspaces` Flags entfernt, das ist jetzt das Standardverhalten
 - `--experimental-tags` umbenannt in `--tags`

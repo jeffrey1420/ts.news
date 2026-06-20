@@ -20,9 +20,9 @@ A: Pour l'instant, rien ne change au jour le jour. La roadmap de Bun priorise to
 
 ## Du clone Minecraft à l'Infrastructure de Coding IA
 
-Il y a cinq ans, Jarred Sumner construisait un jeu de voxels style Minecraft dans le navigateur. Le cycle de hot-reload prenait 45 secondes. Il s'est distraité en essayant de le corriger, a porté le transpileur JSX et TypeScript d'[esbuild](/articles/2026-06-14-esbuild-0-28-1-deno-rce-windows-path-traversal) de Go vers Zig, et a accidentellement créé Bun.
+Il y a cinq ans, Jarred Sumner construisait un jeu de voxels style Minecraft dans le navigateur. Le cycle de hot-reload prenait 45 secondes. Il s'est distraité en essayant de le corriger, a porté le transpileur JSX et TypeScript d'[esbuild](/articles/2026-06-14--esbuild-0-28-1-deno-rce-windows-path-traversal) de Go vers Zig, et a accidentellement créé Bun.
 
-Aujourd'hui, Bun dépasse les 7,2 millions de téléchargements npm mensuels, rivalise directement avec [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) en débit HTTP brut (59K contre 19K req/s selon les benchmarks officiels), et propose un format d'exécutable mono-fichier devenu le mécanisme de distribution privilégié des outils de coding IA.
+Aujourd'hui, Bun dépasse les 7,2 millions de téléchargements npm mensuels, rivalise directement avec [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) en débit HTTP brut (59K contre 19K req/s selon les benchmarks officiels), et propose un format d'exécutable mono-fichier devenu le mécanisme de distribution privilégié des outils de coding IA.
 
 En octobre 2025, Anthropic a acquis Bun. L'annonce, publiée sur le blog Bun, ressemble davantage à une lettre de fondateur expliquant pourquoi le meilleur chemin disponible passe par [Claude Code](/articles/2026-03-23-claude-code-rise-ai-coding-tool-2026).
 

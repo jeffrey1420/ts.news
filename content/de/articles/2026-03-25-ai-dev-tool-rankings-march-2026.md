@@ -38,7 +38,7 @@ Die Modell-Rankings umfassen 18 Anwärter, mit Claude- und Gemini-Varianten, die
 
 - **Claude 4.6 Opus** und **Claude 4.5 Opus** halten die Spitzenpositionen
 - **Gemini 3 Pro** und **Gemini 3 Flash** sind starke Performer mit vielfältiger Modell-Lineup-Unterstützung
-- **[Kimi K2](/articles/2026-06-12-kimi-k2-7-code-mimo-code).5**: ein neuerer Eintritt, gewinnt für agentic Workflows an Traktion
+- **[Kimi K2](/articles/2026-06-12--kimi-k2-7-code-mimo-code).5**: ein neuerer Eintritt, gewinnt für agentic Workflows an Traktion
 - **GPT-5.2** und **GPT-5** bleiben relevant, stehen aber vor zunehmender Konkurrenz
 
 Der SWE-bench-Benchmark bleibt die primäre technische Leistungsmetrik, gewichtet mit 30% der Gesamtpunktzahl.

@@ -37,9 +37,9 @@ On the evening of June 16, 2026, the Google Cloud Tech account posted a single t
 >
 > To solve this, we've announced OKF, a vendor-neutral, open specification that formalizes the "LLM-wiki pattern" into a portable, interoperable format. It provides a standardized way to represent the enterprise knowledge that modern AI systems rely on.
 >
-> — Just markdown: readable in any editor, renderable on GitHub, indexable by any search tool
-> — Just files: shippable as a tarball, hostable in any git repo, mountable on any filesystem
-> — Just YAML frontmatter: for the small set of structured fields that need to be queryable: type, title, description, resource, tags, and timestamp
+> - Just markdown: readable in any editor, renderable on GitHub, indexable by any search tool.
+> - Just files: shippable as a tarball, hostable in any git repo, mountable on any filesystem.
+> - Just YAML frontmatter: for the small set of structured fields that need to be queryable: type, title, description, resource, tags, and timestamp.
 >
 > We've also shipped reference implementations to help you hit the ground running, including an enrichment agent for BigQuery, a static HTML visualizer, and live sample bundles on GitHub.
 

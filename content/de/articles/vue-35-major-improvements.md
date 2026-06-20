@@ -21,7 +21,7 @@ faq:
     answer: "Ja. In Vue 3.5 funktioniert Destrukturieren von Props in <script setup> jetzt reaktiv. Sie brauchen withDefaults() nicht mehr, um Reaktivität bei Destrukturierung aufrechtzuerhalten. Aber Computeds und Composables, die destrukturierte Props konsumieren, brauchen immer noch einen Getter-Wrapper."
 ---
 
-[Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals) 3.5 erschien im September 2024 mit dem, was Evan You ein Minor-Release nannte, und einem überarbeiteten Reaktivitätssystem, das **56% weniger Speicherverbrauch** und **bis zu 10× schnellere Operationen auf großen, tief reaktiven Arrays** liefert. Die Reaktion der Entwickler-Community war ungefähr: *"Das fühlt sich nicht wie ein Minor-Release an."*
+[Vue](/articles/2026-04-16--vue-3-6-beta-vapor-mode-alien-signals) 3.5 erschien im September 2024 mit dem, was Evan You ein Minor-Release nannte, und einem überarbeiteten Reaktivitätssystem, das **56% weniger Speicherverbrauch** und **bis zu 10× schnellere Operationen auf großen, tief reaktiven Arrays** liefert. Die Reaktion der Entwickler-Community war ungefähr: *"Das fühlt sich nicht wie ein Minor-Release an."*
 
 Das sind keine inkrementellen Verbesserungen, sie sind die Art von Verbesserungen, die definieren, was "großskaliges Vue" in der Praxis bedeutet.
 

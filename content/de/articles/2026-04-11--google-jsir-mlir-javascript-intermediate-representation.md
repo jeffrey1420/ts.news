@@ -28,7 +28,7 @@ Wenn eine Compiler-Zwischenrepräsentation (IR) in den Nachrichten auftaucht, we
 
 Eine Zwischenrepräsentation ist die Datenstruktur, die ein Compiler oder Analysewerkzeug verwendet, um Code zwischen Parsing und Codegenerierung darzustellen. Wenn ein AST sagt, wie der Code strukturell aussieht, sagt eine IR, was er *tut*. Die Qualität der IR bestimmt, welche Art von Analyse und Transformation möglich ist.
 
-JavaScript-Tooling hat lange unter fragmentierten IR-Ansätzen gelitten. Babel-Plugins arbeiten auf ASTs. [ESLint](/articles/2026-04-05-eslint-v10-flat-config-rust-alternatives)-Regeln arbeiten auf ASTs. [Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure)dler arbeiten oft mit eigenen internen Repräsentationen mit begrenzter Interoperabilität. Eine gemeinsame, gut gestaltete IR könnte es diesen Tools ermöglichen, Analysearbeiten zu teilen, und genau das schlägt Google mit JSIR vor.
+JavaScript-Tooling hat lange unter fragmentierten IR-Ansätzen gelitten. Babel-Plugins arbeiten auf ASTs. [ESLint](/articles/2026-04-05--eslint-v10-flat-config-rust-alternatives)-Regeln arbeiten auf ASTs. [Bun](/articles/2026-04-19--bun-joins-anthropic-ai-coding-infrastructure)dler arbeiten oft mit eigenen internen Repräsentationen mit begrenzter Interoperabilität. Eine gemeinsame, gut gestaltete IR könnte es diesen Tools ermöglichen, Analysearbeiten zu teilen, und genau das schlägt Google mit JSIR vor.
 
 ## Hoch- und Niedrigrangig gleichzeitig
 

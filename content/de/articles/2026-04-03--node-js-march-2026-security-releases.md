@@ -19,7 +19,7 @@ faq:
     answer: "Die headersDistinct- und trailersDistinct-Objekte nutzten einen standardmäßigen Object-Prototype, was sie für Prototype-Pollution-Angriffe anfällig machte. Der Fix verwendet Object.create(null)."
 ---
 
-[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) veröffentlichte am 24. März 2026 einen koordinierten Satz von Sicherheitspatches, die sechs CVEs über alle aktiven Release-Linien hinweg abdecken. Wer Node in Produktion betreibt, sollte diese Updates sofort einspielen.
+[Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) veröffentlichte am 24. März 2026 einen koordinierten Satz von Sicherheitspatches, die sechs CVEs über alle aktiven Release-Linien hinweg abdecken. Wer Node in Produktion betreibt, sollte diese Updates sofort einspielen.
 
 ## Die Zwei High-Severity-Fixes
 

@@ -32,7 +32,7 @@ Tauri a un effort en cours pour supporter Chromium via CEF plutôt que la webvie
 
 ## La Taxe du CLI Bundlé
 
-Le second problème était le CLI lui-même. Le code serveur d'OpenCode utilisait à l'origine des API spécifiques à [Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure), ce qui nécessitait de bundler le CLI Bun dans Tauri. Cela avait deux conséquences : des temps de démarrage plus lents, et des plantages occasionnels sur Windows que l'équipe a consacrés beaucoup d'efforts à contourner.
+Le second problème était le CLI lui-même. Le code serveur d'OpenCode utilisait à l'origine des API spécifiques à [Bun](/articles/2026-04-19--bun-joins-anthropic-ai-coding-infrastructure), ce qui nécessitait de bundler le CLI Bun dans Tauri. Cela avait deux conséquences : des temps de démarrage plus lents, et des plantages occasionnels sur Windows que l'équipe a consacrés beaucoup d'efforts à contourner.
 
 Quand OpenCode a décidé de toute façon de s'éloigner des API Bun (en faveur de la compatibilité Node), l'attrait de bundler un CLI entier a disparu. Le processus Node intégré à Electron pouvait simplement exécuter le serveur directement, pas de sous-processus, pas de binaire externe, pas de taxe au démarrage.
 

@@ -7,7 +7,7 @@ author: lschvn
 tags: ["runtimes", "typescript", "javascript"]
 ---
 
-[Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure) v1.3.12 est arrivé le 10 avril avec l'un des ensembles de fonctionnalités les plus ambitieux des dernières versions. Deux avancées redéfinissent ce qu'un runtime JavaScript peut faire nativement : l'automatisation naveau sans navigateur et le support natif de la proposition TC39 Explicit Resource Management. Voici ce qui a changé.
+[Bun](/articles/2026-04-19--bun-joins-anthropic-ai-coding-infrastructure) v1.3.12 est arrivé le 10 avril avec l'un des ensembles de fonctionnalités les plus ambitieux des dernières versions. Deux avancées redéfinissent ce qu'un runtime JavaScript peut faire nativement : l'automatisation naveau sans navigateur et le support natif de la proposition TC39 Explicit Resource Management. Voici ce qui a changé.
 
 ## Bun.WebView: Automatisation Naveau Intégrée
 
@@ -72,7 +72,7 @@ Garanties clés : pas de chevauchement (le prochain déclenchement est planifié
 ## Autres Améliorations
 
 - **Corrections sockets UDP** : les erreurs ICMP (port unreachable, host unreachable) sont désormais transmises via le handler d'erreur au lieu de fermer silencieusement le socket. Les datagrammes tronqués sont détectables via un nouveau paramètre `flags.truncated`.
-- **Cycle de vie des unix domain sockets** : correspond désormais à [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams), se lier à un fichier socket existant retourne correctement `EADDRINUSE`, et `stop()` nettoie automatiquement le fichier socket.
+- **Cycle de vie des unix domain sockets** : correspond désormais à [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams), se lier à un fichier socket existant retourne correctement `EADDRINUSE`, et `stop()` nettoie automatiquement le fichier socket.
 - **Exécutables autonomes sur Linux** : `bun build --compile` embed désormais le graphe de modules via une section ELF `.bun` au lieu de lire depuis `/proc/self/exe`, corrigeant les binaires avec permissions execute-only.
 - **Optimisations SIMD** : `Bun.stripANSI`, `Bun.stringWidth` et les helpers ANSI partagés ont reçu une accélération SIMD (prologue 4×-unrolled, skips CSI/OSC en vrac), avec jusqu'à ~4× d'amélioration sur les entrées ASCII simples.
 - **Améliorations JIT** : tier-up plus rapide pour les fonctions stables, `Array.isArray` en intrinsèque JIT, `String#includes` optimisé, et arithmétique BigInt améliorée.

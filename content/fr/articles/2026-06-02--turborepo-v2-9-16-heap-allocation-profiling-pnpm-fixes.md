@@ -15,7 +15,7 @@ tldr:
 
 ## Heap Allocation Profiling
 
-L'ajout le plus significatif en v2.9.16 est le **support du profiling heap allocation** via OpenTelemetry. Cette release ajoute des données heap aux traces OTEL existantes de [Turborepo](/articles/2026-04-14-turborepo-96-percent-faster-ai-agents-humans), permettant de voir la consommation mémoire par task et par package.
+L'ajout le plus significatif en v2.9.16 est le **support du profiling heap allocation** via OpenTelemetry. Cette release ajoute des données heap aux traces OTEL existantes de [Turborepo](/articles/2026-04-14--turborepo-96-percent-faster-ai-agents-humans), permettant de voir la consommation mémoire par task et par package.
 
 Pour l'utiliser, pointez `TURBO_TRACE_ENDPOINT` vers votre collecteur OTEL, les données heap apparaissent désormais aux côtés des informations de durée et de span existantes. L'implémentation ajoute un nouvel événement `heap.allocated` aux spans de tasks.
 

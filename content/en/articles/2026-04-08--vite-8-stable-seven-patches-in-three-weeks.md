@@ -21,7 +21,7 @@ faq:
     answer: "If you're starting a new project, use v8. If you have a stable v7 project with complex build config, the v7 to v8 migration guide should be reviewed before upgrading. The Rolldown swap introduces edge-case differences in plugin behavior."
 ---
 
-Vite 8.0.0 went stable on March 12, 2026. Three weeks and seven patch releases later, the Vite team is on v8.0.7 as of April 7. That's a faster response cadence than most major releases in the JavaScript ecosystem, and it reflects the complexity inherent in swapping out both ESBuild and Rollup for [Rolldown](/articles/2026-06-05-rolldown-1-1-0-lazybarrel-default-tsconfig) as the unified bundler.
+Vite 8.0.0 went stable on March 12, 2026. Three weeks and seven patch releases later, the Vite team is on v8.0.7 as of April 7. That's a faster response cadence than most major releases in the JavaScript ecosystem, and it reflects the complexity inherent in swapping out both ESBuild and Rollup for [Rolldown](/articles/2026-06-05--rolldown-1-1-0-lazybarrel-default-tsconfig) as the unified bundler.
 
 ## What Stable Brought
 

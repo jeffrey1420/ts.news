@@ -126,7 +126,7 @@ The source map also revealed:
 - A **buddy/companion system** in `src/buddy/`, a pet/animal companion that sits beside the input box and can comment via speech bubble. Not anthropomorphized, and separate from the main Claude instance.
 - A **plugin hint system** emitting `<claude-code-hint />` tags to stderr, surfacing plugin install prompts with 30-second auto-dismiss and show-once semantics per plugin.
 - A **Skills Framework** in `src/skills/bundled/claudeApi.ts` with 247KB of bundled `.md` files for the `/claude-api` command, covering Python, TypeScript, Java, Go, Ruby, C#, PHP, and curl, with language auto-detection from file extensions.
-- Build system details: Claude Code is built with **[Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure)**, uses the **React compiler runtime**, renders via **Ink** (a React-like CLI framework), and uses **Zod** for schema validation and **lodash-es** for utilities.
+- Build system details: Claude Code is built with **[Bun](/articles/2026-04-19--bun-joins-anthropic-ai-coding-infrastructure)**, uses the **React compiler runtime**, renders via **Ink** (a React-like CLI framework), and uses **Zod** for schema validation and **lodash-es** for utilities.
 
 ## What It Means
 

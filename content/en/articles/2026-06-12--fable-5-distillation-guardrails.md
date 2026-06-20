@@ -28,7 +28,7 @@ Fable 5 is the first widely-available model in Anthropic's **Mythos class** of A
 
 The launch post highlights [early testing at Stripe](https://www.anthropic.com/news/claude-fable-5-mythos-5), where Fable 5 reportedly compressed months of engineering work into days in a 50-million-line Ruby codebase. For TypeScript and JavaScript shops with similar long-horizon refactors, that is the practical bar the launch sets.
 
-A restricted sibling, **Claude Mythos 5**, ships alongside Fable 5 with some of the safeguards lifted. Mythos 5 is the same underlying model but is initially deployed through [Project Glasswing](/articles/2026-04-07-anthropic-project-glasswing-ai-finds-zero-days-faster-than-humans) in collaboration with the US government, an upgrade to the Claude Mythos Preview that powered Glasswing's earlier cybersecurity work. Anthropic says Mythos 5 has the strongest cybersecurity capabilities of any model in the world, and plans a broader trusted access program later.
+A restricted sibling, **Claude Mythos 5**, ships alongside Fable 5 with some of the safeguards lifted. Mythos 5 is the same underlying model but is initially deployed through [Project Glasswing](/articles/2026-04-07--anthropic-project-glasswing-ai-finds-zero-days-faster-than-humans) in collaboration with the US government, an upgrade to the Claude Mythos Preview that powered Glasswing's earlier cybersecurity work. Anthropic says Mythos 5 has the strongest cybersecurity capabilities of any model in the world, and plans a broader trusted access program later.
 
 ## The safety tradeoff
 

@@ -42,7 +42,7 @@ Syntaxhervorhebung, Ge-zu-Definition und Umbenennungs-Refactoring funktionieren 
 
 ## KI-Chat erhält vollständigen Agenten-Roster
 
-[JetBrains](/articles/2026-04-02-intellij-idea-javascript-typescript-free) hat vor mehreren Releases ein KI-Chat-Panel eingeführt. In 2026.1 ist es jetzt ein Agent-Hub. Die ACP-Registry, ein Marktplatz innerhalb der IDE, ermöglicht die Installation von Agenten mit einem Klick. Die Liste umfasst bereits Junie (JetBrains eigener Agent), Claude Agent, Codex (OpenAIs Programmiermodell), Cursor und [GitHub Copilot](/articles/2026-04-02-github-copilot-ai-training-data-policy), mit mehr in Zukunft.
+[JetBrains](/articles/2026-04-02--intellij-idea-javascript-typescript-free) hat vor mehreren Releases ein KI-Chat-Panel eingeführt. In 2026.1 ist es jetzt ein Agent-Hub. Die ACP-Registry, ein Marktplatz innerhalb der IDE, ermöglicht die Installation von Agenten mit einem Klick. Die Liste umfasst bereits Junie (JetBrains eigener Agent), Claude Agent, Codex (OpenAIs Programmiermodell), Cursor und [GitHub Copilot](/articles/2026-04-02--github-copilot-ai-training-data-policy), mit mehr in Zukunft.
 
 Der praktische Vorteil: Entwickler können je nach Aufgabe zwischen verschiedenen Agenten wechseln, Codex für bestimmte Codegenerierungsaufgaben, Claude für rechenintensive Arbeit, ohne den Editor zu verlassen.
 
@@ -54,7 +54,7 @@ Entscheidend: Diese Vorschläge verbrauchen kein KI-Kontingent bei JetBrains AI 
 
 ## Framework-Updates
 
-WebStorm 2026.1 bringt Unterstützung für neue React-Direktiven (`use memo`, `use no memo` neben den bestehenden `use client` und `use server`), Angular 21s vollständige Template-Syntax (Pfeilfunktionen, `instanceof`, Regex-Literale, Spread) und aktualisierte [Vue](/articles/2026-04-16-vue-3-6-beta-vapor-mode-alien-signals)-TypeScript-Integration über `@vue/typescript-plugin 3.2.4`.
+WebStorm 2026.1 bringt Unterstützung für neue React-Direktiven (`use memo`, `use no memo` neben den bestehenden `use client` und `use server`), Angular 21s vollständige Template-Syntax (Pfeilfunktionen, `instanceof`, Regex-Literale, Spread) und aktualisierte [Vue](/articles/2026-04-16--vue-3-6-beta-vapor-mode-alien-signals)-TypeScript-Integration über `@vue/typescript-plugin 3.2.4`.
 
 Svelte-Generics in `<script>`-Tags funktionieren jetzt mit Verwendungs-suche, Deklarationsnavigation und Umbenennungs-Refactoring. Der Astro-Sprachserver akzeptiert JSON-Konfiguration direkt aus den IDE-Einstellungen. Und CSS-Farbfelder zeigen jetzt die `color()`-Funktion und erweiterte CSS-Farbräume in der Vorschau an.
 

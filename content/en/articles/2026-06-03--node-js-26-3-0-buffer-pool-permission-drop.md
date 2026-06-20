@@ -19,7 +19,7 @@ faq:
     answer: "Yes. Node.js 26 will ship universal binaries for now. The warning signals that if Apple continues deprecating x86 toolchain support, the Node.js project may drop Intel builds before Node.js 26 goes EOL. Apple Silicon (arm64) is now Tier 1; Intel is Tier 2."
 ---
 
-[Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) 26.3.0 landed June 1, 2026 on the Current release line. It is a substantial mid-cycle update: the Buffer allocator gets a meaningful tuning change, the experimental permission system gains its most-requested feature, Apple signals another step toward dropping Intel Macs, and the crypto team lands a multi-PR hardening of WebCrypto.
+[Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) 26.3.0 landed June 1, 2026 on the Current release line. It is a substantial mid-cycle update: the Buffer allocator gets a meaningful tuning change, the experimental permission system gains its most-requested feature, Apple signals another step toward dropping Intel Macs, and the crypto team lands a multi-PR hardening of WebCrypto.
 
 ## Buffer.poolSize doubles to 64 KiB
 

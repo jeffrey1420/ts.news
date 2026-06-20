@@ -15,7 +15,7 @@ tldr:
 
 ## Heap Allocation Profiling
 
-Die wichtigste neue Funktion in v2.9.16 ist der **Heap-Allocation-Profiling-Support** über OpenTelemetry. Dieses Release fügt Heap-Daten zu [Turborepo](/articles/2026-04-14-turborepo-96-percent-faster-ai-agents-humans)s bestehender OTEL-Trace-Ausgabe hinzu, sodass Sie den Speicherverbrauch pro Task und Package sehen können.
+Die wichtigste neue Funktion in v2.9.16 ist der **Heap-Allocation-Profiling-Support** über OpenTelemetry. Dieses Release fügt Heap-Daten zu [Turborepo](/articles/2026-04-14--turborepo-96-percent-faster-ai-agents-humans)s bestehender OTEL-Trace-Ausgabe hinzu, sodass Sie den Speicherverbrauch pro Task und Package sehen können.
 
 Um es zu nutzen, zeigen Sie mit `TURBO_TRACE_ENDPOINT` auf Ihren OTEL-Collector, Heap-Daten erscheinen jetzt neben den vorhandenen Duration- und Span-Informationen.
 

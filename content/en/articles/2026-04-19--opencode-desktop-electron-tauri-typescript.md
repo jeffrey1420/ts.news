@@ -34,7 +34,7 @@ There is an active Chromium Embedded Framework (CEF) effort inside Tauri, but no
 
 ## The Bundled CLI Tax
 
-The second issue was the bundled CLI itself. The OpenCode server code originally relied on [Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure)-specific APIs, which meant bundling the Bun CLI inside Tauri. This had two consequences: slower startup times, and occasional failures on Windows that the team spent significant effort working around.
+The second issue was the bundled CLI itself. The OpenCode server code originally relied on [Bun](/articles/2026-04-19--bun-joins-anthropic-ai-coding-infrastructure)-specific APIs, which meant bundling the Bun CLI inside Tauri. This had two consequences: slower startup times, and occasional failures on Windows that the team spent significant effort working around.
 
 When OpenCode decided to move away from Bun-specific APIs anyway (in favor of Node compatibility), the appeal of bundling an entire CLI disappeared. Electron's built-in Node process could simply run the server directly, no subprocess, no extra binary, no startup tax.
 

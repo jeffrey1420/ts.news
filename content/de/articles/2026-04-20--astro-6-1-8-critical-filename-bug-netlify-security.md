@@ -18,7 +18,7 @@ faq:
     answer: "Ja, besonders wenn Sie auf Netlify oder Vercel deployen. Der Dateinamen-Bug kann stillschweigend kaputte Deployments produzieren, der Build läuft durch, aber manche Seiten laden in der Produktion nicht."
 ---
 
-[Astro 6.1](/articles/2026-04-08-astro-6-1-sharp-images-smartypants-i18n-fallback-routes).8 erschien am 18. April mit zwei Fixes, die Entwickler auf Netlify oder Vercel sofort anwenden sollten.
+[Astro 6.1](/articles/2026-04-08--astro-6-1-sharp-images-smartypants-i18n-fallback-routes).8 erschien am 18. April mit zwei Fixes, die Entwickler auf Netlify oder Vercel sofort anwenden sollten.
 
 ## Der Dateinamen-Bug, der Netlify Deployments brach
 

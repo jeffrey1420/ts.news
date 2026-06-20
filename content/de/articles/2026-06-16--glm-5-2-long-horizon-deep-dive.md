@@ -4,7 +4,7 @@ description: "Am 16. Juni 2026 hat Z.ai GLM-5.2 unter MIT-Lizenz veröffentlicht
 date: 2026-06-16
 image: "/images/heroes/2026-06-16--glm-5-2-long-horizon-deep-dive.png"
 author: lschvn
-tags: ["ai", "tooling", "runtimes"]
+tags: ["ai", "runtimes", "tooling"]
 tldr:
   - "GLM-5.2 wird mit einem 1M-Token-Kontext ausgeliefert, den das Unternehmen als „solide" statt nominal beschreibt, was bedeutet, dass das Modell darauf trainiert ist, die Qualität über lange, unordentliche Coding-Agent-Trajektorien hinweg aufrechtzuerhalten, und nicht nur mehr Tokens zu akzeptieren. Auf den drei Long-Horizon-Suites, die Z.ai zu veröffentlichen gewählt hat (FrontierSWE, PostTrainBench, SWE-Marathon), belegt es den ersten Platz unter den Open-Weights-Modellen und liegt zwischen 1 % und 13 % hinter Claude Opus 4.8, dem stärksten Closed-Source-Konkurrenten."
   - "Die Architektur ist GLM-5.1 plus zwei gezielte Änderungen: IndexShare, das einen einzigen leichtgewichtigen Indexer über vier aufeinanderfolgende Sparse-Attention-Layer hinweg wiederverwendet und die Per-Token-FLOPs bei 1M-Kontext um 2,9× reduziert, sowie einen verbesserten MTP-Layer mit IndexShare und KV-Sharing, der die Akzeptanzlänge beim Speculative Decoding von 4,56 auf 5,47 Tokens pro Draft anhebt, ein Plus von 20 %. Die Lizenz ist MIT, ohne regionale Beschränkungen, und der API-Preis ist identisch mit dem von GLM-5.1."
@@ -195,7 +195,7 @@ Drei Wege, GLM-5.2 zu nutzen, mit den Trade-offs.
 
 **Z.ai-Chat.** GLM-5.2 ist auf [chat.z.ai](https://chat.z.ai) für direkte Interaktion verfügbar. Die Chat-Oberfläche ist der einfachste Weg, das Modell an einer echten Coding-Aufgabe zu evaluieren, ohne Coding-Plan-Kontingent zu verbrauchen.
 
-**API.** Die REST-API ist unter [docs.z.ai/guides/llm/glm-5.2](https://docs.z.ai/guides/llm/glm-5.2) dokumentiert. Der API-Preis ist identisch mit dem von GLM-5.1, gemäß dem Ankündigungspost. Das Modell ist auch über den DevPack unter [docs.z.ai/devpack/overview](https://docs.z.ai/devpack/overview) verfügbar, mit expliziter Unterstützung für Claude Code, [OpenCode](/articles/2026-04-19-opencode-desktop-electron-tauri-typescript), ZCode und andere Agent-Frameworks.
+**API.** Die REST-API ist unter [docs.z.ai/guides/llm/glm-5.2](https://docs.z.ai/guides/llm/glm-5.2) dokumentiert. Der API-Preis ist identisch mit dem von GLM-5.1, gemäß dem Ankündigungspost. Das Modell ist auch über den DevPack unter [docs.z.ai/devpack/overview](https://docs.z.ai/devpack/overview) verfügbar, mit expliziter Unterstützung für Claude Code, [OpenCode](/articles/2026-04-19--opencode-desktop-electron-tauri-typescript), ZCode und andere Agent-Frameworks.
 
 **Lokales Deployment.** Gewichte auf Hugging Face unter [huggingface.co/zai-org/GLM-5.2](https://huggingface.co/zai-org/GLM-5.2) und auf ModelScope. Unterstützte Inferenz-Frameworks: transformers, vLLM, SGLang, xLLM und ktransformers. Damit die 1M-Kontextlänge nützlich ist, benötigt der Host genug System-RAM und KV-Cache-Kapazität, um den Indexer-Zustand und den Sparse-Attention-Cache zu halten, was genau der Teil ist, den die IndexShare-Optimierung zu reduzieren entwickelt wurde. Z.ai veröffentlicht im Blog keine Parameteranzahl für GLM-5.2, daher hängt das Deployment-Sizing von der Dokumentation des gewählten Inferenz-Frameworks ab.
 

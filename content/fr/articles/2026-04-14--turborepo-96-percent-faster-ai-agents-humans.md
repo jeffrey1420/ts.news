@@ -34,7 +34,7 @@ Mais les ingénieurs ont rapidement identifié un schéma : **les agents produis
 
 Lorsque l'équipe a essayé d'utiliser les profils JSON Chrome Trace standard avec les agents, les résultats étaient médiocres. Les noms de fonctions coupés sur plusieurs lignes, des métadonnées non pertinentes mélangées aux données de timing, impossibles à grepper. Les agents se débattaient avec ces fichiers de la même façon qu'un humain, mal.
 
-La percée est venue de l'observation que [Bun](/articles/2026-04-19-bun-joins-anthropic-ai-coding-infrastructure) avait introduit un flag `--cpu-prof-md` qui génère des profils en Markdown. L'équipe Vercel a créé une crate `turborepo-profile-md` qui génère des fichiers `.md` compagnons à côté de chaque trace : fonctions chaudes triées par temps propre, arbres d'appels par temps total, relations appelant/appelé, tout greppable, tout sur des lignes uniques.
+La percée est venue de l'observation que [Bun](/articles/2026-04-19--bun-joins-anthropic-ai-coding-infrastructure) avait introduit un flag `--cpu-prof-md` qui génère des profils en Markdown. L'équipe Vercel a créé une crate `turborepo-profile-md` qui génère des fichiers `.md` compagnons à côté de chaque trace : fonctions chaudes triées par temps propre, arbres d'appels par temps total, relations appelant/appelé, tout greppable, tout sur des lignes uniques.
 
 La différence fut immédiate. Même modèle, même base de code, même harnais. Juste un format différent. Les agents produisaient soudain des suggestions d'optimisation dramatiquement meilleures.
 

@@ -15,7 +15,7 @@ faq:
   - question: "Comment Pretext mesure-t-il le texte sans accéder au DOM ?"
     answer: "Pretext utilise l'API measureText() du canvas du navigateur, qui utilise le même moteur de typographie que le DOM. La mesure est précise car elle utilise la vraie typographie du navigateur, mais elle se produit hors écran sans déclencher de layout du tout."
   - question: "Pretext peut-il être utilisé pour les agents IA de codage ?"
-    answer: "Oui, c'est un cas d'usage majeur. Cuando un agente IA genera código UI, actualmente no tiene forma de saber si una etiqueta desbordará sin ejecutar el código en un navegador. Pretext da a los agentes IA la capacidad de predecir el layout del texto en tiempo de generación, antes de que el código se ejecute."
+    answer: "Oui, c'est un cas d'usage majeur. Quand un agent IA génère du code UI, il n'a actuellement aucun moyen de savoir si une étiquette débordera sans exécuter le code dans un navigateur. Pretext donne aux agents IA la capacité de prédire la mise en page du texte au moment de la génération, avant que le code ne s'exécute."
   - question: "Quelles sont les limitations de Pretext ?"
     answer: "Pretext cible white-space: normal, word-break: normal, overflow-wrap: break-word, line-break: auto, le cas courant, pas chaque modèle de texte CSS. system-ui n'est pas sûr pour la précision de mesure sur macOS, vous avez besoin d'une police nommée. Ce n'est pas un moteur de rendu de police complet."
 ---

@@ -79,7 +79,7 @@ You can also use `QuickBEAM.ContextPool` to create a pool of JS runtime contexts
 
 ## The Niche
 
-QuickBEAM isn't trying to replace [Node.js](/articles/2026-04-12-nodejs-25-stream-iter-async-streams) or [Deno](/articles/2026-04-07-deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides). It's a specialized runtime for Elixir/Erlang teams that want to write some components in JavaScript without abandoning the BEAM reliability model. The integration surface, `Beam.call()`, process messaging, supervision, is the point, not the runtime itself.
+QuickBEAM isn't trying to replace [Node.js](/articles/2026-04-12--nodejs-25-stream-iter-async-streams) or [Deno](/articles/2026-04-07--deno-2-7-stabilizes-temporal-api-windows-arm-npm-overrides). It's a specialized runtime for Elixir/Erlang teams that want to write some components in JavaScript without abandoning the BEAM reliability model. The integration surface, `Beam.call()`, process messaging, supervision, is the point, not the runtime itself.
 
 For the broader JavaScript ecosystem, it's an existence proof that BEAM's concurrency model is accessible from JavaScript. Whether it finds a real user base depends on whether teams building high-reliability systems in Elixir see enough value in writing specific components in JavaScript rather than Elixir itself.
 
