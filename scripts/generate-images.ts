@@ -140,6 +140,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-19--react-router-v8-major-release-future-flags-esm': ['React Router v8', 'Major release: future flags graduate', 'frameworks'],
   '2026-06-19--pnpm-11-8-dry-run-install-node-package-map-sbom': ['pnpm 11.8', 'Dry-run + package maps + SBOM', 'tooling'],
   '2026-06-20--typescript-7-0-rc-go-compiler-10x-faster': ['TypeScript 7.0 RC', 'Go compiler, ~10x faster', 'typescript'],
+  '2026-06-20--astro-7-0-0-beta-6-stable-cache-jsx-whitespace': ['Astro 7 Beta', 'Stable cache + JSX default', 'frameworks'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
