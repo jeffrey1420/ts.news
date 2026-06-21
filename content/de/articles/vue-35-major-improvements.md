@@ -8,10 +8,10 @@ tags: ["frameworks", "typescript", "performance"]
 readingTime: 10
 image: "/images/heroes/vue-35-major-improvements.png"
 tldr:
-  - "Vue 3.5 liefert 56% weniger Speicherverbrauch und bis zu 10x schnellere Operationen auf großen, tief reaktiven Arrays dank eines Reaktivitäts-Refactorings."
-  - "Reactive props destructuring is stabilized, destructuring in `<script setup>` now preserves reactivity without withDefaults()."
-  - "New lazy hydration API (hydrateOnVisible) and useId() for stable server/client IDs solve long-standing SSR pain points."
-  - "Vue 3.6 targets Vapor Mode, compiling templates to direct DOM ops with a goal of 100,000 component mounts in 100ms."
+  - "Vue 3.5 liefert 56% weniger Speicherverbrauch und bis zu 10× schnellere Operationen auf großen, tief reaktiven Arrays dank einer Überarbeitung des Reaktivitätssystems."
+  - "Reaktives Props-Destructuring ist stabilisiert: Destrukturieren in `<script setup>` erhält die Reaktivität jetzt ohne `withDefaults()`."
+  - "Eine neue Lazy-Hydration-API (`hydrateOnVisible`) und `useId()` für stabile Server/Client-IDs lösen langjährige SSR-Schmerzpunkte."
+  - "Vue 3.6 zielt auf Vapor Mode: Templates werden zu direkten DOM-Operationen kompiliert, mit dem Ziel von 100.000 Komponenten-Mounts in 100 ms."
 faq:
   - question: "Ist Vue 3.5 wirklich ein 'Minor'-Release?"
     answer: "Trotz dass Evan You es als Minor-Release bezeichnete, lieferte Vue 3.5 eine vollständige Überarbeitung des Reaktivitätssystems mit 56% weniger Speicherverbrauch und bis zu 10× schnelleren Operationen auf großen, tief reaktiven Arrays. Das sind keine inkrementellen Verbesserungen."
@@ -114,32 +114,32 @@ const inputRef = useTemplateRef('input')
 </template>
 ```
 
-## TypeScript: Leise wird besser
+## TypeScript: Still verbessert
 
-Vue 3.5 verbesserte auch die TypeScript-Inferenz auf Arten, die für große Codebases wichtig sind.
+Vue 3.5 verbesserte auch die TypeScript-Inferenz auf eine Weise, die für große Codebases wichtig ist.
 
 ## Vue 3.6: Was kommt
 
-Der Headline-Feature von Vue 3.6 ist **Vapor Mode**.
+Das Headline-Feature von Vue 3.6 ist **Vapor Mode**.
 
-Vapor Mode ist eine Kompilierungsstrategie, die das virtuelle DOM vollständig eliminiert. Statt bei jedem Update einen virtuellen DOM-Baum zu diffen, kompiliert es Vue-Templates zu direkten DOM-Operationen, dieselbe Strategie, die Solid.js verwendet.
+Vapor Mode ist eine Kompilierungsstrategie, die das virtuelle DOM vollständig eliminiert. Statt bei jedem Update einen virtuellen DOM-Baum zu differenzieren, kompiliert es Vue-Templates zu direkten DOM-Operationen, dieselbe Strategie, die Solid.js verwendet.
 
-Die interessante Behauptung von Evan You: **Vapor Mode erlaubt Vue, Solid.js-Level-Rendering-Performance zu erreichen, während die exakt gleiche Vue-API behalten wird.**
+Das spannende Versprechen von Evan You: **Vapor Mode erlaubt Vue, Solid.js-Level-Performance zu erreichen, während die exakt gleiche Vue-API erhalten bleibt.**
 
-Das Performance-Ziel: **100.000 Komponenten-Mounts in 100ms**. Zum Vergleich: Vue 3's virtuelles DOM bewältigt etwa 10.000-20.000 Komponenten-Mounts in derselben Zeit.
+Das Performance-Ziel: **100.000 Komponenten-Mounts in 100 ms**. Zum Vergleich: Das virtuelle DOM von Vue 3 bewältigt etwa 10.000-20.000 Komponenten-Mounts in derselben Zeit.
 
 Vapor Mode ist derzeit in Beta. Die Integration in das Haupt-Vue-Repository läuft. Ein stabiles Release wird für 2026 erwartet.
 
 Auch bemerkenswert in der 3.6-Pipeline:
-- **Alien Signals**: Eine weitere 14%ige Speicherverbrauchsreduzierung gegenüber 3.5
+- **Alien Signals**: Eine weitere Reduzierung des Speicherverbrauchs um 14% gegenüber 3.5
 - **Vue Base Bundle unter 10KB**: Der Runtime-Fußabdruck schrumpft erheblich
 
 ## Warum es wichtig ist
 
-Vue's Evolution hat einem interessanten Muster gefolgt. Jede Version hat das Framework weiter von "einfaches Tool für kleine Projekte" und näher an "seriöse Infrastruktur für große Anwendungen" geführt, ohne die Developer Experience aufzugeben, die Vue attraktiv gemacht hat.
+Die Evolution von Vue ist einem interessanten Muster gefolgt. Jede Version hat das Framework weiter von "einfaches Tool für kleine Projekte" und näher an "seriöse Infrastruktur für große Anwendungen" geführt, ohne die Developer Experience aufzugeben, die Vue attraktiv gemacht hat.
 
-Vue 3.5 ist eine Fallstudie in dieser Balance. Die Speicher- und Performance-Verbesserungen sind die Art, die Produktionssysteme messbar besser macht, nicht kosmetisch, nicht theoretisch, sondern real.
+Vue 3.5 ist eine Fallstudie in dieser Balance. Die Speicher- und Performance-Verbesserungen machen Produktionssysteme messbar besser, nicht kosmetisch, nicht theoretisch, sondern real.
 
-Die Richtung zu 3.6 und Vapor Mode suggeriert, dass Vue nicht zufrieden ist, nur mit der Konkurrenz gleichzuziehen. Es will die Performance-Blattr setzen. Das ist eine interessante Ambition für ein Framework, das sich immer über Zugänglichkeit und Ergonomie definiert hat, nicht über rohe Geschwindigkeit.
+Die Richtung zu 3.6 und Vapor Mode suggeriert, dass Vue sich nicht damit zufrieden gibt, nur mit der Konkurrenz gleichzuziehen. Es will den Performance-Maßstab setzen. Das ist eine interessante Ambition für ein Framework, das sich immer über Zugänglichkeit und Ergonomie definiert hat, nicht über rohe Geschwindigkeit.
 
-Ob Vapor Mode sein Versprechen hält, wird bestimmen, ob Vue 3.6 als Wendepunkt oder als weitere Release erinnert wird. Die frühen Signale sind vielversprechend.
+Ob Vapor Mode sein Versprechen hält, wird bestimmen, ob Vue 3.6 als Wendepunkt oder als ein weiteres Release in Erinnerung bleibt. Die frühen Signale sind vielversprechend.

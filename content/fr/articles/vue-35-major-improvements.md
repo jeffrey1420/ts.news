@@ -8,10 +8,10 @@ tags: ["frameworks", "typescript", "performance"]
 readingTime: 10
 image: "/images/heroes/vue-35-major-improvements.png"
 tldr:
-  - "Vue 3.5 delivers 56% lower memory usage and up to 10x faster operations on large deeply reactive arrays via a reactivity system refactor."
-  - "Reactive props destructuring is stabilized, destructuring in `<script setup>` now preserves reactivity without withDefaults()."
-  - "New lazy hydration API (hydrateOnVisible) and useId() for stable server/client IDs solve long-standing SSR pain points."
-  - "Vue 3.6 targets Vapor Mode, compiling templates to direct DOM ops with a goal of 100,000 component mounts in 100ms."
+  - "Vue 3.5 apporte 56% d'usage mémoire en moins et des opérations jusqu'à 10× plus rapides sur les grands tableaux profondément réactifs grâce à une refonte du système de réactivité."
+  - "La déstructuration réactive des props est stabilisée : déstructurer dans `<script setup>` préserve désormais la réactivité sans `withDefaults()`."
+  - "Une nouvelle API d'hydratation paresseuse (`hydrateOnVisible`) et `useId()` pour des identifiants stables entre serveur et client résolvent des points de douleur SSR historiques."
+  - "Vue 3.6 vise Vapor Mode : compilation des templates en opérations DOM directes, avec l'objectif de 100 000 montages de composants en 100 ms."
 faq:
   - question: "Vue 3.5 est-il vraiment une version 'mineure' ?"
     answer: "Malgré qu'Evan You l'ait appelée version mineure, Vue 3.5 a livré une refonte complète du système de réactivité avec 56% d'usage mémoire en moins et des opérations jusqu'à 10× plus rapides sur les grands tableaux profondément réactifs. Ce sont des améliorations qui changent ce que 'grand échelle Vue' signifie en pratique."
@@ -87,7 +87,7 @@ const id = useId()
 </template>
 ```
 
-La même composant rendu sur le serveur ou le client produit le même ID.
+Le même composant rendu sur le serveur ou le client produit le même ID.
 
 ### data-allow-mismatch
 
@@ -118,26 +118,26 @@ Vue 3.5 a également amélioré l'inférence TypeScript pour les grands codebase
 
 ## Vue 3.6 : Ce qui vient
 
-Le headline feature de Vue 3.6 est **Vapor Mode**.
+La fonctionnalité phare de Vue 3.6 est **Vapor Mode**.
 
-Vapor Mode est une stratégie de compilation qui élimine le DOM virtuel entièrement. Au lieu de diffing un arbre DOM virtuel à chaque mise à jour, il compile les templates Vue en opérations DOM directes, la même stratégie que Solid.js utilise pour atteindre ses performances de benchmark.
+Vapor Mode est une stratégie de compilation qui élimine complètement le DOM virtuel. Au lieu de comparer un arbre DOM virtuel à chaque mise à jour, il compile les templates Vue en opérations DOM directes, la même stratégie que Solid.js utilise pour atteindre ses performances de référence.
 
-La réclamation intéressante d'Evan You : **Vapor Mode permet à Vue d'atteindre le niveau de performance de Solid.js tout en gardant l'API Vue exacte.** Vous ne réécrivez pas vos composants. Vous opts des sous-arbres individuels en mode Vapor, et le compilateur s'occupe du reste.
+La promesse d'Evan You : **Vapor Mode permet à Vue d'atteindre le niveau de performance de Solid.js tout en gardant l'API Vue exacte.** Vous ne réécrivez pas vos composants. Vous activez le mode Vapor sur des sous-arbres spécifiques, et le compilateur s'occupe du reste.
 
 L'objectif de performance : **100 000 montages de composants en 100 ms**. Pour contexte, le DOM virtuel de Vue 3 gère environ 10 000-20 000 montages de composants dans le même laps de temps.
 
-Vapor Mode est actuellement en bêta. L'intégration dans le dépôt principal Vue est en cours. Un release stable est attendu en 2026.
+Vapor Mode est actuellement en bêta. L'intégration dans le dépôt principal Vue est en cours. Une version stable est attendue en 2026.
 
 Également remarquable dans le pipeline 3.6 :
-- **Alien Signals** : Une réduction d'usage mémoire de 14% supplémentaire par rapport à 3.5
-- **Vue base bundle sous 10KB** : L'empreinte runtime diminue significativement
+- **Alien Signals** : une réduction supplémentaire de 14% de l'usage mémoire par rapport à 3.5
+- **Vue base bundle sous 10KB** : l'empreinte runtime diminue significativement
 
 ## Pourquoi cela importe
 
-L'évolution de Vue a suivi un patron intéressant. Chaque version a mené le framework plus loin de "outil simple pour petits projets" et plus près de "infrastructure sérieuse pour grandes applications", sans abandonner l'expérience développeur qui a rendu Vue attrayant.
+L'évolution de Vue a suivi un schéma intéressant. Chaque version a mené le framework plus loin de "outil simple pour petits projets" et plus près de "infrastructure sérieuse pour grandes applications", sans abandonner l'expérience développeur qui a rendu Vue attrayant.
 
 Vue 3.5 est une étude de cas de cet équilibre. Les améliorations mémoire et performance sont du type qui rend les systèmes de production mesurablement meilleurs, pas cosmétiques, pas théoriques, mais réels.
 
-La trajectoire vers 3.6 et Vapor Mode suggère que Vue n'est pas satisfait de se contenter de correspondre à la concurrence. Il veut fixer la barre de performance. C'est une ambition intéressante pour un framework qui s'est toujours défini par l'accessibilité et l'ergonomie plutôt que la vitesse brute.
+La trajectoire vers 3.6 et Vapor Mode suggère que Vue ne se contente pas de vouloir suivre la concurrence. Il veut fixer la norme en matière de performance. C'est une ambition intéressante pour un framework qui s'est toujours défini par l'accessibilité et l'ergonomie plutôt que par la vitesse brute.
 
-Que Vapor Mode tienne sa promesse, et qu'il puisse maintenir la compatibilité avec l'écosystème existant pendant la transition, déterminera si Vue 3.6 est rappelé comme un point de pivot ou juste une autre release. Les premiers signaux sont prometteurs.
+Que Vapor Mode tienne sa promesse, et qu'il puisse maintenir la compatibilité avec l'écosystème existant pendant la transition, déterminera si Vue 3.6 sera retenu comme un tournant ou comme une version de plus. Les premiers signaux sont prometteurs.
