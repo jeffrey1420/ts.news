@@ -144,6 +144,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-21--bun-react-compiler-bundler-integration-20x': ['Bun', 'React Compiler, ~20x faster', 'tooling'],
   '2026-06-22--oxc-v0-137-react-compiler-treeshake-perf': ['Oxc v0.137', 'Minifier treeshake + React Compiler fix', 'tooling'],
   '2026-06-22--sakana-fugu-multi-agent-orchestration-frontier': ['Sakana Fugu', 'Multi-agent orchestration', 'ai'],
+  '2026-06-22--astro-7-stable-vite8-rust-compiler-ai-agents': ['Astro 7.0.0', 'Stable · Vite 8 · AI dev server', 'frameworks'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
