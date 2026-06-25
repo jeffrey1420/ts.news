@@ -149,6 +149,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-23--swc-v1-15-43-react-compiler-template-literal-bug': ['SWC v1.15.43', 'React Compiler + template-literal fix', 'tooling'],
   '2026-06-24--node-js-24-18-krypton-lts-buffer-pool-turboshake': ['Node.js 24.18.0', 'Krypton LTS · Web Crypto + Buffer', 'runtimes'],
   '2026-06-25--node-js-26-4-current-vfs-loader-package-maps': ['Node.js 26.4.0', 'Current · node:vfs + loader maps', 'runtimes'],
+  '2026-06-25--anthropic-alibaba-qwen-claude-distillation': ['Anthropic · Alibaba', 'Claude distillation, 28.8M exchanges', 'ai'],
   '2026-06-24--vite-8-1-stable-bundled-dev-mode': ['Vite 8.1', 'Bundled dev + WASM ESM', 'tooling'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
