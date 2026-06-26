@@ -151,6 +151,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-25--node-js-26-4-current-vfs-loader-package-maps': ['Node.js 26.4.0', 'Current · node:vfs + loader maps', 'runtimes'],
   '2026-06-25--anthropic-alibaba-qwen-claude-distillation': ['Anthropic · Alibaba', 'Claude distillation, 28.8M exchanges', 'ai'],
   '2026-06-24--vite-8-1-stable-bundled-dev-mode': ['Vite 8.1', 'Bundled dev + WASM ESM', 'tooling'],
+  '2026-06-26--deno-2-9-cold-start-supply-chain-tests': ['Deno 2.9', 'Cold start + supply chain', 'runtimes'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
