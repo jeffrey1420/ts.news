@@ -10,12 +10,12 @@ tldr:
   - "Le changement élimine aussi un CLI bundlé qui ajoutait de la latence au démarrage et des plantages occasionnels, permettant au serveur de tourner directement dans le processus Node d'Electron"
   - "Les plugins utilisant des API Bun spécifiques ne fonctionneront plus dans les nouvelles versions Electron ; plus de détails promis avec OpenCode 2.0"
 faq:
-  - "Q: Pourquoi OpenCode a-t-il abandonné Tauri ?
-A: Tauri repose sur WebKit (plutôt que Chromium), ce qui causait des incohérences de rendu et de performances. L'architecture 100 % TypeScript d'OpenCode annulait aussi les avantages de performance du Rust de Tauri."
-  - "Q: Est-ce que ça veut dire que Tauri est moins bien qu'Electron ?
-A: Non. L'équipe d'OpenCode précise que Tauri reste excellent pour les apps avec une UI simple nécessitant des performances natives ou un accès facile aux API système."
-  - "Q: Qu'est-ce que ça change pour les utilisateurs de Bun ?
-A: La version Electron abandonne le support des API Bun. Les plugins qui dépendent de ces API ne fonctionneront plus."
+  - question: "Pourquoi OpenCode a-t-il abandonné Tauri ?"
+    answer: "Tauri repose sur WebKit (plutôt que Chromium), ce qui causait des incohérences de rendu et de performances. L'architecture 100 % TypeScript d'OpenCode annulait aussi les avantages de performance du Rust de Tauri."
+  - question: "Est-ce que ça veut dire que Tauri est moins bien qu'Electron ?"
+    answer: "Non. L'équipe d'OpenCode précise que Tauri reste excellent pour les apps avec une UI simple nécessitant des performances natives ou un accès facile aux API système."
+  - question: "Qu'est-ce que ça change pour les utilisateurs de Bun ?"
+    answer: "La version Electron abandonne le support des API Bun. Les plugins qui dépendent de ces API ne fonctionneront plus."
 ---
 
 ## TypeScript du sol au plafond

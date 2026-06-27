@@ -10,12 +10,12 @@ tldr:
   - "Bun remains MIT-licensed and open source, with the same team continuing active development; no revenue model pressure in sight"
   - "Single-file executable distribution proved to be the killer feature for AI coding tools, fast startup, no runtime dependency, easy to distribute"
 faq:
-  - "Q: Does this mean Bun is no longer open source?
-A: No. Bun stays MIT-licensed and open source. Anthropic is not acquiring the IP to close it, it's investing in Bun as a strategic infrastructure component."
-  - "Q: What does Anthropic get out of this?
-A: Direct control over the runtime powering Claude Code and future AI coding tools. If Bun breaks, Claude Code breaks, giving Anthropic a strong incentive to keep it excellent."
-  - "Q: How does this affect existing Bun users?
-A: For now, nothing changes day-to-day. Bun's roadmap still prioritizes Node.js compatibility and performance, and the team expects shipping velocity to increase."
+  - question: "Does this mean Bun is no longer open source?"
+    answer: "No. Bun stays MIT-licensed and open source. Anthropic is not acquiring the IP to close it, it's investing in Bun as a strategic infrastructure component."
+  - question: "What does Anthropic get out of this?"
+    answer: "Direct control over the runtime powering Claude Code and future AI coding tools. If Bun breaks, Claude Code breaks, giving Anthropic a strong incentive to keep it excellent."
+  - question: "How does this affect existing Bun users?"
+    answer: "For now, nothing changes day-to-day. Bun's roadmap still prioritizes Node.js compatibility and performance, and the team expects shipping velocity to increase."
 ---
 
 ## From Minecraft Clone to AI Coding Infrastructure

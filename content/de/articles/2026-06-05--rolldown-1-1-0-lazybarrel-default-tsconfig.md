@@ -6,7 +6,7 @@ image: "/images/heroes/2026-06-05--rolldown-1-1-0-lazybarrel-default-tsconfig.pn
 author: lschvn
 tags: ["tooling", "javascript"]
 tldr:
-  - "experimental.lazyBarrel" ist jetzt standardmäßig true und überspringt nicht verwendete Barrel-Exporte für deutliche Build-Zeitverbesserungen bei großen Komponentenbibliotheken
+  - "\"experimental.lazyBarrel\" ist jetzt standardmäßig true und überspringt nicht verwendete Barrel-Exporte für deutliche Build-Zeitverbesserungen bei großen Komponentenbibliotheken"
   - oxc_resolver auf 11.21.0 aktualisiert, was die tsconfig-Projektreferenz-Auflösung an das genaue TypeScript-Verhalten anpasst
   - Die Deaktivierungsoption für lazyBarrel soll in einer zukünftigen Version entfernt werden
 ---
