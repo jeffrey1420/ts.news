@@ -154,6 +154,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-26--deno-2-9-cold-start-supply-chain-tests': ['Deno 2.9', 'Cold start + supply chain', 'runtimes'],
   '2026-06-27--openai-codex-0-142-token-budgets-multi-agent-web-search': ['Codex 0.142', 'Token budgets + multi-agent', 'ai'],
   '2026-06-27--cline-4-0-sdk-rewrite-clinepass-customize-marketplace-plugins': ['Cline 4.0', 'SDK rewrite + ClinePass', 'ai'],
+  '2026-06-28--prettier-3-9-micromark-yaml-graphql-rust-flow-parser': ['Prettier 3.9', 'Five parser upgrades', 'tooling'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
