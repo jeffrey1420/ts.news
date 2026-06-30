@@ -156,6 +156,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-27--cline-4-0-sdk-rewrite-clinepass-customize-marketplace-plugins': ['Cline 4.0', 'SDK rewrite + ClinePass', 'ai'],
   '2026-06-28--prettier-3-9-micromark-yaml-graphql-rust-flow-parser': ['Prettier 3.9', 'Five parser upgrades', 'tooling'],
   '2026-06-29--cline-4-0-1-rollback-sdk-migration-v4-0-2-restores': ['Cline 4.0.1 · 4.0.2', 'Rollback + SDK return', 'ai'],
+  '2026-06-30--oxlint-v1-72-oxfmt-v0-57-ast-builder-css-graphql-native': ['Oxlint · Oxfmt', 'v1.72 · v0.57 · AstBuilder + CSS', 'tooling'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
