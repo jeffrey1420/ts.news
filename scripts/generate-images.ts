@@ -158,6 +158,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-06-29--cline-4-0-1-rollback-sdk-migration-v4-0-2-restores': ['Cline 4.0.1 · 4.0.2', 'Rollback + SDK return', 'ai'],
   '2026-06-30--oxlint-v1-72-oxfmt-v0-57-ast-builder-css-graphql-native': ['Oxlint · Oxfmt', 'v1.72 · v0.57 · AstBuilder + CSS', 'tooling'],
   '2026-06-30--npm-11-18-linked-install-strategy-stable-phantom-deps': ['npm 11.18', 'Linked strategy stable', 'ecosystem'],
+  '2026-07-01--claude-sonnet-5-default-model-claude-code-1m-context': ['Claude Sonnet 5', 'Default in Claude Code', 'ai'],
   '2026-07-01--fastify-v5-9-0-security-perf-http2-buffer-chunking': ['Fastify v5.9.0', 'Security, perf, TSTyche', 'runtimes'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
