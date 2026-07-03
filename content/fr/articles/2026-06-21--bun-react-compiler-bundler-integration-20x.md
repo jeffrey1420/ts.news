@@ -4,7 +4,7 @@ description: "La PR #32504, fusionnée dans oven-sh/bun le 20 juin 2026, transfo
 date: 2026-06-21
 image: "/images/heroes/2026-06-21--bun-react-compiler-bundler-integration-20x.png"
 author: lschvn
-tags: ["tooling", "performance", "runtimes"]
+tags: ["runtimes", "tooling", "performance"]
 tldr:
   - "La PR #32504 de Bun, fusionnée le 20 juin 2026, intègre le portage Rust amont du React Compiler comme transformation intégrée à `bun build`, exposée via l'option CLI `--react-compiler` et l'option `reactCompiler: true` de `Bun.build`. Le mode de sortie est dérivé de `--target` (`browser` -> `client`, `bun` ou `node` -> `ssr`) et peut être surchargé avec `reactCompilerOutputMode`. La fonctionnalité est désactivée par défaut et marquée expérimentale."
   - "Bun porte directement l'espace de travail Rust `compiler/crates/` de `facebook/react` dans une unique crate `src/react_compiler/` (~62 k LOC), au lieu de passer par Babel, SWC ou Oxc comme adaptateur AST séparé. Sur une grosse base de code React (environ 860 composants, 1400 slots de mémo) la passe du compilateur s'exécute en 465 ms contre 9,15 s pour `babel-plugin-react-compiler`, soit environ 20x plus vite ; la build complète d'un exécutable autonome via `--compile` s'exécute en 3,62 s contre 13,04 s avec le plugin Babel (3,6x)."

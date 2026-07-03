@@ -4,7 +4,7 @@ description: "PR #32504, merged into oven-sh/bun on June 20, 2026, turns the ups
 date: 2026-06-21
 image: "/images/heroes/2026-06-21--bun-react-compiler-bundler-integration-20x.png"
 author: lschvn
-tags: ["tooling", "performance", "runtimes"]
+tags: ["runtimes", "tooling", "performance"]
 tldr:
   - "Bun PR #32504, merged June 20, 2026, integrates the upstream React Compiler Rust port as a built-in `bun build` transform, exposing it as the `--react-compiler` CLI flag and the `reactCompiler: true` option on `Bun.build`. Output mode is derived from `--target` (`browser` -> `client`, `bun` or `node` -> `ssr`) and can be overridden with `reactCompilerOutputMode`. The feature is off by default and marked experimental."
   - "Bun ports the upstream `facebook/react` `compiler/crates/` Rust workspace directly into a single `src/react_compiler/` crate (~62k LOC), instead of going through Babel, SWC, or Oxc as a separate AST adapter. On a large React codebase (around 860 components, 1400 memo slots) the compiler pass runs in 465 ms versus 9.15 s for `babel-plugin-react-compiler`, about a 20x speedup; the full `--compile` standalone build runs in 3.62 s versus 13.04 s with the Babel plugin (3.6x)."

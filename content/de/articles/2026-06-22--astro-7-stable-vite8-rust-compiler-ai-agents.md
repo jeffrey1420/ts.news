@@ -4,7 +4,7 @@ description: "Astro 7.0.0, veröffentlicht am 2026-06-22, liefert den stabilen 7
 date: 2026-06-22
 image: "/images/heroes/2026-06-22--astro-7-stable-vite8-rust-compiler-ai-agents.png"
 author: lschvn
-tags: ["frameworks", "ai", "tooling"]
+tags: ["ai", "frameworks", "tooling"]
 tldr:
   - "Astro 7.0.0 stable, veröffentlicht am 2026-06-22, liefert Vite 8 (PR #15819, delucis), befördert den Rust-basierten Compiler zum Standard und entfernt den Go-Compiler (PR #16462, Princesseuh), und verschiebt die Sätteri-Markdown-Pipeline als Standard, wobei @astrojs/markdown-remark nicht mehr Teil der Standardinstallation ist (PR #16966). Erweitertes Routing wird aus dem Experimental-Status befördert und src/fetch.ts wird zum Standard-Einstiegspunkt statt src/app.ts (PR #16877, matthewp)."
   - "Das Routen-Caching, hinter experimental.cache und experimental.routeRules seit v6.0.0, wird in eine stabile Top-Level-cache- und routeRules-Konfiguration befördert, mit den First-Party-Providern cacheNetlify() und cacheVercel() in derselben Release (PR #17116, ascorbic, und PR #16335 für die Provider). Das ebenfalls seit v6.2.0 experimentelle Feature für benutzerdefinierte Logger wird mit den eingebauten logHandlers.json und logHandlers.node stabil (PR #16745, ematipico). Das experimentelle Flag queuedRendering wird entfernt, da der Streaming-Ersatz jetzt stabil ist (PR #16981)."

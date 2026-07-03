@@ -4,7 +4,7 @@ description: "Node.js 24.18.0 'Krypton' (LTS), publié le 2026-06-23, embarque l
 date: 2026-06-24
 image: "/images/heroes/2026-06-24--node-js-24-18-krypton-lts-buffer-pool-turboshake.png"
 author: lschvn
-tags: ["runtimes", "security", "performance"]
+tags: ["security", "runtimes", "performance"]
 tldr:
   - "Node.js 24.18.0 'Krypton' (LTS), publié le 2026-06-23 par @richardlau, préparé par @sxa, est la première release LTS v24 de juin et la plus grosse du cycle depuis la 24.0.0. C'est la première release de la ligne LTS à embarquer la valeur par défaut [Buffer.poolSize 64 Kio apparue sur Current dans la 26.3.0](/articles/2026-06-03--node-js-26-3-0-buffer-pool-permission-drop) (PR #63597, Matteo Collina), que la PR d'origine mesurait à +26 % sur des charges fs.readFileSync de 8 Kio et +23 % sur 16 Kio, et elle apporte huit changements SEMVER-MINOR couvrant crypto, http, inspector et stream."
   - "La release ajoute à Web Cryptography TurboSHAKE et KangarooTwelve de la [RFC 9861](https://www.rfc-editor.org/rfc/rfc9861.html) (PR #62183, 1 521 ajouts, 13 fichiers), en cohérence avec le draft [WICG webcrypto-modern-algos](https://wicg.github.io/webcrypto-modern-algos/). L'implémentation est un port direct de la primitive keccak1600 d'OpenSSL, livrée derrière le drapeau d'algorithme instable jusqu'à ce qu'OpenSSL supporte nativement ces algorithmes, date à laquelle ils passeront en stable dans `node:crypto`."

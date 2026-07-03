@@ -4,7 +4,7 @@ description: "Node.js 26.4.0 (Current), veröffentlicht am 2026-06-24 von @aduh9
 date: 2026-06-25
 image: "/images/heroes/2026-06-25--node-js-26-4-current-vfs-loader-package-maps.png"
 author: lschvn
-tags: ["runtimes", "tooling", "security"]
+tags: ["security", "runtimes", "tooling"]
 tldr:
   - "Node.js 26.4.0 'Current', veröffentlicht am 2026-06-24 von @aduh95, ist die erste Release der 26.x-Linie, die ein minimales `node:vfs`-Subsystem ergänzt ([PR #63115](https://github.com/nodejs/node/pull/63115), Matteo Collina) und `node:fs/promises` an vom Anwendungscode eingehängte VFS-Instanzen weiterleitet ([PR #63537](https://github.com/nodejs/node/pull/63537)). Die zwei VFS-PRs landen in derselben Woche wie die [Node.js 24.18.0 'Krypton' LTS-Release](/articles/2026-06-24--node-js-24-18-krypton-lts-buffer-pool-turboshake), was bedeutet, dass die Sandboxing-Primitiven der Current-Linie nur noch einen Zyklus von der LTS-Linie entfernt sind, die Produktionsnutzer tatsächlich ausrollen."
   - "Die zweite zentrale SEMVER-MINOR-Arbeit ist [PR #62239](https://github.com/nodejs/node/pull/62239) (Maël Nison, der Yarn-Erfinder), die Package-Maps für ESM-Loader-Hooks implementiert. Loader-Autoren können nun dieselbe `imports`-Map lesen, die Node.js bereits verwendet, um Bare-Spezifier im Anwendungsgraphen aufzulösen, und es ist das erste Mal, dass die ESM-Loader-Hooks die Package-Map-Maschinerie als erstklassige API freilegen. Die Release ergänzt außerdem TLS certificateCompression oberhalb der OpenSSL-Kompressionsarbeit ([PR #62217](https://github.com/nodejs/node/pull/62217), Tim Perry) und legt TCP_KEEPINTVL und TCP_KEEPCNT in `net.Socket.setKeepAlive` offen ([PR #63825](https://github.com/nodejs/node/pull/63825), Guy Bedford)."

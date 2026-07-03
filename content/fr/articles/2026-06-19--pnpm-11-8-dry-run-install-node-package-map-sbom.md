@@ -4,7 +4,7 @@ description: "pnpm 11.8.0 (18 juin 2026) ajoute un `--dry-run` longtemps réclam
 date: 2026-06-19
 image: "/images/heroes/2026-06-19--pnpm-11-8-dry-run-install-node-package-map-sbom.png"
 author: lschvn
-tags: ["tooling", "security", "ecosystem"]
+tags: ["security", "tooling", "ecosystem"]
 tldr:
   - "pnpm 11.8.0 (18 juin 2026) ajoute `pnpm install --dry-run`, qui exécute une résolution complète des dépendances et indique ce qu'une installation modifierait sans rien écrire sur le disque, ni lockfile, ni `node_modules`, et quitte toujours avec le code 0. Il reproduit le comportement de `npm install --dry-run` et clôture [l'issue #7340](https://github.com/pnpm/pnpm/issues/7340), ouverte depuis 2022."
   - "Deux améliorations SBOM arrivent pour la conformité de la chaîne d'approvisionnement : `pnpm sbom` marque désormais les composants accessibles uniquement via les devDependencies avec le scope CycloneDX `scope: \"excluded\"` et la propriété `cdx:npm:package:development`, et `--out`/`--split` produisent un document CycloneDX par paquet du workspace en résolvant les inter-dépendances `workspace:`. Un nouveau fichier `node_modules/.package-map.json` alimente les travaux expérimentaux de résolution de paquets de Node derrière `node-experimental-package-map`."

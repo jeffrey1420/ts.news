@@ -4,7 +4,7 @@ description: "Anthropic hat am 2026-06-24 einen Blogbeitrag veröffentlicht (htt
 date: 2026-06-25
 image: "/images/heroes/2026-06-25--anthropic-alibaba-qwen-claude-distillation.png"
 author: lschvn
-tags: ["ai", "security"]
+tags: ["security", "ai"]
 tldr:
   - "Der Blogbeitrag von Anthropic vom 2026-06-24 ([Detecting and preventing distillation attacks](https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks) ) wirft Alibaba vor, zwischen dem 22. April und dem 5. Juni 2026 eine Destillationskampagne gegen Claude im industriellen Maßstab betrieben zu haben: über 28,8 Millionen Austausche mit Claude durch beinahe 25.000 gefälschte Konten. Anthropic bezeichnet die Kampagne als „dreist“ und ordnet sie in das breitere Muster ein, das es erstmals am 2026-02-23 offenlegte, als DeepSeek, Moonshot AI und MiniMax als Betreiber von 24.000 gefälschten Konten benannt wurden, die 16 Millionen Austausche erzeugten."
   - "Die neue Anklage kommt vier Monate nach der Februar-Offenlegung und einen Tag, nachdem Anthropic separat offenlegte, dass [eine US-Exportkontrolldirektive vom 12. Juni das Unternehmen zwang, Fable 5 und Mythos 5 weltweit auszusetzen](/articles/2026-06-13--anthropic-fable-mythos-suspended-us-government), einschließlich für ausländische Staatsangehörige innerhalb der Vereinigten Staaten. Die Kombination ist bemerkenswert: innerhalb einer Woche ist Anthropic von der öffentlichen Anfechtung einer US-Exportkontrolldirektive zur öffentlichen Benennung eines chinesischen Frontier-Lab-Kunden als Destillationsangreifer übergegangen. Die Berichterstattung von Bloomberg, Reuters und dem WSJ rahmt die Anklage als das erste Mal, dass Anthropic ein einzelnes großes börsennotiertes Unternehmen in einer Destillations-Offenlegung benennt."
