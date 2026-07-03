@@ -161,6 +161,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-07-01--claude-sonnet-5-default-model-claude-code-1m-context': ['Claude Sonnet 5', 'Default in Claude Code', 'ai'],
   '2026-07-01--fastify-v5-9-0-security-perf-http2-buffer-chunking': ['Fastify v5.9.0', 'Security, perf, TSTyche', 'runtimes'],
   '2026-07-02--claude-code-2-1-198-chrome-ga-background-agents-auto-pr': ['Claude Code 2.1.198', 'Chrome GA · auto-PR · /dataviz', 'ai'],
+  '2026-07-03--rolldown-1-1-4-lazybarrel-disabled-default': ['Rolldown 1.1.4', 'lazyBarrel default reverted', 'tooling'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
