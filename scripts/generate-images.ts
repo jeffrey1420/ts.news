@@ -163,6 +163,7 @@ const HEROES: Record<string, [string, string, string]> = {
   '2026-07-02--claude-code-2-1-198-chrome-ga-background-agents-auto-pr': ['Claude Code 2.1.198', 'Chrome GA · auto-PR · /dataviz', 'ai'],
   '2026-07-03--rolldown-1-1-4-lazybarrel-disabled-default': ['Rolldown 1.1.4', 'lazyBarrel default reverted', 'tooling'],
   '2026-07-03--claude-code-2-1-199-stacked-skills-subagent-errors': ['Claude Code 2.1.199', 'Stacked skills · subagent errors', 'ai'],
+  '2026-07-04--turborepo-2-10-3-nub-aube-rust-package-managers': ['Turborepo 2.10.3', 'nub · aube · stock Node', 'tooling'],
   'cursor-composer-2-kimi-k25': ['Composer 2 + Kimi', 'AI models', 'ai'],
   'vinext-cloudflare-vercel': ['vinext', 'Next.js on Vite', 'frameworks'],
   'vite-plus-unified-toolchain': ['Vite+', 'Unified toolchain', 'tooling'],
