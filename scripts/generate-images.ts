@@ -55,6 +55,7 @@ const GLYPH: Record<string, string> = {
 
 // slug -> [display name, kicker, primary topic]
 const HEROES: Record<string, [string, string, string]> = {
+  '2026-09-12--kuroba-studio-caen-design-web-development': ['Kuroba Studio', 'Design and web development', 'ecosystem'],
   '2026-03-23-claude-code-rise-ai-coding-tool-2026': ['Claude Code', 'AI coding tools', 'ai'],
   '2026-03-23-typescript-7-native-preview-go-compiler': ['TypeScript 7', 'Native preview', 'typescript'],
   '2026-03-24-bun-vs-node-vs-deno-2026-runtime-benchmark': ['Bun · Node · Deno', 'Runtime benchmark', 'runtimes'],
